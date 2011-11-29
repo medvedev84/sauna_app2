@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sauna application</title>
+    <%= csrf_meta_tag %>
+    <%= render 'layouts/javascripts' %>	
+    <%= render 'layouts/stylesheets' %>
+  </head>
+  <body>
+    <div class="container">
+      <%= render 'layouts/header' %>	
+      <section class="round">
+        <% flash.each do |key, value| %>
+          <div class="flash <%= key %>"><%= t value %></div>
+        <% end %>
+        <%= yield %>
+      </section>
+	  <%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
+ 
+    <!-- ui-dialog signin -->
+    <div id="dialog" title="Sign in">
+ 	<%= render 'sessions/new' %>	
+    </div>	
+
+  </body>
+</html>

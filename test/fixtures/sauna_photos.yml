@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  description: MyString
+  sauna_id: 1
+  photo_file_name: MyString
+  photo_file_size: 1
+
+two:
+  description: MyString
+  sauna_id: 1
+  photo_file_name: MyString
+  photo_file_size: 1

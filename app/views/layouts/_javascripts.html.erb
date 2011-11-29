@@ -1,0 +1,40 @@
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "jquery-1.6.2.min" %>
+    <%= javascript_include_tag "jquery-ui-1.8.16.custom.min" %>   	 
+	<%= javascript_include_tag "jquery.tablesorter.min" %>   
+    <%= javascript_include_tag "jquery.lightbox-0.5.min" %>  	
+  	<script type="text/javascript">
+			$(function(){				
+				// Dialog			
+				$('#dialog').dialog({
+					autoOpen: false,
+					width: 400,
+					buttons: {
+						"Ok": function() { 
+							$('#signin').submit();
+							$(this).dialog("close"); 
+						}, 
+						"Cancel": function() { 
+							$(this).dialog("close"); 
+						} 
+					}
+				});
+
+				// Dialog Link
+				$('#dialog_link').click(function(){
+					$('#dialog').dialog('open');
+					return false;
+				});	
+				
+				// Tabs
+				$('#tabs').tabs();
+				
+			});
+    </script>	
+	
+    <!-- Ativando o jQuery lightBox plugin -->
+    <script type="text/javascript">
+    $(function() {
+        $('#gallery a').lightBox();
+    });
+    </script>	

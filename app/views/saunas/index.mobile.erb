@@ -1,0 +1,59 @@
+<script type="text/javascript">
+$(document).ready(function() {     
+	$("#q_sauna_items_capacity_gt").val($("#slider-capacity").val());
+    $("#slider-capacity").change(function() {		
+		$("#q_sauna_items_capacity_gt").val($("#slider-capacity").val());		
+	});
+	$("#q_sauna_items_min_price_lt").val($("#slider-price").val());	
+    $("#slider-price").change(function() {
+		$("#q_sauna_items_min_price_lt").val($("#slider-price").val());		
+	});	
+});
+</script> 
+
+<div data-role="header">
+  <h1><%= t(:search) %></h1>
+  <%= link_to t(:full_version), "/?mobile=0", "data-icon" => "gear", "class" => "ui-btn-right", "data-ajax" => "false" %>
+</div>
+ 
+<div data-role="content">
+<%= search_form_for @q do |f| %>
+  <div class="field">    
+	<label for="q_address_district_id_eq"><%= t(:address_district_id_eq) %></label>	
+    <%= f.collection_select :address_district_id_eq, District.all, :id, :name, :include_blank => true %>
+  </div>    
+  <div class="field">
+    <%= f.label t(:capacity) %>            
+	<%= f.hidden_field :sauna_items_capacity_gt %>
+	<input type="range" name="slider" id="slider-capacity" value="7" min="4" max="20"  />
+  </div>  
+  <div class="field">
+    <%= f.label t(:price_to) %>            
+    <%= f.hidden_field :sauna_items_min_price_lt %> 
+	<input type="range" name="slider" id="slider-price" value="700" min="400" max="1500"  />	
+  </div>	  
+  <div class="field">    
+    <%= f.check_box :sauna_items_has_kitchen_eq, "class" => "custom" %>
+	<label for="q_sauna_items_has_kitchen_eq"><%= t(:sauna_items_has_kitchen_eq) %></label>	   
+
+    <%= f.check_box :sauna_items_has_restroom_eq, "class" => "custom" %>
+	<label for="q_sauna_items_has_restroom_eq"><%= t(:sauna_items_has_restroom_eq) %></label>	   
+
+    <%= f.check_box :sauna_items_has_billiards_eq, "class" => "custom" %>
+	<label for="q_sauna_items_has_billiards_eq"><%= t(:sauna_items_has_billiards_eq) %></label>	   
+
+    <%= f.check_box :sauna_items_has_audio_eq, "class" => "custom" %>
+	<label for="q_sauna_items_has_audio_eq"><%= t(:sauna_items_has_audio_eq) %></label>	   
+
+    <%= f.check_box :sauna_items_has_video_eq, "class" => "custom" %>
+	<label for="q_sauna_items_has_video_eq"><%= t(:sauna_items_has_video_eq) %></label>	   
+
+	<%= f.check_box :sauna_items_has_bar_eq, "class" => "custom" %>
+	<label for="q_sauna_items_has_bar_eq"><%= t(:sauna_items_has_bar_eq) %></label>	   
+  </div>  
+  <div class="field">
+    <%= f.submit t :search %>
+  </div>
+<% end %>
+</div>
+	

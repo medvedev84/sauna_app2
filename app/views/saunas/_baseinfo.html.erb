@@ -1,0 +1,18 @@
+<h1><%= @sauna.name %></h1>
+<%= t :address %>: <%= @sauna.address.full_description %>
+	
+<% unless @sauna.sauna_items.empty? %>						
+	<!-- Tabs -->
+	<div id="tabs">
+		<ul>
+		<% for sauna_item in @sauna.sauna_items %>							
+			<li><a href="#tabs-<%= sauna_item.id %>"><%= sauna_item.name %></a></li>		
+		<% end %>											
+		</ul>
+		<% for sauna_item in @sauna.sauna_items %>
+			<div id="tabs-<%= sauna_item.id %>">
+				<%= render sauna_item %>							
+			</div>					
+		<% end %>					
+	</div>												
+<% end %>		

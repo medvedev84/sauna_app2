@@ -1,0 +1,22 @@
+<div data-role="header">
+	<h1><%= @sauna_item.name %></h1>
+	<%= link_to @sauna_item.sauna.name, sauna_path(@sauna_item.sauna.id), "data-icon" => "back", "class" => "ui-btn-left", "data-ajax" => "false" %>
+	<%= link_to t(:full_version), "/?mobile=0", "data-icon" => "gear", "class" => "ui-btn-right", "data-ajax" => "false" %>
+</div>
+	
+<div data-role="content">
+<%= t :description %>: <%= @sauna_item.description %><br/>
+<%= t :capacity %>: <%= @sauna_item.capacity %><br/>
+<%= t :min_price %>: <%= @sauna_item.min_price %><br/>
+<%= t :min_duration %>: <%= @sauna_item.min_duration %><br/>     
+<%= t :sauna_type_id %>: <%= @sauna_item.sauna_type.name %> <br/>
+<%= t :has_kitchen %>: <%= @sauna_item.has_kitchen ? :yes : :no %><%= t :no %><br/>
+<%= t :has_restroom %>: <input type="checkbox" checked="<%= @sauna_item.has_restroom %>"/><br/>
+<%= t :has_billiards %>: <input type="checkbox" checked="<%= @sauna_item.has_billiards %>"/><br/>
+<%= t :has_audio %>: <input type="checkbox" checked="<%= @sauna_item.has_audio %>"/><br/>
+<%= t :has_video %>: <input type="checkbox" checked="<%= @sauna_item.has_video %>"/><br/>
+<%= t :has_bar %>: <input type="checkbox" checked="<%= @sauna_item.has_bar %>"/><br/>
+</div>
+
+
+          

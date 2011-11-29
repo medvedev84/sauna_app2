@@ -1,0 +1,49 @@
+<% if current_user.admin? %>
+<%= link_to t(:users_list), users_path %> \ <%= link_to @sauna_item.sauna.user.name, user_path(@sauna_item.sauna.user.id) %>  \
+<% else %>
+<%= link_to t(:saunas_list), saunas_path %> \ 
+<% end %>
+<%= link_to @sauna_item.sauna.name, sauna_path(@sauna_item.sauna.id) %> \ <%=  @sauna_item.name %> 
+
+<br/>
+<h1><%= t :edit_sauna_item %></h1>
+
+<%= form_for(@sauna_item) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.label t :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label t :description %><br />
+    <%= f.text_area :description, :size => "100x6" %>
+  </div>
+  <div class="field">
+    <%= f.label t :sauna_type_id %><br />
+    <%= f.collection_select :sauna_type_id, SaunaType.all, :id, :name, :include_blank => false %>
+  </div>
+  <div class="field">
+    <%= f.label t :capacity %><br />
+    <%= f.text_field :capacity %>
+  </div>    
+  <div class="field">
+    <%= f.label t :min_price %><br />
+    <%= f.text_field :min_price %>
+  </div>
+  <div class="field">
+    <%= f.label t :min_duration %><br />
+    <%= f.text_field :min_duration %>
+  </div>  
+  <div class="field">  
+    <%= f.check_box :has_kitchen %> <%= f.label t :has_kitchen %> <br/>	
+    <%= f.check_box :has_restroom %> <%= f.label t :has_restroom %><br/>	
+    <%= f.check_box :has_billiards %> <%= f.label t :has_billiards %><br/>	
+    <%= f.check_box :has_audio %> <%= f.label t :has_audio %><br/>	
+    <%= f.check_box :has_video %> <%= f.label t :has_video %><br/>
+    <%= f.check_box :has_bar %> <%= f.label t :has_bar %><br/>	
+  </div>    
+
+  <div class="actions">
+    <%= f.submit t :save %>
+  </div>
+<% end %>
