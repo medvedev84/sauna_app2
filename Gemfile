@@ -18,6 +18,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'execjs'
 end
 
 group :development, :test do
