@@ -1,28 +1,34 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Sauna application</title>
-    <%= csrf_meta_tag %>
-    <%= render 'layouts/javascripts' %>	
-    <%= render 'layouts/stylesheets' %>
-  </head>
-  <body>
-    <div class="container">
-      <%= render 'layouts/header' %>	
-      <section class="round">
-        <% flash.each do |key, value| %>
-          <div class="flash <%= key %>"><%= t value %></div>
-        <% end %>
-        <%= yield %>
-      </section>
-	  <%= render 'layouts/footer' %>
-      <%= debug(params) if Rails.env.development? %>
-    </div>
- 
-    <!-- ui-dialog signin -->
-    <div id="dialog" title="Sign in">
- 	<%= render 'sessions/new' %>	
-    </div>	
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Document-state" content="Static" />
+		<meta name="URL" content="absolute_url" />
+		<meta name="Distribution" content="global" />
+		<meta name="Resource-type" content="document" />
+		<meta name="robots" content="all" />
+		<meta name="revisit-after" content="1 days" />
 
-  </body>
+		<title>Идем в сауну</title>
+		
+		<%= csrf_meta_tag %>	
+		<%= render 'layouts/javascripts' %>			
+		<%= render 'layouts/stylesheets' %>		
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="content">
+				<div class="content-left">
+					<a class="banner" href="#">
+						<%= image_tag("banner.jpg") %>
+					</a>
+				</div>
+				<div class="content-right">					
+					<%= yield %>
+				</div>
+				<div class="clearing"></div>
+			</div>
+			<%= render 'layouts/footer' %>
+		</div>
+	</body>
 </html>

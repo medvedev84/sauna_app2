@@ -17,10 +17,22 @@
 	<% end %>	
 </li>
 <% else %>
-<tr> 
-    <td> <%= link_to sauna.name, sauna %>
-    <%= sauna.address.description %>; <%= t :short_phone_number %>: <%= sauna.phone_number1 %></td> 
-    <td> <%= sauna.sauna_min_price %></td> 
-    <td> <%= sauna.sauna_max_capacity %></td> 
-</tr>
+	<li class="row">	
+		<a href="/saunas/<%= sauna.id %>">
+			<div class="name">
+				<span class="s-name"><%= sauna.name %></span>
+				<div class="address">
+					<%= sauna.address.description %>; 
+					<%= t :short_phone_number %>: <%= sauna.phone_number1 %>, 
+					режим работы с 7.00-22.00
+				</div>
+			</div>
+			<div class="capacity">
+				<%= sauna.sauna_max_capacity %>
+			</div>
+			<div class="price">
+				<%= sauna.sauna_min_price %>.-
+			</div>
+		</a>		
+	</li>
 <% end %> 

@@ -15,64 +15,27 @@
 		<% end %>		
 	<% end %>
 				
-<% else %>
-	<%= link_to t(:saunas_list), saunas_path %> \ <%=  @sauna.name %> 
-
-	<table border="1">
-		<tr id="items">
-			<td>
-				<%= render 'baseinfo' %>			
-			</td>
-		</tr>
-		<tr id="map">			
-			<td>
-				
-				<iframe
-					height=300 width=400 frameborder=0 scrolling=0 marginheight=0 marginwidth=0
-					style='border: 1px solid #000000'
-					src="http://map.igis.ru/?frame=1&mapc=1&zoom=16&adres=<%= @sauna.address.description %>&ico=30,30,ynd,house&text=<b><%= @sauna.name %></b><hr width=250><%= @sauna.address.description %>">
-				</iframe>
-				
-			</td>
-		</tr>
-		<tr>
-			<td>	
-			
-				<div id="gallery">
-					<ul>
-						<% unless @sauna.sauna_photos.empty? %>
-							<%= render @sauna.sauna_photos  %>														
-						<% end %>					
-					</ul>
-				</div>			
-
-			</td>				
-		</tr>
-		<tr>
-			<td>	
-				<div id="comments">
-					<ul>
-					<% unless @sauna.sauna_comments.empty? %>						
-							<%= render @sauna.sauna_comments  %>											
-					<% end %>	
-					</ul>					
-				</div>
-				<%= form_for @sauna_comment, :remote => true do |f| %>
-				  <%= render 'shared/error_messages', :object => f.object %>
-				  <%= f.hidden_field :sauna_id,  :value => @sauna.id %>
-				  <div class="field">
-					<%= f.label t :user_name %><br />
-					<%= f.text_field :user_name %>
-				  </div>	
-				  <div class="field">
-					<%= f.label t :description %><br />
-					<%= f.text_field :description %>
-				  </div>			  
-				  <div class="actions">
-					<%= f.submit t :save %>
-				  </div>
-				<% end %>	
-			</td>	
-		</tr>
-	</table>
+<% else %>	
+	<div class="detail-page">
+		<%= render 'navigation' %>	
+		<%= render 'help' %>	
+		
+		<div class="round-box">
+			<%= render 'baseinfo' %>
+			<%= render 'fullinfo' %>
+			<%-#= render 'map' %>		
+			<div class="clearing"></div>
+		</div>		
+		
+		<%-#= render 'gallery' %>
+		<%= render 'comments' %>		
+	</div>				
 <% end %> 
+
+<!-- We only want the thunbnails to display when javascript is disabled -->
+<script type="text/javascript">
+	document.write('<style>.noscript { display: none; }</style>');
+</script>
+<script type="text/javascript">
+	Frame.initDetailPage();
+</script>

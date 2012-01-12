@@ -1,0 +1,95 @@
+<%= search_form_for @q, :html => {:method => :get, :class => "round-box filter-box"} do |f| %>
+	<ul>
+		<li class="expanded _expandedBox filter-section">
+			<h2><%= t :main_parameters %></h2>
+			<div class="main-params _expanded">
+				<dl>
+					<dt><%= t :price_colon %></dt>
+					<dd>
+						<div class="slider-box" id="priceSlider">												
+						</div>
+						<%= f.text_field :sauna_items_min_price_gt, :value => '200' %> &ndash;
+						<%= f.text_field :sauna_items_min_price_lt, :value => '2000' %>
+					</dd>
+					<dt><%= t :capacity_colon %></dt>
+					<dd>
+						<div id="capacitySlider" class="slider-box">
+						</div>											
+						<%= f.text_field :sauna_items_capacity_gt, :value => '0' %> &ndash;
+						<%= f.text_field :sauna_items_capacity_lt, :value => '20' %>
+					</dd>
+					<dt class="main-params-type"><%= t :sauna_type_colon %></dt>
+					<dd class="main-params-type">
+						<%= f.collection_select :sauna_items_sauna_type_id_eq, SaunaType.all, :id, :name, :include_blank => false %>										
+					</dd>
+				</dl>
+			</div>
+			<div class="_closed"></div>
+			<div class="clearing"></div>
+		</li>	
+		<li class="expanded black _closeOnReady _expandedBox filter-section">
+			<h2><%= t :additional_parameters %></h2>
+			<div class="extra_params _expanded">
+				<ul>
+					<li>
+						<label>
+							<%= f.check_box :sauna_items_has_kitchen_eq %><%= t :has_kitchen %> 
+						</label>
+						<label>
+							<%= f.check_box :sauna_items_has_bar_eq %><%= t :has_bar %> 
+						</label>
+					</li>
+					<li>
+						<label>
+							<%= f.check_box :sauna_items_has_restroom_eq %><%= t :has_restroom %>      
+						</label>
+						<label>
+							<%= f.check_box :sauna_items_has_billiards_eq %><%= t :has_billiards %> 
+						</label>
+					</li>
+					<li>
+						<label>
+							<%= f.check_box :sauna_items_has_audio_eq %><%= t :has_audio %>  
+						</label>
+						<label>
+							<%= f.check_box :sauna_items_has_video_eq %><%= t :has_video %>  
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox"> Массажист
+						</label>
+						<label>
+							<input type="checkbox"> Кольян
+						</label>
+					</li>
+				</ul>
+				<div class="clearing"></div>
+			</div>
+			<div class="_closed closed-box" style="display: none">неважно</div>
+		</li>	
+		<li class="expanded black _closeOnReady _expandedBox filter-section">
+			<h2><%= t :place_parameters %></h2>
+			<div class="place_param _expanded">
+				<dl>
+					<dt class="township"><%= t :district %></dt>
+					<dd class="township">
+						<%= f.collection_select :address_district_id_eq, District.all, :id, :name, :include_blank => true %>											
+					</dd>
+				</dl>
+			</div>
+			<div class="_closed closed-box" style="display: none">неважно</div>
+		</li>							
+		<%= f.submit " ", :class => "search-button" %>							
+	</ul>
+	<div class="clearing"></div>					
+<% end %>
+
+<ul class="result-list">
+	<li class="head">
+		<div class="name"><%= t :sauna %></div>
+		<div class="capacity asc"><%= t :capacity %></div>
+		<div class="price desc"><%= t :price %></div>
+	</li>
+	<%= render @saunas %>						
+</ul>

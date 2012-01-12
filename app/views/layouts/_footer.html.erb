@@ -1,8 +1,19 @@
-<footer>
-  <nav class="round">
-    <ul>
-      <li><%= link_to t(:about), '#' %></li>
-      <li><%= link_to t(:contact), '#' %></li>
-    </ul>
-  </nav>
-</footer>
+<div class="footer">
+	<div class="center">
+		<ul>
+			<li><a href="/">главная</a></li>
+			<li><a href="#">о проекте</a></li>
+			<li><a href="#">контакты</a></li>			
+			<% if signed_in? %>
+				<li>
+					<%= link_to t(:sign_out), signout_path, :method => :delete %>
+				</li>    	
+			<% else %>
+				<li>
+					<%= link_to t(:sign_in), signin_path %>			
+				</li>				
+			<% end %>										
+		</ul>
+		<div class="bottom-logo"></div>
+	</div>
+</div>

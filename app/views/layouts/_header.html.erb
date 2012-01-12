@@ -1,32 +1,13 @@
-<header>
-  <%= link_to logo, root_path %>
-  <nav class="round">
-    <ul>
-
-  <% if mobile_device? %>
-    <%= link_to t(:full_version), :mobile => 0 %>
-  <% else %>
-    <%= link_to t(:mobile_version), :mobile => 1 %>
-  <% end %>
-
-
-			  <li><%= link_to t(:home), root_path %></li>
-			  <% if signed_in? %>			  
-			    <li><%= link_to t(:settings), edit_user_path(current_user) %></li>          
-			  <% end %>	  
-			  <% if signed_in? && current_user.admin? %>   
-				<li><%= link_to t(:users_list), users_path %></li>    
-			  <% end %>
-
-			  <% if signed_in? && current_user.owner? %>   
-				<li><%= link_to t(:saunas_list), current_user %></li>    
-			  <% end %>
-			  
-			  <% if signed_in? %>
-				<li><%= link_to t(:sign_out), signout_path, :method => :delete %></li>    	
-			  <% else %>
-			    <li><a href="#" id="dialog_link"><%= t :sign_in %></a></li>				
-			  <% end %>		   
-    </ul>
-  </nav>
-</header>
+<div class="round-box search-box">
+	<form action="">
+		<input type="text" name="searchText" value="" placeholder="поиск по сайту" />
+		<input type="submit" class="search-button" value="" />
+	</form>
+</div>
+<div class="helper">
+	<div class="helper-right">
+		<div class="helper-left">
+			Нужна помощь? Нажмите <a href="#">здесь</a>, мы поможем!
+		</div>
+	</div>
+</div>
