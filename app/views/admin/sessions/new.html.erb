@@ -1,0 +1,30 @@
+<div class="main-page">
+	<div class="round-box">
+		<div class="round-sub-box">			
+			<h2><%= t :admin_section %></h2>
+			<div class="_expanded">
+
+				<%= form_for :session, :url => admin_sessions_path, :html => { :id => "signin", :class => "comment-form" } do |f| %>
+					<dl>
+						<dt><label for="session_email"><%= t :email %>:</dt>
+						<dd>
+							<%= f.text_field :email %>
+						</dd>
+						<dt><label for="session_password"><%= t :password %>:</label></dt>
+						<dd>
+							<%= f.password_field :password %>			
+						</dd>
+						<dt></dt>
+						<dd>
+							<%= f.submit t :sign_in %>
+						</dd>
+					</dl>
+				<% end %>			
+			
+			</div>
+			<div class="_closed"></div>
+			<div class="clearing"></div>			
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,18 @@
+<div class="round-sub-box sauna-short-description">
+	<h1><%= @sauna.name %></h1>
+	
+	<% unless @sauna.sauna_items.empty? %>		
+	<ul>
+		<% for sauna_item in @sauna.sauna_items %>							
+			<li><a href="#"><%= sauna_item.name %></a></li>				
+		<% end %>
+	</ul>
+	<% end %>
+	
+	<div class="contacts">
+		Телефон:+7 (3412) 67-90-05:<br />
+		+7 (3412) 56-75-82<br />
+		<%= t :address %>: <%= @sauna.address.full_description %><br />
+		e-mail: holidey-izh@mail.ru
+	</div>
+</div>

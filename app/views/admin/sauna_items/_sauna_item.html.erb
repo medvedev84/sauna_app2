@@ -1,0 +1,7 @@
+<% if signed_in? %>
+	<li>
+		<%= sauna_item.name %>		
+		<%= link_to t(:edit), edit_admin_sauna_item_path(sauna_item) %>   
+		<%= link_to t(:delete), admin_sauna_item_path(sauna_item), :method => :delete, :confirm => t(:confirm_delete_sauna_item) %>     	             
+	</li>
+<% end %>

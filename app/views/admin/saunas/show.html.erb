@@ -1,0 +1,18 @@
+<% if signed_in? %>	
+
+	<% if current_user.owner? %>
+		<%= link_to t(:saunas_list), admin_user_path(@sauna.user.id) %> \ 
+	<% else %>
+		<%= link_to t(:users_list), admin_users_path %> \ <%= link_to @sauna.user.name, admin_user_path(@sauna.user.id) %> \		
+	<% end %>
+	<%=  @sauna.name %> 
+
+	
+		<%= render 'baseinfo' %>
+	
+		<% unless @sauna.sauna_items.empty? %>						
+			<%= render @sauna.sauna_items %>																	
+		<% end %>		
+
+				
+<% end %>	

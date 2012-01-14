@@ -1,0 +1,10 @@
+<% if signed_in? && !user.super_admin? %>   
+    <li>
+	  <%= user.name %>
+	  <%= link_to user.name, admin_user_path(user) %>
+	  
+	  <%= link_to t(:add), new_admin_sauna_path(:user_id => user.id) %>   	
+	  <%= link_to t(:edit), edit_admin_user_path(user) %>   
+	  <%= link_to t(:delete), admin_user_path(user), :method => :delete, :confirm => t(:confirm_delete_user) %>   			 
+    </li>
+<% end %>

@@ -1,28 +1,31 @@
-<li>
-<%= sauna_item.name %>
+<div class="round-sub-box sauna-detail-description" id="<%= sauna_item.id %>">
+	<h2><%= sauna_item.name %></h2>
+	<p>
+		<%= sauna_item.description %>
+	</p>					
+	<div class="round-sub-sub-box sauna-inventory">
+		<ul>
+			<li>
+				
+				<div class="<%= sauna_item.has_kitchen? ? 'checked' : '' %>"><%= t :has_kitchen %></div>
+				<div class="<%= sauna_item.has_bar? ? 'checked' : '' %>"><%= t :has_bar %></div>
+			</li>
+			<li>
+				<div class="<%= sauna_item.has_restroom? ? 'checked' : '' %>"><%= t :has_restroom %></div>
+				<div class="<%= sauna_item.has_billiards? ? 'checked' : '' %>"><%= t :has_billiards %></div>
+			</li>
+			<li>
+				<div class="<%= sauna_item.has_audio? ? 'checked' : '' %>"><%= t :has_audio %></div>
+				<div class="<%= sauna_item.has_video? ? 'checked' : '' %>"><%= t :has_video %></div>
+			</li>
+		</ul>
+		<div class="clearing"></div>
+	</div>
 
-   <% if signed_in? && current_user.owner? %>
-   
-    <ul id="icons" class="ui-widget ui-helper-clearfix"> 	 		   	 
-		<% li_edit = "<li class='ui-state-default ui-corner-all' title='.ui-icon-wrench'><span class='ui-icon ui-icon-wrench'></span></li>" %> 	 
-		<%= link_to li_edit.html_safe, edit_sauna_item_path(sauna_item) %>   
- 	  	 
-		<% li_delete = "<li class='ui-state-default ui-corner-all' title='.ui-icon-trash'><span class='ui-icon ui-icon-trash'></span></li>" %> 	 
-		<%= link_to li_delete.html_safe, sauna_item, :method => :delete, :confirm => t(:confirm_delete_sauna_item) %>        	 
-    </ul>	
-  <% else  %>
+	<dl class="properties">
+		<dt><%= t :sauna_type_id %>: </dt><dd><%= sauna_item.sauna_type.name %></dd>
+		<dt><%= t :min_price %>: </dt><dd><%= sauna_item.min_price %></dd>
+		<dt><%= t :capacity %>: </dt><dd><%= sauna_item.capacity %></dd>
+	</dl>
 
-<br/>             
-<%= sauna_item.description %>. <%= t :sauna_type_id %>: <%= sauna_item.sauna_type.name %><br/>
-<%= t :has_kitchen %>: <input type="checkbox" checked="<%= sauna_item.has_kitchen %>"/> 
-<%= t :has_restroom %>: <input type="checkbox" checked="<%= sauna_item.has_restroom %>"/>
-<%= t :has_billiards %>: <input type="checkbox" checked="<%= sauna_item.has_billiards %>"/>
-<%= t :has_audio %>: <input type="checkbox" checked="<%= sauna_item.has_audio %>"/>
-<%= t :has_video %>: <input type="checkbox" checked="<%= sauna_item.has_video %>"/>
-<br/>
-<%= t :min_price %>: <%= sauna_item.min_price %><br/>
-<%= t :min_duration %>: <%= sauna_item.min_duration %><br/>               
-  
-  <% end %>
-
-</li>
+</div>

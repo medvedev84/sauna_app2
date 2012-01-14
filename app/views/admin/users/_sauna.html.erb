@@ -1,0 +1,16 @@
+<% if signed_in? %>
+<li> 
+    <%= link_to sauna.name, admin_sauna_path(sauna) %>
+ 	<%= t :address %>: <%= sauna.address.full_description %>. 
+ 	 	 
+	
+		<%= link_to t(:add), new_admin_sauna_item_path(:id => sauna.id) %>     
+		
+		<%= link_to t(:edit), edit_admin_sauna_path(sauna) %>   
+	
+		<%= link_to t(:delete), admin_sauna_path(sauna), :method => :delete, :confirm => t(:confirm_delete_sauna) %>        	 			
+	
+</li>
+<% else %>
+	forbidden
+<% end %> 

@@ -1,0 +1,15 @@
+<h1> <%= @sauna_item.name %> </h1>
+
+
+<%= t :description %>: <%= @sauna_item.description %><br/>
+<%= t :capacity %>: <%= @sauna_item.capacity %><br/>
+<%= t :min_price %>: <%= @sauna_item.min_price %><br/>
+<%= t :min_duration %>: <%= @sauna_item.min_duration %><br/>     
+<%= t :sauna_type_id %>: <%= @sauna_item.sauna_type.name %> <br/>
+<%= t :has_kitchen %>: <input type="checkbox" checked="<%= @sauna_item.has_kitchen %>"/> <br/>
+<%= t :has_restroom %>: <input type="checkbox" checked="<%= @sauna_item.has_restroom %>"/><br/>
+<%= t :has_billiards %>: <input type="checkbox" checked="<%= @sauna_item.has_billiards %>"/><br/>
+<%= t :has_audio %>: <input type="checkbox" checked="<%= @sauna_item.has_audio %>"/><br/>
+<%= t :has_video %>: <input type="checkbox" checked="<%= @sauna_item.has_video %>"/><br/>
+<%= t :has_bar %>: <input type="checkbox" checked="<%= @sauna_item.has_bar %>"/><br/>
+          

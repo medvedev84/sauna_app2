@@ -1,0 +1,12 @@
+<% if signed_in? && current_user.admin? %>   
+	<%= link_to t(:users_list), admin_users_path %> \ <%=  @user.name %>  	
+<% end %>
+
+<h1><%= t :saunas_list %></h1>
+<% unless @user.saunas.empty? %>
+	<ul class="saunas">	
+		<%  @user.saunas.each do |sauna| %>
+			<%= render :partial => "sauna", :locals => { :sauna => sauna } %>
+		<% end %>		
+	</ul>
+<% end %>

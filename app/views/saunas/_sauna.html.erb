@@ -1,38 +1,18 @@
-<% if signed_in? %>
-<li> 
-    <%= link_to sauna.name, sauna %>
- 	<%= t :address %>: <%= sauna.address.full_description %>. 
- 	 	 
-	<% if current_user.owner? %>		 
-		<ul id="icons" class="ui-widget ui-helper-clearfix"> 	 	
-			<% li_add = "<li class='ui-state-default ui-corner-all' title='.ui-icon-plus'><span class='ui-icon ui-icon-plus'></span></li>" %> 	 
-			<%= link_to li_add.html_safe, new_sauna_item_path(:id => sauna.id) %>     
-					
-			<% li_edit = "<li class='ui-state-default ui-corner-all' title='.ui-icon-wrench'><span class='ui-icon ui-icon-wrench'></span></li>" %> 	 
-			<%= link_to li_edit.html_safe, edit_sauna_path(sauna) %>   
-			 
-			<% li_delete = "<li class='ui-state-default ui-corner-all' title='.ui-icon-trash'><span class='ui-icon ui-icon-trash'></span></li>" %> 	 
-			<%= link_to li_delete.html_safe, sauna, :method => :delete, :confirm => t(:confirm_delete_sauna) %>        	 
-		</ul>	
-	<% end %>	
+<li class="row">	
+	<a href="/saunas/<%= sauna.id %>">
+		<div class="name">
+			<span class="s-name"><%= sauna.name %></span>
+			<div class="address">
+				<%= sauna.address.description %>; 
+				<%= t :short_phone_number %>: <%= sauna.phone_number1 %>, 
+				режим работы с 7.00-22.00
+			</div>
+		</div>
+		<div class="capacity">
+			<%= sauna.sauna_max_capacity %>
+		</div>
+		<div class="price">
+			<%= sauna.sauna_min_price %>.-
+		</div>
+	</a>		
 </li>
-<% else %>
-	<li class="row">	
-		<a href="/saunas/<%= sauna.id %>">
-			<div class="name">
-				<span class="s-name"><%= sauna.name %></span>
-				<div class="address">
-					<%= sauna.address.description %>; 
-					<%= t :short_phone_number %>: <%= sauna.phone_number1 %>, 
-					режим работы с 7.00-22.00
-				</div>
-			</div>
-			<div class="capacity">
-				<%= sauna.sauna_max_capacity %>
-			</div>
-			<div class="price">
-				<%= sauna.sauna_min_price %>.-
-			</div>
-		</a>		
-	</li>
-<% end %> 

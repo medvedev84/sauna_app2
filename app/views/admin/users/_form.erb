@@ -1,0 +1,34 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<dl>
+	<dt><label for="user_name"><%= t :user_name %>:</dt>
+	<dd>
+		<%= f.text_field :name %>
+	</dd>
+	
+	<% if signed_in? && current_user.super_admin? && current_user.id != @user.id %> 	  
+		<dt><label for="user_type"><%= t :user_type %>:</dt>
+		<dd>			
+			<select name="user[user_type]">
+				<option value="2"><%= t :admin %></option>
+				<option value="3"><%= t :owner %></option>
+			</select> 	
+		</dd>		
+	<% end %>
+	
+	<dt><label for="user_email"><%= t :email %>:</dt>
+	<dd>
+		<%= f.text_field :email %>
+	</dd>	
+	<dt><label for="user_password"><%= t :password %>:</label></dt>
+	<dd>
+		<%= f.password_field :password %>			
+	</dd>
+	<dt><label for="user_password_confirmation"><%= t :password_confirmation %>:</label></dt>
+	<dd>
+		<%= f.password_field :password_confirmation %>			
+	</dd>	
+	<dt></dt>
+	<dd>
+		<%= f.submit t :save %>
+	</dd>
+</dl>

@@ -1,0 +1,9 @@
+<h1><%= t :users_list %></h1>
+
+<span>
+      <%= link_to t(:create_new_user), new_admin_user_path %>
+</span>
+
+<ul class="saunas">
+  <%= render @users %>
+</ul>
