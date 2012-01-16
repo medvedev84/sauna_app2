@@ -8,6 +8,7 @@ var Frame =
 	{
 		this.initExpandedBoxes();
 		this.initFilter();
+		this.initSaunaSorting();
 
 		//временные действия
 		$('._expandedBox h2').click(function()
@@ -48,6 +49,7 @@ var Frame =
 	{
 		this.initExpandedBoxes();
 		this.initPhotoGallery();
+		this.initDetailLeftMenu();
 	},
 	
 	initExpandedBoxes: function()
@@ -71,8 +73,8 @@ var Frame =
 	{
 		$("#priceSlider").slider({
 			range: true,
-			min: 0,
-			max: 3000,
+			min: 500,
+			max: 5000,
 			values: [$('#q_sauna_items_min_price_gt').val(), $('#q_sauna_items_min_price_lt').val()],
 			slide: function(event, ui) {
 				$('#q_sauna_items_min_price_gt').val(ui.values[0]);
@@ -82,12 +84,119 @@ var Frame =
 
 		$("#capacitySlider").slider({
 			range: true,
-			min: 0,
+			min: 4,
 			max: 20,
 			values: [$('#q_sauna_items_capacity_gt').val(), $('#q_sauna_items_capacity_lt').val()],
 			slide: function(event, ui) {
 				$('#q_sauna_items_capacity_gt').val(ui.values[0]);
 				$('#q_sauna_items_capacity_lt').val(ui.values[1]);
+			}
+		});
+	},
+
+	initSaunaSorting: function()
+	{
+		var saunaList = new Array();
+		
+		$('#saunaResultList li.row').each(function()
+		{
+			var id = $(this).attr('id');
+			var capacity = parseInt($(this).find('.capacity').text());
+			var price = parseInt($(this).find('.price').text());
+			saunaList.push({
+				'id': id,
+				'capacity': capacity,
+				'price': price
+			})
+		});
+
+		var sortByCapacityAsc = function(i, j)
+		{
+			if (i.capacity > j.capacity)
+				return 1;
+			else if (i.capacity < j.capacity)
+				return -1;
+			else
+				return 0;
+		};
+
+		var sortByCapacityDesc = function(j, i)
+		{
+			if (i.capacity > j.capacity)
+				return 1;
+			else if (i.capacity < j.capacity)
+				return -1;
+			else
+				return 0;
+		};
+
+		var sortByPriceAsc = function(i, j)
+		{
+			if (i.price > j.price)
+				return 1;
+			else if (i.price < j.price)
+				return -1;
+			else
+				return 0;
+		};
+
+		var sortByPriceDesc = function(j, i)
+		{
+			if (i.price > j.price)
+				return 1;
+			else if (i.price < j.price)
+				return -1;
+			else
+				return 0;
+		};
+
+		var sortSaunaList = function(sortByField)
+		{
+			var sortedList = saunaList.sort(sortByField);
+
+			var newListHTML = '<li class="head">' + $('#saunaResultList .head').html() + '</li>';
+
+			for (var i in sortedList)
+			{
+				newListHTML += '<li class="row" id="' + sortedList[i].id + '">' + $('#' + sortedList[i].id).html() + '</li>';
+			}
+
+			$('#saunaResultList').empty().append(newListHTML);
+		};
+
+		$('#saunaResultList .head .capacity').live('click', function()
+		{
+			var item = $(this);
+
+			$('#saunaResultList .head .price').removeClass('asc').removeClass('desc')
+
+			if (item.hasClass('desc'))
+			{
+				item.removeClass('desc').addClass('asc');
+				sortSaunaList(sortByCapacityDesc);
+			}
+			else
+			{
+				item.removeClass('asc').addClass('desc');
+				sortSaunaList(sortByCapacityAsc);
+			}
+		});
+
+		$('#saunaResultList .head .price').live('click', function()
+		{
+			var item = $(this);
+
+			$('#saunaResultList .head .capacity').removeClass('asc').removeClass('desc')
+
+			if (item.hasClass('desc'))
+			{
+				item.removeClass('desc').addClass('asc');
+				sortSaunaList(sortByPriceDesc);
+			}
+			else
+			{
+				item.removeClass('asc').addClass('desc');
+				sortSaunaList(sortByPriceAsc);
 			}
 		});
 	},
@@ -115,6 +224,7 @@ var Frame =
 				preloadAhead:              10,
 				enableTopPager:            false,
 				enableBottomPager:         true,
+				enableKeyboardNavigation:  false,
 				maxPagesToShow:            7,
 				imageContainerSel:         '#slideshow',
 				controlsContainerSel:      '#controls',
@@ -146,6 +256,30 @@ var Frame =
 				}
 			});
 		});
+	},
+
+	initDetailLeftMenu : function()
+	{
+		$('#leftMenuDetail a').click(function(event)
+		{
+			$('#leftMenuDetail li').each(function(){
+				$(this).removeClass('active');
+			});
+			$(this).parent().addClass('active');
+
+			var numberActive = $("#leftMenuDetail li.active").index("#leftMenuDetail li");
+
+			$('._saunaDetailDescription').each(function(){
+				$(this).addClass('_saunaDetailDescriptionClosed');
+			});
+
+			$('._saunaDetailDescription').eq(numberActive).removeClass('_saunaDetailDescriptionClosed');
+
+			event.preventDefault();
+		});
+		
+		$("#leftMenuDetail li:first").addClass("active");
+		$("._saunaDetailDescriptionClosed:first").removeClass("_saunaDetailDescriptionClosed");
 	}
 };
 

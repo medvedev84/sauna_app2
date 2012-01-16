@@ -1,6 +1,7 @@
 *	{
 	padding: 0;
 	margin: 0;
+	outline: none;
 	}
 html, body	{
 	width: 100%;
@@ -563,6 +564,7 @@ code { padding: .2em .5em; }
 		border-radius: 2px;
 		margin: 10px 0 0 0;
 		padding: 0;
+		clear:left;
 
 		float: left;
 		width: 269px;
@@ -573,7 +575,15 @@ code { padding: .2em .5em; }
 	float: right;
 	width: 310px;
 	padding: 10px 20px 30px 20px;
+	position: relative;
 	}
+	.sauna-detail-description-tab-content {
+		clear:both;
+		top:0;
+		}
+		.sauna-detail-description-tab-content._saunaDetailDescriptionClosed {
+			display: none;
+		}
 	.sauna-detail-description h2 {
 		padding: 5px 0;
 	}

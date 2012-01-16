@@ -4,18 +4,21 @@
 	
 	<div class="round-box">
 		<%= render 'baseinfo' %>
-			
-		<div id="tabs">
-		<%  @sauna.sauna_items.each do |sauna_item| %>			
-			<%= render sauna_item %>
-		<% end %>
+		
+		<div class="round-sub-box sauna-detail-description">	
+			<% @sauna.sauna_items.each do |sauna_item| %>					
+				<%= render sauna_item %>					
+			<% end %>	
 		</div>
 				
-		<%-#= render 'map' %>		
+		<%= render 'map' %>		
 		<div class="clearing"></div>
 	</div>		
 	
-	<%-#= render 'gallery' %>
+	<% unless @sauna.sauna_photos.empty? %>
+		<%= render 'gallery' %>		
+	<% end %>	
+	
 	<%= render 'comments' %>		
 </div>	
 
@@ -26,14 +29,4 @@
 <script type="text/javascript">
 	Frame.initDetailPage();
 </script>
-<script type="text/javascript">
-	$(".sauna-detail-description").hide();
-	$(".sauna-detail-description:first").show();
-</script>
-<script type="text/javascript">
-	function changeTab(id)
-	{		
-		$(".sauna-detail-description").hide();
-		$("#"+id).show();
-	}	
-</script>
+

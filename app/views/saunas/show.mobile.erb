@@ -1,18 +1,24 @@
 <div data-role="header">
-	<h1><%= @sauna.name %></h1>
-	<%= link_to t(:search_results), @back_url, "data-icon" => "back", "class" => "ui-btn-left", "data-ajax" => "false" %>
+	<h1></h1>	
+	<%= link_to t(:home), "/", "data-icon" => "back", "class" => "ui-btn-left", "data-ajax" => "false" %>
+	<!--
 	<%= link_to t(:full_version), "/?mobile=0", "data-icon" => "gear", "class" => "ui-btn-right", "data-ajax" => "false" %>
+	-->
 </div>
 
 <div data-role="content">
-	<div data-role="collapsible" data-content-theme="c">
-	   <h3><%= t :contact %></h3>
-	   <p><%= t :address %>: <%= @sauna.address.full_description %></p>
-	   <p><%= t :phone_number %>: <%= @sauna.phone_number1 %></p>
-	</div>
+	<p>
+		<b>
+			<%= @sauna.name %>
+		</b>
+		<br/>
+		<%= t :address %>: <%= @sauna.address.full_description %><br/>
+		<%= t :phone_number %>: <%= @sauna.phone_number1 %>
+	</p>
+	
 
 	<div data-role="collapsible" data-content-theme="c">
-	   <h3><%= t :photo %></h3>
+	   <h4><%= t :photo %></h4>
 		  <ul data-role="listview">
 			<% @sauna.sauna_photos.each do |sauna_photo| %>
 			<li>
@@ -23,7 +29,7 @@
 	</div>
     <% @sauna.sauna_items.each do |sauna_item| %>
 		<div data-role="collapsible" data-content-theme="c">
-		   <h3><%= sauna_item.name %></h3>
+		   <h4><%= sauna_item.name %></h4>
 		   <p><%= sauna_item.description %></p>		   
 		</div>  
     <% end %>

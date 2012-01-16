@@ -1,14 +1,9 @@
-<% if signed_in? %>
-	<div class="main-page">
-		something
-	</div>	
-<% else %>
-	<div class="main-page">
-		<%= render 'globalsearch' %>	
-		<%= render 'help' %>	
-		<%= render 'searchform' %>	
-	</div>
-	<script type="text/javascript">
-		Frame.initMainPage();
-	</script>			
-<% end %> 		
+<div class="main-page">
+	<%= render 'globalsearch' %>	
+	<%= render 'help' %>	
+	<%= render 'searchform' %>	
+</div>
+<script type="text/javascript">
+	Frame.initMainPage();
+</script>			
+	

@@ -2,9 +2,13 @@
 	<h1><%= @sauna.name %></h1>
 	
 	<% unless @sauna.sauna_items.empty? %>		
-	<ul>
+	<ul id="leftMenuDetail">
 		<% for sauna_item in @sauna.sauna_items %>							
-			<li><a href="#" onclick="changeTab(<%= sauna_item.id %>)"><%= sauna_item.name %></a></li>				
+			<li class="<%= @sauna_item != nil && @sauna_item.id == sauna_item.id ? 'active' : '' %>">
+				<a href="/sauna_items/<%= sauna_item.id %>">
+					<%= sauna_item.name %>
+				</a>
+			</li>				
 		<% end %>
 	</ul>
 	<% end %>
