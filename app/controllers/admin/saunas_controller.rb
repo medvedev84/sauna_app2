@@ -60,7 +60,7 @@ class Admin::SaunasController < ApplicationController
 				h = params[:sauna][:sauna_photos_attributes]
 				if h != nil 
 					h.each do |key, value|	
-						@sauna_photo = SaunaPhoto.new(value)
+						@sauna_photo = SaunaPhoto.new(:photo => value)
 						if @sauna_photo.photo_file_size != nil
 							@sauna_photo.sauna_id = @sauna.id
 							@sauna_photo.save						
