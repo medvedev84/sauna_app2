@@ -2,10 +2,11 @@
 
 class SaunaPhoto < ActiveRecord::Base
   belongs_to :sauna
-  has_attached_file :photo, #:processors => [:watermark],
+  has_attached_file :photo, 
+					#:processors => [:watermark],
                     :styles => {
                       :thumb => ["100x100", :jpg],
-					  :pagesize => ["100x100", :jpg]
+					  :pagesize => ["600x400", :jpg]
 #					  :pagesize => {
 #						:geometry => '500x400',
 #						:format => :jpg,
@@ -13,7 +14,10 @@ class SaunaPhoto < ActiveRecord::Base
 #						:position => 'Center'
 #					  }						  
                     },
-                    :default_style => :pagesize
-					
-  attr_accessor :watermark					
+                    :default_style => :pagesize,
+					:storage => :s3,
+					:s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+					:path => ":attachment/:id/:style.:extension",
+					:bucket => "go-to-sauna"					
+									
 end
