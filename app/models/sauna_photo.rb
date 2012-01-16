@@ -2,7 +2,7 @@
 
 class SaunaPhoto < ActiveRecord::Base
   belongs_to :sauna
-  has_attached_file :photo, :processors => [:watermark],
+  has_attached_file :photo, #:processors => [:watermark],
                     :styles => {
                       :thumb => ["100x100", :jpg],
 					  :pagesize => ["100x100", :jpg]
