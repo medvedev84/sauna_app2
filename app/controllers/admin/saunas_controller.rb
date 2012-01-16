@@ -24,7 +24,7 @@ class Admin::SaunasController < ApplicationController
 				#if h != nil
 					h.each do |key, value|
 						@sauna_photo = SaunaPhoto.new(value)
-						@sauna_photo.sauna_id = @sauna.id
+						@sauna_photo.sauna_id = @sauna.id						
 						@sauna_photo.save
 					end
 				#end
