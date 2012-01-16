@@ -58,15 +58,18 @@ class Admin::SaunasController < ApplicationController
 			if @sauna.update_attributes(params[:sauna])	
 
 				h = params[:sauna][:sauna_photos_attributes]
+				
 				if h != nil 
 					h.each do |key, value|	
-						@sauna_photo = SaunaPhoto.new(:photo => value)
-					#	if @sauna_photo.photo_file_size != nil
+						@sauna_photo = SaunaPhoto.new(:photo => h[key][:photo])
+						if @sauna_photo.photo_file_size != nil
 							@sauna_photo.sauna_id = @sauna.id
 							@sauna_photo.save						
-					#	end
+						end
 					end
-				end
+				end				
+				
+				
 				flash[:success] = :sauna_updated
 				redirect_to admin_user_path(@sauna.user)
 			else

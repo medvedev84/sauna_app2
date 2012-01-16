@@ -6,9 +6,10 @@ gem 'will_paginate'
 gem 'heroku'
 gem 'ransack'
 gem 'jquery-rails'
-gem "paperclip", "~> 2.4"
-gem 'aws-s3'
-gem 'aws-sdk'
+gem "paperclip"
+#gem "paperclip", "~> 2.4"
+gem "aws-s3", :require => "aws/s3"
+#gem 'aws-sdk'
 
 # Gems used only for assets and not required
 # in production environments by default.
