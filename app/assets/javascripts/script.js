@@ -277,9 +277,6 @@ var Frame =
 
 			event.preventDefault();
 		});
-		
-		$("#leftMenuDetail li:first").addClass("active");
-		$("._saunaDetailDescriptionClosed:first").removeClass("_saunaDetailDescriptionClosed");
 	}
 };
 

@@ -4297,3 +4297,1413 @@ Served asset /bottom_img.png - 304 Not Modified (0ms)
 
 Started GET "/assets/radio_off.png" for 127.0.0.1 at 2012-01-16 11:19:17 +0100
 Served asset /radio_off.png - 304 Not Modified (0ms)
+
+
+Started GET "/saunas/1?mobile=1" for 127.0.0.1 at 2012-01-16 11:26:57 +0100
+  Processing by SaunasController#show as HTML
+  Parameters: {"mobile"=>"1", "id"=>"1"}
+  [1m[35mSauna Load (1.0ms)[0m  SELECT "saunas".* FROM "saunas" WHERE "saunas"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mAddress Load (1.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 1 LIMIT 1[0m
+  [1m[35mCity Load (0.0ms)[0m  SELECT "cities".* FROM "cities" WHERE "cities"."id" = 1 LIMIT 1
+  [1m[36mSaunaPhoto Load (1.0ms)[0m  [1mSELECT "sauna_photos".* FROM "sauna_photos" WHERE "sauna_photos"."sauna_id" = 1[0m
+  [1m[35mSaunaItem Load (1.0ms)[0m  SELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1
+Rendered saunas/show.mobile.erb within layouts/application (339.0ms)
+Completed 200 OK in 431ms (Views: 393.0ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/assets/defaults.js" for 127.0.0.1 at 2012-01-16 11:26:58 +0100
+Served asset /defaults.js - 404 Not Found (66ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/defaults.js"):
+  
+
+Rendered C:/RailsInstaller/Ruby1.9.2/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.0ms)
+
+
+Started GET "/sauna_items/1" for 127.0.0.1 at 2012-01-16 11:31:16 +0100
+  Processing by SaunaItemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSaunaItem Load (1.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSauna Load (1.0ms)[0m  SELECT "saunas".* FROM "saunas" WHERE "saunas"."id" = 1 LIMIT 1
+  [1m[36mSaunaType Load (1.0ms)[0m  [1mSELECT "sauna_types".* FROM "sauna_types" WHERE "sauna_types"."id" = 1 LIMIT 1[0m
+Rendered sauna_items/show.mobile.erb within layouts/application (116.0ms)
+Completed 200 OK in 350ms (Views: 214.0ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/assets/defaults.js" for 127.0.0.1 at 2012-01-16 11:31:17 +0100
+Served asset /defaults.js - 404 Not Found (13ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/defaults.js"):
+  
+
+Rendered C:/RailsInstaller/Ruby1.9.2/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/?mobile=0" for 127.0.0.1 at 2012-01-16 11:31:20 +0100
+  Processing by SaunasController#index as HTML
+  Parameters: {"mobile"=>"0"}
+Rendered saunas/_globalsearch.html.erb (0.0ms)
+Rendered saunas/_help.html.erb (2.0ms)
+  [1m[35mSaunaType Load (1.0ms)[0m  SELECT "sauna_types".* FROM "sauna_types" 
+  [1m[36mDistrict Load (1.0ms)[0m  [1mSELECT "districts".* FROM "districts" [0m
+  [1m[35mSauna Load (2.0ms)[0m  SELECT DISTINCT "saunas".* FROM "saunas" LIMIT 10 OFFSET 0
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "saunas" [0m
+  [1m[35mAddress Load (1.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 1 LIMIT 1
+  [1m[36mSaunaItem Load (1.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1[0m
+  [1m[35mAddress Load (1.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 2 LIMIT 1
+  [1m[36mSaunaItem Load (0.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 2[0m
+  [1m[35mAddress Load (1.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 3 LIMIT 1
+  [1m[36mSaunaItem Load (1.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 3[0m
+  [1m[35mAddress Load (1.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 4 LIMIT 1
+  [1m[36mSaunaItem Load (1.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 4[0m
+  [1m[35mAddress Load (1.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 5 LIMIT 1
+  [1m[36mSaunaItem Load (0.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 5[0m
+  [1m[35mAddress Load (0.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 6 LIMIT 1
+  [1m[36mSaunaItem Load (1.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 6[0m
+  [1m[35mAddress Load (1.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 7 LIMIT 1
+  [1m[36mSaunaItem Load (1.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 7[0m
+  [1m[35mAddress Load (0.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 8 LIMIT 1
+  [1m[36mSaunaItem Load (0.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 8[0m
+  [1m[35mAddress Load (1.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 9 LIMIT 1
+  [1m[36mSaunaItem Load (1.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 9[0m
+  [1m[35mAddress Load (0.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 10 LIMIT 1
+  [1m[36mSaunaItem Load (0.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 10[0m
+Rendered saunas/_sauna.html.erb (108.0ms)
+Rendered saunas/_searchform.html.erb (386.0ms)
+Rendered saunas/index.html.erb within layouts/application (413.0ms)
+Rendered layouts/_javascripts.html.erb (11.0ms)
+Rendered layouts/_stylesheets.html.erb (2.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered layouts/_footer.html.erb (112.0ms)
+Completed 200 OK in 605ms (Views: 577.0ms | ActiveRecord: 25.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:21 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:21 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:21 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:21 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:21 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:21 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:21 +0100
+Served asset /page.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:21 +0100
+Served asset /script.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:21 +0100
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:21 +0100
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2012-01-16 11:31:21 +0100
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/galleriffic.css?body=1" for 127.0.0.1 at 2012-01-16 11:31:21 +0100
+Served asset /galleriffic.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main_bg.jpg" for 127.0.0.1 at 2012-01-16 11:31:22 +0100
+Served asset /main_bg.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/search_button.png" for 127.0.0.1 at 2012-01-16 11:31:22 +0100
+Served asset /search_button.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper_text_bg_right.jpg" for 127.0.0.1 at 2012-01-16 11:31:22 +0100
+Served asset /helper_text_bg_right.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.jpg" for 127.0.0.1 at 2012-01-16 11:31:22 +0100
+Served asset /banner.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper_text_bg_left.jpg" for 127.0.0.1 at 2012-01-16 11:31:22 +0100
+Served asset /helper_text_bg_left.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/helper.jpg" for 127.0.0.1 at 2012-01-16 11:31:22 +0100
+Served asset /helper.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expanded.png" for 127.0.0.1 at 2012-01-16 11:31:22 +0100
+Served asset /expanded.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/expanded_black.png" for 127.0.0.1 at 2012-01-16 11:31:22 +0100
+Served asset /expanded_black.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/search_button_filter.png" for 127.0.0.1 at 2012-01-16 11:31:22 +0100
+Served asset /search_button_filter.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/result_head_bg.jpg" for 127.0.0.1 at 2012-01-16 11:31:22 +0100
+Served asset /result_head_bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/closed_black.png" for 127.0.0.1 at 2012-01-16 11:31:22 +0100
+Served asset /closed_black.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/slider_button.png" for 127.0.0.1 at 2012-01-16 11:31:22 +0100
+Served asset /slider_button.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bottom_img.png" for 127.0.0.1 at 2012-01-16 11:31:22 +0100
+Served asset /bottom_img.png - 304 Not Modified (0ms)
+
+
+Started GET "/saunas/1" for 127.0.0.1 at 2012-01-16 11:31:24 +0100
+  Processing by SaunasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSauna Load (1.0ms)[0m  [1mSELECT "saunas".* FROM "saunas" WHERE "saunas"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Rendered saunas/_navigation.html.erb (19.0ms)
+Rendered saunas/_help.html.erb (2.0ms)
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1
+  [1m[36mSaunaItem Load (1.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1[0m
+  [1m[35mAddress Load (0.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 1 LIMIT 1
+  [1m[36mCity Load (1.0ms)[0m  [1mSELECT "cities".* FROM "cities" WHERE "cities"."id" = 1 LIMIT 1[0m
+Rendered saunas/_baseinfo.html.erb (345.0ms)
+  [1m[35mSaunaType Load (0.0ms)[0m  SELECT "sauna_types".* FROM "sauna_types" WHERE "sauna_types"."id" = 1 LIMIT 1
+Rendered sauna_items/_sauna_item.html.erb (41.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "sauna_types".* FROM "sauna_types" WHERE "sauna_types"."id" = 1 LIMIT 1[0m
+Rendered sauna_items/_sauna_item.html.erb (4.0ms)
+  [1m[35mSaunaType Load (0.0ms)[0m  SELECT "sauna_types".* FROM "sauna_types" WHERE "sauna_types"."id" = 5 LIMIT 1
+Rendered sauna_items/_sauna_item.html.erb (3.0ms)
+Rendered saunas/_map.html.erb (0.0ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "sauna_photos" WHERE "sauna_photos"."sauna_id" = 1[0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 1
+  [1m[36mSaunaComment Load (0.0ms)[0m  [1mSELECT "sauna_comments".* FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 1[0m
+Rendered sauna_comments/_sauna_comment.html.erb (3.0ms)
+Rendered saunas/_comments.erb (40.0ms)
+Rendered saunas/show.html.erb within layouts/application (618.0ms)
+Rendered layouts/_javascripts.html.erb (11.0ms)
+Rendered layouts/_stylesheets.html.erb (1.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered layouts/_footer.html.erb (55.0ms)
+Completed 200 OK in 777ms (Views: 735.0ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:25 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:25 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:25 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:25 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:25 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:25 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:25 +0100
+Served asset /page.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:25 +0100
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:25 +0100
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/galleriffic.css?body=1" for 127.0.0.1 at 2012-01-16 11:31:25 +0100
+Served asset /galleriffic.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2012-01-16 11:31:25 +0100
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:25 +0100
+Served asset /script.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:25 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:25 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:26 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:26 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:26 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:26 +0100
+Served asset /page.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:26 +0100
+Served asset /script.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:26 +0100
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:26 +0100
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:26 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper.jpg" for 127.0.0.1 at 2012-01-16 11:31:26 +0100
+Served asset /helper.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.jpg" for 127.0.0.1 at 2012-01-16 11:31:26 +0100
+Served asset /banner.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper_text_bg_left.jpg" for 127.0.0.1 at 2012-01-16 11:31:26 +0100
+Served asset /helper_text_bg_left.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/main_bg.jpg" for 127.0.0.1 at 2012-01-16 11:31:26 +0100
+Served asset /main_bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expanded.png" for 127.0.0.1 at 2012-01-16 11:31:26 +0100
+Served asset /expanded.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper_text_bg_right.jpg" for 127.0.0.1 at 2012-01-16 11:31:26 +0100
+Served asset /helper_text_bg_right.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/marker.png" for 127.0.0.1 at 2012-01-16 11:31:26 +0100
+Served asset /marker.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/radio_on.png" for 127.0.0.1 at 2012-01-16 11:31:26 +0100
+Served asset /radio_on.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bottom_img.png" for 127.0.0.1 at 2012-01-16 11:31:26 +0100
+Served asset /bottom_img.png - 304 Not Modified (0ms)
+
+
+Started GET "/sauna_items/1" for 127.0.0.1 at 2012-01-16 11:31:32 +0100
+  Processing by SaunaItemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSaunaItem Load (1.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSauna Load (1.0ms)[0m  SELECT "saunas".* FROM "saunas" WHERE "saunas"."id" = 1 LIMIT 1
+Rendered saunas/_navigation.html.erb (18.0ms)
+Rendered saunas/_help.html.erb (2.0ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1[0m
+  [1m[35mSaunaItem Load (0.0ms)[0m  SELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1
+  [1m[36mAddress Load (1.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 1 LIMIT 1[0m
+  [1m[35mCity Load (0.0ms)[0m  SELECT "cities".* FROM "cities" WHERE "cities"."id" = 1 LIMIT 1
+Rendered saunas/_baseinfo.html.erb (290.0ms)
+  [1m[36mSaunaType Load (0.0ms)[0m  [1mSELECT "sauna_types".* FROM "sauna_types" WHERE "sauna_types"."id" = 1 LIMIT 1[0m
+Rendered sauna_items/_sauna_item.html.erb (42.0ms)
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 1
+  [1m[36mSaunaComment Load (0.0ms)[0m  [1mSELECT "sauna_comments".* FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 1[0m
+Rendered sauna_comments/_sauna_comment.html.erb (2.0ms)
+Rendered saunas/_comments.erb (38.0ms)
+Rendered sauna_items/show.html.erb within layouts/application (437.0ms)
+Rendered layouts/_javascripts.html.erb (10.0ms)
+Rendered layouts/_stylesheets.html.erb (2.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered layouts/_footer.html.erb (55.0ms)
+Completed 200 OK in 736ms (Views: 559.0ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:33 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:33 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:33 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:33 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:33 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:33 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:33 +0100
+Served asset /page.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:33 +0100
+Served asset /script.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:33 +0100
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-16 11:31:33 +0100
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/galleriffic.css?body=1" for 127.0.0.1 at 2012-01-16 11:31:33 +0100
+Served asset /galleriffic.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2012-01-16 11:31:33 +0100
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/galleriffic.css?body=1" for 127.0.0.1 at 2012-01-16 11:31:34 +0100
+Served asset /galleriffic.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.jpg" for 127.0.0.1 at 2012-01-16 11:31:34 +0100
+Served asset /banner.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2012-01-16 11:31:34 +0100
+Served asset /main.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/main_bg.jpg" for 127.0.0.1 at 2012-01-16 11:31:34 +0100
+Served asset /main_bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper_text_bg_right.jpg" for 127.0.0.1 at 2012-01-16 11:31:34 +0100
+Served asset /helper_text_bg_right.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expanded.png" for 127.0.0.1 at 2012-01-16 11:31:34 +0100
+Served asset /expanded.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/marker.png" for 127.0.0.1 at 2012-01-16 11:31:34 +0100
+Served asset /marker.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper.jpg" for 127.0.0.1 at 2012-01-16 11:31:34 +0100
+Served asset /helper.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper_text_bg_left.jpg" for 127.0.0.1 at 2012-01-16 11:31:34 +0100
+Served asset /helper_text_bg_left.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/radio_on.png" for 127.0.0.1 at 2012-01-16 11:31:34 +0100
+Served asset /radio_on.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bottom_img.png" for 127.0.0.1 at 2012-01-16 11:31:34 +0100
+Served asset /bottom_img.png - 304 Not Modified (0ms)
+
+
+Started GET "/sauna_items/1" for 127.0.0.1 at 2012-01-16 11:32:33 +0100
+  Processing by SaunaItemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSaunaItem Load (0.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSauna Load (1.0ms)[0m  SELECT "saunas".* FROM "saunas" WHERE "saunas"."id" = 1 LIMIT 1
+Rendered saunas/_navigation.html.erb (18.0ms)
+Rendered saunas/_help.html.erb (1.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1[0m
+  [1m[35mSaunaItem Load (1.0ms)[0m  SELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1
+  [1m[36mAddress Load (0.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 1 LIMIT 1[0m
+  [1m[35mCity Load (1.0ms)[0m  SELECT "cities".* FROM "cities" WHERE "cities"."id" = 1 LIMIT 1
+Rendered saunas/_baseinfo.html.erb (104.0ms)
+  [1m[36mSaunaType Load (1.0ms)[0m  [1mSELECT "sauna_types".* FROM "sauna_types" WHERE "sauna_types"."id" = 1 LIMIT 1[0m
+Rendered sauna_items/_sauna_item.html.erb (166.0ms)
+Rendered sauna_items/_sauna_item.html.erb (2.0ms)
+Rendered sauna_items/_sauna_item.html.erb (1.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 1
+  [1m[36mSaunaComment Load (1.0ms)[0m  [1mSELECT "sauna_comments".* FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 1[0m
+Rendered sauna_comments/_sauna_comment.html.erb (2.0ms)
+Rendered saunas/_comments.erb (33.0ms)
+Rendered sauna_items/show.html.erb within layouts/application (385.0ms)
+Rendered layouts/_javascripts.html.erb (9.0ms)
+Rendered layouts/_stylesheets.html.erb (2.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered layouts/_footer.html.erb (50.0ms)
+Completed 200 OK in 938ms (Views: 493.0ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-16 11:32:34 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-16 11:32:34 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-16 11:32:34 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:32:34 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-16 11:32:34 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:32:34 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-16 11:32:34 +0100
+Served asset /page.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-01-16 11:32:35 +0100
+Served asset /script.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-01-16 11:32:35 +0100
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-16 11:32:35 +0100
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2012-01-16 11:32:35 +0100
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/galleriffic.css?body=1" for 127.0.0.1 at 2012-01-16 11:32:35 +0100
+Served asset /galleriffic.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.jpg" for 127.0.0.1 at 2012-01-16 11:32:35 +0100
+Served asset /banner.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/main_bg.jpg" for 127.0.0.1 at 2012-01-16 11:32:35 +0100
+Served asset /main_bg.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/helper.jpg" for 127.0.0.1 at 2012-01-16 11:32:35 +0100
+Served asset /helper.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/helper_text_bg_left.jpg" for 127.0.0.1 at 2012-01-16 11:32:35 +0100
+Served asset /helper_text_bg_left.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expanded.png" for 127.0.0.1 at 2012-01-16 11:32:35 +0100
+Served asset /expanded.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper_text_bg_right.jpg" for 127.0.0.1 at 2012-01-16 11:32:35 +0100
+Served asset /helper_text_bg_right.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/marker.png" for 127.0.0.1 at 2012-01-16 11:32:35 +0100
+Served asset /marker.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/radio_on.png" for 127.0.0.1 at 2012-01-16 11:32:35 +0100
+Served asset /radio_on.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bottom_img.png" for 127.0.0.1 at 2012-01-16 11:32:35 +0100
+Served asset /bottom_img.png - 304 Not Modified (0ms)
+
+
+Started GET "/sauna_items/2" for 127.0.0.1 at 2012-01-16 11:34:07 +0100
+  Processing by SaunaItemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSaunaItem Load (1.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mSauna Load (1.0ms)[0m  SELECT "saunas".* FROM "saunas" WHERE "saunas"."id" = 1 LIMIT 1
+Rendered saunas/_navigation.html.erb (18.0ms)
+Rendered saunas/_help.html.erb (2.0ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1[0m
+  [1m[35mSaunaItem Load (1.0ms)[0m  SELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1
+  [1m[36mAddress Load (1.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 1 LIMIT 1[0m
+  [1m[35mCity Load (1.0ms)[0m  SELECT "cities".* FROM "cities" WHERE "cities"."id" = 1 LIMIT 1
+Rendered saunas/_baseinfo.html.erb (179.0ms)
+  [1m[36mSaunaType Load (1.0ms)[0m  [1mSELECT "sauna_types".* FROM "sauna_types" WHERE "sauna_types"."id" = 1 LIMIT 1[0m
+Rendered sauna_items/_sauna_item.html.erb (40.0ms)
+Rendered sauna_items/_sauna_item.html.erb (2.0ms)
+Rendered sauna_items/_sauna_item.html.erb (2.0ms)
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 1
+  [1m[36mSaunaComment Load (0.0ms)[0m  [1mSELECT "sauna_comments".* FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 1[0m
+Rendered sauna_comments/_sauna_comment.html.erb (2.0ms)
+Rendered saunas/_comments.erb (38.0ms)
+Rendered sauna_items/show.html.erb within layouts/application (340.0ms)
+Rendered layouts/_javascripts.html.erb (11.0ms)
+Rendered layouts/_stylesheets.html.erb (1.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered layouts/_footer.html.erb (336.0ms)
+Completed 200 OK in 873ms (Views: 736.0ms | ActiveRecord: 14.0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:09 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:09 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:09 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:09 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:09 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:09 +0100
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:09 +0100
+Served asset /page.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:09 +0100
+Served asset /script.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:09 +0100
+Served asset /sessions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:09 +0100
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2012-01-16 11:34:09 +0100
+Served asset /main.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/galleriffic.css?body=1" for 127.0.0.1 at 2012-01-16 11:34:09 +0100
+Served asset /galleriffic.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:09 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:09 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:10 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:10 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:10 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:10 +0100
+Served asset /page.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:10 +0100
+Served asset /script.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:10 +0100
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:10 +0100
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/main_bg.jpg" for 127.0.0.1 at 2012-01-16 11:34:10 +0100
+Served asset /main_bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/marker.png" for 127.0.0.1 at 2012-01-16 11:34:10 +0100
+Served asset /marker.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.jpg" for 127.0.0.1 at 2012-01-16 11:34:10 +0100
+Served asset /banner.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper_text_bg_left.jpg" for 127.0.0.1 at 2012-01-16 11:34:10 +0100
+Served asset /helper_text_bg_left.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper.jpg" for 127.0.0.1 at 2012-01-16 11:34:10 +0100
+Served asset /helper.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/helper_text_bg_right.jpg" for 127.0.0.1 at 2012-01-16 11:34:10 +0100
+Served asset /helper_text_bg_right.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expanded.png" for 127.0.0.1 at 2012-01-16 11:34:10 +0100
+Served asset /expanded.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/radio_on.png" for 127.0.0.1 at 2012-01-16 11:34:10 +0100
+Served asset /radio_on.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/radio_off.png" for 127.0.0.1 at 2012-01-16 11:34:10 +0100
+Served asset /radio_off.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bottom_img.png" for 127.0.0.1 at 2012-01-16 11:34:10 +0100
+Served asset /bottom_img.png - 304 Not Modified (0ms)
+
+
+Started GET "/sauna_items/1" for 127.0.0.1 at 2012-01-16 11:34:19 +0100
+  Processing by SaunaItemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSaunaItem Load (1.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSauna Load (1.0ms)[0m  SELECT "saunas".* FROM "saunas" WHERE "saunas"."id" = 1 LIMIT 1
+Rendered saunas/_navigation.html.erb (19.0ms)
+Rendered saunas/_help.html.erb (2.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1[0m
+  [1m[35mSaunaItem Load (1.0ms)[0m  SELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1
+  [1m[36mAddress Load (1.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 1 LIMIT 1[0m
+  [1m[35mCity Load (1.0ms)[0m  SELECT "cities".* FROM "cities" WHERE "cities"."id" = 1 LIMIT 1
+Rendered saunas/_baseinfo.html.erb (105.0ms)
+  [1m[36mSaunaType Load (1.0ms)[0m  [1mSELECT "sauna_types".* FROM "sauna_types" WHERE "sauna_types"."id" = 1 LIMIT 1[0m
+Rendered sauna_items/_sauna_item.html.erb (39.0ms)
+Rendered sauna_items/_sauna_item.html.erb (2.0ms)
+Rendered sauna_items/_sauna_item.html.erb (2.0ms)
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 1
+  [1m[36mSaunaComment Load (1.0ms)[0m  [1mSELECT "sauna_comments".* FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 1[0m
+Rendered sauna_comments/_sauna_comment.html.erb (2.0ms)
+Rendered saunas/_comments.erb (270.0ms)
+Rendered sauna_items/show.html.erb within layouts/application (502.0ms)
+Rendered layouts/_javascripts.html.erb (11.0ms)
+Rendered layouts/_stylesheets.html.erb (2.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered layouts/_footer.html.erb (55.0ms)
+Completed 200 OK in 1027ms (Views: 662.0ms | ActiveRecord: 18.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:20 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:20 +0100
+Served asset /page.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:20 +0100
+Served asset /script.js - 200 OK (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:20 +0100
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:20 +0100
+Served asset /application.js - 200 OK (5ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2012-01-16 11:34:20 +0100
+Served asset /main.css - 200 OK (2ms)
+
+
+Started GET "/assets/galleriffic.css?body=1" for 127.0.0.1 at 2012-01-16 11:34:20 +0100
+Served asset /galleriffic.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/banner.jpg" for 127.0.0.1 at 2012-01-16 11:34:20 +0100
+Served asset /banner.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:21 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:21 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:21 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:21 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:21 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:22 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:22 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:22 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:22 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-01-16 11:34:22 +0100
+Served asset /script.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper.jpg" for 127.0.0.1 at 2012-01-16 11:34:23 +0100
+Served asset /helper.jpg - 200 OK (0ms)
+
+
+Started GET "/assets/helper_text_bg_left.jpg" for 127.0.0.1 at 2012-01-16 11:34:23 +0100
+Served asset /helper_text_bg_left.jpg - 200 OK (0ms)
+
+
+Started GET "/assets/radio_on.png" for 127.0.0.1 at 2012-01-16 11:34:23 +0100
+Served asset /radio_on.png - 200 OK (1ms)
+
+
+Started GET "/assets/main_bg.jpg" for 127.0.0.1 at 2012-01-16 11:34:23 +0100
+Served asset /main_bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper_text_bg_right.jpg" for 127.0.0.1 at 2012-01-16 11:34:23 +0100
+Served asset /helper_text_bg_right.jpg - 200 OK (0ms)
+
+
+Started GET "/assets/marker.png" for 127.0.0.1 at 2012-01-16 11:34:23 +0100
+Served asset /marker.png - 200 OK (0ms)
+
+
+Started GET "/assets/expanded.png" for 127.0.0.1 at 2012-01-16 11:34:23 +0100
+Served asset /expanded.png - 200 OK (2ms)
+
+
+Started GET "/assets/bottom_img.png" for 127.0.0.1 at 2012-01-16 11:34:23 +0100
+Served asset /bottom_img.png - 200 OK (1ms)
+
+
+Started GET "/sauna_items/2" for 127.0.0.1 at 2012-01-16 11:36:04 +0100
+  Processing by SaunaItemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSaunaItem Load (1.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mSauna Load (1.0ms)[0m  SELECT "saunas".* FROM "saunas" WHERE "saunas"."id" = 1 LIMIT 1
+Rendered saunas/_navigation.html.erb (18.0ms)
+Rendered saunas/_help.html.erb (2.0ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1[0m
+  [1m[35mSaunaItem Load (0.0ms)[0m  SELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1
+  [1m[36mAddress Load (1.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 1 LIMIT 1[0m
+  [1m[35mCity Load (1.0ms)[0m  SELECT "cities".* FROM "cities" WHERE "cities"."id" = 1 LIMIT 1
+Rendered saunas/_baseinfo.html.erb (107.0ms)
+  [1m[36mSaunaType Load (1.0ms)[0m  [1mSELECT "sauna_types".* FROM "sauna_types" WHERE "sauna_types"."id" = 1 LIMIT 1[0m
+Rendered sauna_items/_sauna_item.html.erb (131.0ms)
+Rendered sauna_items/_sauna_item.html.erb (2.0ms)
+Rendered sauna_items/_sauna_item.html.erb (2.0ms)
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 1
+  [1m[36mSaunaComment Load (1.0ms)[0m  [1mSELECT "sauna_comments".* FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 1[0m
+Rendered sauna_comments/_sauna_comment.html.erb (2.0ms)
+Rendered saunas/_comments.erb (38.0ms)
+Rendered sauna_items/show.html.erb within layouts/application (363.0ms)
+Compiled script.js  (3ms)  (pid 6868)
+Compiled application.js  (37ms)  (pid 6868)
+Rendered layouts/_javascripts.html.erb (145.0ms)
+Rendered layouts/_stylesheets.html.erb (2.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered layouts/_footer.html.erb (52.0ms)
+Completed 200 OK in 942ms (Views: 617.0ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:06 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:06 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:06 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:06 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:06 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:06 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:06 +0100
+Served asset /page.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:06 +0100
+Served asset /script.js - 200 OK (19ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:06 +0100
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:06 +0100
+Served asset /application.js - 200 OK (31ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2012-01-16 11:36:06 +0100
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/galleriffic.css?body=1" for 127.0.0.1 at 2012-01-16 11:36:06 +0100
+Served asset /galleriffic.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:06 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:06 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:07 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:07 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:07 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:07 +0100
+Served asset /page.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:07 +0100
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main_bg.jpg" for 127.0.0.1 at 2012-01-16 11:36:07 +0100
+Served asset /main_bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper.jpg" for 127.0.0.1 at 2012-01-16 11:36:07 +0100
+Served asset /helper.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/helper_text_bg_left.jpg" for 127.0.0.1 at 2012-01-16 11:36:07 +0100
+Served asset /helper_text_bg_left.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.jpg" for 127.0.0.1 at 2012-01-16 11:36:07 +0100
+Served asset /banner.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper_text_bg_right.jpg" for 127.0.0.1 at 2012-01-16 11:36:07 +0100
+Served asset /helper_text_bg_right.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/marker.png" for 127.0.0.1 at 2012-01-16 11:36:07 +0100
+Served asset /marker.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expanded.png" for 127.0.0.1 at 2012-01-16 11:36:07 +0100
+Served asset /expanded.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bottom_img.png" for 127.0.0.1 at 2012-01-16 11:36:07 +0100
+Served asset /bottom_img.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/radio_on.png" for 127.0.0.1 at 2012-01-16 11:36:09 +0100
+Served asset /radio_on.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/radio_off.png" for 127.0.0.1 at 2012-01-16 11:36:09 +0100
+Served asset /radio_off.png - 304 Not Modified (0ms)
+
+
+Started GET "/sauna_items/2" for 127.0.0.1 at 2012-01-16 11:36:14 +0100
+  Processing by SaunaItemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSaunaItem Load (1.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mSauna Load (1.0ms)[0m  SELECT "saunas".* FROM "saunas" WHERE "saunas"."id" = 1 LIMIT 1
+Rendered saunas/_navigation.html.erb (18.0ms)
+Rendered saunas/_help.html.erb (2.0ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1[0m
+  [1m[35mSaunaItem Load (0.0ms)[0m  SELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1
+  [1m[36mAddress Load (1.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 1 LIMIT 1[0m
+  [1m[35mCity Load (0.0ms)[0m  SELECT "cities".* FROM "cities" WHERE "cities"."id" = 1 LIMIT 1
+Rendered saunas/_baseinfo.html.erb (104.0ms)
+  [1m[36mSaunaType Load (1.0ms)[0m  [1mSELECT "sauna_types".* FROM "sauna_types" WHERE "sauna_types"."id" = 1 LIMIT 1[0m
+Rendered sauna_items/_sauna_item.html.erb (220.0ms)
+Rendered sauna_items/_sauna_item.html.erb (2.0ms)
+Rendered sauna_items/_sauna_item.html.erb (2.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 1
+  [1m[36mSaunaComment Load (1.0ms)[0m  [1mSELECT "sauna_comments".* FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 1[0m
+Rendered sauna_comments/_sauna_comment.html.erb (2.0ms)
+Rendered saunas/_comments.erb (38.0ms)
+Rendered sauna_items/show.html.erb within layouts/application (450.0ms)
+Rendered layouts/_javascripts.html.erb (11.0ms)
+Rendered layouts/_stylesheets.html.erb (1.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered layouts/_footer.html.erb (54.0ms)
+Completed 200 OK in 855ms (Views: 572.0ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:15 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:15 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:15 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:15 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:15 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:15 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:15 +0100
+Served asset /page.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:16 +0100
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/galleriffic.css?body=1" for 127.0.0.1 at 2012-01-16 11:36:16 +0100
+Served asset /galleriffic.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:16 +0100
+Served asset /script.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2012-01-16 11:36:16 +0100
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:16 +0100
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:16 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:16 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:16 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:16 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:16 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:16 +0100
+Served asset /page.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-16 11:36:16 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/marker.png" for 127.0.0.1 at 2012-01-16 11:36:16 +0100
+Served asset /marker.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/helper_text_bg_right.jpg" for 127.0.0.1 at 2012-01-16 11:36:16 +0100
+Served asset /helper_text_bg_right.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main_bg.jpg" for 127.0.0.1 at 2012-01-16 11:36:16 +0100
+Served asset /main_bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper_text_bg_left.jpg" for 127.0.0.1 at 2012-01-16 11:36:16 +0100
+Served asset /helper_text_bg_left.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.jpg" for 127.0.0.1 at 2012-01-16 11:36:16 +0100
+Served asset /banner.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper.jpg" for 127.0.0.1 at 2012-01-16 11:36:16 +0100
+Served asset /helper.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expanded.png" for 127.0.0.1 at 2012-01-16 11:36:17 +0100
+Served asset /expanded.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bottom_img.png" for 127.0.0.1 at 2012-01-16 11:36:17 +0100
+Served asset /bottom_img.png - 304 Not Modified (1ms)
+
+
+Started GET "/sauna_items/2" for 127.0.0.1 at 2012-01-16 11:38:24 +0100
+  Processing by SaunaItemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSaunaItem Load (0.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mSauna Load (0.0ms)[0m  SELECT "saunas".* FROM "saunas" WHERE "saunas"."id" = 1 LIMIT 1
+Rendered saunas/_navigation.html.erb (19.0ms)
+Rendered saunas/_help.html.erb (2.0ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1[0m
+  [1m[35mSaunaItem Load (1.0ms)[0m  SELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1
+  [1m[36mAddress Load (0.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 1 LIMIT 1[0m
+  [1m[35mCity Load (0.0ms)[0m  SELECT "cities".* FROM "cities" WHERE "cities"."id" = 1 LIMIT 1
+Rendered saunas/_baseinfo.html.erb (106.0ms)
+  [1m[36mSaunaType Load (0.0ms)[0m  [1mSELECT "sauna_types".* FROM "sauna_types" WHERE "sauna_types"."id" = 1 LIMIT 1[0m
+Rendered sauna_items/_sauna_item.html.erb (41.0ms)
+Rendered sauna_items/_sauna_item.html.erb (2.0ms)
+Rendered sauna_items/_sauna_item.html.erb (1.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 1
+  [1m[36mSaunaComment Load (0.0ms)[0m  [1mSELECT "sauna_comments".* FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 1[0m
+Rendered sauna_comments/_sauna_comment.html.erb (3.0ms)
+Rendered saunas/_comments.erb (348.0ms)
+Rendered sauna_items/show.html.erb within layouts/application (585.0ms)
+Rendered layouts/_javascripts.html.erb (12.0ms)
+Rendered layouts/_stylesheets.html.erb (2.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered layouts/_footer.html.erb (54.0ms)
+Completed 200 OK in 1066ms (Views: 898.1ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-16 11:38:25 +0100
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-16 11:38:25 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-16 11:38:26 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:38:26 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:38:26 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-16 11:38:26 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-16 11:38:26 +0100
+Served asset /page.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-01-16 11:38:26 +0100
+Served asset /script.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2012-01-16 11:38:26 +0100
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/galleriffic.css?body=1" for 127.0.0.1 at 2012-01-16 11:38:26 +0100
+Served asset /galleriffic.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-01-16 11:38:26 +0100
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-16 11:38:26 +0100
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-16 11:38:26 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:38:26 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:38:26 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-16 11:38:26 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-16 11:38:26 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-16 11:38:26 +0100
+Served asset /page.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper.jpg" for 127.0.0.1 at 2012-01-16 11:38:27 +0100
+Served asset /helper.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper_text_bg_right.jpg" for 127.0.0.1 at 2012-01-16 11:38:27 +0100
+Served asset /helper_text_bg_right.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main_bg.jpg" for 127.0.0.1 at 2012-01-16 11:38:27 +0100
+Served asset /main_bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.jpg" for 127.0.0.1 at 2012-01-16 11:38:27 +0100
+Served asset /banner.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/marker.png" for 127.0.0.1 at 2012-01-16 11:38:27 +0100
+Served asset /marker.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper_text_bg_left.jpg" for 127.0.0.1 at 2012-01-16 11:38:27 +0100
+Served asset /helper_text_bg_left.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/radio_on.png" for 127.0.0.1 at 2012-01-16 11:38:27 +0100
+Served asset /radio_on.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/radio_off.png" for 127.0.0.1 at 2012-01-16 11:38:27 +0100
+Served asset /radio_off.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/expanded.png" for 127.0.0.1 at 2012-01-16 11:38:27 +0100
+Served asset /expanded.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bottom_img.png" for 127.0.0.1 at 2012-01-16 11:38:27 +0100
+Served asset /bottom_img.png - 304 Not Modified (0ms)
+
+
+Started GET "/sauna_items/2" for 127.0.0.1 at 2012-01-16 11:39:30 +0100
+  Processing by SaunaItemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSaunaItem Load (0.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mSauna Load (1.0ms)[0m  SELECT "saunas".* FROM "saunas" WHERE "saunas"."id" = 1 LIMIT 1
+Rendered saunas/_navigation.html.erb (19.0ms)
+Rendered saunas/_help.html.erb (2.0ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1[0m
+  [1m[35mSaunaItem Load (1.0ms)[0m  SELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 1
+  [1m[36mAddress Load (1.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 1 LIMIT 1[0m
+  [1m[35mCity Load (0.0ms)[0m  SELECT "cities".* FROM "cities" WHERE "cities"."id" = 1 LIMIT 1
+Rendered saunas/_baseinfo.html.erb (164.0ms)
+  [1m[36mSaunaType Load (0.0ms)[0m  [1mSELECT "sauna_types".* FROM "sauna_types" WHERE "sauna_types"."id" = 1 LIMIT 1[0m
+Rendered sauna_items/_sauna_item.html.erb (48.0ms)
+Rendered sauna_items/_sauna_item.html.erb (3.0ms)
+Rendered sauna_items/_sauna_item.html.erb (1.0ms)
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 1
+  [1m[36mSaunaComment Load (1.0ms)[0m  [1mSELECT "sauna_comments".* FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 1[0m
+Rendered sauna_comments/_sauna_comment.html.erb (2.0ms)
+Rendered saunas/_comments.erb (40.0ms)
+Rendered sauna_items/show.html.erb within layouts/application (342.0ms)
+Rendered layouts/_javascripts.html.erb (11.0ms)
+Rendered layouts/_stylesheets.html.erb (2.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered layouts/_footer.html.erb (326.0ms)
+Completed 200 OK in 875ms (Views: 736.0ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-16 11:39:31 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-16 11:39:31 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-16 11:39:31 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-16 11:39:31 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:39:31 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:39:31 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-16 11:39:31 +0100
+Served asset /page.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-16 11:39:31 +0100
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-01-16 11:39:31 +0100
+Served asset /script.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-01-16 11:39:32 +0100
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2012-01-16 11:39:32 +0100
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/galleriffic.css?body=1" for 127.0.0.1 at 2012-01-16 11:39:32 +0100
+Served asset /galleriffic.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-16 11:39:32 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:39:32 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-16 11:39:32 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-16 11:39:32 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-16 11:39:32 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-16 11:39:32 +0100
+Served asset /page.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main_bg.jpg" for 127.0.0.1 at 2012-01-16 11:39:32 +0100
+Served asset /main_bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/marker.png" for 127.0.0.1 at 2012-01-16 11:39:32 +0100
+Served asset /marker.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/helper.jpg" for 127.0.0.1 at 2012-01-16 11:39:32 +0100
+Served asset /helper.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.jpg" for 127.0.0.1 at 2012-01-16 11:39:32 +0100
+Served asset /banner.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper_text_bg_left.jpg" for 127.0.0.1 at 2012-01-16 11:39:32 +0100
+Served asset /helper_text_bg_left.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/helper_text_bg_right.jpg" for 127.0.0.1 at 2012-01-16 11:39:32 +0100
+Served asset /helper_text_bg_right.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/expanded.png" for 127.0.0.1 at 2012-01-16 11:39:32 +0100
+Served asset /expanded.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bottom_img.png" for 127.0.0.1 at 2012-01-16 11:39:32 +0100
+Served asset /bottom_img.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/radio_on.png" for 127.0.0.1 at 2012-01-16 11:39:33 +0100
+Served asset /radio_on.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/radio_off.png" for 127.0.0.1 at 2012-01-16 11:39:33 +0100
+Served asset /radio_off.png - 304 Not Modified (1ms)

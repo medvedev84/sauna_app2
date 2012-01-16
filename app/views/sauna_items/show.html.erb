@@ -4,9 +4,13 @@
 	
 	<div class="round-box">
 		<%= render '/saunas/baseinfo' %>
-					
-		<%= render :partial => 'sauna_item',  :locals => { :sauna_item => @sauna_item } %>		
-				
+		
+		<div class="round-sub-box sauna-detail-description">		
+			<% @sauna.sauna_items.each do |sauna_item| %>									
+				<%= render :partial => 'sauna_item',  :locals => { :sauna_item => @sauna_item } %>						
+			<% end %>					
+		</div>
+		
 		<%-#= render 'map' %>		
 		<div class="clearing"></div>
 	</div>		
@@ -21,10 +25,4 @@
 </script>
 <script type="text/javascript">
 	Frame.initDetailPage();
-</script>
-<script type="text/javascript">
-	function changeTab(id)
-	{		
-		// nothing
-	}	
 </script>
