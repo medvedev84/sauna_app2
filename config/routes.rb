@@ -1,18 +1,15 @@
 SaunaApp::Application.routes.draw do 
-	#resources :users 
-	#resources :sessions, :only => [:new, :create, :destroy]
 	resources :saunas
 	resources :sauna_items
-	resources :addresses
 	resources :sauna_comments
 
-
-	match '/signup',  :to => 'users#new'	
 	match '/signout', :to => 'admin/sessions#destroy'
 	match '/signin',  :to => 'admin/sessions#new'
 
 	match '/contact', :to => 'pages#contact'
 	match '/about',   :to => 'pages#about' 
+ 	match '/incorrect',   :to => 'pages#incorrect' 
+
  
 	root :to => 'saunas#index'
   
@@ -23,6 +20,8 @@ SaunaApp::Application.routes.draw do
 		resources :sessions, :only => [:new, :create, :destroy]
 		resources :saunas
 		resources :sauna_items
+		resources :sauna_comments
+		resources :sauna_photos
 	end  
 
   # The priority is based upon order of creation:
