@@ -1,0 +1,15 @@
+<li class="round-box" id="comment-<%= sauna_comment.id %>">
+	<dl>
+		<dt>
+			<span class="author"><%= sauna_comment.user_name %></span>
+			<span class="date"><%= sauna_comment.created_at %></span>
+		</dt>
+		<dd>
+			<%= sauna_comment.description %>
+			
+			<br/>
+			<%= link_to t(:delete), admin_sauna_comment_path(sauna_comment), :method => :delete, :remote => true, :confirm => t(:confirm_delete_sauna_comment) %>  
+		</dd>
+	</dl>
+</li>
+

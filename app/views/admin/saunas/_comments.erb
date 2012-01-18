@@ -4,24 +4,6 @@
 			<h2><%= t :comments_section %></h2>
 			<div class="_expanded">
 
-				<%= form_for @sauna_comment, :remote => true, :html => {:class => "comment-form"} do |f| %>
-					<%= f.hidden_field :sauna_id,  :value => @sauna.id %>
-					<dl>
-						<dt><label for="sauna_comment_user_name"><%= t :name %>:</dt>
-						<dd>
-							<%= f.text_field :user_name %>
-						</dd>
-						<dt><label for="sauna_comment_description"><%= t :description %>:</label></dt>
-						<dd>
-							<%= f.text_area :description, :rows => 5, :cols => 5 %>
-						</dd>
-						<dt></dt>
-						<dd>
-							<%= f.submit t :save %>
-						</dd>
-					</dl>								  
-				<% end %>			
-			
 			</div>
 			<div class="_closed"></div>
 			<div class="clearing"></div>

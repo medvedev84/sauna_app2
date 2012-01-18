@@ -1,9 +1,15 @@
-<h1><%= t :users_list %></h1>
+<div class="main-page">
+	<% if current_user.super_admin? %>   
+		 <%= link_to t(:create_new_user), new_admin_user_path %>  	
+	<% end %>
 
-<span>
-      <%= link_to t(:create_new_user), new_admin_user_path %>
-</span>
+	<h1><%= t :users_list %></h1>
+	<ul class="result-list">	
+		<li class="head">
+			<div class="name"><%= t :user_name %></div>
+			<div><%= t :actions %></div>
+		</li>
+		<%= render @users %>				
+	</ul>
+</div>
 
-<ul class="saunas">
-  <%= render @users %>
-</ul>

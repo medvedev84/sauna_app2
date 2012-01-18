@@ -1,0 +1,16 @@
+<li class="row"> 
+	<a href="/saunas/<%= sauna.id %>">
+		<div class="name">
+			<span class="s-name"><%= sauna.name %></span>
+			<div class="address">
+				<%= sauna.address.description %>; 
+				<%= t :short_phone_number %>: <%= sauna.phone_number1 %>, 
+			</div>
+		</div>
+		<div>
+			<%= link_to t(:add), new_admin_sauna_item_path(:id => sauna.id) %>     		
+			<%= link_to t(:edit), edit_admin_sauna_path(sauna) %>   	
+			<%= link_to t(:delete), admin_sauna_path(sauna), :method => :delete, :confirm => t(:confirm_delete_sauna) %>  
+		</div>
+	</a>	       	 		
+</li>

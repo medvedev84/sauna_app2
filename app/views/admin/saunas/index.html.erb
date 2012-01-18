@@ -5,13 +5,13 @@
 	
 	<div>		
 		<h1><%= t :saunas_list %></h1>
-		<% unless @user.saunas.empty? %>
+		<% unless @saunas.empty? %>
 			<ul class="result-list">	
 				<li class="head">
 					<div class="name"><%= t :sauna %></div>
 					<div><%= t :actions %></div>
 				</li>
-				<%  @user.saunas.each do |sauna| %>				
+				<%  @saunas.each do |sauna| %>				
 					<%= render sauna %>
 				<% end %>		
 			</ul>

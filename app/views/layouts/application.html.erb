@@ -26,11 +26,33 @@
 					</a>
 				</div>
 				<div class="content-right">					
+					<% flash.each do |key, value| %>
+						<div class="flash <%= key %>"><%= t(value) %></div>
+					<% end %>
 					<%= yield %>
 				</div>
 				<div class="clearing"></div>
 			</div>
 			<%= render 'layouts/footer' %>
 		</div>
+		<script type="text/javascript">
+			var reformalOptions = {
+				project_id: 53507,
+				project_host: "go-to-sauna.reformal.ru",
+				force_new_window: false,
+				tab_alignment: "left",
+				tab_top: "300",
+				tab_bg_color: "#0080f0",
+				tab_image_url: "http://tab.reformal.ru/0JLQsNGI0Lgg0L7RgtC30YvQstGLINC4INC%252F0YDQtdC00LvQvtC20LXQvdC40Y8=/FFFFFF/c931f419d308ca654c15aa9f4d2fa692"
+			};
+			
+			(function() {
+				if ('https:' == document.location.protocol) return;
+				var script = document.createElement('script');
+				script.type = 'text/javascript';
+				script.src = 'http://media.reformal.ru/widgets/v1/reformal.js';
+				document.getElementsByTagName('head')[0].appendChild(script);
+			})();
+		</script>		
 	</body>
 </html>

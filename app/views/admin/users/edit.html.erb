@@ -1,10 +1,6 @@
-<% if signed_in? && (current_user.admin? || current_user.super_admin?)&& current_user.id != @user.id %> 	  
-	<%= link_to t(:users_list), admin_users_path %> \ <%=  @user.name %> 
-<% end %>
-
-<br/><br/>
-
-<div class="main-page">
+<div class="detail-page">
+	<%= render 'shared/navigation', :left_link => admin_users_path, :left_label => t(:users_list), :right_label => @user.name %>	
+	
 	<div class="round-box">
 		<div class="round-sub-box">			
 			<h2><%= t :edit_user %></h2>

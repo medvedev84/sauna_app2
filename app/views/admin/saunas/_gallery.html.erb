@@ -7,9 +7,11 @@
 					<!-- Start Advanced Gallery Html Containers -->
 					<div id="thumbs" class="navigation">
 						<ul class="thumbs noscript">
-							<% unless @sauna.sauna_photos.empty? %>
+												
+							<% unless @sauna.sauna_photos.empty? %>														
 								<%= render @sauna.sauna_photos  %>														
 							<% end %>	
+												
 						</ul>
 					</div>
 					<div id="gallery">

@@ -2,8 +2,8 @@
 	<div class="center">
 		<ul>
 			<li><a href="/">главная</a></li>
-			<li><a href="#">о проекте</a></li>
-			<li><a href="#">контакты</a></li>			
+			<li><a href="/about">о проекте</a></li>
+			<li><a href="/contact">контакты</a></li>			
 			<% if signed_in? %>
 				<li>
 					<%= link_to t(:sign_out), signout_path, :method => :delete %>

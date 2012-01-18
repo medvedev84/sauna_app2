@@ -1,6 +1,8 @@
 <div class="detail-page">
-	<%= render 'navigation' %>	
-	<%= render 'help' %>	
+	
+	<%= render 'shared/navigation', :left_link => root_path, :left_label => t(:home), :right_label => @sauna.name %>	
+	
+	<%= render 'shared/help' %>	
 	
 	<div class="round-box">
 		<%= render 'baseinfo' %>

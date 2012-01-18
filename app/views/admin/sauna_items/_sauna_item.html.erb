@@ -1,7 +1,14 @@
-<% if signed_in? %>
-	<li>
-		<%= sauna_item.name %>		
-		<%= link_to t(:edit), edit_admin_sauna_item_path(sauna_item) %>   
-		<%= link_to t(:delete), admin_sauna_item_path(sauna_item), :method => :delete, :confirm => t(:confirm_delete_sauna_item) %>     	             
-	</li>
-<% end %>
+<li class="round-box" id="sauna_item-<%= sauna_item.id %>">
+	<dl>
+		<dt>
+			<span class="author"><%= sauna_item.name %></span>
+			<span class="date">test</span>
+		</dt>
+		<dd>
+			<%= sauna_item.description %>
+			<br/>	
+			<%= link_to t(:edit), edit_admin_sauna_item_path(sauna_item) %>   
+			<%= link_to t(:delete), admin_sauna_item_path(sauna_item), :method => :delete, :remote => true, :confirm => t(:confirm_delete_sauna_item) %>     	             
+		</dd>
+	</dl>
+</li>

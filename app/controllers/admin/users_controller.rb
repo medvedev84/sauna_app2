@@ -1,7 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_filter :authenticate, :only => [:index, :show, :edit, :update, :destroy]
   before_filter :correct_user, :only => [:index, :show, :edit, :update]
-#  before_filter :admin_user, :only => [:new, :destroy]
   
   def show
     @user = User.find(params[:id])
@@ -49,9 +48,9 @@ class Admin::UsersController < ApplicationController
   private
 
     def correct_user     
-      if !current_user.super_admin? && !current_user.admin?
-        @user = User.find(params[:id])
-        redirect_to(root_path) unless current_user?(@user)
+      if !current_user.super_admin?        
+		flash[:error] = :access_denied
+		redirect_to('/incorrect') 			
       end
     end
 end

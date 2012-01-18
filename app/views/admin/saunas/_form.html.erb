@@ -1,0 +1,55 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<%= f.hidden_field :user_id,  :value => @user.id %>
+
+<dl>
+	<dt><label for="sauna_name"><%= t :name %>:</dt>
+	<dd>
+		<%= f.text_field :name %>
+	</dd>
+			
+	<%= f.fields_for @address do |af| %>
+		<%= render 'shared/error_messages', :object => af.object %>
+		
+		<dt><label for="sauna_address_city_id"><%= t :city %>:</dt>
+		<dd>
+			<%= af.collection_select :city_id, City.all, :id, :name, :include_blank => false %>
+		</dd>			
+		<dt><label for="sauna_address_district_id"><%= t :district %>:</dt>
+		<dd>
+			<%= af.collection_select :district_id, District.all, :id, :name, :include_blank => false %>
+		</dd>			
+		<dt><label for="sauna_address_street"><%= t :street %>:</dt>
+		<dd>
+			<%= af.text_field :street %>
+		</dd>	
+		<dt><label for="sauna_address_building"><%= t :building %>:</dt>
+		<dd>
+			<%= af.text_field :building %>
+		</dd>	
+	<% end %> 
+	
+	<dt><label for="sauna_phone_number1"><%= t :phone_number %>:</label></dt>
+	<dd>
+		<%= f.text_field :phone_number1 %>			
+	</dd>
+	
+	
+	<%= f.fields_for :sauna_photos do |sf| %>
+		<%= render 'shared/error_messages', :object => sf.object %>	
+		<% if sf.object.new_record? %>
+			<dt><label for="sauna_sauna_photos_attributes_0_photo"><%= t :photo %>:</label></dt>
+			<dd>
+				<%= sf.file_field :photo %>		
+			</dd>	
+			<dt><label for="sauna_sauna_photos_attributes_0_photo"><%= t :description %>:</label></dt>
+			<dd>
+				<%= sf.text_field :description %>		
+			</dd>				
+		<% end %>  			
+	<% end %>    
+
+	<dt></dt>
+	<dd>
+		<%= f.submit t :save %>
+	</dd>
+</dl>	
