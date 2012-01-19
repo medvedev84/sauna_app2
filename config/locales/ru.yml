@@ -102,6 +102,8 @@ ru:
   sauna_items_has_bar_eq: "Бар"
   address_district_id_eq: "Район" 
   access_denied: "У вас недостаточно прав для получения доступа к этой области"
+  must_be_integer: "Значение должно быть целым числом"
+  capacity_range: "Значение должно быть в диапозоне от 4 до 20"
   will_paginate:
     previous_label: "<"
     next_label: ">"
