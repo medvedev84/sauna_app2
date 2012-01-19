@@ -32,6 +32,7 @@ class Admin::SaunaItemsController < ApplicationController
 
 	def update
 		@sauna_item = SaunaItem.find(params[:id])
+		@sauna = @sauna_item.sauna
 		if @sauna_item.update_attributes(params[:sauna_item])
 		  flash[:success] = :sauna_item_updated
 		  redirect_to edit_admin_sauna_path(@sauna_item.sauna)

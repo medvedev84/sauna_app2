@@ -1,7 +1,7 @@
 class Admin::SaunasController < ApplicationController
 	before_filter :authenticate, :only => [:new, :edit, :update, :destroy]
 	before_filter :correct_user, :only => [:edit, :update, :destroy]
-	before_filter :admin_user, :only => :new
+	#before_filter :admin_user, :only => :new
 
 	def new                             
 		@user = User.find(params[:user_id])
@@ -34,7 +34,13 @@ class Admin::SaunasController < ApplicationController
 				end			
 
 				flash[:success] = :sauna_created
-				redirect_to admin_user_path(@user)
+				
+				if current_user.super_admin?
+					redirect_to admin_user_path(@user)
+				else
+					redirect_to admin_saunas_path
+				end
+				
 			else     
 				render 'new'
 			end	
@@ -86,15 +92,20 @@ class Admin::SaunasController < ApplicationController
           
   def index    
     @saunas = current_user.saunas
+	@user = current_user
   end
 
-  def destroy
-  	@sauna = Sauna.find(params[:id])
-	@user = @sauna.user
-    Sauna.find(params[:id]).destroy
-    flash[:success] = :sauna_destroyed
-	redirect_to admin_user_path(@user)
-  end
+	def destroy
+		@sauna = Sauna.find(params[:id])
+		@user = @sauna.user
+		Sauna.find(params[:id]).destroy
+		flash[:success] = :sauna_destroyed
+		if current_user.super_admin?
+			redirect_to admin_user_path(@user)
+		else
+			redirect_to admin_saunas_path
+		end		
+	end
 
 	private
 

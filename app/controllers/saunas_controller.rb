@@ -29,7 +29,8 @@ class SaunasController < ApplicationController
 				render 'index'
 			end		
 		else
-			@saunas = @q.result(:distinct => true).paginate(:page => params[:page], :per_page => 10)	
+			#@saunas = @q.result(:distinct => true).paginate(:page => params[:page], :per_page => 10)	
+			@saunas = @q.result(:distinct => true)	
 		end	
 	end
 end
