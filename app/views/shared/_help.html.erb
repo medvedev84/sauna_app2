@@ -5,10 +5,7 @@
 		</div>
 	</div>
 	
-  <% if mobile_device? %>
-    <%= link_to t(:full_version), :mobile => 0 %> 
-  <% else %>
-    <%= t(:full_version) %> | <%= link_to t(:mobile_version), :mobile => 1 %>  
-  <% end %>
+ <%= link_to t(:mobile_version), :mobile => 1 %>  | <%= link_to t(:smartfon_version), :mobile => 2 %>  
+
   
 </div>

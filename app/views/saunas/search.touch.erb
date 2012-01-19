@@ -1,0 +1,14 @@
+<div data-role="header">
+	<h1></h1>	
+	<%= link_to t(:full_version), "/?mobile=0", "data-icon" => "gear", "class" => "ui-btn-right", "data-ajax" => "false" %>
+</div>
+
+<div data-role="content">
+  <ul data-role="listview">
+    <% @saunas.each do |sauna| %>
+    <li>
+      <%= link_to sauna.name, sauna %>      
+    </li>
+    <% end %>
+  </ul>
+</div>

@@ -1,0 +1,25 @@
+.header {
+	background-color:#0099CC; 
+	width: 100%;
+	}
+
+.search-form {
+	border:2px solid #CCC;
+	width: 100%;
+	}
+	
+.search-form  th{
+	background-color: #CCC;
+	}	
+
+.odd {
+	background-color:#CCC;
+	}
+
+.even{
+	background-color:#FFFFFF;
+	}
+
+.header a{color: #FFFFFF;}
+.odd a{color: #000000;}
+.even a{color: #000000;}
