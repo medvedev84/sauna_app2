@@ -75,10 +75,10 @@ var Frame =
 			range: true,
 			min: 500,
 			max: 5000,
-			values: [$('#q_sauna_items_min_price_gt').val(), $('#q_sauna_items_min_price_lt').val()],
+			values: [$('#q_sauna_items_min_price_gteq').val(), $('#q_sauna_items_min_price_lteq').val()],
 			slide: function(event, ui) {
-				$('#q_sauna_items_min_price_gt').val(ui.values[0]);
-				$('#q_sauna_items_min_price_lt').val(ui.values[1]);
+				$('#q_sauna_items_min_price_gteq').val(ui.values[0]);
+				$('#q_sauna_items_min_price_lteq').val(ui.values[1]);
 			}
 		});
 
@@ -86,10 +86,10 @@ var Frame =
 			range: true,
 			min: 4,
 			max: 20,
-			values: [$('#q_sauna_items_capacity_gt').val(), $('#q_sauna_items_capacity_lt').val()],
+			values: [$('#q_sauna_items_capacity_gteq').val(), $('#q_sauna_items_capacity_lteq').val()],
 			slide: function(event, ui) {
-				$('#q_sauna_items_capacity_gt').val(ui.values[0]);
-				$('#q_sauna_items_capacity_lt').val(ui.values[1]);
+				$('#q_sauna_items_capacity_gteq').val(ui.values[0]);
+				$('#q_sauna_items_capacity_lteq').val(ui.values[1]);
 			}
 		});
 	},

@@ -14,6 +14,8 @@ class SaunasController < ApplicationController
 			h.delete_if {|key, value| key == "sauna_items_has_audio_eq" && value == "0" } #if audio is not important, don't use that criteria
 			h.delete_if {|key, value| key == "sauna_items_has_video_eq" && value == "0" } #if video is not important, don't use that criteria
 			h.delete_if {|key, value| key == "sauna_items_has_bar_eq" && value == "0" } #if bar is not important, don't use that criteria
+			h.delete_if {|key, value| key == "sauna_items_sauna_type_id_eq" && value == "" } #if sauna type is not important, don't use that criteria
+			h.delete_if {|key, value| key == "address_district_id_eq" && value == "" } #if address is not important, don't use that criteria
 		end
 		@q = Sauna.search(h)	
 		

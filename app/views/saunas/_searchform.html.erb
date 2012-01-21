@@ -8,19 +8,19 @@
 					<dd>
 						<div class="slider-box" id="priceSlider">												
 						</div>
-						<%= f.text_field :sauna_items_min_price_gt, :value => '500' %> &ndash;
-						<%= f.text_field :sauna_items_min_price_lt, :value => '2000' %>
+						<%= f.text_field :sauna_items_min_price_gteq, :value => '500' %> &ndash;
+						<%= f.text_field :sauna_items_min_price_lteq, :value => '2000' %>
 					</dd>
 					<dt><%= t :capacity_colon %></dt>
 					<dd>
 						<div id="capacitySlider" class="slider-box">
 						</div>											
-						<%= f.text_field :sauna_items_capacity_gt, :value => '4' %> &ndash;
-						<%= f.text_field :sauna_items_capacity_lt, :value => '20' %>
+						<%= f.text_field :sauna_items_capacity_gteq, :value => '4' %> &ndash;
+						<%= f.text_field :sauna_items_capacity_lteq, :value => '20' %>
 					</dd>
 					<dt class="main-params-type"><%= t :sauna_type_colon %></dt>
 					<dd class="main-params-type">
-						<%= f.collection_select :sauna_items_sauna_type_id_eq, SaunaType.all, :id, :name, :include_blank => false %>										
+						<%= f.collection_select :sauna_items_sauna_type_id_eq, SaunaType.all, :id, :name, :include_blank => true %>										
 					</dd>
 				</dl>
 			</div>

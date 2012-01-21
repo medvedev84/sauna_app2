@@ -20,12 +20,12 @@ $(document).ready(function() {
 	<%= search_form_for @q do |f| %>
 		<div data-role="fieldcontain">
 			<%= f.label t(:capacity) %>            
-			<%= f.hidden_field :sauna_items_capacity_gt %>
+			<%= f.hidden_field :sauna_items_capacity_gteq %>
 			<input type="range" name="slider" id="slider-capacity" value="8" min="4" max="20"  />
 		</div>  
 		<div data-role="fieldcontain">
 			<%= f.label t(:price_to) %>            
-			<%= f.hidden_field :sauna_items_min_price_lt %> 
+			<%= f.hidden_field :sauna_items_min_price_lteq %> 
 			<input type="range" name="slider" id="slider-price" value="1000" min="400" max="3000"  />	
 		</div>	  
 		<div data-role="fieldcontain">    
