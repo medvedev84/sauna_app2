@@ -3,7 +3,12 @@
 		<ul>
 			<li><a href="/">главная</a></li>
 			<li><a href="/about">о проекте</a></li>
-			<li><a href="/contact">контакты</a></li>			
+			<li><a href="/contact">контакты</a></li>	
+			
+			<% if signed_in? && current_user.super_admin? %>
+				<li><a href="/admin/users">список пользователей</a></li>						
+			<% end %>															
+			
 			<% if signed_in? %>
 				<li>
 					<%= link_to t(:sign_out), signout_path, :method => :delete %>

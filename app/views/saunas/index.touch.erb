@@ -21,12 +21,12 @@ $(document).ready(function() {
 		<div data-role="fieldcontain">
 			<%= f.label t(:capacity) %>            
 			<%= f.hidden_field :sauna_items_capacity_gteq %>
-			<input type="range" name="slider" id="slider-capacity" value="8" min="4" max="20"  />
+			<input type="range" name="slider" id="slider-capacity" value="4" min="4" max="20"  />
 		</div>  
 		<div data-role="fieldcontain">
 			<%= f.label t(:price_to) %>            
 			<%= f.hidden_field :sauna_items_min_price_lteq %> 
-			<input type="range" name="slider" id="slider-price" value="1000" min="400" max="3000"  />	
+			<input type="range" name="slider" id="slider-price" value="5000" min="500" max="5000"  />	
 		</div>	  
 		<div data-role="fieldcontain">    
 			<label for="q_address_district_id_eq"><%= t(:address_district_id_eq) %></label>	

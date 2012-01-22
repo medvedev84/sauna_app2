@@ -208,7 +208,7 @@ code { padding: .2em .5em; }
 			}
 			.search-box input {
 				margin: 7px 35px;
-				width:130px;
+				width:200px;
 				padding:  6px 25px;
 				border: 1px solid #3399ff;
 				-moz-border-radius: 5px;
@@ -246,6 +246,10 @@ code { padding: .2em .5em; }
 					padding: 0 8px 0 13px;
 					margin: 0 18px 0 0;
 				}
+		.mobile-ver {
+			float: right;
+			margin: 28px 10px 0 0;
+		}
 
 		.filter-box {
 			clear: both;
@@ -492,7 +496,7 @@ code { padding: .2em .5em; }
 			float:left;
 			border: 1px solid #9c9c9c;
 			border-right: 0;
-			padding: 7px 5px;
+			padding: 7px 15px;
 			text-decoration: none;
 			color:#000;
 			background: #cdcdcd;
@@ -574,7 +578,7 @@ code { padding: .2em .5em; }
 .sauna-detail-description {
 	float: right;
 	width: 310px;
-	padding: 10px 20px 30px 20px;
+	padding: 10px 20px 180px 20px;
 	position: relative;
 	}
 	.sauna-detail-description-tab-content {
@@ -623,6 +627,15 @@ code { padding: .2em .5em; }
 		padding: 0;
 		font-style: italic;
 	}
+	.sauna-detail-description .social-like {
+		position: absolute;
+		padding: 20px 0 0 0;
+		width:310px;
+		overflow: hidden;
+		}
+		.sauna-detail-description .social-like li {
+			margin: 5px 0;
+		}
 .photogallery {
 	margin:  20px 0 0 0;
 }
