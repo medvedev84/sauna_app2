@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
             
-gem 'will_paginate'
+#gem 'will_paginate'
 gem 'heroku'
 gem 'ransack'
 gem 'jquery-rails'
@@ -19,9 +19,9 @@ end
 
 group :production do
   gem 'pg'
-#  gem 'execjs'
-#  gem 'therubyracer'
-#  gem 'aws-sdk' 
+  gem 'execjs'
+  gem 'therubyracer'
+  gem 'aws-sdk' 
 end
 
 group :development, :test do
