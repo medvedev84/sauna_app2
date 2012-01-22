@@ -7,9 +7,7 @@ gem 'heroku'
 gem 'ransack'
 gem 'jquery-rails'
 gem "paperclip"
-#gem "paperclip", "~> 2.4"
 gem "aws-s3", :require => "aws/s3"
-gem 'aws-sdk' #comment it on development
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,8 +19,9 @@ end
 
 group :production do
   gem 'pg'
-  gem 'execjs'
-  gem 'therubyracer'
+#  gem 'execjs'
+#  gem 'therubyracer'
+#  gem 'aws-sdk' 
 end
 
 group :development, :test do

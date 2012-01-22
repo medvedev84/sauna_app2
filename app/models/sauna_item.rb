@@ -6,7 +6,7 @@ class SaunaItem < ActiveRecord::Base
   validates :name,  :presence => true,
                     :length   => { :maximum => 50 }
    
-  validates_exclusion_of :capacity, :in => 4..20, :message => :capacity_range
+  
   validates_numericality_of :capacity, :only_integer => true, :message => :must_be_integer  
   validates_numericality_of :min_price, :only_integer => true, :message => :must_be_integer
   validates_numericality_of :min_duration, :only_integer => true, :message => :must_be_integer
