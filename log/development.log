@@ -75218,3 +75218,661 @@ Rendered C:/RailsInstaller/Ruby1.9.2/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/l
 
 Started GET "/assets/expanded.png" for 127.0.0.1 at 2012-01-22 13:42:39 +0100
 Served asset /expanded.png - 304 Not Modified (0ms)
+
+
+Started GET "/admin/saunas/13/edit" for 127.0.0.1 at 2012-01-22 13:54:24 +0100
+  Processing by Admin::SaunasController#edit as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSauna Load (1.0ms)[0m  [1mSELECT "saunas".* FROM "saunas" WHERE "saunas"."id" = ? LIMIT 1[0m  [["id", "13"]]
+  [1m[35mAddress Load (1.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 13 LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered shared/_navigation.html.erb (1.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+  [1m[35mCity Load (0.0ms)[0m  SELECT "cities".* FROM "cities" 
+  [1m[36mDistrict Load (1.0ms)[0m  [1mSELECT "districts".* FROM "districts" [0m
+  [1m[35mSaunaPhoto Load (0.0ms)[0m  SELECT "sauna_photos".* FROM "sauna_photos" WHERE "sauna_photos"."sauna_id" = 13
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered admin/saunas/_form.html.erb (444.0ms)
+Rendered admin/sauna_photos/_sauna_photo.html.erb (0.0ms)
+Rendered admin/saunas/_gallery.html.erb (8.0ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 13[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 13
+  [1m[36mSaunaItem Load (0.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 13[0m
+Rendered admin/sauna_items/_sauna_item.html.erb (85.0ms)
+Rendered admin/saunas/_sauna_items.erb (385.0ms)
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 13
+Rendered admin/saunas/edit.html.erb within layouts/application (908.1ms)
+Rendered layouts/_javascripts.html.erb (10.0ms)
+Rendered layouts/_stylesheets.html.erb (2.0ms)
+Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 1199ms (Views: 985.1ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-22 13:54:26 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-22 13:54:26 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-22 13:54:26 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-22 13:54:26 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-22 13:54:26 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-22 13:54:26 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-22 13:54:26 +0100
+Served asset /page.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-01-22 13:54:26 +0100
+Served asset /script.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-01-22 13:54:26 +0100
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-22 13:54:26 +0100
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2012-01-22 13:54:26 +0100
+Served asset /main.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/galleriffic.css?body=1" for 127.0.0.1 at 2012-01-22 13:54:26 +0100
+Served asset /galleriffic.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.jpg" for 127.0.0.1 at 2012-01-22 13:54:26 +0100
+Served asset /banner.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/main_bg.jpg" for 127.0.0.1 at 2012-01-22 13:54:27 +0100
+Served asset /main_bg.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bottom_img.png" for 127.0.0.1 at 2012-01-22 13:54:27 +0100
+Served asset /bottom_img.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expanded.png" for 127.0.0.1 at 2012-01-22 13:54:27 +0100
+Served asset /expanded.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/loader.gif" for 127.0.0.1 at 2012-01-22 13:54:27 +0100
+Served asset /loader.gif - 404 Not Found (15ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/loader.gif"):
+  
+
+Rendered C:/RailsInstaller/Ruby1.9.2/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.0ms)
+
+
+Started GET "/admin/saunas/13/edit" for 127.0.0.1 at 2012-01-22 13:55:49 +0100
+  Processing by Admin::SaunasController#edit as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mSauna Load (1.0ms)[0m  SELECT "saunas".* FROM "saunas" WHERE "saunas"."id" = ? LIMIT 1  [["id", "13"]]
+  [1m[36mAddress Load (1.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 13 LIMIT 1[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered shared/_navigation.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (1.0ms)
+  [1m[36mCity Load (0.0ms)[0m  [1mSELECT "cities".* FROM "cities" [0m
+  [1m[35mDistrict Load (0.0ms)[0m  SELECT "districts".* FROM "districts" 
+  [1m[36mSaunaPhoto Load (1.0ms)[0m  [1mSELECT "sauna_photos".* FROM "sauna_photos" WHERE "sauna_photos"."sauna_id" = 13[0m
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered admin/saunas/_form.html.erb (501.0ms)
+Rendered admin/sauna_photos/_sauna_photo.html.erb (0.0ms)
+Rendered admin/saunas/_gallery.html.erb (10.0ms)
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 13
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 13[0m
+  [1m[35mSaunaItem Load (0.0ms)[0m  SELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 13
+Rendered admin/sauna_items/_sauna_item.html.erb (85.0ms)
+Rendered admin/saunas/_sauna_items.erb (205.0ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 13[0m
+Rendered admin/saunas/edit.html.erb within layouts/application (791.0ms)
+Rendered layouts/_javascripts.html.erb (12.0ms)
+Rendered layouts/_stylesheets.html.erb (2.0ms)
+Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 1163ms (Views: 879.0ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-22 13:55:51 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-22 13:55:51 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-22 13:55:51 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-22 13:55:51 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-22 13:55:51 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-22 13:55:51 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-22 13:55:51 +0100
+Served asset /page.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-01-22 13:55:51 +0100
+Served asset /script.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-01-22 13:55:51 +0100
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-22 13:55:51 +0100
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2012-01-22 13:55:51 +0100
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/galleriffic.css?body=1" for 127.0.0.1 at 2012-01-22 13:55:51 +0100
+Served asset /galleriffic.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/banner.jpg" for 127.0.0.1 at 2012-01-22 13:55:51 +0100
+Served asset /banner.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bottom_img.png" for 127.0.0.1 at 2012-01-22 13:55:51 +0100
+Served asset /bottom_img.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expanded.png" for 127.0.0.1 at 2012-01-22 13:55:51 +0100
+Served asset /expanded.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/main_bg.jpg" for 127.0.0.1 at 2012-01-22 13:55:51 +0100
+Served asset /main_bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/loader.gif" for 127.0.0.1 at 2012-01-22 13:55:51 +0100
+Served asset /loader.gif - 404 Not Found (15ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/loader.gif"):
+  
+
+Rendered C:/RailsInstaller/Ruby1.9.2/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/admin/saunas/13/edit" for 127.0.0.1 at 2012-01-22 13:56:15 +0100
+  Processing by Admin::SaunasController#edit as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSauna Load (1.0ms)[0m  [1mSELECT "saunas".* FROM "saunas" WHERE "saunas"."id" = ? LIMIT 1[0m  [["id", "13"]]
+  [1m[35mAddress Load (1.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 13 LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered shared/_navigation.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+  [1m[35mCity Load (1.0ms)[0m  SELECT "cities".* FROM "cities" 
+  [1m[36mDistrict Load (0.0ms)[0m  [1mSELECT "districts".* FROM "districts" [0m
+  [1m[35mSaunaPhoto Load (1.0ms)[0m  SELECT "sauna_photos".* FROM "sauna_photos" WHERE "sauna_photos"."sauna_id" = 13
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered admin/saunas/_form.html.erb (359.0ms)
+Rendered admin/sauna_photos/_sauna_photo.html.erb (1.0ms)
+Rendered admin/saunas/_gallery.html.erb (9.0ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 13[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 13
+  [1m[36mSaunaItem Load (0.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 13[0m
+Rendered admin/sauna_items/_sauna_item.html.erb (34.0ms)
+Rendered admin/saunas/_sauna_items.erb (105.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 13
+Rendered admin/saunas/edit.html.erb within layouts/application (594.0ms)
+Rendered layouts/_javascripts.html.erb (9.0ms)
+Rendered layouts/_stylesheets.html.erb (1.0ms)
+Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 930ms (Views: 658.0ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:16 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:16 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:16 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:16 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:16 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:16 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:16 +0100
+Served asset /page.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:16 +0100
+Served asset /script.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:16 +0100
+Served asset /sessions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2012-01-22 13:56:16 +0100
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:17 +0100
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/galleriffic.css?body=1" for 127.0.0.1 at 2012-01-22 13:56:17 +0100
+Served asset /galleriffic.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.jpg" for 127.0.0.1 at 2012-01-22 13:56:17 +0100
+Served asset /banner.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bottom_img.png" for 127.0.0.1 at 2012-01-22 13:56:17 +0100
+Served asset /bottom_img.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/loader.gif" for 127.0.0.1 at 2012-01-22 13:56:17 +0100
+Served asset /loader.gif - 404 Not Found (16ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/loader.gif"):
+  
+
+Rendered C:/RailsInstaller/Ruby1.9.2/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.0ms)
+
+
+Started GET "/assets/expanded.png" for 127.0.0.1 at 2012-01-22 13:56:17 +0100
+Served asset /expanded.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main_bg.jpg" for 127.0.0.1 at 2012-01-22 13:56:17 +0100
+Served asset /main_bg.jpg - 304 Not Modified (0ms)
+
+
+Started PUT "/admin/saunas/13" for 127.0.0.1 at 2012-01-22 13:56:26 +0100
+  Processing by Admin::SaunasController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ugGV3ooB/i1OFs8oceY8RBMqFgvtFZEl10B4pT5uX4U=", "sauna"=>{"user_id"=>"2", "name"=>"Забава", "address"=>{"city_id"=>"1", "district_id"=>"3", "street"=>"Ухтомского", "building"=>"24"}, "phone_number1"=>"476161", "phone_number2"=>"343333", "phone_number3"=>"222332", "sauna_photos_attributes"=>{"0"=>{"description"=>""}, "1"=>{"description"=>""}, "2"=>{"description"=>""}, "3"=>{"description"=>""}, "4"=>{"description"=>""}}}, "commit"=>"Сохранить", "id"=>"13"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mSauna Load (1.0ms)[0m  SELECT "saunas".* FROM "saunas" WHERE "saunas"."id" = ? LIMIT 1  [["id", "13"]]
+  [1m[36mAddress Load (1.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 13 LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: user_id, address, sauna_photos_attributes
+  [1m[35m (2.0ms)[0m  UPDATE "saunas" SET "phone_number2" = '343333', "phone_number3" = '222332', "updated_at" = '2012-01-22 12:56:26.982292' WHERE "saunas"."id" = 13
+Redirected to http://localhost:3000/admin/saunas/13/edit
+Completed 302 Found in 312ms
+
+
+Started GET "/admin/saunas/13/edit" for 127.0.0.1 at 2012-01-22 13:56:27 +0100
+  Processing by Admin::SaunasController#edit as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mSauna Load (1.0ms)[0m  SELECT "saunas".* FROM "saunas" WHERE "saunas"."id" = ? LIMIT 1  [["id", "13"]]
+  [1m[36mAddress Load (1.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 13 LIMIT 1[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered shared/_navigation.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+  [1m[36mCity Load (1.0ms)[0m  [1mSELECT "cities".* FROM "cities" [0m
+  [1m[35mDistrict Load (1.0ms)[0m  SELECT "districts".* FROM "districts" 
+  [1m[36mSaunaPhoto Load (1.0ms)[0m  [1mSELECT "sauna_photos".* FROM "sauna_photos" WHERE "sauna_photos"."sauna_id" = 13[0m
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered admin/saunas/_form.html.erb (163.0ms)
+Rendered admin/sauna_photos/_sauna_photo.html.erb (0.0ms)
+Rendered admin/saunas/_gallery.html.erb (9.0ms)
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 13
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 13[0m
+  [1m[35mSaunaItem Load (1.0ms)[0m  SELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 13
+Rendered admin/sauna_items/_sauna_item.html.erb (32.0ms)
+Rendered admin/saunas/_sauna_items.erb (101.0ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 13[0m
+Rendered admin/saunas/edit.html.erb within layouts/application (398.0ms)
+Rendered layouts/_javascripts.html.erb (10.0ms)
+Rendered layouts/_stylesheets.html.erb (2.0ms)
+Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 739ms (Views: 462.0ms | ActiveRecord: 19.0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:28 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:28 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:28 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:28 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:28 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:28 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:28 +0100
+Served asset /page.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:28 +0100
+Served asset /script.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:28 +0100
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:28 +0100
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2012-01-22 13:56:28 +0100
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/galleriffic.css?body=1" for 127.0.0.1 at 2012-01-22 13:56:28 +0100
+Served asset /galleriffic.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/banner.jpg" for 127.0.0.1 at 2012-01-22 13:56:28 +0100
+Served asset /banner.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/loader.gif" for 127.0.0.1 at 2012-01-22 13:56:28 +0100
+Served asset /loader.gif - 404 Not Found (16ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/loader.gif"):
+  
+
+Rendered C:/RailsInstaller/Ruby1.9.2/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/main_bg.jpg" for 127.0.0.1 at 2012-01-22 13:56:28 +0100
+Served asset /main_bg.jpg - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bottom_img.png" for 127.0.0.1 at 2012-01-22 13:56:28 +0100
+Served asset /bottom_img.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/expanded.png" for 127.0.0.1 at 2012-01-22 13:56:28 +0100
+Served asset /expanded.png - 304 Not Modified (0ms)
+
+
+Started GET "/admin/users/2" for 127.0.0.1 at 2012-01-22 13:56:31 +0100
+  Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "2"]]
+Rendered shared/_navigation.html.erb (0.0ms)
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "saunas" WHERE "saunas"."user_id" = 2
+  [1m[36mSauna Load (1.0ms)[0m  [1mSELECT "saunas".* FROM "saunas" WHERE "saunas"."user_id" = 2[0m
+  [1m[35mAddress Load (1.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 1 LIMIT 1
+Rendered admin/saunas/_sauna.html.erb (119.0ms)
+  [1m[36mAddress Load (1.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 2 LIMIT 1[0m
+Rendered admin/saunas/_sauna.html.erb (6.0ms)
+  [1m[35mAddress Load (1.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 13 LIMIT 1
+Rendered admin/saunas/_sauna.html.erb (5.0ms)
+  [1m[36mAddress Load (1.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 16 LIMIT 1[0m
+Rendered admin/saunas/_sauna.html.erb (5.0ms)
+  [1m[35mAddress Load (1.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 17 LIMIT 1
+Rendered admin/saunas/_sauna.html.erb (4.0ms)
+  [1m[36mAddress Load (0.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 18 LIMIT 1[0m
+Rendered admin/saunas/_sauna.html.erb (4.0ms)
+  [1m[35mAddress Load (1.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 19 LIMIT 1
+Rendered admin/saunas/_sauna.html.erb (5.0ms)
+  [1m[36mAddress Load (1.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 20 LIMIT 1[0m
+Rendered admin/saunas/_sauna.html.erb (5.0ms)
+  [1m[35mAddress Load (1.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 21 LIMIT 1
+Rendered admin/saunas/_sauna.html.erb (5.0ms)
+  [1m[36mAddress Load (0.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 22 LIMIT 1[0m
+Rendered admin/saunas/_sauna.html.erb (4.0ms)
+  [1m[35mAddress Load (1.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 25 LIMIT 1
+Rendered admin/saunas/_sauna.html.erb (5.0ms)
+  [1m[36mAddress Load (1.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 27 LIMIT 1[0m
+Rendered admin/saunas/_sauna.html.erb (5.0ms)
+  [1m[35mAddress Load (1.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 28 LIMIT 1
+Rendered admin/saunas/_sauna.html.erb (5.0ms)
+  [1m[36mAddress Load (1.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 31 LIMIT 1[0m
+Rendered admin/saunas/_sauna.html.erb (5.0ms)
+  [1m[35mAddress Load (1.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 32 LIMIT 1
+Rendered admin/saunas/_sauna.html.erb (4.0ms)
+  [1m[36mAddress Load (0.0ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 58 LIMIT 1[0m
+Rendered admin/saunas/_sauna.html.erb (4.0ms)
+Rendered admin/users/show.html.erb within layouts/application (477.0ms)
+Rendered layouts/_javascripts.html.erb (11.0ms)
+Rendered layouts/_stylesheets.html.erb (2.0ms)
+Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 577ms (Views: 536.0ms | ActiveRecord: 21.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:32 +0100
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:32 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:32 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:32 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:32 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:32 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:32 +0100
+Served asset /page.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:32 +0100
+Served asset /script.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:32 +0100
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:32 +0100
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2012-01-22 13:56:32 +0100
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/galleriffic.css?body=1" for 127.0.0.1 at 2012-01-22 13:56:32 +0100
+Served asset /galleriffic.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/banner.jpg" for 127.0.0.1 at 2012-01-22 13:56:32 +0100
+Served asset /banner.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/result_head_bg.jpg" for 127.0.0.1 at 2012-01-22 13:56:32 +0100
+Served asset /result_head_bg.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/main_bg.jpg" for 127.0.0.1 at 2012-01-22 13:56:32 +0100
+Served asset /main_bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bottom_img.png" for 127.0.0.1 at 2012-01-22 13:56:32 +0100
+Served asset /bottom_img.png - 304 Not Modified (0ms)
+
+
+Started GET "/admin/saunas/13/edit" for 127.0.0.1 at 2012-01-22 13:56:36 +0100
+  Processing by Admin::SaunasController#edit as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSauna Load (1.0ms)[0m  [1mSELECT "saunas".* FROM "saunas" WHERE "saunas"."id" = ? LIMIT 1[0m  [["id", "13"]]
+  [1m[35mAddress Load (0.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."sauna_id" = 13 LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered shared/_navigation.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+  [1m[35mCity Load (1.0ms)[0m  SELECT "cities".* FROM "cities" 
+  [1m[36mDistrict Load (1.0ms)[0m  [1mSELECT "districts".* FROM "districts" [0m
+  [1m[35mSaunaPhoto Load (0.0ms)[0m  SELECT "sauna_photos".* FROM "sauna_photos" WHERE "sauna_photos"."sauna_id" = 13
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered shared/_error_messages.html.erb (0.0ms)
+Rendered admin/saunas/_form.html.erb (161.0ms)
+Rendered admin/sauna_photos/_sauna_photo.html.erb (1.0ms)
+Rendered admin/saunas/_gallery.html.erb (8.0ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 13[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 13
+  [1m[36mSaunaItem Load (1.0ms)[0m  [1mSELECT "sauna_items".* FROM "sauna_items" WHERE "sauna_items"."sauna_id" = 13[0m
+Rendered admin/sauna_items/_sauna_item.html.erb (32.0ms)
+Rendered admin/saunas/_sauna_items.erb (201.0ms)
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "sauna_comments" WHERE "sauna_comments"."sauna_id" = 13
+Rendered admin/saunas/edit.html.erb within layouts/application (438.0ms)
+Rendered layouts/_javascripts.html.erb (10.0ms)
+Rendered layouts/_stylesheets.html.erb (2.0ms)
+Rendered layouts/_footer.html.erb (2.0ms)
+Completed 200 OK in 959ms (Views: 501.0ms | ActiveRecord: 18.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:37 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.6.2.min.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:37 +0100
+Served asset /jquery-1.6.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.opacityrollover.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:37 +0100
+Served asset /jquery.opacityrollover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:37 +0100
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:37 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.galleriffic.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:37 +0100
+Served asset /jquery.galleriffic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/page.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:37 +0100
+Served asset /page.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:37 +0100
+Served asset /script.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:37 +0100
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-22 13:56:37 +0100
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2012-01-22 13:56:37 +0100
+Served asset /main.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/galleriffic.css?body=1" for 127.0.0.1 at 2012-01-22 13:56:37 +0100
+Served asset /galleriffic.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/banner.jpg" for 127.0.0.1 at 2012-01-22 13:56:37 +0100
+Served asset /banner.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bottom_img.png" for 127.0.0.1 at 2012-01-22 13:56:37 +0100
+Served asset /bottom_img.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main_bg.jpg" for 127.0.0.1 at 2012-01-22 13:56:38 +0100
+Served asset /main_bg.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/expanded.png" for 127.0.0.1 at 2012-01-22 13:56:38 +0100
+Served asset /expanded.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/loader.gif" for 127.0.0.1 at 2012-01-22 13:56:38 +0100
+Served asset /loader.gif - 404 Not Found (16ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/loader.gif"):
+  
+
+Rendered C:/RailsInstaller/Ruby1.9.2/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.0ms)

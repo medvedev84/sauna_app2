@@ -1,5 +1,5 @@
 class Sauna < ActiveRecord::Base
-  attr_accessible :name, :phone_number1
+  attr_accessible :name, :phone_number1, :phone_number2, :phone_number3
   
   has_many :sauna_photos,      
            :dependent => :destroy
