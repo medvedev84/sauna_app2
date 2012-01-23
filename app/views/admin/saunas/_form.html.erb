@@ -43,6 +43,11 @@
 		<%= f.text_field :phone_number3 %>			
 	</dd>	
 	
+	<dt><label for="sauna_email"><%= t :email %>:</label></dt>
+	<dd>
+		<%= f.text_field :email %>			
+	</dd>		
+	
 	<%= f.fields_for :sauna_photos do |sf| %>
 		<%= render 'shared/error_messages', :object => sf.object %>	
 		<% if sf.object.new_record? %>
