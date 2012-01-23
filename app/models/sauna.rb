@@ -17,7 +17,7 @@ class Sauna < ActiveRecord::Base
                    :length   => { :maximum => 50 }
 
 	validates :phone_number1, :presence => true,
-                   :length   => { :maximum => 10 }
+                   :length   => { :maximum => 15 }
 
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

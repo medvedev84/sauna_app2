@@ -19,13 +19,11 @@
 		</div>
 	</div>
 	
+	<%= render 'sauna_items' %>	
+	
 	<% unless @sauna.sauna_photos.empty? %>
 		<%= render 'gallery' %>		
 	<% end %>	
-
-
-	<%= render 'sauna_items' %>	
-
 	
 	<% unless @sauna.sauna_comments.empty? %>
 		<%= render 'comments' %>	

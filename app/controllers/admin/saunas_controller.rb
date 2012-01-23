@@ -36,7 +36,7 @@ class Admin::SaunasController < ApplicationController
 				flash[:success] = :sauna_created
 				
 				if current_user.super_admin?
-					redirect_to admin_user_path(@user)
+					redirect_to edit_admin_sauna_path(@sauna)
 				else
 					redirect_to admin_saunas_path
 				end

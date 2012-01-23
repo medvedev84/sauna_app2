@@ -1,3 +1,29 @@
+<!-- Скрипты для лайков -->
+	<div id="fb-root"></div>
+	<script>
+		(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1&appId=205779572850662";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+
+	<script type="text/javascript">
+		window.onload = function () {
+		 VK.init({apiId: 2767504, onlyWidgets: true});
+		 VK.Widgets.Like('vk_like', {width: 100, pageTitle: '', pageDescription: ''}, 0);
+		}
+	</script>
+
+	<script type="text/javascript" src="https://apis.google.com/js/plusone.js">{lang: 'ru'}</script>
+
+	<script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
+
+	<script src="http://platform.twitter.com/widgets.js"></script>
+<!-- Конец скриптов для лайков -->
+
 <div class="detail-page">	
 	<%= render 'shared/navigation', :left_link => root_path, :left_label => t(:home), :right_label => @sauna.name %>		
 	<%= render 'shared/mobile' %>	
