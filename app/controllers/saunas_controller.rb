@@ -17,13 +17,14 @@ class SaunasController < ApplicationController
 			h.delete_if {|key, value| key == "sauna_items_sauna_type_id_eq" && value == "" } #if sauna type is not important, don't use that criteria
 			h.delete_if {|key, value| key == "address_district_id_eq" && value == "" } #if address is not important, don't use that criteria
 		end
-		@q = Sauna.search(h)	
 		
+		@q = Sauna.search(h)	
+				
 		@saunas = @q.result(:distinct => true)	
 		if (mobile_device? || touch_device? ) && h != nil 	
 			render 'search'
 		else	
 			render 'index'		
-		end	
+		end			
 	end
 end
