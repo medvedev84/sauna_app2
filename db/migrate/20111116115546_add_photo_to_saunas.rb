@@ -1,5 +1,5 @@
-class AddPhotoToSaunas < ActiveRecord::Migration
+class AddEmailToSaunas < ActiveRecord::Migration
   def change
-    add_column :saunas, :photo_file_name, :string
+    add_column :saunas, :email, :string
   end
 end
