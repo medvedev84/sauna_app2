@@ -4,7 +4,7 @@ class SaunasController < ApplicationController
 		@sauna_items =  @sauna.sauna_items
 		@sauna_comment = SaunaComment.new
 	end
-          
+	
 	def index
 		h = params[:q]
 		if h != nil
@@ -16,12 +16,14 @@ class SaunasController < ApplicationController
 			h.delete_if {|key, value| key == "sauna_items_has_bar_eq" && value == "0" } #if bar is not important, don't use that criteria
 			h.delete_if {|key, value| key == "sauna_items_sauna_type_id_eq" && value == "" } #if sauna type is not important, don't use that criteria
 			h.delete_if {|key, value| key == "address_district_id_eq" && value == "" } #if address is not important, don't use that criteria
+			@q = Sauna.search(h)					
+			@saunas = @q.result(:distinct => true)				
+		else		
+			@q = Sauna.search(h)					
+			@saunas = Array.new # return empty array if visit index page at the first time
 		end
 		
-		@q = Sauna.search(h)	
-				
-		@saunas = @q.result(:distinct => true)	
-		if (mobile_device? || touch_device? ) && h != nil 	
+		if (mobile_device? || touch_device? ) && h != nil 
 			render 'search'
 		else	
 			render 'index'		

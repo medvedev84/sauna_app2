@@ -9,7 +9,7 @@ SaunaApp::Application.routes.draw do
 	match '/contact', :to => 'pages#contact'
 	match '/about',   :to => 'pages#about' 
  	match '/incorrect',   :to => 'pages#incorrect' 
-
+	match '/all', :to => 'pages#all'
  
 	root :to => 'saunas#index'
   

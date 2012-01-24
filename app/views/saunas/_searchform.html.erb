@@ -77,11 +77,4 @@
 	<div class="clearing"></div>					
 <% end %>
 
-<ul class="result-list" id="saunaResultList">
-	<li class="head">
-		<div class="name"><%= t :sauna %></div>
-		<div class="capacity"><%= t :capacity %></div>
-		<div class="price"><%= t :price %></div>
-	</li>
-	<%= render @saunas %>						
-</ul>
+<%= render 'results' %>						

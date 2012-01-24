@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
             
-#gem 'will_paginate'
+gem 'will_paginate'
 gem 'heroku'
 gem 'ransack'
 gem 'jquery-rails'
