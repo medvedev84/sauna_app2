@@ -18,36 +18,6 @@
 		<%= render 'layouts/stylesheets' %>		
 	</head>
 	<body>
-
-	<!-- Script for like. Start. -->
-		<div id="fb-root"></div>
-		<script>
-			(function(d, s, id) {
-
-			  var js, fjs = d.getElementsByTagName(s)[0];
-
-			  if (d.getElementById(id)) return;
-
-			  js = d.createElement(s); js.id = id;
-
-			  js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1&appId=152456158162750";
-
-			  fjs.parentNode.insertBefore(js, fjs);
-
-			}(document, 'script', 'facebook-jssdk'));
-		</script>
-
-		<script type="text/javascript">
-			window.onload = function () {
-			 VK.init({apiId: 2056734, onlyWidgets: true});
-			 VK.Widgets.Like('vk_like', {width: 100, pageTitle: '', pageDescription: ''}, 0);
-			}
-		</script>
-		<script type="text/javascript" src="https://apis.google.com/js/plusone.js">{lang: 'ru'}</script>
-		<script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
-		<script src="http://platform.twitter.com/widgets.js"></script>
-	<!-- Script for like. End. -->
-	
 		<div class="wrapper">
 			<div class="content">
 				<div class="content-left">
@@ -83,6 +53,21 @@
 				script.src = 'http://media.reformal.ru/widgets/v1/reformal.js';
 				document.getElementsByTagName('head')[0].appendChild(script);
 			})();
-		</script>		
+		</script>	
+
+		<!-- Yandex.Metrika counter -->
+		<div style="display:none;"><script type="text/javascript">
+		(function(w, c) {
+			(w[c] = w[c] || []).push(function() {
+				try {
+					w.yaCounter12085759 = new Ya.Metrika({id:12085759, enableAll: true, webvisor:true});
+				}
+				catch(e) { }
+			});
+		})(window, "yandex_metrika_callbacks");
+		</script></div>
+		<script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script>
+		<noscript><div><img src="//mc.yandex.ru/watch/12085759" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+		<!-- /Yandex.Metrika counter -->		
 	</body>
 </html>
