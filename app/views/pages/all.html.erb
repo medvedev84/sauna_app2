@@ -1,6 +1,26 @@
 <div class="main-page">
 	<%= render 'shared/globalsearch' %>	
 	<%= render 'shared/mobile' %>	
+	
+	<%= search_form_for @q, :url => "/all", :html => {:method => :get, :class => "round-box filter-box"} do |f| %>
+		<ul>
+			<li class="expanded _expandedBox filter-section">			
+				<div class="main-params _expanded">
+					<dl>
+						<dt class="main-params-type"><%= t :name %></dt>
+						<dd class="main-params-type">
+							<%= f.text_field :name_cont, :size => 500   %>
+						</dd>
+					</dl>
+				</div>
+				<div class="_closed"></div>
+				<div class="clearing"></div>
+			</li>
+			<%= f.submit " ", :class => "search-button" %>		
+		</ul>	
+		<div class="clearing"></div>			
+	<% end %>
+	
 	<%= render 'saunas/results' %>	
 	<%= will_paginate @saunas %>
 </div>
