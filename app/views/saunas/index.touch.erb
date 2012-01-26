@@ -30,7 +30,7 @@ $(document).ready(function() {
 		</div>	  
 		<div data-role="fieldcontain">    
 			<label for="q_address_district_id_eq"><%= t(:address_district_id_eq) %></label>	
-			<%= f.collection_select :address_district_id_eq, District.all, :id, :name, :include_blank => false %>
+			<%= f.collection_select :address_district_id_eq, District.order("id DESC"), :id, :name, :include_blank => false %>
 		</div>      
 		<div data-role="fieldcontain">    
 			<%= f.check_box :sauna_items_has_kitchen_eq, "class" => "custom" %>

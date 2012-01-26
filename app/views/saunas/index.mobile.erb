@@ -22,7 +22,7 @@
 				<%= t :address_district_id_eq %>
 			</td>
 			<td>
-				<%= f.collection_select :address_district_id_eq, District.all, :id, :name, :include_blank => false %>
+				<%= f.collection_select :address_district_id_eq, District.order("id DESC"), :id, :name, :include_blank => false %>
 			</td>				
 		</tr>
 		<tr>				

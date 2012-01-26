@@ -20,7 +20,7 @@
 					</dd>
 					<dt class="main-params-type"><%= t :sauna_type_colon %></dt>
 					<dd class="main-params-type">
-						<%= f.collection_select :sauna_items_sauna_type_id_eq, SaunaType.all, :id, :name, :include_blank => false %>										
+						<%= f.collection_select :sauna_items_sauna_type_id_eq, SaunaType.order("id DESC"), :id, :name, :include_blank => false %>										
 					</dd>
 				</dl>
 			</div>
@@ -66,7 +66,7 @@
 				<dl>
 					<dt class="township"><%= t :district %></dt>
 					<dd class="township">
-						<%= f.collection_select :address_district_id_eq, District.all, :id, :name, :include_blank => false %>											
+						<%= f.collection_select :address_district_id_eq, District.order("id DESC"), :id, :name, :include_blank => false %>											
 					</dd>
 				</dl>
 			</div>
