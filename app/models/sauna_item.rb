@@ -1,6 +1,8 @@
 class SaunaItem < ActiveRecord::Base
   attr_accessible :name, :description, :sauna_type_id, 
-		:has_kitchen, :has_restroom, :has_billiards, :has_audio, :has_video, :has_bar,
+		:has_kitchen, :has_restroom, :has_billiards, 
+		:has_audio, :has_video, :has_bar,
+		:has_pool, :has_mangal, :has_veniki,
 		:min_price, :capacity, :min_duration
                                                               
   validates :name,  :presence => true,

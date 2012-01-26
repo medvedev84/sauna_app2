@@ -23,6 +23,7 @@
 		<%= f.text_field :min_price %>
 	</dd>		
 	<dt><label for="sauna_item_min_duration"><%= t :min_duration %>:</dt>
+	
 	<dd>
 		<%= f.text_field :min_duration %>
 	</dd>	
@@ -38,6 +39,7 @@
 	<dd>
 		<%= f.check_box :has_billiards %>
 	</dd>	
+	
 	<dt><label for="sauna_item_min_duration"><%= t :has_audio %>:</dt>
 	<dd>
 		<%= f.check_box :has_audio %>
@@ -50,6 +52,20 @@
 	<dd>
 		<%= f.check_box :has_bar %>
 	</dd>	
+	
+	<dt><label for="sauna_item_min_duration"><%= t :has_pool %>:</dt>
+	<dd>
+		<%= f.check_box :has_pool %>
+	</dd>	
+	<dt><label for="sauna_item_min_duration"><%= t :has_mangal %>:</dt>
+	<dd>
+		<%= f.check_box :has_mangal %>
+	</dd>	
+	<dt><label for="sauna_item_min_duration"><%= t :has_veniki %>:</dt>
+	<dd>
+		<%= f.check_box :has_veniki %>
+	</dd>	
+	
 	<dt></dt>
 	<dd>
 		<%= f.submit t :save %>

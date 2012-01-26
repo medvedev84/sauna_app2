@@ -21,16 +21,16 @@ $(document).ready(function() {
 		<div data-role="fieldcontain">
 			<%= f.label t(:capacity) %>            
 			<%= f.hidden_field :sauna_items_capacity_gteq %>
-			<input type="range" name="slider" id="slider-capacity" value="4" min="4" max="20"  />
+			<input type="range" name="slider" id="slider-capacity" value="4" min="4" max="20" step="2" />
 		</div>  
 		<div data-role="fieldcontain">
 			<%= f.label t(:price_to) %>            
 			<%= f.hidden_field :sauna_items_min_price_lteq %> 
-			<input type="range" name="slider" id="slider-price" value="5000" min="500" max="5000"  />	
+			<input type="range" name="slider" id="slider-price" value="2000" min="500" max="2000" step="100" />	
 		</div>	  
 		<div data-role="fieldcontain">    
 			<label for="q_address_district_id_eq"><%= t(:address_district_id_eq) %></label>	
-			<%= f.collection_select :address_district_id_eq, District.all, :id, :name, :include_blank => true %>
+			<%= f.collection_select :address_district_id_eq, District.all, :id, :name, :include_blank => false %>
 		</div>      
 		<div data-role="fieldcontain">    
 			<%= f.check_box :sauna_items_has_kitchen_eq, "class" => "custom" %>

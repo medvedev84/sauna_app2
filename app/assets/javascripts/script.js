@@ -74,7 +74,7 @@ var Frame =
 		$("#priceSlider").slider({
 			range: true,
 			min: 500,
-			max: 5000,
+			max: 2000,
 			values: [$('#q_sauna_items_min_price_gteq').val(), $('#q_sauna_items_min_price_lteq').val()],
 			slide: function(event, ui) {
 				$('#q_sauna_items_min_price_gteq').val(ui.values[0]);
@@ -103,8 +103,12 @@ var Frame =
 			var id = $(this).attr('id');
 			var capacity = parseInt($(this).find('.capacity').text());
 			var price = parseInt($(this).find('.price').text());
+			var name = $(this).find('.s-name').text();
+			var address = $(this).find('.address').text();			
 			saunaList.push({
 				'id': id,
+				'name': name,
+				'address': address,
 				'capacity': capacity,
 				'price': price
 			})
@@ -157,8 +161,9 @@ var Frame =
 			var newListHTML = '<li class="head">' + $('#saunaResultList .head').html() + '</li>';
 
 			for (var i in sortedList)
-			{
-				newListHTML += '<li class="row" id="' + sortedList[i].id + '">' + $('#' + sortedList[i].id).html() + '</li>';
+			{				
+				//newListHTML += '<li class="row" id="' + sortedList[i].id + '">' + $('#' + sortedList[i].id).html() + '</li>';			
+				newListHTML += '<li class="row" id="' + sortedList[i].id + '" ><a href="/saunas/' + sortedList[i].id + '" target="_blank"><div class="name"><span class="s-name">' + sortedList[i].name + '</span><div class="address">' + sortedList[i].address + '</div></div><div class="capacity">'+ sortedList[i].capacity +'</div><div class="price">'+ sortedList[i].price +'.-</div></a></li>';
 			}
 
 			$('#saunaResultList').empty().append(newListHTML);
@@ -167,7 +172,7 @@ var Frame =
 		$('#saunaResultList .head .capacity').live('click', function()
 		{
 			var item = $(this);
-
+					
 			$('#saunaResultList .head .price').removeClass('asc').removeClass('desc')
 
 			if (item.hasClass('desc'))
@@ -197,8 +202,10 @@ var Frame =
 			{
 				item.removeClass('asc').addClass('desc');
 				sortSaunaList(sortByPriceAsc);
-			}
+			}						
 		});
+		
+		$('#saunaResultList .head .price').click();
 	},
 
 	initPhotoGallery: function()

@@ -1,4 +1,4 @@
-<%= search_form_for @q, :html => {:method => :get, :class => "round-box filter-box"} do |f| %>
+<%= search_form_for @q, :remote => true, :html => {:method => :get, :class => "round-box filter-box"} do |f| %>
 	<ul>
 		<li class="expanded _expandedBox filter-section">
 			<h2><%= t :main_parameters %></h2>
@@ -9,7 +9,7 @@
 						<div class="slider-box" id="priceSlider">												
 						</div>
 						<%= f.text_field :sauna_items_min_price_gteq, :value => '500' %> &ndash;
-						<%= f.text_field :sauna_items_min_price_lteq, :value => '5000' %>
+						<%= f.text_field :sauna_items_min_price_lteq, :value => '2000' %>
 					</dd>
 					<dt><%= t :capacity_colon %></dt>
 					<dd>
@@ -20,7 +20,7 @@
 					</dd>
 					<dt class="main-params-type"><%= t :sauna_type_colon %></dt>
 					<dd class="main-params-type">
-						<%= f.collection_select :sauna_items_sauna_type_id_eq, SaunaType.all, :id, :name, :include_blank => true %>										
+						<%= f.collection_select :sauna_items_sauna_type_id_eq, SaunaType.all, :id, :name, :include_blank => false %>										
 					</dd>
 				</dl>
 			</div>
@@ -66,7 +66,7 @@
 				<dl>
 					<dt class="township"><%= t :district %></dt>
 					<dd class="township">
-						<%= f.collection_select :address_district_id_eq, District.all, :id, :name, :include_blank => true %>											
+						<%= f.collection_select :address_district_id_eq, District.all, :id, :name, :include_blank => false %>											
 					</dd>
 				</dl>
 			</div>
@@ -77,4 +77,4 @@
 	<div class="clearing"></div>					
 <% end %>
 
-<%= render 'results' %>						
+					

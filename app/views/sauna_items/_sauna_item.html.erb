@@ -5,18 +5,22 @@
 	</p>					
 	<div class="round-sub-sub-box sauna-inventory">
 		<ul>
-			<li>
-				
+			<li>				
 				<div class="<%= sauna_item.has_kitchen? ? 'checked' : '' %>"><%= t :has_kitchen %></div>
-				<div class="<%= sauna_item.has_bar? ? 'checked' : '' %>"><%= t :has_bar %></div>
+				<div class="<%= sauna_item.has_bar? ? 'checked' : '' %>"><%= t :has_bar %></div>			
+				
+				<div class="<%= sauna_item.has_mangal? ? 'checked' : '' %>"><%= t :has_mangal %></div>
+				
 			</li>
 			<li>
 				<div class="<%= sauna_item.has_restroom? ? 'checked' : '' %>"><%= t :has_restroom %></div>
-				<div class="<%= sauna_item.has_billiards? ? 'checked' : '' %>"><%= t :has_billiards %></div>
+				<div class="<%= sauna_item.has_audio? ? 'checked' : '' %>"><%= t :has_audio %></div>
+				<div class="<%= sauna_item.has_video? ? 'checked' : '' %>"><%= t :has_video %></div>				
 			</li>
 			<li>
-				<div class="<%= sauna_item.has_audio? ? 'checked' : '' %>"><%= t :has_audio %></div>
-				<div class="<%= sauna_item.has_video? ? 'checked' : '' %>"><%= t :has_video %></div>
+				<div class="<%= sauna_item.has_billiards? ? 'checked' : '' %>"><%= t :has_billiards %></div>
+				<div class="<%= sauna_item.has_pool? ? 'checked' : '' %>"><%= t :has_pool %></div>
+				<div class="<%= sauna_item.has_veniki? ? 'checked' : '' %>"><%= t :has_veniki %></div>
 			</li>
 		</ul>
 		<div class="clearing"></div>
@@ -24,8 +28,8 @@
 
 	<dl class="properties">
 		<dt><%= t :sauna_type %>: </dt><dd><%= sauna_item.sauna_type.name %></dd>
-		<dt><%= t :min_price %>: </dt><dd><%= sauna_item.min_price %></dd>
-		<dt><%= t :capacity %>: </dt><dd><%= sauna_item.capacity %></dd>
+		<dt><%= t :min_price %>: </dt><dd><%= sauna_item.min_price %> <%= t :v_rub %></dd>
+		<dt><%= t :capacity %>: </dt><dd><%= sauna_item.capacity %> <%= t :v_chel %></dd>
 	</dl>
 	<div class="clearing"></div>
 </div>
