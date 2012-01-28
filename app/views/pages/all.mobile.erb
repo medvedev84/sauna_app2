@@ -3,7 +3,7 @@
 	<% @saunas.each do |sauna| %>
 	<tr>
 		<td align="left"  class="<%= cycle('even', 'odd') -%>">
-			<%= link_to sauna.name, sauna %>      			
+			<%= link_to sauna.name, sauna %>,  <%=  t :short_phone_number %>:<%= sauna.phone_number1 %>       			
 		</td>
 	</tr>
 	<% end %>

@@ -26,7 +26,7 @@ $(document).ready(function() {
 		<div data-role="fieldcontain">
 			<%= f.label t(:price_to) %>            
 			<%= f.hidden_field :sauna_items_min_price_lteq %> 
-			<input type="range" name="slider" id="slider-price" value="2000" min="500" max="2000" step="100" />	
+			<input type="range" name="slider" id="slider-price" value="2000" min="400" max="2000" step="100" />	
 		</div>	  
 		<div data-role="fieldcontain">    
 			<label for="q_address_district_id_eq"><%= t(:address_district_id_eq) %></label>	
@@ -50,6 +50,15 @@ $(document).ready(function() {
 
 			<%= f.check_box :sauna_items_has_bar_eq, "class" => "custom" %>
 			<label for="q_sauna_items_has_bar_eq"><%= t(:sauna_items_has_bar_eq) %></label>	   
+			
+			<%= f.check_box :sauna_items_has_pool_eq, "class" => "custom" %>
+			<label for="q_sauna_items_has_pool_eq"><%= t(:sauna_items_has_pool_eq) %></label>	   
+
+			<%= f.check_box :sauna_items_has_mangal_eq, "class" => "custom" %>
+			<label for="q_sauna_items_has_mangal_eq"><%= t(:sauna_items_has_mangal_eq) %></label>	   
+
+			<%= f.check_box :sauna_items_has_veniki_eq, "class" => "custom" %>
+			<label for="q_sauna_items_has_veniki_eq"><%= t(:sauna_items_has_veniki_eq) %></label>	   			
 		</div>  
 		<div data-role="fieldcontain">
 			<%= f.submit t :search %>
