@@ -1,6 +1,6 @@
 <div class="round-box search-box">
-	<form action="">
-		<input type="text" name="searchText" value="" placeholder="поиск по сайту" />
-		<input type="submit" class="search-button" value="" />
-	</form>
+	<%= search_form_for @q, :remote => true, :html => {:method => :get, :class => "round-box search-box"} do |f| %>
+		<%= f.text_field :name_cont  %>		
+		<%= f.submit " ", :class => "search-button" %>	
+	<% end %>
 </div>

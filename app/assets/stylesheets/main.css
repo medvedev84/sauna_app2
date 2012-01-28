@@ -306,10 +306,10 @@ code { padding: .2em .5em; }
 					.filter-box select {
 						width: 170px;
 						padding-right:3px;
-					}
+					}						
 					.filter-box .main-params {
 						margin: 10px 0 0 0;
-						}
+						}					
 						.filter-box .closed-box {
 							line-height: 28px;
 							font-style: italic;

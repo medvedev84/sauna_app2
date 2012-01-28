@@ -73,7 +73,7 @@ var Frame =
 	{
 		$("#priceSlider").slider({
 			range: true,
-			min: 500,
+			min: 400,
 			max: 2000,
 			values: [$('#q_sauna_items_min_price_gteq').val(), $('#q_sauna_items_min_price_lteq').val()],
 			slide: function(event, ui) {
@@ -159,14 +159,14 @@ var Frame =
 			var sortedList = saunaList.sort(sortByField);
 
 			var newListHTML = '<li class="head">' + $('#saunaResultList .head').html() + '</li>';
-
+			
 			for (var i in sortedList)
 			{				
 				//newListHTML += '<li class="row" id="' + sortedList[i].id + '">' + $('#' + sortedList[i].id).html() + '</li>';			
 				newListHTML += '<li class="row" id="' + sortedList[i].id + '" ><a href="/saunas/' + sortedList[i].id + '" target="_blank"><div class="name"><span class="s-name">' + sortedList[i].name + '</span><div class="address">' + sortedList[i].address + '</div></div><div class="capacity">'+ sortedList[i].capacity +'</div><div class="price">'+ sortedList[i].price +'.-</div></a></li>';
 			}
 
-			$('#saunaResultList').empty().append(newListHTML);
+			$('#saunaResultList').empty().append(newListHTML);			
 		};
 
 		$('#saunaResultList .head .capacity').live('click', function()

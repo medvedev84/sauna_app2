@@ -15,18 +15,18 @@
 	
 	<div class="contacts">
 		<%= t :phone_number %>:
-		<%  if @sauna.phone_number1 != nil && @sauna.phone_number1 != "" %>
+		<%  if !@sauna.phone_number1.empty? %>
 			<%=  @sauna.phone_number1 %><br />
 		<% end %>	
-		<%  if @sauna.phone_number2 != nil && @sauna.phone_number2 != "" %>
+		<%  if !@sauna.phone_number2.empty? %>
 			<%=  @sauna.phone_number2 %><br />
 		<% end %>	
-		<%  if @sauna.phone_number3 != nil && @sauna.phone_number3 != "" %>
+		<%  if !@sauna.phone_number3.empty? %>
 			<%=  @sauna.phone_number3 %><br />
 		<% end %>			
 		<%= t :address %>: <%= @sauna.address.full_description %><br />
-		<% if @sauna.email != nil && @sauna.email != "" %>
+		<% if !@sauna.email.empty? %>
 			<%= t :email %>: <%= @sauna.email %>
-		<% end %>
+		<% end %>		
 	</div>
 </div>

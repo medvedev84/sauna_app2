@@ -3,12 +3,12 @@
 		<li class="expanded _expandedBox filter-section">
 			<h2><%= t :main_parameters %></h2>
 			<div class="main-params _expanded">
-				<dl>
+				<dl>						
 					<dt><%= t :price_colon %></dt>
 					<dd>
 						<div class="slider-box" id="priceSlider">												
 						</div>
-						<%= f.text_field :sauna_items_min_price_gteq, :value => '500' %> &ndash;
+						<%= f.text_field :sauna_items_min_price_gteq, :value => '400' %> &ndash;
 						<%= f.text_field :sauna_items_min_price_lteq, :value => '2000' %>
 					</dd>
 					<dt><%= t :capacity_colon %></dt>
@@ -17,11 +17,11 @@
 						</div>											
 						<%= f.text_field :sauna_items_capacity_gteq, :value => '4' %> &ndash;
 						<%= f.text_field :sauna_items_capacity_lteq, :value => '20' %>
-					</dd>
+					</dd>					
 					<dt class="main-params-type"><%= t :sauna_type_colon %></dt>
 					<dd class="main-params-type">
 						<%= f.collection_select :sauna_items_sauna_type_id_eq, SaunaType.order("id DESC"), :id, :name, :include_blank => false %>										
-					</dd>
+					</dd>					
 				</dl>
 			</div>
 			<div class="_closed"></div>
