@@ -9,6 +9,7 @@ var Frame =
 		this.initExpandedBoxes();
 		this.initFilter();
 		this.initSaunaSorting();
+		this.initSearchByName();
 
 		//временные действия
 		$('._expandedBox h2').click(function()
@@ -205,8 +206,17 @@ var Frame =
 			}						
 		});
 		
-		$('#saunaResultList .head .price').click();
+		$('#saunaResultList .head .price').click();			
 	},
+	
+	initSearchByName: function()
+	{
+		$('#q_name_cont').val("Поиск сауны по названию");
+		$('#q_name_cont').live('click', function()
+		{
+			$('#q_name_cont').val("");													
+		});		
+	},		
 
 	initPhotoGallery: function()
 	{
