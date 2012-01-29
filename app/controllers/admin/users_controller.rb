@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @saunas = @user.saunas
+    @saunas = @user.saunas.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new
