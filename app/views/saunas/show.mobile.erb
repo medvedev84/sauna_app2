@@ -4,7 +4,17 @@
 		<td>
 			<b><%= @sauna.name %></b><br/>
 			<%= t :address %>: <%= @sauna.address.full_description %><br/>
-			<%= t :phone_number %>: <%= @sauna.phone_number1 %>
+			
+			<%  if !@sauna.phone_number1.empty? %>
+				<a href="tel:<%= @sauna.phone_number1 %>"><%= @sauna.phone_number1 %></a>			
+			<% end %>	
+			<%  if !@sauna.phone_number2.empty? %>
+				,<a href="tel:<%= @sauna.phone_number2 %>"><%= @sauna.phone_number2 %></a>
+			<% end %>	
+			<%  if !@sauna.phone_number3.empty? %>
+				,<a href="tel:<%= @sauna.phone_number3 %>"><%= @sauna.phone_number3 %></a>
+			<% end %>	
+		
 		</td>
 	</tr>	
     <% @sauna.sauna_items.each do |sauna_item| %>
