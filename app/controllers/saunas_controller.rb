@@ -19,19 +19,17 @@ class SaunasController < ApplicationController
 			@q = Sauna.search(h)					
 			@saunas = @q.result(:distinct => true)				
 		else		
-			@q = Sauna.search(h)					
+			@q = Sauna.search(h)								
 			@saunas = Array.new # return empty array if visit index page at the first time
 		end
 		
 		if (mobile_device? || touch_device? ) && h != nil 
 			render 'search'
 		else	
-			# ajax output
 			respond_to do |format|
 				format.html { render 'index' }
 				format.js
 			end		
-			#render 'index'		
 		end			
 	end
 end
