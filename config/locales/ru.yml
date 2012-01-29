@@ -115,8 +115,9 @@ ru:
   sauna_items_has_veniki_eq: "Веники"
   address_district_id_eq: "Район" 
   access_denied: "У вас недостаточно прав для получения доступа к этой области"
-  must_be_integer: "Значение должно быть целым числом"
+  must_be_integer: "Значение должно быть целым числом"  
   capacity_range: "Значение должно быть в диапозоне от 4 до 20"
+  no_results: "По вашему запросу ничего не найдено. Попробуйте задать новые параметры поиска."
   will_paginate:
     previous_label: "<"
     next_label: ">"
