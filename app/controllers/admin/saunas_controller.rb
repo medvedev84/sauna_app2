@@ -8,6 +8,7 @@ class Admin::SaunasController < ApplicationController
 		@address = Address.new
 		@sauna = Sauna.new
 		5.times { @sauna.sauna_photos.build }
+		prepare_form		
 	end
 
 	def create
@@ -54,6 +55,7 @@ class Admin::SaunasController < ApplicationController
 		@address = @sauna.address
 		@user = @sauna.user
 		5.times { @sauna.sauna_photos.build }
+		prepare_form
 	end
   
 	def show
@@ -90,10 +92,10 @@ class Admin::SaunasController < ApplicationController
 		end
 	end
           
-  def index    
-    @saunas = current_user.saunas
-	@user = current_user
-  end
+	def index    
+		@saunas = current_user.saunas
+		@user = current_user
+	end
 
 	def destroy
 		@sauna = Sauna.find(params[:id])
@@ -105,6 +107,22 @@ class Admin::SaunasController < ApplicationController
 		else
 			redirect_to admin_saunas_path
 		end		
+	end
+	
+	def prepare_form
+		@cities = City.all		
+		@cities_for_dropdown = []
+		@cities.each do |city|
+			@cities_for_dropdown = @cities_for_dropdown << [city.name, city.id]
+		end
+
+		@districts = District.all
+		@districts_for_dropdown = []
+		@districts.each do |district|
+			if !district.is_all? 
+				@districts_for_dropdown = @districts_for_dropdown << [district.name, district.id, {:class => district.city.id}]
+			end
+		end	
 	end
 
 	private

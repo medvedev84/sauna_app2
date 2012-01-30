@@ -51,6 +51,7 @@ var Frame =
 		this.initExpandedBoxes();
 		this.initPhotoGallery();
 		this.initDetailLeftMenu();
+		this.initChain();
 	},
 	
 	initExpandedBoxes: function()
@@ -217,6 +218,11 @@ var Frame =
 			$('#q_name_cont').val("");													
 		});		
 	},		
+	
+	initChain: function()
+	{
+		$('#sauna_address_district_id').chainedTo('#sauna_address_city_id');	
+	},			
 
 	initPhotoGallery: function()
 	{

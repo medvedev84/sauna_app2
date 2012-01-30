@@ -9,15 +9,14 @@
 			
 	<%= f.fields_for @address do |af| %>
 		<%= render 'shared/error_messages', :object => af.object %>
-		
 		<dt><label for="sauna_address_city_id"><%= t :city %>:</dt>
 		<dd>
-			<%= af.collection_select :city_id, City.all, :id, :name, :include_blank => false %>
-		</dd>			
+			<%= select("sauna[address]", "city_id", options_for_select(@cities_for_dropdown, @address.city_id), { :include_blank => false }) %>				
+		</dd>					
 		<dt><label for="sauna_address_district_id"><%= t :district %>:</dt>
 		<dd>
-			<%= af.collection_select :district_id, District.all, :id, :name, :include_blank => false %>
-		</dd>			
+			<%= select("sauna[address]", "district_id", options_for_select(@districts_for_dropdown, @address.district_id), { :include_blank => false }) %>			
+		</dd>									
 		<dt><label for="sauna_address_street"><%= t :street %>:</dt>
 		<dd>
 			<%= af.text_field :street %>
