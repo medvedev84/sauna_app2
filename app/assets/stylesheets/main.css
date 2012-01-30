@@ -711,3 +711,7 @@ code { padding: .2em .5em; }
 .notice a {color:#514721;}
 .success a {color:#264409;}
 .info a {color:#205791;}
+
+#vk_groups {
+	padding-top:485px;
+}

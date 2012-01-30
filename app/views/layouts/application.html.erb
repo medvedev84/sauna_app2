@@ -15,18 +15,20 @@
 		
 		<%= csrf_meta_tag %>	
 		<%= render 'layouts/javascripts' %>			
-		<%= render 'layouts/stylesheets' %>		
+		<%= render 'layouts/stylesheets' %>						
 	</head>
 	<body>
 		<div class="wrapper">
 			<div class="content">
-				<div class="content-left">
-<!--
-					<a class="banner" href="#">
-						<%= image_tag("banner.jpg") %>
-					</a>
--->
-&nbsp;
+				<div class="content-left">							
+					<!-- VK Widget -->
+					<div id="vk_groups"></div>
+					<script type="text/javascript">
+						VK.Widgets.Group("vk_groups", {mode: 0, width: "200", height: "300"}, 34545540);
+					</script>			
+					<!-- /VK Widget -->					
+					
+					<!--<a class="banner" href="#"><%= image_tag("banner.jpg") %></a>-->
 				</div>
 				<div class="content-right">					
 					<% flash.each do |key, value| %>
@@ -38,6 +40,9 @@
 			</div>
 			<%= render 'layouts/footer' %>
 		</div>
+				
+		
+		<!-- Reformal script -->
 		<script type="text/javascript">
 			var reformalOptions = {
 				project_id: 53507,
@@ -57,7 +62,8 @@
 				document.getElementsByTagName('head')[0].appendChild(script);
 			})();
 		</script>	
-
+		<!-- /Reformal script -->
+		
 		<!-- Yandex.Metrika counter -->
 		<div style="display:none;"><script type="text/javascript">
 		(function(w, c) {
