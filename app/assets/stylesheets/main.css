@@ -228,6 +228,7 @@ code { padding: .2em .5em; }
 				border: 0;
 				margin: 0;
 				padding: 0;
+				filter:none;
 			}
 		.helper {
 			float: right;
@@ -359,6 +360,7 @@ code { padding: .2em .5em; }
 							height: 35px;
 							border: none;
 							cursor: pointer;
+							filter: none;
 						}
 /*
 450px + 170px + 85px
@@ -375,6 +377,10 @@ code { padding: .2em .5em; }
 				color:#fff;
 				line-height: 39px;
 			}
+			.result-list .head i {
+				text-decoration:none;
+				border-bottom:2px dotted #ffffff; 
+			}				
 			.result-list .head:hover {
 				border: 0;
 				}
@@ -431,7 +437,7 @@ code { padding: .2em .5em; }
 					padding: 23px 70px 0 0;
 					text-align: right;
 					float: left;
-				}
+				}			
 				.result-list .price {
 					width: 55px;
 					padding: 23px 30px 0 0;
@@ -695,7 +701,6 @@ code { padding: .2em .5em; }
 			right: 0;
 			top: -55px;
 		}
-
 		
 .error, .alert, .notice, .success, .info {padding:0.8em;margin-bottom:1em;border:2px solid #ddd;}
 .error, .alert {background:#fbe3e4;color:#8a1f11;border-color:#fbc2c4;}
