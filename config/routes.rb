@@ -10,6 +10,9 @@ SaunaApp::Application.routes.draw do
 	match '/about',   :to => 'pages#about' 
  	match '/incorrect',   :to => 'pages#incorrect' 
 	match '/all', :to => 'pages#all'
+	
+	match '/m', :to => redirect("/?mobile=1")
+	match '/pda', :to => redirect("/?mobile=2")
  
 	root :to => 'saunas#index'
   
