@@ -16,7 +16,9 @@
 				<%= render @saunas %>
 			</ul>
 		<% end %>	
-		<%= will_paginate @saunas %>
+		<div class="digg_pagination">
+			<%= will_paginate @saunas, :container => false %>
+		</div>		
 	</div>
 	
 </div>
