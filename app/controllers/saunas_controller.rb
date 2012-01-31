@@ -1,4 +1,6 @@
 class SaunasController < ApplicationController  
+	include SaunasHelper
+	
 	def show 
 		@sauna = Sauna.find(params[:id])
 		@sauna_items =  @sauna.sauna_items
@@ -6,6 +8,9 @@ class SaunasController < ApplicationController
 	end
 	
 	def index
+		get_all_cities
+		get_all_districts	
+		
 		h = params[:q]
 		if h != nil
 			h.delete_if {|key, value| key == "sauna_items_has_kitchen_eq" && value == "0" } #if kitchen is not important, don't use that criteria
@@ -14,8 +19,20 @@ class SaunasController < ApplicationController
 			h.delete_if {|key, value| key == "sauna_items_has_audio_eq" && value == "0" } #if audio is not important, don't use that criteria
 			h.delete_if {|key, value| key == "sauna_items_has_video_eq" && value == "0" } #if video is not important, don't use that criteria
 			h.delete_if {|key, value| key == "sauna_items_has_bar_eq" && value == "0" } #if bar is not important, don't use that criteria
+			h.delete_if {|key, value| key == "sauna_items_has_pool_eq" && value == "0" } #if pool is not important, don't use that criteria
+			h.delete_if {|key, value| key == "sauna_items_has_mangal_eq" && value == "0" } #if mangal is not important, don't use that criteria
+			h.delete_if {|key, value| key == "sauna_items_has_veniki_eq" && value == "0" } #if veniki is not important, don't use that criteria
+			
 			h.delete_if {|key, value| key == "sauna_items_sauna_type_id_eq" && value == "6" } #if sauna type is not important, don't use that criteria
-			h.delete_if {|key, value| key == "address_district_id_eq" && value == "7" } #if address is not important, don't use that criteria
+			
+			#if district is not important, don't use that criteria	
+			if h.has_key?("address_district_id_eq")
+				@district =  District.find(h["address_district_id_eq"]) 									
+				if @district.is_all?
+					h.delete_if {|key, value| key == "address_district_id_eq" } 
+				end						
+			end
+						
 			@q = Sauna.search(h)					
 			@saunas = @q.result(:distinct => true)				
 		else		

@@ -2,13 +2,16 @@ class Admin::SaunasController < ApplicationController
 	before_filter :authenticate, :only => [:new, :edit, :update, :destroy]
 	before_filter :correct_user, :only => [:edit, :update, :destroy]
 	#before_filter :admin_user, :only => :new
-
+	
+	include SaunasHelper
+	
 	def new                             
 		@user = User.find(params[:user_id])
 		@address = Address.new
 		@sauna = Sauna.new
 		5.times { @sauna.sauna_photos.build }
-		prepare_form		
+		get_all_cities
+		get_districts_for_edit_form	
 	end
 
 	def create
@@ -55,7 +58,8 @@ class Admin::SaunasController < ApplicationController
 		@address = @sauna.address
 		@user = @sauna.user
 		5.times { @sauna.sauna_photos.build }
-		prepare_form
+		get_all_cities
+		get_districts_for_edit_form	
 	end
   
 	def show
@@ -107,22 +111,6 @@ class Admin::SaunasController < ApplicationController
 		else
 			redirect_to admin_saunas_path
 		end		
-	end
-	
-	def prepare_form
-		@cities = City.all		
-		@cities_for_dropdown = []
-		@cities.each do |city|
-			@cities_for_dropdown = @cities_for_dropdown << [city.name, city.id]
-		end
-
-		@districts = District.all
-		@districts_for_dropdown = []
-		@districts.each do |district|
-			if !district.is_all? 
-				@districts_for_dropdown = @districts_for_dropdown << [district.name, district.id, {:class => district.city.id}]
-			end
-		end	
 	end
 
 	private

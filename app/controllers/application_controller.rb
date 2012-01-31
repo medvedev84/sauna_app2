@@ -32,6 +32,5 @@ class ApplicationController < ActionController::Base
 		elsif mobile_device?
 			request.format = :mobile 
 		end		
-		#request.format = :mobile if mobile_device?
 	end
 end

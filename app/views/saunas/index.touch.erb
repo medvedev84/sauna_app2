@@ -29,8 +29,12 @@ $(document).ready(function() {
 			<input type="range" name="slider" id="slider-price" value="2000" min="400" max="2000" step="100" />	
 		</div>	  
 		<div data-role="fieldcontain">    
+			<label for="q_address_city_id_eq"><%= t(:city) %></label>	
+			<%= select("q", "address_city_id_eq", options_for_select(@cities_for_dropdown), { :include_blank => false }) %>			
+		</div>  		
+		<div data-role="fieldcontain">    
 			<label for="q_address_district_id_eq"><%= t(:address_district_id_eq) %></label>	
-			<%= f.collection_select :address_district_id_eq, District.where("city_id = 1").order("id DESC"), :id, :name, :include_blank => false %>
+			<%= select("q", "address_district_id_eq", options_for_select(@districts_for_dropdown), { :include_blank => false }) %>			
 		</div>      
 		<div data-role="fieldcontain">    
 			<%= f.check_box :sauna_items_has_kitchen_eq, "class" => "custom" %>
@@ -65,4 +69,6 @@ $(document).ready(function() {
 		</div>
 	<% end %>
 </div>
-	
+<script type="text/javascript">
+	$('#q_address_district_id_eq').chainedTo('#q_address_city_id_eq');		
+</script>		

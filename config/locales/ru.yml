@@ -43,6 +43,7 @@ ru:
   address: "Адрес"
   city: "Город"  
   district: "Район"
+  city_colon: "город:"
   district_colon: "район:"
   street: "Улица"
   building: "Дом"

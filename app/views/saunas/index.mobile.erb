@@ -20,12 +20,12 @@
 		</tr>
 		<tr>				
 			<td >
-				<%= t :address_district_id_eq %>
+				<%= t :city %>
 			</td>
 			<td>
-				<%= f.collection_select :address_district_id_eq, District.where("city_id = 1").order("id DESC"), :id, :name, :include_blank => false %>
+				<%= f.collection_select :address_city_id_eq, City.all, :id, :name, :include_blank => false %>
 			</td>				
-		</tr>
+		</tr>		
 		<tr>				
 			<td >
 				<%= t :sauna_items_has_kitchen_eq %>
