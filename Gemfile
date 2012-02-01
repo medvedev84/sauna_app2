@@ -19,9 +19,9 @@ end
 
 group :production do
   gem 'pg'
-#  gem 'execjs'
-#  gem 'therubyracer'
-#  gem 'aws-sdk' 
+  gem 'execjs'
+  gem 'therubyracer'
+  gem 'aws-sdk' 
 end
 
 group :development, :test do
