@@ -9,7 +9,7 @@ class Notifier < ActionMailer::Base
 		
 	def update_user_email(user)
 		@user = user
-		mail( :to => user.email, :subject => "Your registration has been updated succesfully")
+		mail( :to => user.email, :subject => "Your registration data has been updated succesfully")
 	end		
 	
 	# send a signup email to the user, pass in the user object that contains the user’s email address
