@@ -1,12 +1,17 @@
 <div class="main-page">
+
+
 	<% if current_user.super_admin? %>   
 		<%= render 'shared/navigation', :left_link => admin_users_path, :left_label => t(:users_list), :right_label => @user.name %>		
 	<% end %>
 	
-	<%= link_to t(:add), new_admin_sauna_path(:user_id => @user.id) %>   
+	<div class="mobile-ver">			
+		<%= link_to t(:add_new_sauna), new_admin_sauna_path(:user_id => @user.id) %>   
+	</div>	
 	
-	<div>		
-		<h1><%= t :saunas_list %></h1>
+	
+	<div class="admin-content">	
+		<h1><%= t :saunas_list_of_user %><%= @user.name %></h1>			
 		<% unless @saunas.empty? %>
 			<ul class="result-list">	
 				<li class="head">

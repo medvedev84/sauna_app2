@@ -30,6 +30,7 @@ ru:
   sauna_items_section: "Сауны и бани"
   users_list: "Список пользователей"
   saunas_list: "Список саун"
+  saunas_list_of_user: "Список саун пользователя "
   search_results: "Результаты поиска"  
   main_parameters: "Основные параметры:"
   additional_parameters: "Дополнительные опции:"
@@ -119,6 +120,7 @@ ru:
   must_be_integer: "Значение должно быть целым числом"  
   capacity_range: "Значение должно быть в диапозоне от 4 до 20"
   no_results: "По вашему запросу ничего не найдено. Попробуйте задать новые параметры поиска."
+  add_new_sauna: "Добавить новый банный комплекс"
   will_paginate:
     previous_label: "<"
     next_label: ">"
