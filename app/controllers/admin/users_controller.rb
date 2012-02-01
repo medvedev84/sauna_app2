@@ -13,18 +13,9 @@ class Admin::UsersController < ApplicationController
 
 	def create
 		@user = User.new(params[:user])
-		if @user.save
-			# Deliver the signup_email
-			Notifier.signup_email(@user).deliver
-			
-			# Show success message
-			flash[:success] = :user_created
-			
-			# redirect to list of user
-			redirect_to admin_users_path
-		else
-			render 'new'
-		end
+		Notifier.welcome_email(@user).deliver
+		flash[:success] = :user_created
+		redirect_to admin_users_path
 	end
 
 	def index 

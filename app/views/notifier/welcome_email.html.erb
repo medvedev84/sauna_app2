@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Добро пожаловать на go-to-sauna.ru, <%= @user.name %></h1>
+    <p>
+		Вы успешно зарегистрировались в нашей системе, 
+		ваш логин: <%= @user.name %>,<br/>
+		ваш пароль: <%= @user.password %>.<br/>
+    </p>
+    <p>
+      Для входа на сайт перейдите по ссылке: http://go-to-sauna/signin
+    </p>    
+  </body>
+</html>
