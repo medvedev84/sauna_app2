@@ -4,6 +4,9 @@
 		<meta charset="UTF-8">
 		<meta name="Document-state" content="Static" />
 		<meta name="URL" content="absolute_url" />
+		<meta name="description" content="Сауны Ижевска, турецкие хамамы, русские бани на дровах, поиск по цене, по адресу, по типу, по вместимости -  
+		для больших и маленьких компаний - все сауны в Ижевске в одном месте" />
+		<meta name="keywords" content="сауна, бани, сауны Ижевска, сауна в Ижевске, бани сауны, бани Ижевска, сауна на двоих, турецкие бани, русская баня, баня на дровах, инфракрасная сауна, сауны Сарапула, сауны в Сарапуле, сауны Воткинска, сауны в Воткинске, сауны Глазова, сауны в Глазове, сауны в Можге, сауны Можги" />		
 		<meta name="Distribution" content="global" />
 		<meta name="Resource-type" content="document" />
 		<meta name="robots" content="all" />
@@ -11,7 +14,7 @@
 		<meta name="google-site-verification" content="q7mDR-c-V4nPNwEk4X5Vf1XqV9B3epiajBa8L7gZ6ZM" />
 		<meta name='yandex-verification' content='6ca27b58987c713c' />
 
-		<title><%= t :title %></title>
+		<title>Сауны Ижевска, русские, японские и турецкие бани — цены в Ижевске</title>
 		
 		<%= csrf_meta_tag %>	
 		<%= render 'layouts/javascripts' %>			
@@ -30,7 +33,24 @@
 					
 					<!--<a class="banner" href="#"><%= image_tag("banner.jpg") %></a>-->
 				</div>
-				<div class="content-right">					
+				<div class="content-right">												
+					<% if !second_time? %>
+						<div class="welcome">	
+							<div class="close-button">x</div>					
+							<div class="welcome-content">
+							<p>Наш портал - это место, где Вы быстро и легко найдете всю информацию о саунах и банях в Ижевске. Задайте параметры, которые наиболее важны для вас при выборе сауны - цена за час, вместимость, 
+							набор доп. услуг или местоположение, и 
+							наша система найдет для вас подходящие сауны. Или же посмотрите <a href="/all">все сауны</a>, которые имеются в нашем каталоге. 
+							Вы можете узнать цены и адрес, посмотреть фото, прочитать отзывы других посетителей и оставить свой.</p>
+							<p>
+							Но и это ещё не всё. Вы отдыхаете компанией и вдруг появляется идея поехать в сауну, а под рукой нет ни справочников, ни компьютера. Знакомая ситуация? Нам она знакома,
+							именно поэтому мы создали мобильные версии сайта - <a href="/m">для обычных телефонов</a> и для <a hred="/pda">для смартфонов</a>. 
+							Ищете сауну в любое время и в любом месте!
+							</p>
+							</div>
+						</div>						
+					<% end %>	
+					
 					<% flash.each do |key, value| %>
 						<div class="flash <%= key %>"><%= t(value) %></div>
 					<% end %>
@@ -41,6 +61,12 @@
 			<%= render 'layouts/footer' %>
 		</div>
 				
+		<script type="text/javascript">
+			$('.close-button').click(function() {
+				$.get('/?second=1');
+				$('.welcome').hide();				
+			});
+		</script>
 		
 		<!-- Reformal script -->
 		<script type="text/javascript">

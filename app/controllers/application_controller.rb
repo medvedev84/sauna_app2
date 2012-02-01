@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   before_filter :prepare_for_mobile
+  before_filter :prepare_for_second_time_visit
 
   include SessionsHelper
   
@@ -33,4 +34,16 @@ class ApplicationController < ActionController::Base
 			request.format = :mobile 
 		end		
 	end
+	
+	def second_time?
+		if session[:second]
+			session[:second] == "1"
+		end
+	end	
+	helper_method :second_time?
+	
+	def prepare_for_second_time_visit
+		session[:second] = params[:second] if params[:second]	
+	end	
+	
 end
