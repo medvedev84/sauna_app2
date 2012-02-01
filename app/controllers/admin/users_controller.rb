@@ -13,9 +13,18 @@ class Admin::UsersController < ApplicationController
 
 	def create
 		@user = User.new(params[:user])
-		Notifier.welcome_email(@user).deliver
-		flash[:success] = :user_created
-		redirect_to admin_users_path
+		if @user.save
+			# Deliver the signup_email
+			Notifier.welcome_email(@user).deliver
+			
+			# Show success message
+			flash[:success] = :user_created
+			
+			# redirect to list of user
+			redirect_to admin_users_path
+		else
+			render 'new'
+		end			
 	end
 
 	def index 
@@ -29,6 +38,7 @@ class Admin::UsersController < ApplicationController
 	def update
 		@user = User.find(params[:id])
 		if @user.update_attributes(params[:user])
+			Notifier.update_user_email(@user).deliver		
 			flash[:success] = :profile_updated 
 			redirect_to admin_users_path
 		else
