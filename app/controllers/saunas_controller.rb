@@ -2,9 +2,18 @@ class SaunasController < ApplicationController
 	include SaunasHelper
 	
 	def show 
-		@sauna = Sauna.find(params[:id])
-		@sauna_items =  @sauna.sauna_items
-		@sauna_comment = SaunaComment.new
+		str_id = params[:id]
+		
+		if str_id.nonnegative_integer?
+			@sauna = Sauna.find(str_id)	
+		else 
+			@sauna = Sauna.where("alias = ?", str_id).first		#find by alias
+		end
+		
+		if @sauna != nil 
+			@sauna_items =  @sauna.sauna_items
+			@sauna_comment = SaunaComment.new
+		end
 	end
 	
 	def index

@@ -37,6 +37,7 @@ ru:
   place_parameters: "Местоположение:"
   sauna: "Сауна"
   name: "Название"
+  alias: "Псевдоним"
   phone_number: "Телефон"
   short_phone_number: "тел."
   description: "Описание"

@@ -109,7 +109,7 @@ var Frame =
 			var address = $(this).find('.address').text();			
 			saunaList.push({
 				'id': id,
-				'name': name,
+				'name': name,			
 				'address': address,
 				'capacity': capacity,
 				'price': price

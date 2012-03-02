@@ -6,6 +6,11 @@
 	<dd>
 		<%= f.text_field :name %>
 	</dd>
+	
+	<dt><label for="sauna_alias"><%= t :alias %>:</dt>
+	<dd>
+		<%= f.text_field :alias %>
+	</dd>	
 			
 	<%= f.fields_for @address do |af| %>
 		<%= render 'shared/error_messages', :object => af.object %>
