@@ -193,7 +193,7 @@ code { padding: .2em .5em; }
 		}
 		.content-left .banner {
 			display:block;
-			margin:  473px 0 30px 56px;
+			margin:  30px 0 30px 0;
 		}
 	.content-right {
 		width: 705px;
