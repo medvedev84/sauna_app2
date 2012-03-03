@@ -2,6 +2,7 @@ SaunaApp::Application.routes.draw do
 	resources :saunas
 	resources :sauna_items
 	resources :sauna_comments
+	resources :bookings
 
 	match '/signout', :to => 'admin/sessions#destroy'
 	match '/signin',  :to => 'admin/sessions#new'

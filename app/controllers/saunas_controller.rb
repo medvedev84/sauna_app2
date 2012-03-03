@@ -13,6 +13,7 @@ class SaunasController < ApplicationController
 		if @sauna != nil 
 			@sauna_items =  @sauna.sauna_items
 			@sauna_comment = SaunaComment.new
+			@booking = Booking.new
 		end
 	end
 	

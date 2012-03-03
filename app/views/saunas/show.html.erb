@@ -12,10 +12,14 @@
 				<%= render sauna_item %>					
 			<% end %>	
 
-			<%= render 'shared/social' %>
+			<%-#= render 'shared/social' %>
+				
+			<br/>
+			<input name="commit" type="submit" value="<%= t :book %>" onclick="showCalendarPopup('#dialog-calendar')">				
+					
 		</div>
 				
-		<%= render 'map' %>		
+		<%-#= render 'map' %>		
 		<div class="clearing"></div>
 	</div>		
 	
@@ -25,6 +29,41 @@
 	
 	<%= render 'comments' %>		
 </div>	
+
+<div id="boxes"> 
+    	    
+	<!-- Start of calendar from -->
+	<div id="dialog-calendar" class="window">
+		<div id='calendar'>
+		</div>	
+		<br/>
+		<input name="commit" type="submit" value="<%= t :next %>" onclick="showContactFormPopup('#dialog-contact')">				
+	</div>		
+	<!-- End of calendar from -->
+
+	<!-- Start of contact from -->
+	<div id="dialog-contact" class="window">
+		<%= render 'bookings/form' %>	
+	</div>
+	<!-- End of contact from -->
+	
+	<!-- Start of select payment from -->
+	<div id="dialog-select-payment" class="window">
+		Заявка на бронирование была отправлена на рассмотрение владельцу. Для внесения предоплаты, необходимо связаться с владельцем, либо оплатить с помощью QIWI-кошелька.
+		<br/>
+		<input name="commit" type="submit" value="<%= t :go_to_payment %>" onclick="showPaymentPopup('#dialog-contact')">		
+	</div>
+	<!-- End of select payment from -->
+	
+	<!-- Start of payment from -->
+	<div id="dialog-payment" class="window">
+		Оплата
+	</div>
+	<!-- End of payment from -->
+	
+	<!-- Do not remove div#mask, because you'll need it to fill the whole screen --> 
+	<div id="mask"></div>
+</div>
 
 <!-- We only want the thunbnails to display when javascript is disabled -->
 <script type="text/javascript">

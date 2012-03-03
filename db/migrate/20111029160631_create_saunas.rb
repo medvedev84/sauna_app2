@@ -5,6 +5,7 @@ class CreateSaunas < ActiveRecord::Migration
       t.string :phone_number1
       t.string :phone_number2
       t.string :phone_number3
+	  t.string :alias
 
       t.timestamps
     end

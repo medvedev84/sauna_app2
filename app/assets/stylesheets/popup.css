@@ -1,0 +1,53 @@
+/* Z-index of #mask must lower than #boxes .window */
+
+#mask {
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:9000;
+  background-color:#000;
+  display:none;
+}
+   
+#boxes .window {
+  position:fixed;
+  width: 400px;
+  height: 400px;
+  display:none;
+  z-index:9999;
+  padding:20px;  
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;   
+  background-color:#ffffff;  
+}
+ 
+#boxes #dialog-calendar {
+  width: 800px; 
+  height: 350px;
+  padding:10px;   
+}
+
+#boxes #dialog-contact {
+  width: 350px; 
+  height: 270px;  
+}
+
+#boxes #dialog-contact dt{
+	float: left;
+	clear: left;
+	width: 83px;
+	text-align: right;
+	padding: 5px 0;
+	margin: 0 9px 0 0;	
+}
+
+#boxes #dialog-contact dd {
+	margin: 0 0 5px 0;
+}
+
+#boxes #dialog-select-payment {
+  width: 350px; 
+  height: 270px;  
+}
