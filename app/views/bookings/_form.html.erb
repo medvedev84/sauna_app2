@@ -10,7 +10,11 @@
 		  </ul>
 		</div>
 	<% end %>
-
+	
+	<%= f.hidden_field :sauna_id,  :value => @sauna.id %>
+	<%= f.hidden_field :starts_at %>
+	<%= f.hidden_field :ends_at %>
+	
 	<dl>
 		<dt><label for="booking_fio"><%= t :fio %>:</dt>
 		<dd>
@@ -24,21 +28,11 @@
 		<dd>
 			<%= f.text_field :email %>
 		</dd>		
-		<dt><label for="booking_starts_at"><%= t :starts_at %>:</dt>
-		<dd>
-			<%= f.text_field :starts_at %>
-		</dd>
-		<dt><label for="booking_ends_at"><%= t :ends_at %>:</dt>
-		<dd>
-			<%= f.text_field :ends_at %>
-		</dd>
 		<dt><label for="booking_description"><%= t :description %>:</dt>
 		<dd>
-			<%= f.text_area :description, :rows => 5, :cols => 25 %>
-		</dd>
-		<dt></dt>
-		<dd>
-			<%= f.submit t :next %>
-		</dd>
+			<%= f.text_area :description, :rows => 5, :cols => 24 %>
+		</dd>	
 	</dl>	
+	<%= f.submit t :next %>
+	<input name="commit" type="submit" value="<%= t :close %>" onclick="closePopup();">			
 <% end %>

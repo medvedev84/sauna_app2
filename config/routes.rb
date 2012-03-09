@@ -4,6 +4,11 @@ SaunaApp::Application.routes.draw do
 	resources :sauna_comments
 	resources :bookings
 
+	match 'payment/result',		:to => "payments#result"
+	match 'payment/success', 	:to => "payments#success"
+	match 'payment/fail', 		:to => "payments#fail"
+	match 'payment', 			:to => "payments#pay"
+  
 	match '/signout', :to => 'admin/sessions#destroy'
 	match '/signin',  :to => 'admin/sessions#new'
 
@@ -17,6 +22,17 @@ SaunaApp::Application.routes.draw do
  
 	root :to => 'saunas#index'
   
+	match '/admin/sauna/:id/sauna_items' => 'admin/sauna_items#index'
+	match '/admin/sauna/:id/sauna_photos' => 'admin/sauna_photos#index'
+	match '/admin/sauna/:id/sauna_comments' => 'admin/sauna_comments#index'
+	match '/admin/bookings' => 'admin/bookings#index'
+	match '/admin/sauna/:id/bookings' => 'admin/bookings#index'
+
+	match '/sms/status', 			:to => "sms_messages#status"
+
+	# TODO!
+	match '/admin/sauna_photos?:id' => 'admin/sauna_photos#update'
+	
     namespace :admin do
 		# Directs /admin/products/* to Admin::ProductsController
 		# (app/controllers/admin/products_controller.rb)

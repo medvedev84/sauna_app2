@@ -29,4 +29,9 @@
 			<%= t :email %>: <%= @sauna.email %>
 		<% end %>		
 	</div>
+	
+			<% if signed_in? && (current_user.tester? || current_user.super_admin?)%>
+				<br/>
+				<input name="commit" type="submit" value="<%= t :book %>" onclick="showCalendarPopup('#dialog-calendar', <%= @sauna.id %>)">			
+			<% end %>		
 </div>

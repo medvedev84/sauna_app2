@@ -15,6 +15,9 @@ class Admin::SaunasController < ApplicationController
 	end
 
 	def create
+		get_all_cities
+		get_districts_for_edit_form	
+		
 		@user = User.find(params[:sauna][:user_id])
 		@sauna = @user.saunas.build(params[:sauna])
 		@address = Address.new(params[:sauna][:address])
@@ -68,6 +71,9 @@ class Admin::SaunasController < ApplicationController
 	end  
 
 	def update
+		get_all_cities
+		get_districts_for_edit_form	
+		
 		@sauna = Sauna.find(params[:id])
 		@address = @sauna.address
 
@@ -105,7 +111,9 @@ class Admin::SaunasController < ApplicationController
 			@saunas = @q.result(:distinct => true)
 		else
 			@saunas = current_user.saunas.paginate(:page => params[:page], :per_page => 10)
-		end							
+		end		
+
+		@booking = Booking.new		
 	end
 
 	def destroy

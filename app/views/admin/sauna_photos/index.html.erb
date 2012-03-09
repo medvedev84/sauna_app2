@@ -1,0 +1,23 @@
+<div class="main-page">
+	<%= render 'shared/navigation', :left_link => edit_admin_sauna_path(@sauna.id), :left_label => @sauna.name, :right_label => t(:gallery) %>		
+	<div class="add-button-container">				
+		<%= link_to t(:add), new_admin_sauna_photo_path(:id => @sauna.id), :class => "add-green-button" %>   
+	</div>
+	<div class="admin-content">		
+		<h1><%= @sauna.name %>. <%= t :gallery %></h1>		
+			<ul class="result-list">	
+				<li class="head">
+					<div class="name"><%= t :image %></div>
+					<div class="actions-label"><%= t :actions %></div>
+				</li>
+				<% if !@sauna_photos.empty? %>
+					<%  @sauna_photos.each do |sauna_photo| %>				
+						<%= render sauna_photo %>
+					<% end %>
+				<% else %>
+					<%= render 'shared/empty_row' %>
+				<% end %>						
+			</ul>
+	</div>
+</div>
+

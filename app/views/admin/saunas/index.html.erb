@@ -1,8 +1,8 @@
 <div class="main-page">
 	<%= render 'shared/globalsearch' %>	
 	
-	<div class="mobile-ver">		
-		<%= link_to t(:add_new_sauna), new_admin_sauna_path(:user_id => @user.id) %>   
+	<div class="add-button-container ">		
+		<%= link_to t(:add_new_sauna), new_admin_sauna_path(:user_id => @user.id), :class => "big-add-green-button" %>   
 	</div>
 	
 	<br/>
@@ -12,8 +12,8 @@
 		<% unless @saunas.empty? %>
 			<ul class="result-list">	
 				<li class="head">
-					<div class="name"><%= t :sauna %></div>
-					<div><%= t :actions %></div>
+					<div class="name"><%= t :bannii_komplex %></div>
+					<div class="actions-label"><%= t :actions %></div>
 				</li>
 				<%  @saunas.each do |sauna| %>				
 					<%= render sauna %>
@@ -25,6 +25,32 @@
 		</div>			
 	</div>
 	
+	<div id="boxes"> 
+				
+		<!-- Start of calendar from -->
+		<div id="dialog-calendar" class="window">
+			<div id='calendar'>
+			</div>	
+			<br/>
+			<input name="commit" type="submit" value="<%= t :next %>" onclick="showContactFormPopupAdmin('#dialog-contact')">				
+		</div>		
+		<!-- End of calendar from -->
+
+		<!-- Start of contact from -->
+		<div id="dialog-contact" class="window">
+			<%= render 'admin/bookings/form' %>	
+		</div>
+		<!-- End of contact from -->
+		
+		<!-- Start of select payment from -->
+		<div id="dialog-select-payment" class="window">		
+			Заявка на бронирование создана.
+		</div>
+		<!-- End of select payment from -->
+		
+		<!-- Do not remove div#mask, because you'll need it to fill the whole screen --> 
+		<div id="mask"></div>
+	</div>
+	
 	
 </div>
-

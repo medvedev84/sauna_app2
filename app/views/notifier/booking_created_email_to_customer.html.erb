@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Здравствуйте, <%= @booking.fio %></h1>
+    <p>
+		Вы оставли заявку на бронирование:
+		сауна: <%= @booking.sauna.name %>
+		дата: <%= @booking.starts_at %>
+		время: с <%= @booking.starts_at %> по <%= @booking.ends_at %>
+		контактное лицо: <%= @booking.fio %>
+		телефон: <%= @booking.phone_number %>
+		e-mail: <%= @booking.email %>
+    </p>  
+    <p>
+      C уважением, Администратор.
+    </p> 	
+  </body>
+</html>

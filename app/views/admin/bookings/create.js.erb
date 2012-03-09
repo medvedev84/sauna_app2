@@ -1,0 +1,13 @@
+//showSelectPaymentPopup();
+	
+$('#payment_form').attr("action", "<%= @pay_desc['mrh_url'] %>");
+$('#MrchLogin').val("<%= @pay_desc['mrh_login'] %>");
+$('#OutSum').val("<%= @pay_desc['out_summ'] %>");
+$('#InvId').val("<%= @pay_desc['inv_id'] %>");
+$('#Desc').val("<%= @pay_desc['inv_desc'] %>");
+$('#SignatureValue').val("<%= @pay_desc['crc'] %>");
+$('#Shp_item').val("<%= @pay_desc['shp_item'] %>");
+$('#IncCurrLabel').val("<%= @pay_desc['in_curr'] %>");
+$('#Culture').val("<%= @pay_desc['culture'] %>");
+showSelectPaymentPopup();
+

@@ -12,10 +12,17 @@ ru:
   about: "О проекте"
   contact: "Контакты"
   settings: "Настройки"
+  gallery: "Фотогалерея"
+  image: "Изображение"
+  bannii_komplex: "Банный комплекс"	  
+  comment: "Комментарий"
+  no_data_for_display: "Нет данных для отображения"
   to: "до"
   yes: "Да"
   no: "Нет"
+  close: "Закрыть"
   book: "Забронировать"
+  booking: "Бронирование"
   next: "Далее"
   go_to_payment: "Перейти к оплате"
   pay: "Оплатить"
@@ -31,6 +38,8 @@ ru:
   owner: "Владелец"
   admin_section: "Панель администратора"
   comments_section: "Комментарии"
+  bookings_section: "Бронирования"
+  booking_history: "История бронирований"
   sauna_items_section: "Сауны и бани"
   users_list: "Список пользователей"
   saunas_list: "Список саун"
@@ -75,6 +84,7 @@ ru:
   has_pool: "Бассейн"  
   has_mangal: "Мангал"
   has_veniki: "Веники" 
+  has_photo: "только с фото" 
   capacity: "Вместимость"
   capacity_from: "Размер от"
   v_rub: "(руб./час)"
@@ -84,6 +94,9 @@ ru:
   min_duration: "Минимальное время аренды"
   go_to_ext_search: "Перейти к расширенному поиску"
   create_new_sauna: "Создать новый банный комплекс"
+  create_new_sauna_photos: "Загрузить фотографии сауны"
+  payment_not_created: "Не удалось обработать платеж, попробуйте повторить операцию позже"
+  payment_created: "Платеж успешно обработан"
   sauna_created: "Банный комплекс создан"
   sauna_updated: "Банный комплекс отредактирован"  
   sauna_destroyed: "Банный комплекс удален" 
@@ -130,5 +143,17 @@ ru:
   will_paginate:
     previous_label: "<"
     next_label: ">"
-
-  
+  activerecord:
+    errors:
+       models:
+          booking:
+             attributes:  
+               fio: 
+                 blank: "Не задано ФИО"       
+               phone_number:
+                 blank: "Не задан номер телефона" 
+                 invalid: "Некорректный формат номера телефона"	
+                 too_long: "Номер должен быть не более 10 цифр"				 
+               email: 
+                 blank: "Не задан e-mail"		 
+                 invalid: "Некорректный формат e-mail"	

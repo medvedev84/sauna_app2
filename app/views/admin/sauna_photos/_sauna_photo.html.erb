@@ -1,15 +1,11 @@
-<% if sauna_photo.photo_file_size != nil %>
-	<li id="photo-<%= sauna_photo.id %>">
-		<% thumb_image = image_tag sauna_photo.photo.url(:thumb) %>
-		<%= link_to thumb_image, sauna_photo.photo.url(:pagesize), :title => sauna_photo.description, :class => "thumb" %>
-		<div class="caption">
-			<div class="image-title"></div>
-			<div class="image-desc"><%= sauna_photo.description %>
-			
-				<br/>
-				<%= link_to t(:delete), admin_sauna_photo_path(sauna_photo), :method => :delete, :remote => true, :confirm => t(:confirm_delete_photo_comment) %>  
-				
-			</div>
+<li class="row" id="photo-<%= sauna_photo.id %>"> 
+	<a href="#">
+		<div class="name">
+			<% thumb_image = image_tag sauna_photo.photo.url(:thumb) %>	
+			<%= link_to thumb_image, sauna_photo.photo.url(:pagesize), :title => sauna_photo.description %>			
 		</div>
-	</li>  
-<% end %>
+		<div class="actions">			
+			<%= link_to delete_image, admin_sauna_photo_path(sauna_photo), :method => :delete, :remote => true, :confirm => t(:confirm_delete_photo_comment) %>  
+		</div>
+	</a>	       	 		
+</li>

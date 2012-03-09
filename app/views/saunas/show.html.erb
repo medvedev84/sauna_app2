@@ -12,7 +12,7 @@
 				<%= render sauna_item %>					
 			<% end %>	
 
-			<%= render 'shared/social' %>			
+			<%= render 'shared/social' %>									
 		</div>
 				
 		<%= render 'map' %>		
@@ -33,29 +33,33 @@
 		<div id='calendar'>
 		</div>	
 		<br/>
-		<input name="commit" type="submit" value="<%= t :next %>" onclick="showContactFormPopup('#dialog-contact')">				
+		
+		<div class="bottom-buttons">
+			<input name="commit" type="submit" value="<%= t :next %>" onclick="showContactFormPopup('#dialog-contact')">	
+			<input name="commit" type="submit" value="<%= t :close %>" onclick="closePopup();">		
+		</div>
 	</div>		
 	<!-- End of calendar from -->
 
 	<!-- Start of contact from -->
 	<div id="dialog-contact" class="window">
+		<input type="hidden" id="popup_height" value="240" />
+		<div class="error"></div>	
+		<div id="booking_date_description"></div>	
 		<%= render 'bookings/form' %>	
 	</div>
 	<!-- End of contact from -->
 	
 	<!-- Start of select payment from -->
-	<div id="dialog-select-payment" class="window">
-		Заявка на бронирование была отправлена на рассмотрение владельцу. Для внесения предоплаты, необходимо связаться с владельцем, либо оплатить с помощью QIWI-кошелька.
+	<div id="dialog-select-payment" class="window">		
+		Заявка на бронирование была отправлена на рассмотрение владельцу. 
+		Вам приведем уведомление по смс и электронной почте.
+		Для завершения бронирования необходимо внести предоплату.		
 		<br/>
-		<input name="commit" type="submit" value="<%= t :go_to_payment %>" onclick="showPaymentPopup('#dialog-contact')">		
+		
+		<%= render 'payments/form' %>	
 	</div>
 	<!-- End of select payment from -->
-	
-	<!-- Start of payment from -->
-	<div id="dialog-payment" class="window">
-		Оплата
-	</div>
-	<!-- End of payment from -->
 	
 	<!-- Do not remove div#mask, because you'll need it to fill the whole screen --> 
 	<div id="mask"></div>

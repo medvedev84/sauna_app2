@@ -22,16 +22,29 @@
   border-radius: 10px;   
   background-color:#ffffff;  
 }
+
+#booking_date_description {
+	text-align: center;
+	padding-bottom: 10px;
+}
  
+#dialog-calendar .bottom-buttons{
+}
+
+#dialog-contact .bottom-buttons{
+}
+
+
 #boxes #dialog-calendar {
   width: 800px; 
   height: 350px;
-  padding:10px;   
+  padding:10px;  
+  overflow : auto;  
 }
 
 #boxes #dialog-contact {
-  width: 350px; 
-  height: 270px;  
+  width: 320px; 
+  height: 250px;  
 }
 
 #boxes #dialog-contact dt{
@@ -46,8 +59,12 @@
 #boxes #dialog-contact dd {
 	margin: 0 0 5px 0;
 }
-
+ 
 #boxes #dialog-select-payment {
-  width: 350px; 
-  height: 270px;  
+  width: 500px; 
+  height: 150px;  
+}
+
+#boxes #dialog-select-payment .select-payment{
+  padding-top: 20px;
 }

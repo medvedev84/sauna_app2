@@ -10,4 +10,9 @@ class Admin::SaunaCommentsController < ApplicationController
 			format.js
 		end		
 	end  
+	
+	def index    
+		@sauna = Sauna.find(params[:id])
+		@sauna_comments = @sauna.sauna_comments						
+	end		
 end

@@ -2,7 +2,7 @@
 <%= f.hidden_field :sauna_id,  :value => @sauna.id %>
 
 <dl>
-	<dt><label for="sauna_item_name"><%= t :name %>:</dt>
+	<dt><label for="sauna_item_name"><%= t :name %>*:</dt>
 	<dd>
 		<%= f.text_field :name %>
 	</dd>
@@ -14,15 +14,15 @@
 	<dd>
 		<%= f.collection_select :sauna_type_id, SaunaType.all, :id, :name, :include_blank => false %>
 	</dd>		
-	<dt><label for="sauna_item_capacity"><%= t :capacity %>:</dt>
+	<dt><label for="sauna_item_capacity"><%= t :capacity %>*:</dt>
 	<dd>
 		<%= f.text_field :capacity %>
 	</dd>		
-	<dt><label for="sauna_item_min_price"><%= t :min_price %>:</dt>
+	<dt><label for="sauna_item_min_price"><%= t :min_price %>*:</dt>
 	<dd>
 		<%= f.text_field :min_price %>
 	</dd>		
-	<dt><label for="sauna_item_min_duration"><%= t :min_duration %>:</dt>
+	<dt><label for="sauna_item_min_duration"><%= t :min_duration %>*:</dt>
 	
 	<dd>
 		<%= f.text_field :min_duration %>

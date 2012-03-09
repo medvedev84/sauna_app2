@@ -1,0 +1,13 @@
+<ul class="result-list">	
+	<li class="head">
+		<div class="name"><%= t :booking %></div>
+		<div class="actions-label"><%= t :actions %></div>
+	</li>	
+	<% if !@bookings.empty? %>
+		<%  @bookings.each do |booking| %>				
+			<%= render booking %>
+		<% end %>
+	<% else %>
+		<%= render 'shared/empty_row' %>
+	<% end %>	
+</ul>	

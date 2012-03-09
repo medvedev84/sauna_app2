@@ -13,8 +13,8 @@ class Admin::SaunaItemsController < ApplicationController
 		@sauna = Sauna.find(params[:sauna_item][:sauna_id])
 		@sauna_item = @sauna.sauna_items.build(params[:sauna_item])
 		if @sauna_item.save
-		  flash[:success] = :sauna_item_created
-		  redirect_to edit_admin_sauna_path(@sauna)  
+		  flash[:success] = :sauna_item_created		 
+		  redirect_to '/admin/sauna/' + @sauna.id.to_s + '/sauna_items'
 		else     
 		  render 'new'
 		end
@@ -52,6 +52,10 @@ class Admin::SaunaItemsController < ApplicationController
 		end				
 	end
 
+	def index    
+		@sauna = Sauna.find(params[:id])
+		@sauna_items = @sauna.sauna_items						
+	end	
 
   private
   

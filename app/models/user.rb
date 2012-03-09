@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
     user_type == 3 ? true : false
   end
   
+  def tester?
+    user_type == 4 ? true : false
+  end  
+  
   private 
 	def default_values
 		self.user_type = 3 unless self.user_type

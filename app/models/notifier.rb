@@ -16,5 +16,17 @@ class Notifier < ActionMailer::Base
 	def signup_email(user)
 		mail( :to => user.email, :subject => "Thanks for signing up" )
 	end
+	
+	# send a signup email to the user, pass in the user object that contains the user’s email address
+	def booking_created_email_to_owner(booking)
+		@booking = booking
+		mail( :to => booking.sauna.user.email, :subject => "New booking has been created" )
+	end	
+	
+	# send a signup email to the user, pass in the user object that contains the user’s email address
+	def booking_created_email_to_customer(booking)
+		@booking = booking
+		mail( :to => booking.email, :subject => "New booking has been created" )
+	end		
 end
 

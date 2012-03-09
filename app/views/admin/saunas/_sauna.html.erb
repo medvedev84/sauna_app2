@@ -1,5 +1,5 @@
 <li class="row"> 
-	<a href="/saunas/<%= sauna.id %>">
+	<a href="/admin/saunas/<%= sauna.id %>/edit">
 		<div class="name">
 			<span class="s-name"><%= sauna.name %></span>
 			<div class="address">
@@ -7,9 +7,10 @@
 				<%= t :short_phone_number %>: <%= sauna.phone_number1 %>				
 			</div>
 		</div>
-		<div>			   	
-			<%= link_to t(:edit), edit_admin_sauna_path(sauna) %>   	
-			<%= link_to t(:delete), admin_sauna_path(sauna), :method => :delete, :confirm => t(:confirm_delete_sauna) %>  
+		<div class="actions">			   	
+			<%-#= link_to edit_image, edit_admin_sauna_path(sauna) %>   	
+			<a href="#" onclick="showCalendarPopupAdmin('#dialog-calendar', <%= sauna.id %>)"><%= edit_image %></a>
+			<%= link_to delete_image, admin_sauna_path(sauna), :method => :delete, :confirm => t(:confirm_delete_sauna) %>  
 		</div>
 	</a>	       	 		
 </li>

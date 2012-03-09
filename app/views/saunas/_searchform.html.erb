@@ -21,7 +21,11 @@
 					<dt class="main-params-type"><%= t :sauna_type_colon %></dt>
 					<dd class="main-params-type">
 						<%= f.collection_select :sauna_items_sauna_type_id_eq, SaunaType.order("id DESC"), :id, :name, :include_blank => false %>										
-					</dd>					
+					</dd>	
+					<dt></dt>
+					<dd class="main-params-has-photo">
+						<%= f.check_box :sauna_photos_id_present  %><label><%= t :has_photo %></label> 								
+					</dd>						
 				</dl>
 			</div>
 			<div class="_closed"></div>

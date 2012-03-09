@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111119193410) do
+ActiveRecord::Schema.define(:version => 20111119193412) do
 
   create_table "addresses", :force => true do |t|
     t.integer   "sauna_id"
@@ -24,7 +24,10 @@ ActiveRecord::Schema.define(:version => 20111119193410) do
   end
 
   create_table "bookings", :force => true do |t|
-    t.string   "title"
+    t.integer  "sauna_id"
+    t.string   "email"
+    t.string   "phone_number"
+    t.string   "fio"
     t.datetime "starts_at"
     t.datetime "ends_at"
     t.text     "description"
@@ -44,6 +47,15 @@ ActiveRecord::Schema.define(:version => 20111119193410) do
     t.integer   "city_id"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+  end
+
+  create_table "payments", :force => true do |t|
+    t.integer  "booking_id"
+    t.integer  "price"
+    t.text     "description"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sauna_comments", :force => true do |t|
@@ -100,6 +112,14 @@ ActiveRecord::Schema.define(:version => 20111119193410) do
     t.timestamp "updated_at"
     t.integer   "user_id"
     t.string    "email"
+  end
+
+  create_table "sms_messages", :force => true do |t|
+    t.integer  "booking_id"
+    t.string   "number"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

@@ -1,0 +1,20 @@
+<div class="main-page">	
+	<%= render 'shared/navigation', :left_link => edit_admin_sauna_path(@sauna.id), :left_label => @sauna.name, :right_label => t(:comments_section) %>		
+	<div class="admin-content">		
+		<h1><%= @sauna.name %>. <%= t :comments_section %></h1>
+		<ul class="result-list">	
+			<li class="head">
+				<div class="name"><%= t :comment %></div>
+				<div class="actions-label"><%= t :actions %></div>
+			</li>			
+			<% if !@sauna_comments.empty? %>
+				<%  @sauna_comments.each do |sauna_comments| %>				
+					<%= render sauna_comments %>
+				<% end %>
+			<% else %>
+				<%= render 'shared/empty_row' %>
+			<% end %>						
+		</ul>			
+	</div>		
+</div>
+

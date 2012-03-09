@@ -1,0 +1,23 @@
+<!--
+<div class="select-payment">
+	<center>
+		<script 
+			language="JavaScript"
+			src="https://merchant.roboxchange.com/Handler/MrchSumPreview.ashx?MrchLogin=demo&OutSum=8.96&InvId=0&Desc=%d0%a2%d0%b5%d1%85%d0%bd%d0%b8%d1%87%d0%b5%d1%81%d0%ba%d0%b0%d1%8f+%d0%b4%d0%be%d0%ba%d1%83%d0%bc%d0%b5%d0%bd%d1%82%d0%b0%d1%86%d0%b8%d1%8f+%d0%bf%d0%be+ROBOKASSA&Shp_code=Asp&Shp_demo=1&Shp_item=1&SignatureValue=9ffd6374166de94f85bb1c4ffc209ebf&Culture=ru&IncCurrLabel=AlfaBankR&Encoding=utf-8">
+		</script>
+	</center>	
+</div>
+-->
+<div class="select-payment">
+	<form action="" method="post" target="_blank" id="payment_form">
+	  <input type=hidden id="MrchLogin" name=MrchLogin value="">
+	  <input type=hidden id="OutSum" name=OutSum value="">
+	  <input type=hidden id="InvId" name=InvId value="">
+	  <input type=hidden id="Desc" name=Desc value="">
+	  <input type=hidden id="SignatureValue" name=SignatureValue value="">
+	  <input type=hidden id="Shp_item" name=Shp_item value="">
+	  <input type=hidden id="IncCurrLabel" name=IncCurrLabel value="">
+	  <input type=hidden id="Culture" name=Culture value="">
+	  <input type="submit" value="<%= t :go_to_payment %>" >
+	</form>
+</div>

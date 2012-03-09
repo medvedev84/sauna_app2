@@ -6,6 +6,13 @@
 		<%= render 'shared/navigation', :left_link => admin_saunas_path, :left_label => t(:saunas_list), :right_label => @sauna.name %>		
 	<% end %>
 
+	<div class="mobile-ver">
+		<a href="/admin/sauna/<%= @sauna.id %>/sauna_items"><%= t(:sauna_items_section) %></a> |	
+		<a href="/admin/sauna/<%= @sauna.id %>/sauna_photos"><%= t(:gallery) %></a> | 
+		<a href="/admin/sauna/<%= @sauna.id %>/sauna_comments"><%= t(:comments_section) %></a> | 
+		<a href="/admin/sauna/<%= @sauna.id %>/bookings"><%= t(:bookings_section) %></a> 
+	</div>
+
 	<div class="round-box">
 		<div class="round-sub-box">		
 			<h2><%= t :edit_sauna %></h2>
@@ -18,17 +25,6 @@
 				<div class="clearing"></div>				
 		</div>
 	</div>
-	
-	<%= render 'sauna_items' %>	
-	
-	<% unless @sauna.sauna_photos.empty? %>
-		<%= render 'gallery' %>		
-	<% end %>	
-	
-	<% unless @sauna.sauna_comments.empty? %>
-		<%= render 'comments' %>	
-	<% end %>	
-	
 </div>
 <!-- We only want the thunbnails to display when javascript is disabled -->
 <script type="text/javascript">

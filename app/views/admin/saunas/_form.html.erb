@@ -2,18 +2,21 @@
 <%= f.hidden_field :user_id,  :value => @user.id %>
 
 <dl>
-	<dt><label for="sauna_name"><%= t :name %>:</dt>
+	<dt><label for="sauna_name"><%= t :name %>*:</dt>
 	<dd>
 		<%= f.text_field :name %>
 	</dd>
 	
-	<dt><label for="sauna_alias"><%= t :alias %>:</dt>
+	<dt><label for="sauna_alias"><%= t :alias %>*:</dt>
 	<dd>
 		<%= f.text_field :alias %>
 	</dd>	
 			
 	<%= f.fields_for @address do |af| %>
-		<%= render 'shared/error_messages', :object => af.object %>
+		<dt></dt>
+		<dd>
+			<%= render 'shared/error_messages', :object => af.object %>
+		</dd>		
 		<dt><label for="sauna_address_city_id"><%= t :city %>:</dt>
 		<dd>
 			<%= select("sauna[address]", "city_id", options_for_select(@cities_for_dropdown, @address.city_id), { :include_blank => false }) %>				
@@ -22,17 +25,17 @@
 		<dd>
 			<%= select("sauna[address]", "district_id", options_for_select(@districts_for_dropdown, @address.district_id), { :include_blank => false }) %>			
 		</dd>									
-		<dt><label for="sauna_address_street"><%= t :street %>:</dt>
+		<dt><label for="sauna_address_street"><%= t :street %>*:</dt>
 		<dd>
 			<%= af.text_field :street %>
 		</dd>	
-		<dt><label for="sauna_address_building"><%= t :building %>:</dt>
+		<dt><label for="sauna_address_building"><%= t :building %>*:</dt>
 		<dd>
 			<%= af.text_field :building %>
 		</dd>	
 	<% end %> 
 	
-	<dt><label for="sauna_phone_number1"><%= t :phone_number %>:</label></dt>
+	<dt><label for="sauna_phone_number1"><%= t :phone_number %>*:</label></dt>
 	<dd>
 		<%= f.text_field :phone_number1 %>			
 	</dd>

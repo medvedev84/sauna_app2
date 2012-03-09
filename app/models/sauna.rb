@@ -10,12 +10,18 @@ class Sauna < ActiveRecord::Base
 			:dependent => :destroy		   
 	has_many :sauna_photos,      
 			:dependent => :destroy
+	has_many :bookings,
+			:dependent => :destroy
+	
 	accepts_nested_attributes_for :sauna_photos, 
 			:allow_destroy => true
-  
+    
 	validates :name, :presence => true,
                    :length   => { :maximum => 50 }
-
+	
+	validates :alias, :presence => true,
+                   :length   => { :maximum => 50 }
+				   
 	validates :phone_number1, :presence => true,
                    :length   => { :maximum => 20 }
 

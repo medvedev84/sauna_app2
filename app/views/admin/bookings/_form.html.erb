@@ -1,0 +1,46 @@
+<%= form_for @booking, :remote => true do |f| %>
+	<% if @booking.errors.any? %>
+		<div id="error_explanation">
+		  <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+		  <ul>
+		  <% @booking.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		  <% end %>
+		  </ul>
+		</div>
+	<% end %>
+	
+	<%= f.hidden_field :sauna_id %>
+	
+	<dl>
+		<dt><label for="booking_fio"><%= t :fio %>:</dt>
+		<dd>
+			<%= f.text_field :fio %>
+		</dd>
+		<dt><label for="booking_phone_number"><%= t :phone_number %>:</dt>
+		<dd>
+			<%= f.text_field :phone_number %>
+		</dd>
+		<dt><label for="booking_email"><%= t :email %>:</dt>
+		<dd>
+			<%= f.text_field :email %>
+		</dd>		
+		<dt><label for="booking_starts_at"><%= t :starts_at %>:</dt>
+		<dd>
+			<%= f.text_field :starts_at %>
+		</dd>
+		<dt><label for="booking_ends_at"><%= t :ends_at %>:</dt>
+		<dd>
+			<%= f.text_field :ends_at %>
+		</dd>
+		<dt><label for="booking_description"><%= t :description %>:</dt>
+		<dd>
+			<%= f.text_area :description, :rows => 5, :cols => 25 %>
+		</dd>
+		<dt></dt>
+		<dd>
+			<%= f.submit t :next %>
+		</dd>
+	</dl>	
+<% end %>

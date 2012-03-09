@@ -1,14 +1,14 @@
-<li class="round-box" id="sauna_item-<%= sauna_item.id %>">
-	<dl>
-		<dt>
-			<span class="author"><%= sauna_item.name %></span>
-			<span class="date"></span>
-		</dt>
-		<dd>
-			<%= sauna_item.description %>
-			<br/>	
-			<%= link_to t(:edit), edit_admin_sauna_item_path(sauna_item) %>   
-			<%= link_to t(:delete), admin_sauna_item_path(sauna_item), :method => :delete, :remote => true, :confirm => t(:confirm_delete_sauna_item) %>     	             
-		</dd>
-	</dl>
+<li class="row" id="sauna_item-<%= sauna_item.id %>"> 
+	<a href="#">
+		<div class="name">
+			<span class="s-name"><%= sauna_item.name %></span>
+			<div class="address">
+				<%= truncate("#{sauna_item.description}", :length => 50) %>				
+			</div>
+		</div>
+		<div class="actions">			   	
+			<%= link_to edit_image, edit_admin_sauna_item_path(sauna_item) %>   			
+			<%= link_to delete_image, admin_sauna_item_path(sauna_item), :method => :delete, :remote => true, :confirm => t(:confirm_delete_sauna_item) %>  		
+		</div>
+	</a>	       	 		
 </li>

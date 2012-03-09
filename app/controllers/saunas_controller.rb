@@ -44,7 +44,8 @@ class SaunasController < ApplicationController
 			end
 						
 			@q = Sauna.search(h)					
-			@saunas = @q.result(:distinct => true)				
+			@saunas = @q.result(:distinct => true)		
+						
 		else		
 			@q = Sauna.search(h)								
 			@saunas = Array.new # return empty array if visit index page at the first time

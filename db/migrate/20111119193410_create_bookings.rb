@@ -7,6 +7,7 @@ class CreateBookings < ActiveRecord::Migration
       t.text :description
 	  t.string :phone_number
 	  t.string :email
+	  t.integer :sauna_id
       t.timestamps
     end  
   end

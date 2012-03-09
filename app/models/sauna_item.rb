@@ -15,5 +15,5 @@ class SaunaItem < ActiveRecord::Base
 
   belongs_to :sauna
   belongs_to :sauna_type
-
+  
 end

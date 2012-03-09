@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.2.2'
             
 gem 'will_paginate'
 gem 'heroku'
@@ -8,19 +8,21 @@ gem 'ransack'
 gem 'jquery-rails'
 gem "paperclip"
 gem "aws-s3", :require => "aws/s3"
+gem "bcrypt-ruby"
+gem 'aws-sdk' 
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
+  gem 'sass-rails', "~> 3.2.2"
+  gem 'coffee-rails', "~> 3.2.2"
   gem 'uglifier'
 end
 
 group :production do
   gem 'pg'
-  gem 'execjs'
-  gem 'therubyracer'
+#  gem 'execjs'
+#  gem 'therubyracer'
   gem 'aws-sdk' 
 end
 
