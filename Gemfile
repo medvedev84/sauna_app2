@@ -6,7 +6,7 @@ gem 'will_paginate'
 gem 'heroku'
 gem 'ransack'
 gem 'jquery-rails'
-gem "paperclip"
+gem "paperclip", "2.4.5"
 gem "aws-s3", :require => "aws/s3"
 gem "bcrypt-ruby"
 gem 'aws-sdk' 
