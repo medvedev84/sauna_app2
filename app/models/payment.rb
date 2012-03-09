@@ -13,6 +13,8 @@ class Payment < ActiveRecord::Base
   MERCHANT_PASS_1 = 'password1'
   MERCHANT_PASS_2 = 'password2'
   
+=begin
+  
   def self.get_currencies(lang = "ru")
     svc_url = "#{SERVICES_URL}/GetCurrencies?MerchantLogin=#{MERCHANT_LOGIN}&Language=#{lang}"
     doc = Nokogiri::XML(open(svc_url))
@@ -76,6 +78,7 @@ class Payment < ActiveRecord::Base
       'state_date' => s.xpath('./xmlns:StateDate').text
     }
   end
+=end
   
   def self.get_hash(*s)
     Digest::MD5.hexdigest(s.join(':'))
