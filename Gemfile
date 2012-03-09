@@ -10,7 +10,8 @@ gem "paperclip"
 gem "aws-s3", :require => "aws/s3"
 gem "bcrypt-ruby"
 gem 'aws-sdk' 
-gem "nokogiri", "~> 1.5.1"
+#gem "nokogiri", "~> 1.5.1"
+gem "nokogiri", "1.5.0"
 
 # Gems used only for assets and not required
 # in production environments by default.
