@@ -80,7 +80,7 @@ GEM
     multi_json (1.1.0)
     multi_xml (0.4.1)
     nokogiri (1.5.1-x86-mingw32)
-    paperclip (2.7.0)
+    paperclip (2.4.5)
       activerecord (>= 2.3.0)
       activesupport (>= 2.3.2)
       cocaine (>= 0.0.2)

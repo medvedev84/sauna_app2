@@ -33,8 +33,8 @@ class BookingsController < ApplicationController
 		
 		if @booking.save	
 			# Deliver the email to owner and customer
-			#Notifier.booking_created_email_to_owner(@booking).deliver
-			#Notifier.booking_created_email_to_customer(@booking).deliver
+			Notifier.booking_created_email_to_owner(@booking).deliver
+			Notifier.booking_created_email_to_customer(@booking).deliver
 			
 			# send sms to owner and customer
 			send_sms(@booking)			
@@ -65,7 +65,11 @@ class BookingsController < ApplicationController
 		
 		# send sms to owner
 		message_text = "Your+sauna+has+been+booked"
-		code, sms_id = SmsSender.send_simple(booking.sauna.phone_number1, message_text)				
+		#code, sms_id = SmsSender.send_simple(booking.sauna.phone_number1, message_text)				
+		
+		# to test only
+		code, sms_id = SmsSender.send_simple(admin_number, message_text)
+		
 		sms_message = SmsMessage.new(:booking_id => booking.id, :sms_number => sms_id, :status => code, :message_text => message_text, :phone_number => booking.sauna.phone_number1)
 		sms_message.save		
 	end
