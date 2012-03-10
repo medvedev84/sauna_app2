@@ -10,7 +10,7 @@ gem "bcrypt-ruby"
 
 #gem "paperclip", "2.4.5"
 
-gem "paperclip", "2.4.7"
+gem "paperclip", "2.7.0" 
 gem "aws-s3", :require => "aws/s3"
 gem "aws-sdk", "1.3.7"
 
