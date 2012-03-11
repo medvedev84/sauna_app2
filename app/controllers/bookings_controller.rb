@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
 	end
 	
 	def create
-		@booking = Booking.new(params[:booking])
+		@booking = Booking.new(params[:booking], :is_canceled => false)
 		prepare_payment_data(@booking)   
 		
 		if @booking.save	

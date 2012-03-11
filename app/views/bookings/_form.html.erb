@@ -14,7 +14,19 @@
 	<%= f.hidden_field :sauna_id,  :value => @sauna.id %>
 	<%= f.hidden_field :starts_at %>
 	<%= f.hidden_field :ends_at %>
-	
+	<%= f.hidden_field :is_canceled, :value => false %>
+
+	<table>
+		<tr>
+			<td class="left"><%= t :date %>:</td>
+			<td class="right" id="booking_date"></td>
+		</tr>
+		<tr>
+			<td class="left"><%= t :time %>:</td>
+			<td class="right"id="booking_time"></td>
+		</tr>			
+	</table>
+		
 	<dl>
 		<dt><label for="booking_fio"><%= t :fio %>:</dt>
 		<dd>
@@ -34,5 +46,5 @@
 		</dd>	
 	</dl>	
 	<%= f.submit t :next %>
-	<input name="commit" type="submit" value="<%= t :close %>" onclick="closePopup();">			
+	<input type="button" value="<%= t :close %>" onclick="closePopup();" />			
 <% end %>

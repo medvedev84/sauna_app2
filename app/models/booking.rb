@@ -3,7 +3,7 @@ class Booking < ActiveRecord::Base
 	has_one :payment
 	has_many :sms_messages,
 			:dependent => :destroy	
-	
+  
 	scope :before, lambda {|end_time| {:conditions => ["ends_at < ?", Booking.format_date(end_time)] }}
 	scope :after, lambda {|start_time| {:conditions => ["starts_at > ?", Booking.format_date(start_time)] }}
 
@@ -33,6 +33,5 @@ class Booking < ActiveRecord::Base
     
   def self.format_date(date_time)
     Time.at(date_time.to_i).to_formatted_s(:db)
-  end
-  
-  end
+  end  
+end

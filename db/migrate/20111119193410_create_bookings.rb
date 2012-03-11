@@ -8,6 +8,7 @@ class CreateBookings < ActiveRecord::Migration
 	  t.string :phone_number
 	  t.string :email
 	  t.integer :sauna_id
+	  t.boolean :is_canceled
       t.timestamps
     end  
   end

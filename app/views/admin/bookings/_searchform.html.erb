@@ -2,12 +2,16 @@
 	<ul>
 		<li class="expanded _expandedBox filter-section">
 			<h2><%= t :main_parameters %></h2>
-			<div class="main-params _expanded">
+			<div class="place_param _expanded">			
 				<dl>									
-					<dt class="main-params-type"><%= t :sauna %>:</dt>
-					<dd class="main-params-type">
+					<dt class="township"><%= t :sauna %>:</dt>
+					<dd class="township">
 						<%= f.collection_select :sauna_id_eq, @saunas, :id, :name, :include_blank => false %>										
 					</dd>
+					<dt></dt>
+					<dd class="main-params-has-photo">
+						<%= f.check_box :payment_id_present  %><label><%= t :has_payment %></label> 								
+					</dd>						
 				</dl>
 			</div>
 			<div class="_closed"></div>

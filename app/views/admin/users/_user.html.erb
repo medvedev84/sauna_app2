@@ -1,16 +1,1 @@
-<li class="row"> 
-	<a href="/admin/users/<%= user.id %>">
-		<div class="name">
-			<span class="s-name"><%= user.name %></span>
-			<div class="address">
-				<%= t :user_type%>: <%= t(user.owner? ? :owner : user.admin? ? :admin : :super_admin) %>
-			</div>
-		</div>
-		<div>			
-			<%= link_to t(:edit), edit_admin_user_path(user) %>   	
-			<%= link_to t(:delete), admin_user_path(user), :method => :delete, :confirm => t(:confirm_delete_user) %>  
-		</div>
-	</a>	       	 		
-</li>
-
-
+<li class="row"><a href="/admin/users/<%= user.id %>"><div class="name"><span class="s-name"><%= user.name %></span><div class="address"><%= t :user_type%>: <%= t(user.owner? ? :owner : user.admin? ? :admin : :super_admin) %></div></div><div class="actions"><%= link_to edit_image, edit_admin_user_path(user) %><%= link_to delete_image, admin_user_path(user), :method => :delete, :confirm => t(:confirm_delete_user) %></div></a></li>

@@ -2,12 +2,8 @@ SaunaApp::Application.routes.draw do
 	resources :saunas
 	resources :sauna_items
 	resources :sauna_comments
-	resources :bookings
-
-	match 'payment/result',		:to => "payments#result"
-	match 'payment/success', 	:to => "payments#success"
-	match 'payment/fail', 		:to => "payments#fail"
-	match 'payment', 			:to => "payments#pay"
+	resources :bookings	
+	resources :sms_messages	
   
 	match '/signout', :to => 'admin/sessions#destroy'
 	match '/signin',  :to => 'admin/sessions#new'
@@ -42,8 +38,16 @@ SaunaApp::Application.routes.draw do
 		resources :sauna_items
 		resources :sauna_comments
 		resources :sauna_photos
+		resources :sms_messages		
+		resources :bookings	
 	end  
 
+	# to walk around standart rails routing
+	match 'payment/result',		:to => "payments#result"
+	match 'payment/success', 	:to => "payments#success"
+	match 'payment/fail', 		:to => "payments#fail"
+	match 'payment', 			:to => "payments#pay"
+	
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

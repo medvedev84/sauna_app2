@@ -27,8 +27,7 @@
 </div>	
 
 <div id="boxes"> 
-    	    
-	<!-- Start of calendar from -->
+    	    	
 	<div id="dialog-calendar" class="window">
 		<div id='calendar'>
 		</div>	
@@ -36,34 +35,31 @@
 		
 		<div class="bottom-buttons">
 			<input name="commit" type="submit" value="<%= t :next %>" onclick="showContactFormPopup('#dialog-contact')">	
-			<input name="commit" type="submit" value="<%= t :close %>" onclick="closePopup();">		
+			<input name="commit" type="button" value="<%= t :close %>" onclick="closePopup();">		
 		</div>
 	</div>		
-	<!-- End of calendar from -->
-
-	<!-- Start of contact from -->
+	
 	<div id="dialog-contact" class="window">
-		<input type="hidden" id="popup_height" value="240" />
-		<div class="error"></div>	
-		<div id="booking_date_description"></div>	
+		<input type="hidden" id="popup_height" value="260" />
+		<div class="error"></div>				
 		<%= render 'bookings/form' %>	
 	</div>
-	<!-- End of contact from -->
-	
-	<!-- Start of select payment from -->
+		
 	<div id="dialog-select-payment" class="window">		
 		Заявка на бронирование была отправлена на рассмотрение владельцу. 
-		Вам приведем уведомление по смс и электронной почте.
+		Вам придет уведомление по смс и электронной почте.
 		Для завершения бронирования необходимо внести предоплату.		
 		<br/>
-		
+		Если вы не хотите оплачивать заявку сейчас, вы можете закрыть это окно, 
+		однако в этом случае мы не гарантируем бронирование.
+		<br/>		
 		<%= render 'payments/form' %>	
 	</div>
-	<!-- End of select payment from -->
 	
 	<!-- Do not remove div#mask, because you'll need it to fill the whole screen --> 
 	<div id="mask"></div>
 </div>
+
 
 <!-- We only want the thunbnails to display when javascript is disabled -->
 <script type="text/javascript">

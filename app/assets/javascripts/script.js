@@ -9,7 +9,7 @@ var Frame =
 		this.initExpandedBoxes();
 		this.initFilter();
 		this.initSaunaSorting();
-		this.initSearchByName();
+		this.initSearchBySaunaName();
 
 		//временные действия
 		$('._expandedBox h2').click(function()
@@ -210,7 +210,7 @@ var Frame =
 		$('#saunaResultList .head .price').click();			
 	},
 	
-	initSearchByName: function()
+	initSearchBySaunaName: function()
 	{
 		$('#q_name_cont').val("Поиск сауны по названию");
 		$('#q_name_cont').live('click', function()
@@ -219,10 +219,38 @@ var Frame =
 		});		
 	},		
 	
+	initSearchByCustomerName: function()
+	{
+		$('#q_fio_cont').val("Поиск бронирования по ФИО");
+		$('#q_fio_cont').live('click', function()
+		{
+			$('#q_fio_cont').val("");													
+		});		
+	},		
+	
+	initSearchByMessageText: function()
+	{
+		$('#q_message_text_cont').val("Поиск сообщения по тексту");
+		$('#q_message_text_cont').live('click', function()
+		{
+			$('#q_message_text_cont').val("");													
+		});		
+	},		
+	
 	initChain: function()
 	{
 		$('#sauna_address_district_id').chainedTo('#sauna_address_city_id');	
-	},			
+	},		
+
+	initSearchCityDistrictChain: function()
+	{
+		$('#q_address_district_id_eq').chainedTo('#q_address_city_id_eq');				
+	},	
+	
+	initSearchUserSaunaChain: function()
+	{
+		$('#q_booking_sauna_id_eq').chainedTo('#q_booking_sauna_user_id_eq');		
+	},		
 
 	initPhotoGallery: function()
 	{

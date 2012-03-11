@@ -1,3 +1,7 @@
 $('.row').remove();
 $('.empty-row').remove();
 $('<%= render @bookings %>').appendTo($('.result-list'));
+$('.row a').click(function(e) {
+	e.preventDefault();
+	showBookingInfoPopupAdmin('#dialog-booking', this.id);
+});

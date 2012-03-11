@@ -28,7 +28,18 @@ class Admin::UsersController < ApplicationController
 	end
 
 	def index 
-		@users = User.all
+		h = params[:q]
+		@q = User.search(h)	
+		if h != nil			
+			@users = @q.result(:distinct => true)
+		else
+			@users = User.all
+		end	
+		
+		respond_to do |format|
+			format.html { render 'index' }
+			format.js
+		end			
 	end
 
 	def edit

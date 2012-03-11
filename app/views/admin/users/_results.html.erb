@@ -1,0 +1,13 @@
+<ul class="result-list">	
+	<li class="head">
+		<div class="name"><%= t :user_name %></div>
+		<div class="actions-label"><%= t :actions %></div>
+	</li>
+	<% if !@users.empty? %>
+		<%  @users.each do |user| %>				
+			<%= render user %>
+		<% end %>
+	<% else %>
+		<%= render 'shared/empty_row' %>
+	<% end %>						
+</ul>

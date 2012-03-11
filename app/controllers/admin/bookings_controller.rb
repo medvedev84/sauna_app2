@@ -5,31 +5,28 @@ class Admin::BookingsController < ApplicationController
 		@saunas = current_user.saunas
 		
 		h = params[:q]
-		if h != nil
-						
-			h.delete_if {|key, value| key == "sauna_items_sauna_type_id_eq" && value == "6" } #if sauna type is not important, don't use that criteria
-									
-			@q = Booking.search(h)					
-			@bookings = @q.result(:distinct => true)							
-		else	
-			
-			if params[:id] != nil
-				@sauna = Sauna.find(params[:id])
-				h = {}
-				h["sauna_id_eq"] = @sauna.id
-				
-				@q = Booking.search(h)								
-				@bookings = Array.new # return empty array if visit index page at the first time				
-			else
-				@q = Booking.search(h)								
-				@bookings = Array.new # return empty array if visit index page at the first time
-			end		
-			
-
-			
-			#@q = Booking.search(h)								
-			#@bookings = Array.new # return empty array if visit index page at the first time
+	
+		if h == nil	
+			h = {}
 		end
+		
+		# never show canceled bookings
+		h["is_canceled_eq"] = false
+		
+		# if request from sauna page - get booking for this sauna
+		if params[:id] != nil
+			@sauna = Sauna.find(params[:id])			
+			h["sauna_id_eq"] = @sauna.id				
+		end	
+		
+		@q = Booking.search(h)					
+		
+		if params[:q] != nil
+			@bookings = @q.result(:distinct => true)			
+		else
+			@bookings = Array.new
+		end
+		
 		
 		respond_to do |format|
 			format.html { render 'index' }
@@ -56,6 +53,13 @@ class Admin::BookingsController < ApplicationController
 		end		
 	end	
 
+	def show
+		@booking = Booking.find(params[:id])
+		respond_to do |format|
+		  format.js 
+		end
+	end
+	
 	def prepare_payment_data(booking)    
 		unless booking.blank? && booking.payment.blank?
 		  @pay_desc = Hash.new

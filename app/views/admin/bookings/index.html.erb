@@ -3,7 +3,38 @@
 	<%= render 'searchform' %>	
 	<%= render 'results' %>	
 </div>
-<script type="text/javascript">
-	$('.search-button').click();
-</script>	
 
+<div id="boxes"> 
+	<div id="dialog-booking" class="window">
+		<input type="hidden" id="popup_height" value="150" />
+		<table width="100%">
+			<tr>
+				<td class="left">Дата:</td><td id="booking_date" class="right"></td>
+			</tr>
+			<tr>
+				<td class="left">Время:</td><td id="booking_time" class="right"></td>
+			</tr>
+			<tr>
+				<td class="left">Контактное лицо:</td><td id="booking_fio" class="right"></td>
+			</tr>
+			<tr>
+				<td class="left">Телефон:</td><td id="booking_phone" class="right"></td>
+			</tr>	
+			<tr>
+				<td class="left">E-mail:</td><td id="booking_email" class="right"></td>
+			</tr>	
+			<tr>
+				<td class="left">Дополнительно:</td><td id="booking_desc" class="right"></td>
+			</tr>				
+		</table>
+		<br/>
+		<div class="bottom-buttons">			
+			<input name="commit" type="submit" value="<%= t :close %>" onclick="closePopup();">		
+		</div>
+	</div>		
+	<div id="mask"></div>
+</div>
+
+<script type="text/javascript">
+	Frame.initSearchByCustomerName();
+</script>	

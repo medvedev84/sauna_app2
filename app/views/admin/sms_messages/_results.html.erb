@@ -1,0 +1,13 @@
+<ul class="result-list">	
+	<li class="head">
+		<div class="name"><%= t :booking %></div>
+		<div class="actions-label"><%= t :actions %></div>
+	</li>	
+	<% if !@sms_messages.empty? %>
+		<%  @sms_messages.each do |sms_message| %>				
+			<%= render sms_message %>
+		<% end %>
+	<% else %>
+		<%= render 'shared/empty_row' %>
+	<% end %>	
+</ul>	

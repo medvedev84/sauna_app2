@@ -19,6 +19,10 @@
 				<li><a href="/admin/users">список пользователей</a></li>						
 			<% end %>															
 			
+			<% if signed_in? && current_user.super_admin? %>
+				<li><a href="/admin/sms_messages">смс сообщения</a></li>				
+			<% end %>
+			
 			<% if signed_in? %>
 				<li>
 					<%= link_to t(:sign_out), signout_path, :method => :delete %>

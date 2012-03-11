@@ -6,13 +6,14 @@
   <body>
     <h1>Здравствуйте, <%= @booking.sauna.user.name %></h1>
     <p>
-		Оставлена заявка на бронирование:
-		сауна: <%= @booking.sauna.name %>
-		дата: <%= @booking.starts_at %>
-		время: с <%= @booking.starts_at %> по <%= @booking.ends_at %>
-		контактное лицо: <%= @booking.fio %>
-		телефон: <%= @booking.phone_number %>
-		e-mail: <%= @booking.email %>
+		Оставлена заявка на бронирование:<br/>
+		сауна: <%= @booking.sauna.name %><br/>
+		дата: <%= @booking.starts_at.strftime("%d.%m.%Y") %><br/>
+		время: с <%= @booking.starts_at.strftime("%H:%M") %> по <%= @booking.ends_at.strftime("%H:%M") %><br/>
+		контактное лицо: <%= @booking.fio %><br/>
+		телефон: <%= @booking.phone_number %><br/>
+		e-mail: <%= @booking.email %><br/>
+		дополнительно: <%= @booking.description %><br/>
     </p>  
     <p>
       C уважением, Администратор.
