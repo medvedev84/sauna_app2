@@ -23,6 +23,7 @@ ru:
   close: "Закрыть"
   book: "Забронировать"
   booking: "Бронирование"
+  online_booking: "Он-лайн бронирование"
   next: "Далее"
   go_to_payment: "К оплате"
   pay: "Оплатить"
@@ -161,4 +162,4 @@ ru:
                  too_long: "Номер должен быть не более 10 цифр"				 
                email: 
                  blank: "Не задан e-mail"		 
-                 invalid: "Некорректный формат e-mail"	
+                 invalid: "Некорректный формат e-mail"				 

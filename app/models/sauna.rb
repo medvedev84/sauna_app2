@@ -1,5 +1,5 @@
 class Sauna < ActiveRecord::Base
-	attr_accessible :name, :phone_number1, :phone_number2, :phone_number3, :email, :alias
+	attr_accessible :name, :phone_number1, :phone_number2, :phone_number3, :email, :alias, :is_booking
 
 	belongs_to :user	
 	has_many :sauna_items, 

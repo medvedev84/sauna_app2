@@ -691,7 +691,7 @@ code { padding: .2em .5em; }
 	.comment-form dt {
 		float: left;
 		clear: left;
-		width: 85px;
+		width: 100px;
 		text-align: right;
 		margin: 10px 0 0 0;
 	}
@@ -703,7 +703,7 @@ code { padding: .2em .5em; }
 		width: 230px;
 	}
 	.comment-form textarea {
-		width: 477px;
+		width: 440px;
 	}
 /*=== Конец детальной страницы ===*/
 

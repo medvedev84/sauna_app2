@@ -15,7 +15,9 @@ class Booking < ActiveRecord::Base
 	validates :phone_number, :presence => true, :length   => { :maximum => 11 },  :format   => { :with => number_regex }				
 	validates :email, :presence => true,
                     :format   => { :with => email_regex }						
-  
+	
+	validates_date :starts_at, :on => :create, :after => :today
+	
   # need to override the json view to return what full_calendar is expecting.
   # http://arshaw.com/fullcalendar/docs/event_data/Event_Object/
   def as_json(options = {})

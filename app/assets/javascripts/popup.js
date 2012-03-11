@@ -48,27 +48,38 @@ function showPaymentPopup(id){
 }
 
 function showContactFormPopup(id){
+	var today = new Date();	
+	today.setDate(today.getDate()+1);
+	
 	var start_date = $('#calendar').fullCalendar( 'clientEvents', 'draft' )[0].start;						
 	var end_date = $('#calendar').fullCalendar( 'clientEvents', 'draft' )[0].end;
-	closePopup();
-	initPopup(id);
-		
-	$('#dialog-contact .error').hide();
-	$('#booking_starts_at').val(start_date);
-	$('#booking_ends_at').val(end_date);
+	
+	if (start_date < today) {
+		// show error
+		alert("Невозможно создать бронирование на дату, раньше текущей.");
+		$('#calendar').fullCalendar('removeEvents', 'draft');
+		return false;
+	} else {
+		// go to the contact form
+		closePopup();
+		initPopup(id);
+			
+		$('#dialog-contact .error').hide();
+		$('#booking_starts_at').val(start_date);
+		$('#booking_ends_at').val(end_date);
 
-	var str_date = start_date.getDate() + "." + start_date.getMonth() + "." + start_date.getFullYear();
-	var str_start_time = start_date.getHours();	
-	var str_end_time = end_date.getHours();	
-	
-	$('#booking_date_description').html("Дата: " + str_date + ". Бронирование с " + str_start_time + " до " + str_end_time + " часов.");	
-	$('#booking_date').html(str_date);
-	$('#booking_time').html("с " + str_start_time + " до " + str_end_time + " часов");
-	
-	var old_height = parseInt($('#popup_height').val());
-	$('#dialog-contact').height(old_height);	
-	
-	enableContactFormPopup();	 
+		var str_date = start_date.getDate() + "." + start_date.getMonth() + "." + start_date.getFullYear();
+		var str_start_time = start_date.getHours();	
+		var str_end_time = end_date.getHours();	
+		
+		$('#booking_date').html(str_date);
+		$('#booking_time').html("с " + str_start_time + " до " + str_end_time + " часов");
+		
+		var old_height = parseInt($('#popup_height').val());
+		$('#dialog-contact').height(old_height);	
+		
+		enableContactFormPopup();		
+	}
 }
 
 function submitContactFormPopup(){

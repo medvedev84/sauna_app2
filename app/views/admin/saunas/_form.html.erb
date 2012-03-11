@@ -11,6 +11,10 @@
 	<dd>
 		<%= f.text_field :alias %>
 	</dd>	
+	<dt><label for="sauna_is_booking"><%= t :booking %>:</dt>
+	<dd>
+		<%= f.check_box :is_booking %>
+	</dd>		
 			
 	<%= f.fields_for @address do |af| %>
 		<dt></dt>
