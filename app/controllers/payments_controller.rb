@@ -40,21 +40,33 @@ class PaymentsController < ApplicationController
       @booking.payment.save
       # ...
       @result = "OK#{params['InvId']}"
+	  
+	  render 'result', :layout => false	  
     end
   end
 
   def success
-	flash[:success] = :payment_created	
-	@booking = Booking.where(:id => params['InvId']).first
-	@sauna = @booking.sauna	
-	redirect_to @sauna
+	@booking = Booking.where(:id => params['InvId']).first	
+	if @booking != nil 
+		flash[:success] = :payment_created	
+		@sauna = @booking.sauna	
+		redirect_to @sauna
+	else
+		flash[:error] = :intermal_error
+		redirect_to :root
+	end
   end
 
   def fail
-	flash[:error] = :payment_not_created
 	@booking = Booking.where(:id => params['InvId']).first
-	@sauna = @booking.sauna	
-	redirect_to @sauna	
+	if @booking != nil 
+		flash[:error] = :payment_not_created
+		@sauna = @booking.sauna	
+		redirect_to @sauna	
+	else
+		flash[:error] = :intermal_error
+		redirect_to :root
+	end
   end
     
 end
