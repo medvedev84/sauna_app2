@@ -42,7 +42,8 @@
 		</dd>		
 		<dt><label for="booking_description"><%= t :description %>:</dt>
 		<dd>
-			<%= f.text_area :description, :rows => 5, :cols => 24 %>
+			<%-#= f.text_area :description, :rows => 5, :cols => 24 %>
+			<%= f.text_field :description, :rows => 5, :cols => 5 %>
 		</dd>	
 	</dl>	
 	<%= f.submit t :next %>

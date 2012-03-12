@@ -28,13 +28,13 @@ class BookingsController < ApplicationController
 	end
 	
 	def create
-		@booking = Booking.new(params[:booking], :is_canceled => false)
-		prepare_payment_data(@booking)   
-		
-		if @booking.save	
+		@booking = Booking.new(params[:booking])
+		if @booking.save				
+			prepare_payment_data(@booking)  
+			
 			# Deliver the email to owner and customer
-			Notifier.booking_created_email_to_owner(@booking).deliver
-			Notifier.booking_created_email_to_customer(@booking).deliver
+			#Notifier.booking_created_email_to_owner(@booking).deliver
+			#Notifier.booking_created_email_to_customer(@booking).deliver
 			
 			# send sms to owner and customer
 			send_sms(@booking)			
