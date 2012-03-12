@@ -1,30 +1,6 @@
 require 'digest/md5'
 
 class PaymentsController < ApplicationController
-  
-  def pay
-    @order = Booking.where(:id => params[:id]).first
-    unless @order.blank? && @order.payment.blank?
-      @pay_desc = Hash.new
-      @pay_desc['mrh_url']   = Payment::MERCHANT_URL
-      @pay_desc['mrh_login'] = Payment::MERCHANT_LOGIN
-      @pay_desc['mrh_pass1'] = Payment::MERCHANT_PASS_1
-      @pay_desc['inv_id']    = 0
-      @pay_desc['inv_desc']  = @order.description
-      @pay_desc['out_summ']  = 1000
-      @pay_desc['shp_item']  = @order.id
-      @pay_desc['in_curr']   = "WMRM"
-      @pay_desc['culture']   = "ru"
-      @pay_desc['encoding']  = "utf-8"
-      @pay_desc['crc'] = Payment::get_hash(@pay_desc['mrh_login'], 
-                                           @pay_desc['out_summ'],
-                                           @pay_desc['inv_id'], 
-                                           @pay_desc['mrh_pass1'], 
-                                           "Shp_item=#{@pay_desc['shp_item']}")     
-    end
-	
-  end
-
   def result
     crc = Payment::get_hash(params['OutSum'], 
                             params['InvId'], 
@@ -39,10 +15,9 @@ class PaymentsController < ApplicationController
       @booking.payment.status = Payment::STATUS_OK
       @booking.payment.save
       # ...
-      @result = "OK#{params['InvId']}"
-	  
-	  render 'result', :layout => false	  
+      @result = "OK#{params['InvId']}"	  	  
     end
+	render 'result', :layout => false	 
   end
 
   def success

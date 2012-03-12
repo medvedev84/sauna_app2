@@ -44,10 +44,9 @@ SaunaApp::Application.routes.draw do
 	end  
 
 	# to walk around standart rails routing
-	match 'payment/result',		:to => "payments#result"
-	match 'payment/success', 	:to => "payments#success"
-	match 'payment/fail', 		:to => "payments#fail"
-	match 'payment', 			:to => "payments#pay"
+	match 'payments/result',	:to => "payments#result"
+	match 'payments/success', 	:to => "payments#success"
+	match 'payments/fail', 		:to => "payments#fail"
 	
   # The priority is based upon order of creation:
   # first created -> highest priority.
