@@ -1,7 +1,11 @@
 $('.row').remove();
 $('.empty-row').remove();
+<% if !@bookings.empty? %>
 $('<%= render @bookings %>').appendTo($('.result-list'));
 $('.row a').click(function(e) {
 	e.preventDefault();
 	showBookingInfoPopupAdmin('#dialog-booking', this.id);
-});
+});	
+<% else %>
+$("<%= render 'shared/empty_row' %>").appendTo($('.result-list'));
+<% end %>	

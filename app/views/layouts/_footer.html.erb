@@ -16,7 +16,8 @@
 			
 			<% if signed_in? && current_user.super_admin? %>
 				<li><a href="/admin/users">список пользователей</a></li>
-				<li><a href="/admin/sms_messages">смс сообщения</a></li>				
+				<li><a href="/admin/sms_messages">смс сообщения</a></li>	
+				<li><a href="/admin/payments">платежи</a></li>					
 			<% end %>															
 			
 			<% if signed_in? %>

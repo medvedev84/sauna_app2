@@ -35,6 +35,8 @@ class SaunasController < ApplicationController
 			
 			h.delete_if {|key, value| key == "sauna_items_sauna_type_id_eq" && value == "6" } #if sauna type is not important, don't use that criteria
 			
+			h.delete_if {|key, value| key == "is_booking_eq" && value == "0" } #if online booking is not important, don't use that criteria
+					
 			#if district is not important, don't use that criteria	
 			if h.has_key?("address_district_id_eq")
 				@district =  District.find(h["address_district_id_eq"]) 									

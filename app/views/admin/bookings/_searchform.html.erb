@@ -3,7 +3,23 @@
 		<li class="expanded _expandedBox filter-section">
 			<h2><%= t :main_parameters %></h2>
 			<div class="place_param _expanded">			
-				<dl>									
+				<table>
+					<tr>
+						<td class="col1">
+							<%= t :from %>:
+						</td>
+						<td class="col2">
+							<%= f.datepicker :starts_at_gteq %>		
+						</td>		
+						<td class="col3">
+							<%= t :to %>:
+						</td>
+						<td class="col4">
+							<%= f.datepicker :ends_at_lteq %>		
+						</td>							
+					</tr>
+				</table>
+				<dl>								
 					<dt class="township"><%= t :sauna %>:</dt>
 					<dd class="township">
 						<%= f.collection_select :sauna_id_eq, @saunas, :id, :name, :include_blank => false %>										
@@ -11,7 +27,7 @@
 					<dt></dt>
 					<dd class="main-params-has-photo">
 						<%= f.check_box :payment_id_present  %><label><%= t :has_payment %></label> 								
-					</dd>						
+					</dd>		
 				</dl>
 			</div>
 			<div class="_closed"></div>
@@ -21,5 +37,3 @@
 	</ul>
 	<div class="clearing"></div>					
 <% end %>
-
-					

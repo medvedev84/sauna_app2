@@ -8,8 +8,6 @@
 					<dd class="township">
 						<%= select("q", "booking_sauna_user_id_eq", options_for_select(@owners_for_dropdown), { :include_blank => false }) %>						
 					</dd>
-				</dl>			
-				<dl>
 					<dt class="township"><%= t :sauna %>:</dt>
 					<dd class="township">
 						<%= select("q", "booking_sauna_id_eq", options_for_select(@saunas_for_dropdown), { :include_blank => false }) %>												

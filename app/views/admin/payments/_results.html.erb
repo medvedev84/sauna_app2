@@ -1,0 +1,14 @@
+<ul class="result-list">	
+	<li class="head">
+		<div class="name"><%= t :payment %></div>
+		<div class="capacity"><%= t :status %></div>
+		<div class="price"><%= t :price %></div>
+	</li>	
+	<% if !@payments.empty? %>
+		<%  @payments.each do |payment| %>				
+			<%= render payment %>
+		<% end %>
+	<% else %>
+		<%= render 'shared/empty_row' %>
+	<% end %>	
+</ul>	

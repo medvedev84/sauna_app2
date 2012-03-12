@@ -373,6 +373,28 @@ code { padding: .2em .5em; }
 						}	
 						.filter-box dd.main-params-has-photo label{
 							padding-left: 5px;
+						}		
+						.filter-box td.col1{
+							width: 83px;
+							text-align: right;
+						}		
+						.filter-box td.col2{
+							width: 80px;
+							padding-left: 5px;
+						}	
+						.filter-box td.col2 input{
+							width: 70px;							
+						}	
+						.filter-box td.col3{
+							width: 30px;
+							text-align: right;
+						}		
+						.filter-box td.col4{
+							width: 80px;
+							padding-left: 5px;
+						}	
+						.filter-box td.col4 input{
+							width: 70px;							
 						}							
 /*
 450px + 170px + 85px
@@ -466,6 +488,12 @@ code { padding: .2em .5em; }
 					text-align: right;
 					padding-right: 50px;
 					cursor: default;
+				}		
+				.result-list .payment-status-label {
+					width: 100px;
+					padding: 23px 70px 0 0;
+					text-align: right;
+					float: left;
 				}					
 				.result-list .actions {										
 					padding-top: 10px;

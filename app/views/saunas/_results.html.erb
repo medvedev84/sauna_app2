@@ -4,5 +4,11 @@
 		<div class="capacity"><i><%= t :capacity %><%#-= t :v_chel %></i></div>
 		<div class="price"><i><%= t :price %><%#-= t :v_rub %></i></div>
 	</li>	
-	<%= render @saunas %>	
+	<% if !@saunas.empty? %>
+		<%  @saunas.each do |sauna| %>				
+			<%= render sauna %>
+		<% end %>
+	<% else %>
+		<%= render 'shared/empty_row' %>
+	<% end %>
 </ul>

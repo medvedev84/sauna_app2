@@ -29,12 +29,12 @@
 		</table>
 		<br/>
 		<div class="bottom-buttons">			
-			<input name="commit" type="submit" value="<%= t :close %>" onclick="closePopup();">		
+			<input name="commit" type="button" value="<%= t :close %>" onclick="closePopup();">				
 		</div>
 	</div>		
 	<div id="mask"></div>
 </div>
 
 <script type="text/javascript">
-	Frame.initSearchByCustomerName();
+	Frame.initSearchByCustomerName('#q_fio_cont');
 </script>	

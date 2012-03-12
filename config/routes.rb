@@ -40,6 +40,7 @@ SaunaApp::Application.routes.draw do
 		resources :sauna_photos
 		resources :sms_messages		
 		resources :bookings	
+		resources :payments	
 	end  
 
 	# to walk around standart rails routing

@@ -8,11 +8,16 @@ gem 'ransack'
 gem 'jquery-rails'
 gem "bcrypt-ruby"
 
+# for image manipulaton and storage
 gem "paperclip", "2.7.0" 
 gem "aws-s3", :require => "aws/s3"
 gem "aws-sdk", "1.3.7"
 
-gem 'validates_timeliness', '~> 3.0.2'
+# for date and time validating
+gem 'validates_timeliness', '~> 3.0.2' 
+
+# datepicker for rails
+gem 'jquery_datepicker'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,8 +29,8 @@ end
 
 group :production do
   gem 'pg'
-#  gem 'execjs'
-#  gem 'therubyracer' 
+  gem 'execjs'
+  gem 'therubyracer' 
 end
 
 group :development, :test do

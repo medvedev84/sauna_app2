@@ -10,6 +10,7 @@ var Frame =
 		this.initFilter();
 		this.initSaunaSorting();
 		this.initSearchBySaunaName();
+		this.initDatePickerRegional();
 
 		//временные действия
 		$('._expandedBox h2').click(function()
@@ -219,14 +220,24 @@ var Frame =
 		});		
 	},		
 	
-	initSearchByCustomerName: function()
+	initSearchByCustomerName: function(search_box_id)
 	{
-		$('#q_fio_cont').val("Поиск бронирования по ФИО");
-		$('#q_fio_cont').live('click', function()
+		$(search_box_id).val("Поиск бронирования по ФИО");
+		$(search_box_id).live('click', function()
 		{
-			$('#q_fio_cont').val("");													
+			$(search_box_id).val("");													
 		});		
 	},		
+	
+	initDatePickerRegional: function() 
+	{
+		$.datepicker.setDefaults(
+		  $.extend(
+			{'dateFormat':'dd-mm-yy'},
+			$.datepicker.regional['ru']
+		  )
+		);	
+	},
 	
 	initSearchByMessageText: function()
 	{

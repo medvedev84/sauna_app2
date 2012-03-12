@@ -1,0 +1,7 @@
+$('#booking_date').html("<%= @booking.starts_at.strftime("%d.%m.%Y") %>");
+$('#booking_time').html("с <%= @booking.starts_at.strftime("%H:%M") %> по <%= @booking.ends_at.strftime("%H:%M") %>");
+$('#booking_fio').html("<%= @booking.fio %>");
+$('#booking_phone').html("<%= @booking.phone_number %>");
+$('#booking_email').html("<%= @booking.email %>");
+$('#booking_desc').html("<%= @booking.description %>");
+

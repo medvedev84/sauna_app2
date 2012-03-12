@@ -13,6 +13,8 @@ class Admin::BookingsController < ApplicationController
 		# never show canceled bookings
 		h["is_canceled_eq"] = false
 		
+		h.delete_if {|key, value| key == "payment_id_present" && value == "0" } #if payments is not important, don't use that criteria	
+		
 		# if request from sauna page - get booking for this sauna
 		if params[:id] != nil
 			@sauna = Sauna.find(params[:id])			
@@ -21,11 +23,11 @@ class Admin::BookingsController < ApplicationController
 		
 		@q = Booking.search(h)					
 		
-		if params[:q] != nil
+	#	if params[:q] != nil
 			@bookings = @q.result(:distinct => true)			
-		else
-			@bookings = Array.new
-		end
+	#	else
+	#		@bookings = Array.new
+	#	end
 		
 		
 		respond_to do |format|
