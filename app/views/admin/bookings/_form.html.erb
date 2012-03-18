@@ -11,7 +11,21 @@
 		</div>
 	<% end %>
 	
-	<%= f.hidden_field :sauna_id %>
+	<%= f.hidden_field :sauna_id %>	
+	<%= f.hidden_field :starts_at %>
+	<%= f.hidden_field :ends_at %>
+	<%= f.hidden_field :is_canceled, :value => false %>	
+	
+	<table>
+		<tr>
+			<td class="left"><%= t :date %>:</td>
+			<td class="right" id="booking_date"></td>
+		</tr>
+		<tr>
+			<td class="left"><%= t :time %>:</td>
+			<td class="right"id="booking_time"></td>
+		</tr>			
+	</table>
 	
 	<dl>
 		<dt><label for="booking_fio"><%= t :fio %>:</dt>
@@ -26,21 +40,11 @@
 		<dd>
 			<%= f.text_field :email %>
 		</dd>		
-		<dt><label for="booking_starts_at"><%= t :starts_at %>:</dt>
-		<dd>
-			<%= f.text_field :starts_at %>
-		</dd>
-		<dt><label for="booking_ends_at"><%= t :ends_at %>:</dt>
-		<dd>
-			<%= f.text_field :ends_at %>
-		</dd>
 		<dt><label for="booking_description"><%= t :description %>:</dt>
 		<dd>
-			<%= f.text_area :description, :rows => 5, :cols => 25 %>
-		</dd>
-		<dt></dt>
-		<dd>
-			<%= f.submit t :next %>
+			<%= f.text_area :description, :rows => 5, :cols => 24 %>
 		</dd>
 	</dl>	
+	<%= f.submit t :next %>
+	<input type="button" value="<%= t :close %>" onclick="closePopup();" />		
 <% end %>

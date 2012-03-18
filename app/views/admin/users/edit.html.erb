@@ -1,15 +1,10 @@
 <div class="detail-page">
-	<%= render 'shared/navigation', :left_link => admin_users_path, :left_label => t(:users_list), :right_label => @user.name %>	
-	
 	<div class="round-box">
 		<div class="round-sub-box">			
-			<h2><%= t :edit_user %></h2>
 			<div class="_expanded">
-			
 				<%= form_for(@user, :url => admin_user_path(@user)) do |f| %>
 					<%= render 'form', :f => f %>
 				<% end %>
-
 			</div>
 			<div class="_closed"></div>
 			<div class="clearing"></div>			

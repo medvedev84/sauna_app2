@@ -1,0 +1,4 @@
+$('#external_payment_id').val("<%= @external_payment.id %>.-");
+$('#external_payment_amount').html("<%= @external_payment.amount %>.-");
+$('#external_payment_date').html("<%= @external_payment.created_at.strftime("%d.%m.%Y") %>");
+

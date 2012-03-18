@@ -11,3 +11,6 @@
 		<%= render 'shared/empty_row' %>
 	<% end %>	
 </ul>	
+<div class="digg_pagination">
+	<%= paginate @sms_messages, :remote => true %>
+</div>	

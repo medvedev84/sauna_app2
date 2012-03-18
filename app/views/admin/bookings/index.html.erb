@@ -3,7 +3,7 @@
 	<%= render 'searchform' %>	
 	<%= render 'results' %>	
 </div>
-
+	
 <div id="boxes"> 
 	<div id="dialog-booking" class="window">
 		<input type="hidden" id="popup_height" value="150" />
@@ -36,5 +36,12 @@
 </div>
 
 <script type="text/javascript">
-	Frame.initSearchByCustomerName('#q_fio_cont');
+	Frame.initSearchByCustomerName('#q_fio_cont');	
+	$(document).ready(function() {
+		// add popup window to each booking
+		$('.row a').click(function(e) {
+			e.preventDefault();
+			showBookingInfoPopupAdmin('#dialog-booking', this.id);
+		});		
+	});	
 </script>	

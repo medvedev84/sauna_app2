@@ -1,0 +1,41 @@
+<input type="hidden" id="external-payment-edit-height" value="200" />
+<div class="error"></div>
+<form accept-charset="UTF-8" action="" class="edit_external_payment" data-remote="true" id="edit_external_payment" method="post">
+	<input type="hidden" value="?" name="utf8">
+	<input type="hidden" value="put" name="_method">	
+	<input type="hidden" name="external_payment[id]" id="external_payment_id">
+	<table cellspacing="5" cellpadding="5">
+		<tr>
+			<td class="left">WMR:</td><td id="external_payment_to_wmr" class="right">R123456789012345</td>
+		</tr>		
+		<tr>
+			<td class="left"><%= t :amount %>:</td><td id="external_payment_amount" class="right">				
+			</td>
+		</tr>	
+		<tr>
+			<td class="left"><%= t :date %>:</td><td id="external_payment_date" class="right">				
+			</td>
+		</tr>			
+		<tr>
+			<td class="left"><%= t :status %>:</td><td id="external_payment_status" class="right">		
+				<%= select("external_payment", "status", options_for_select(@statuses_for_dropdown), { :include_blank => false }) %>		
+			</td>
+		</tr>	
+		<tr>
+			<td class="left">Номер заказа:</td><td id="external_payment_order_id" class="right">				
+				<input type="text" size="30" name="external_payment[ps_order_id]" id="external_payment_ps_order_id">
+			</td>
+		</tr>	
+		<tr>
+			<td class="left">Номер транзакции:</td><td id="external_payment_trans_id" class="right">	
+				<input type="text" size="30" name="external_payment[ps_trans_id]" id="external_payment_ps_trans_id">			
+			</td>
+		</tr>		
+		<tr>
+			<td colspan="2">
+				<input name="commit" type="submit" value="Далее" />
+				<input type="button" value="Закрыть" onclick="closePopup();" />						
+			</td>
+		</tr>					
+	</table>
+</form>

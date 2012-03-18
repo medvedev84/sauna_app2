@@ -7,6 +7,7 @@ ru:
   mobile_version: "Мобильная версия"
   smartfon_version: "Версия для смартфонов"
   full_version: "Полная версия"
+  all_saunas: "Все сауны"
   title: "Поиск саун в Ижевске"
   home: "Главная"
   about: "О проекте"
@@ -17,6 +18,9 @@ ru:
   bannii_komplex: "Банный комплекс"	  
   comment: "Комментарий"
   no_data_for_display: "Нет данных для отображения"
+  status_init: "инициирована"
+  status_approve: "завершена"
+  status_decline: "отклонена"
   to: "до"
   yes: "Да"
   no: "Нет"
@@ -55,6 +59,7 @@ ru:
   name: "Название"
   alias: "Псевдоним"
   status: "Статус"
+  amount: "Сумма"
   no_payment: "Не оплачено"
   phone_number: "Телефон"
   short_phone_number: "тел."
@@ -150,12 +155,66 @@ ru:
   capacity_range: "Значение должно быть в диапозоне от 4 до 20"
   no_results: "По вашему запросу ничего не найдено. Попробуйте задать новые параметры поиска."
   add_new_sauna: "Добавить новый банный комплекс"
+  no_money: "На вашем балансе недостаточно средств для вывода"		
   will_paginate:
     previous_label: "<"
     next_label: ">"
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "..."		  
   activerecord:
     errors:
        models:
+          sauna_item:
+             attributes:
+               name:
+                 blank: "Не задано название сауны"   
+               capacity:
+                 must_be_integer: "Поле 'Вместимость' - должно быть целым числом"  	 
+               min_price:
+                 must_be_integer: "Поле 'Цена' - должно быть целым числом"  	
+               min_duration:
+                 must_be_integer: "Поле 'Минимальное время аренды' - должно быть целым числом"  					 	   
+          sauna:
+             attributes:
+               name:
+                 blank: "Не задано название банного комплекса"   
+               alias:
+                 blank: "Не задан псевдоним банного комплекса"  	 
+               phone_number1:
+                 blank: "Не задан номер телефона банного комплекса"  				 
+          address:
+             attributes:
+               street:
+                 blank: "Не задана улица"   
+               building:
+                 blank: "Не задан номер строения"  				 
+          user:
+             attributes:
+               wmr_purse:
+                 blank: "Не задан WMR кошелек"
+                 too_long: "Номер WMR кошелька должен быть не более 15 символов"
+               password:
+                 blank: "Не задан пароль"			   
+                 confirmation: "Введенные пароли не совпадают"
+               password_digest:
+                 blank: "Пароль не подтвержден"				 
+               name:
+                 blank: "Не задано имя"
+               email:
+                 blank: "Не задан email"
+                 invalid: "Некорректный формат email"					 
+          external_payment:
+             attributes:
+               amount:
+                 blank: "Не задана сумма"
+                 invalid: "Некорректный формат суммы"	                		 
+               ps_trans_id:
+                 blank: "Не задан номер транзакции"				 
           booking:
              attributes:  
                fio: 

@@ -71,6 +71,10 @@ GEM
       thor (~> 0.14)
     jquery_datepicker (0.3.2)
     json (1.6.5)
+    kaminari (0.13.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      railties (>= 3.0.0)
     launchy (2.0.5)
       addressable (~> 2.2.6)
     mail (2.3.2)
@@ -151,7 +155,6 @@ GEM
     uuidtools (2.1.2)
     validates_timeliness (3.0.8)
       timeliness (~> 0.3.4)
-    will_paginate (3.0.3)
     xml-simple (1.1.1)
 
 PLATFORMS
@@ -166,6 +169,7 @@ DEPENDENCIES
   heroku
   jquery-rails
   jquery_datepicker
+  kaminari
   paperclip (= 2.7.0)
   pg
   rails (= 3.1)
@@ -175,4 +179,3 @@ DEPENDENCIES
   turn
   uglifier
   validates_timeliness (~> 3.0.2)
-  will_paginate

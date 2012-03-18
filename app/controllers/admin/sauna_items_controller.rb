@@ -1,4 +1,4 @@
-class Admin::SaunaItemsController < ApplicationController
+class Admin::SaunaItemsController < AdminController
   before_filter :authenticate, :only => [:new, :edit, :update, :destroy]
   before_filter :correct_user, :only => [:edit, :update, :destroy]
   before_filter :owner_user, :only => [:new, :edit, :update, :destroy]

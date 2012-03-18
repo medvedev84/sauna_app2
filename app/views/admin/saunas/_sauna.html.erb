@@ -8,8 +8,8 @@
 			</div>
 		</div>
 		<div class="actions">			   	
-			<%-#= link_to edit_image, edit_admin_sauna_path(sauna) %>   	
-			<a href="#" onclick="showCalendarPopupAdmin('#dialog-calendar', <%= sauna.id %>)"><%= edit_image %></a>
+			<a href="#" onclick="showCalendarPopupAdmin('#dialog-calendar', <%= sauna.id %>)"><%= create_image %></a>
+			<%= link_to edit_image, edit_admin_sauna_path(sauna) %>   				
 			<%= link_to delete_image, admin_sauna_path(sauna), :method => :delete, :confirm => t(:confirm_delete_sauna) %>  
 		</div>
 	</a>	       	 		

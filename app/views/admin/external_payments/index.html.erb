@@ -1,0 +1,45 @@
+<div class="main-page">
+	<%= render 'globalsearch' %>	
+	
+	<% if signed_in? && current_user.owner? %>
+		<div class="add-button-container ">		
+			<a href="#" onclick="showCreateExternalPaymentPopup('#external-payment-create')" class="big-add-green-button">Вывести деньги</a>
+		</div>	
+	<% end %>
+	
+	<%= render 'searchform' %>	
+	<%= render 'results' %>	
+</div>
+<div id="boxes"> 
+	<% if signed_in? && current_user.owner? %>
+		<div id="external-payment-create" class="window">		
+			<%= render 'create_form' %>
+		</div>		
+		<div id="create-confirm-message" class="window">	
+			Заявка на вывод средств была отправлена на рассмотрение администратору. Ваша заявка будет обработана в течении 3 рабочих дней. 
+			</br></br>
+			<input type="button" value="Закрыть" onclick="closePopup();" />	
+		</div>		
+	<% end %>	
+	<% if signed_in? && current_user.super_admin? %>
+		<div id="external-payment-edit" class="window">	
+			<%= render 'edit_form' %>
+		</div>		
+		<div id="edit-confirm-message" class="window">	
+			Заявка на вывод средств была отредактирована. 
+			</br></br>
+			<input type="button" value="Закрыть" onclick="closePopup();" />	
+		</div>			
+	<% end %>	
+	<div id="mask"></div>
+</div>
+
+<% if signed_in? && current_user.super_admin? %>
+<script type="text/javascript">
+	Frame.initSearchByCustomerName('#q_fio_cont');
+	$('.row a').click(function(e) {
+		e.preventDefault();
+		showEditExternalPaymentPopup('#external-payment-edit', this.id);
+	});	
+</script>	
+<% end %>

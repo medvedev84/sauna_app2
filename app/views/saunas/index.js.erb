@@ -1,8 +1,12 @@
 $('.row').remove();
 $('.empty-row').remove();
 <% if !@saunas.empty? %>
-$('<%= render @saunas %>').appendTo($('.result-list'));
-Frame.initSaunaSorting();
+	$('<%= render @saunas %>').appendTo($('.result-list'));
+	Frame.initSaunaSorting();	
+	$('.digg_pagination').show();	
+	$('.digg_pagination').html('<%= escape_javascript(paginate(@saunas, :remote => true).to_s) %>');
+	selectPaginatorLink('/saunas', <%= @current_page_number %>);	
 <% else %>
-$("<%= render 'shared/empty_row' %>").appendTo($('.result-list'));
+	$('.digg_pagination').hide();
+	$("<%= render 'shared/empty_row' %>").appendTo($('.result-list'));
 <% end %>

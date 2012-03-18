@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111119193412) do
+ActiveRecord::Schema.define(:version => 20111119193466) do
 
   create_table "addresses", :force => true do |t|
     t.integer   "sauna_id"
@@ -24,13 +24,15 @@ ActiveRecord::Schema.define(:version => 20111119193412) do
   end
 
   create_table "bookings", :force => true do |t|
+    t.integer  "ps_order_id"
+    t.boolean  "is_canceled"
     t.integer  "sauna_id"
     t.string   "email"
     t.string   "phone_number"
     t.string   "fio"
     t.datetime "starts_at"
     t.datetime "ends_at"
-    t.text     "description"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,9 +51,29 @@ ActiveRecord::Schema.define(:version => 20111119193412) do
     t.timestamp "updated_at"
   end
 
+  create_table "external_payments", :force => true do |t|
+    t.integer  "payment_id"
+    t.integer  "user_id"
+    t.integer  "amount"
+    t.string   "status"
+    t.string   "ps_name"
+    t.string   "ps_order_id"
+    t.string   "ps_trans_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "internal_payments", :force => true do |t|
+    t.integer  "payment_id"
+    t.integer  "user_id"
+    t.integer  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "payments", :force => true do |t|
     t.integer  "booking_id"
-    t.integer  "price"
+    t.integer  "amount"
     t.text     "description"
     t.string   "status"
     t.datetime "created_at"
@@ -103,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20111119193412) do
   end
 
   create_table "saunas", :force => true do |t|
+    t.boolean   "is_booking"
     t.string    "alias"
     t.string    "name"
     t.string    "phone_number1"
@@ -115,14 +138,17 @@ ActiveRecord::Schema.define(:version => 20111119193412) do
   end
 
   create_table "sms_messages", :force => true do |t|
+    t.text     "message_text"
+    t.string   "phone_number"
     t.integer  "booking_id"
-    t.string   "number"
+    t.string   "sms_number"
     t.string   "status"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
+    t.integer   "balance_amount"
     t.string    "name"
     t.string    "email"
     t.timestamp "created_at"
@@ -130,7 +156,5 @@ ActiveRecord::Schema.define(:version => 20111119193412) do
     t.string    "password_digest"
     t.integer   "user_type"
   end
-
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end

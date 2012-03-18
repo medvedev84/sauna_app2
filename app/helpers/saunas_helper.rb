@@ -1,5 +1,13 @@
 module SaunasHelper
  
+	def save_search_params(search_params)
+		session[:search_params] = search_params
+	end
+  
+    def get_search_params
+		session[:search_params]
+    end
+  
 	def get_all_cities
 		@cities = City.all		
 		@cities_for_dropdown = []

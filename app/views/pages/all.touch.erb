@@ -1,5 +1,6 @@
 <div data-role="header">
 	<h1></h1>	
+	<%= link_to t(:home), "/", "data-icon" => "back", "class" => "ui-btn-left", "data-ajax" => "false" %>
 	<%= link_to t(:full_version), "/?mobile=0", "data-icon" => "gear", "class" => "ui-btn-right", "data-ajax" => "false" %>
 </div>
 
@@ -11,7 +12,4 @@
     </li>
     <% end %>
   </ul>
-</div>
-<div data-role="content">
-  <%= will_paginate @saunas %>
 </div>

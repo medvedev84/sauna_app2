@@ -47,40 +47,15 @@ function showPaymentPopup(id){
 	initPopup(id);
 }
 
-function showContactFormPopup(id){
-	var today = new Date();	
-	today.setDate(today.getDate()+1);
-	
-	var start_date = $('#calendar').fullCalendar( 'clientEvents', 'draft' )[0].start;						
-	var end_date = $('#calendar').fullCalendar( 'clientEvents', 'draft' )[0].end;
-	
-	if (start_date < today) {
-		// show error
-		alert("Невозможно создать бронирование на дату, раньше текущей.");
-		$('#calendar').fullCalendar('removeEvents', 'draft');
-		return false;
-	} else {
-		// go to the contact form
-		closePopup();
-		initPopup(id);
-			
-		$('#dialog-contact .error').hide();
-		$('#booking_starts_at').val(start_date);
-		$('#booking_ends_at').val(end_date);
-
-		var str_date = start_date.getDate() + "." + start_date.getMonth() + "." + start_date.getFullYear();
-		var str_start_time = start_date.getHours();	
-		var str_end_time = end_date.getHours();	
-		
-		$('#booking_date').html(str_date);
-		$('#booking_time').html("с " + str_start_time + " до " + str_end_time + " часов");
-		
-		var old_height = parseInt($('#popup_height').val());
-		$('#dialog-contact').height(old_height);	
-		
-		enableContactFormPopup();		
-	}
+function showCalendarPopup(id, sauna_id){
+	initCalendarPopup(id, sauna_id)
 }
+
+function showCalendarPopupAdmin(id, sauna_id){
+	initCalendarPopup(id, sauna_id)	
+	$('#booking_sauna_id').val(sauna_id);
+}
+
 
 function submitContactFormPopup(){
 	disableContactFormPopup();	
@@ -98,30 +73,50 @@ function enableContactFormPopup(){
 	$('#dialog-contact textarea').prop('disabled', false);
 }
 
-function showCalendarPopup(id, sauna_id){
-	initPopup(id);	
-	initCalendar(sauna_id);	
-}
+function showContactFormPopup(id){
+	var today = new Date();	
+	
+	var start_date = $('#calendar').fullCalendar( 'clientEvents', 'draft' )[0].start;						
+	var end_date = $('#calendar').fullCalendar( 'clientEvents', 'draft' )[0].end;
+	
+	if (start_date < today) {
+		// show error
+		alert("Невозможно создать бронирование на дату, раньше текущей.");
+		$('#calendar').fullCalendar('removeEvents', 'draft');
+		return false;
+	} 
+	// go to the contact form
+	closePopup();
+	initPopup(id);		
+	
+	$('#dialog-contact .error').hide();
 
-function showCalendarPopupAdmin(id, sauna_id){
-	initPopup(id);
-	initCalendar(sauna_id);		
-	$('#booking_sauna_id').val(sauna_id);
+	var str_date = start_date.getDate() + "." + start_date.getMonth() + "." + start_date.getFullYear();
+	var str_start_time = start_date.getHours();	
+	var str_end_time = end_date.getHours();	
+	
+	$('#booking_starts_at').val(start_date);
+	$('#booking_ends_at').val(end_date);
+	
+	$('#booking_date').html(str_date);
+	$('#booking_time').html("с " + str_start_time + " до " + str_end_time + " часов");
+
+	// resize height if needed
+	var old_height = parseInt($('#popup_height').val());
+	$('#dialog-contact').height(old_height);	
+	
+	enableContactFormPopup();			
 }
 
 function showContactFormPopupAdmin(id){
-	var start_date = $('#calendar').fullCalendar( 'clientEvents' )[0].start;						
-	var end_date = $('#calendar').fullCalendar( 'clientEvents' )[0].end;
-	closePopup();
-	initPopup(id);
+	showContactFormPopup(id);
 	
+	// clear values	
 	$('#booking_fio').val('');
 	$('#booking_phone_number').val('');
 	$('#booking_email').val('');
 	$('#booking_description').val('');
-	
-	$('#booking_starts_at').val(start_date);
-	$('#booking_ends_at').val(end_date);			
+		
 }
 
 function showBookingInfoPopupAdmin(id, booking_id){	
@@ -133,6 +128,15 @@ function showBookingInfoPopupAdmin(id, booking_id){
 		 var old_height = parseInt($('#popup_height').val());
 		 $('#dialog-booking').height(old_height + add_height);
 	});
+}
+
+function checkSelectedDates(){
+	
+}
+
+function initCalendarPopup(id, sauna_id){
+	initPopup(id);
+	initCalendar(sauna_id);	
 }
 
 function initPopup(id){
@@ -186,4 +190,24 @@ function createSpin(target_id){
 
 function removeSpin(){
 	$('.spinner').remove();
+}
+
+/* /admin/external_payments */
+
+function showCreateExternalPaymentPopup(id){
+	initPopup(id);	
+	$(id + ' .error').hide();
+}
+
+function showConfirmMessagePopup(id){
+	closePopup();
+	initPopup(id);	
+}
+
+function showEditExternalPaymentPopup(id, external_payment_id){
+	initPopup(id);	
+	$(id + ' .error').hide();
+	$('#edit_external_payment').attr("action", "/admin/external_payments/" + external_payment_id);
+	$.get('/admin/external_payments/'+external_payment_id, function(data) {	
+	});	
 }

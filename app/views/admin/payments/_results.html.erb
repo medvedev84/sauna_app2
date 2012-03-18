@@ -12,3 +12,6 @@
 		<%= render 'shared/empty_row' %>
 	<% end %>	
 </ul>	
+<div class="digg_pagination">
+	<%= paginate @payments, :remote => true %>
+</div>	

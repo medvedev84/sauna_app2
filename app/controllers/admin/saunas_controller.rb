@@ -1,4 +1,4 @@
-class Admin::SaunasController < ApplicationController
+class Admin::SaunasController < AdminController
 	before_filter :authenticate, :only => [:new, :edit, :update, :destroy]
 	before_filter :correct_user, :only => [:edit, :update, :destroy]
 	#before_filter :admin_user, :only => :new
@@ -103,16 +103,16 @@ class Admin::SaunasController < ApplicationController
 	end
           
 	def index    
-		@user = current_user
-		
+		@user = current_user		
 		h = params[:q]
 		@q = Sauna.search(h)	
 		if h != nil			
 			@saunas = @q.result(:distinct => true)
-		else
-			@saunas = current_user.saunas.paginate(:page => params[:page], :per_page => 10)
-		end		
-
+		else			
+			@saunas = current_user.saunas
+		end	
+		@current_page_number = params[:page] 
+		@saunas = @saunas.page(params[:page]).per(5)		
 		@booking = Booking.new		
 	end
 

@@ -1,0 +1,6 @@
+<div class="round-box search-box">
+	<%= search_form_for @q, :url => admin_external_payments_path, :remote => true, :html => {:method => :get, :class => "round-box search-box"} do |f| %>
+		<%= f.text_field :ps_name_cont, :title => "Поиск по ФИО" %>		
+		<%= f.submit " ", :class => "search-button" %>	
+	<% end %>
+</div>

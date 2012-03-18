@@ -1,0 +1,11 @@
+$('.row').remove();
+$('.empty-row').remove();
+<% if !@saunas.empty? %>
+	$('<%= render @saunas %>').appendTo($('.result-list'));
+	$('.digg_pagination').show();	
+	$('.digg_pagination').html('<%= escape_javascript(paginate(@saunas, :remote => true).to_s) %>');
+	selectPaginatorLink('/all', <%= @current_page_number %>);	
+<% else %>
+	$('.digg_pagination').hide();
+	$("<%= render 'shared/empty_row' %>").appendTo($('.result-list'));
+<% end %>

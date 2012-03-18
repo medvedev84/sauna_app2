@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Document-state" content="Static" />
+		<meta name="URL" content="absolute_url" />
+		<meta name="description" content="Сауны Ижевска, турецкие хамамы, русские бани на дровах, поиск по цене, по адресу, по типу, по вместимости -  
+		для больших и маленьких компаний - все сауны в Ижевске в одном месте" />
+		<meta name="keywords" content="сауна, бани, сауны Ижевска, сауна в Ижевске, бани сауны, бани Ижевска, сауна на двоих, турецкие бани, русская баня, баня на дровах, инфракрасная сауна, сауны Сарапула, сауны в Сарапуле, сауны Воткинска, сауны в Воткинске, сауны Глазова, сауны в Глазове, сауны в Можге, сауны Можги" />		
+		<meta name="Distribution" content="global" />
+		<meta name="Resource-type" content="document" />
+		<title>Сауны Ижевска, русские, японские и турецкие бани — цены в Ижевске</title>
+		
+		<%= csrf_meta_tag %>	
+		<%= render 'layouts/javascripts' %>			
+		<%= render 'layouts/stylesheets_admin' %>						
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="content">
+				<% if signed_in? %>
+				<div class="content-left">														
+					<div class="account-box filter-box">
+						<ul>
+							<li class="expanded _expandedBox filter-section">
+								Пользователь: <%= current_user.name %><br/>
+								E-mail: <%= current_user.email %><br/>			
+								WMR:  <%= current_user.wmr_purse %><br/> 						
+								Баланс: <%= current_user.balance_amount %>.-<br/>
+								
+								<div class="menu">
+									Доступные операции:<br/>
+									<% if signed_in? && current_user.owner? %>
+										<a href="/admin/saunas">мои сауны</a><br/>	
+										<a href="/admin/bookings">бронирования</a><br/> 
+										<a href="/admin/external_payments">вывод средств</a><br/> 
+									<% end %>	
+
+									<% if signed_in? && current_user.super_admin? %>
+										<a href="/admin/users">список пользователей</a><br/>
+										<a href="/admin/sms_messages">смс сообщения</a><br/>
+										<a href="/admin/payments">платежи</a><br/>	
+										<a href="/admin/external_payments">завяки на вывод средств</a><br/>	
+									<% end %>			
+								</div>								
+							</li>							
+						</ul>
+					</div>					
+				</div>
+				<% end %>					
+				<div class="content-right">																	
+					<% flash.each do |key, value| %>
+						<div class="flash <%= key %>"><%= t(value) %></div>
+					<% end %>
+					<%= yield %>
+				</div>
+				<div class="clearing"></div>
+			</div>
+			<%= render 'layouts/footer' %>
+		</div>
+		
+		<!-- Reformal script -->
+		<script type="text/javascript">
+			var reformalOptions = {
+				project_id: 53507,
+				project_host: "go-to-sauna.reformal.ru",
+				force_new_window: false,
+				tab_alignment: "left",
+				tab_top: "300",
+				tab_bg_color: "#0080f0",
+				tab_image_url: "http://tab.reformal.ru/0JLQsNGI0Lgg0L7RgtC30YvQstGLINC4INC%252F0YDQtdC00LvQvtC20LXQvdC40Y8=/FFFFFF/c931f419d308ca654c15aa9f4d2fa692"
+			};
+			
+			(function() {
+				if ('https:' == document.location.protocol) return;
+				var script = document.createElement('script');
+				script.type = 'text/javascript';
+				script.src = 'http://media.reformal.ru/widgets/v1/reformal.js';
+				document.getElementsByTagName('head')[0].appendChild(script);
+			})();
+		</script>	
+		<!-- /Reformal script -->
+			
+		<script type="text/javascript">		
+			$(document).ready(function() {
+				// little fix for current page in paging
+				var selected_number = $(".pagination .current").html().trim();
+				$(".pagination .current").html(selected_number);
+			});	
+		</script>			
+	</body>
+</html>

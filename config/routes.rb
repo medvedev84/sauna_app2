@@ -8,9 +8,11 @@ SaunaApp::Application.routes.draw do
 	match '/signout', :to => 'admin/sessions#destroy'
 	match '/signin',  :to => 'admin/sessions#new'
 
+	match '/faq', :to => 'pages#faq'
 	match '/contact', :to => 'pages#contact'
 	match '/about',   :to => 'pages#about' 
  	match '/incorrect',   :to => 'pages#incorrect' 
+	match '/terms',   :to => 'pages#terms' 
 	match '/all', :to => 'pages#all'
 	
 	match '/m', :to => redirect("/?mobile=1")
@@ -21,7 +23,6 @@ SaunaApp::Application.routes.draw do
 	match '/admin/sauna/:id/sauna_items' => 'admin/sauna_items#index'
 	match '/admin/sauna/:id/sauna_photos' => 'admin/sauna_photos#index'
 	match '/admin/sauna/:id/sauna_comments' => 'admin/sauna_comments#index'
-	match '/admin/bookings' => 'admin/bookings#index'
 	match '/admin/sauna/:id/bookings' => 'admin/bookings#index'
 
 	match '/sms/status', 			:to => "sms_messages#status"
@@ -41,6 +42,7 @@ SaunaApp::Application.routes.draw do
 		resources :sms_messages		
 		resources :bookings	
 		resources :payments	
+		resources :external_payments
 	end  
 
 	# to walk around standart rails routing

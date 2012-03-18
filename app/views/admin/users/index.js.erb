@@ -1,3 +1,9 @@
 $('.row').remove();
 $('.empty-row').remove();
-$('<%= render @users %>').appendTo($('.result-list'));
+<% if !@users.empty? %>
+	$('<%= render @users %>').appendTo($('.result-list'));
+	selectPaginatorLink('/admin/users', <%= @current_page_number %>);
+<% else %>
+	$("<%= render 'shared/empty_row' %>").appendTo($('.result-list'));
+<% end %>	
+

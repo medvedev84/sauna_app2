@@ -3,6 +3,7 @@ require 'digest/md5'
   
 class Payment < ActiveRecord::Base
   belongs_to :booking
+  has_many :internal_payment
   
   # MERCHANT_URL    = 'https://merchant.roboxchange.com/Index.aspx' 
     MERCHANT_URL = 'http://test.robokassa.ru/Index.aspx'

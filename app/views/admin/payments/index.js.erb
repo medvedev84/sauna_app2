@@ -1,7 +1,10 @@
 $('.row').remove();
 $('.empty-row').remove();
 <% if !@payments.empty? %>
-$('<%= render @payments %>').appendTo($('.result-list'));
+	$('<%= render @payments %>').appendTo($('.result-list'));
+	$('.digg_pagination').show();
+	selectPaginatorLink('/admin/payments', <%= @current_page_number %>);
 <% else %>
-$("<%= render 'shared/empty_row' %>").appendTo($('.result-list'));
+	$('.digg_pagination').hide();
+	$("<%= render 'shared/empty_row' %>").appendTo($('.result-list'));
 <% end %>	

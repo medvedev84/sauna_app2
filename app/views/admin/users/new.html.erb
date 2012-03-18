@@ -1,13 +1,10 @@
 <div class="main-page">
 	<div class="round-box">
 		<div class="round-sub-box">			
-			<h2><%= t :create_new_user %></h2>
 			<div class="_expanded">
-			
 				<%= form_for(@user, :url => admin_users_path, :html => { :class => "comment-form" }) do |f| %>
 					<%= render 'form', :f => f %>
 				<% end %>
-
 			</div>
 			<div class="_closed"></div>
 			<div class="clearing"></div>			

@@ -1,4 +1,4 @@
-class Admin::SaunaPhotosController < ApplicationController
+class Admin::SaunaPhotosController < AdminController
 
 	def new                             
 		@sauna = Sauna.find(params[:id])

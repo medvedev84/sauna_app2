@@ -1,0 +1,10 @@
+var str = "";
+var add_height = 30;
+<% @external_payment.errors.each do |key, value| %>	
+	str += '<b><%= value %></b><br/>';
+	add_height += 20;
+<% end %>
+$('#external-payment-edit .error').html(str);
+$('#external-payment-edit .error').show();
+var old_height = parseInt($('#external-payment-edit-height').val());
+$('#external-payment-edit').height(old_height + add_height);

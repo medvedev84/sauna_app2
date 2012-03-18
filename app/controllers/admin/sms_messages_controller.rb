@@ -1,5 +1,5 @@
-class Admin::SmsMessagesController < ApplicationController
-	include SmsMessagesHelper
+class Admin::SmsMessagesController < AdminController
+	include ApplicationHelper
 	
 	before_filter :admin_user
 	
@@ -7,14 +7,15 @@ class Admin::SmsMessagesController < ApplicationController
 		get_all_owners
 		get_all_saunas
 		
-		h = params[:q]
-		if h != nil					
-			@q = SmsMessage.search(h)					
-			@sms_messages = @q.result(:distinct => true)							
-		else		
-			@q = SmsMessage.search(h)								
-			@sms_messages = Array.new # return empty array if visit index page at the first time
-		end
+		h = params[:q]	
+		@q = SmsMessage.search(h)									
+		@current_page_number = params[:page] != nil ? params[:page] : 1 
+		@sms_messages = @q.result(:distinct => true).order("created_at DESC").page(params[:page]).per(5)		
+		
+		respond_to do |format|
+			format.html 
+			format.js
+		end				
 	end
 	
 	private

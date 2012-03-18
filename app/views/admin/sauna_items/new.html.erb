@@ -1,21 +1,13 @@
 <div class="detail-page">
-
-	<% if current_user.super_admin? %>
-		<%= render 'shared/navigation', :left_link => edit_admin_sauna_path(@sauna.id), :left_label => t(:saunas_list), :right_label => @sauna.name %>		
-	<% else %>
-		<%= render 'shared/navigation', :left_link => admin_saunas_path, :left_label => t(:saunas_list), :right_label => @sauna.name %>			
-	<% end %>
-
 	<div class="round-box">
 		<div class="round-sub-box">		
-			<h2><%= t :create_new_sauna_item %></h2>
-				<div class="_expanded">
-					<%= form_for @sauna_item, :url => admin_sauna_items_path, :html => { :class => "comment-form" } do |f| %>					
-						<%= render 'form', :f => f %>
-					<% end %>
-				</div>
-				<div class="_closed"></div>
-				<div class="clearing"></div>				
+			<div class="_expanded">
+				<%= form_for @sauna_item, :url => admin_sauna_items_path, :html => { :class => "comment-form" } do |f| %>					
+					<%= render 'form', :f => f %>
+				<% end %>
+			</div>
+			<div class="_closed"></div>
+			<div class="clearing"></div>				
 		</div>
 	</div>
 </div>

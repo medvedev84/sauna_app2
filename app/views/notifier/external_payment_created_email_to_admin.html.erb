@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Здравствуйте, Администратор</h1>
+    <p>
+		Оставлена заявка на вывод средств:<br/>
+		пользователь: <%= @external_payment.user.name %><br/>
+		сумма: <%= @external_payment.amount %><br/>
+		дата: <%= @external_payment.created_at %>	<br/>		
+    </p>  
+    <p>
+      C уважением, Администратор.
+    </p> 	
+  </body>
+</html>

@@ -4,23 +4,22 @@
 			<li><a href="/">главная</a></li>
 
 			<% if signed_in? && current_user.owner? %>
-				<li><a href="/admin/saunas">мои сауны</a></li>		
-				<li><a href="/admin/bookings">бронирования</a></li>				
+				<li><a href="/admin/saunas">личный кабинет</a></li>				
 			<% end %>
 			
 			<% if !signed_in? %>
 				<li><a href="/all">все сауны</a></li>
 				<li><a href="/about">о проекте</a></li>
+				<li><a href="/terms">правила и условия</a></li>
+				<li><a href="/faq">вопрос-ответ</a></li>
 				<!-- <li><a href="/contact">контакты</a></li>	-->							
 			<% end %>
 			
 			<% if signed_in? && current_user.super_admin? %>
-				<li><a href="/admin/users">список пользователей</a></li>
-				<li><a href="/admin/sms_messages">смс сообщения</a></li>	
-				<li><a href="/admin/payments">платежи</a></li>					
+				<li><a href="/admin/users">личный кабинет</a></li>				
 			<% end %>															
 			
-			<% if signed_in? %>
+			<% if signed_in? %>		
 				<li>
 					<%= link_to t(:sign_out), signout_path, :method => :delete %>
 				</li>    	

@@ -1,0 +1,37 @@
+<%= search_form_for @q, :url => admin_external_payments_path, :remote => true, :html => {:method => :get, :class => "round-box filter-box"} do |f| %>
+	<ul>
+		<li class="expanded _expandedBox filter-section">
+			<h2><%= t :main_parameters %></h2>
+			<div class="place_param _expanded">			
+				<% if signed_in? && current_user.super_admin? %>
+					<dl>
+						<dt class="township"><%= t :owner %>:</dt>
+						<dd class="township">
+							<%= select("q", "user_id_eq", options_for_select(@owners_for_dropdown), { :include_blank => false }) %>						
+						</dd>
+					</dl>	
+				<% end %>				
+				<table>
+					<tr>
+						<td class="col1">
+							<%= t :from %>:
+						</td>
+						<td class="col2">
+							<%= f.datepicker :created_at_gteq %>		
+						</td>		
+						<td class="col3">
+							<%= t :to %>:
+						</td>
+						<td class="col4">
+							<%= f.datepicker :created_at_lteq %>		
+						</td>							
+					</tr>
+				</table>							
+			</div>
+			<div class="_closed"></div>
+			<div class="clearing"></div>
+		</li>								
+		<%= f.submit " ", :class => "search-button" %>							
+	</ul>
+	<div class="clearing"></div>					
+<% end %>

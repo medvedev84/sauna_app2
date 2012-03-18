@@ -25,19 +25,19 @@
 			<div class="content">
 				<div class="content-left">							
 					<!-- VK Widget -->
-					
+					<!--
 					<div id="vk_groups"></div>
 					<script type="text/javascript">
 						VK.Widgets.Group("vk_groups", {mode: 0, width: "200", height: "300"}, 34545540);
 					</script>		
-					
+					-->
 					<!-- /VK Widget -->								
 					
 					<a class="banner" href="http://можем-всё.рф" target="_blank"><%= image_tag("banner-mogem.jpg") %></a>									
 				</div>
 				<div class="content-right">												
 					<% if !second_time? %>
-						<%= render 'layouts/header' %>					
+						<%= render 'layouts/welcome' %>					
 					<% end %>	
 					
 					<% flash.each do |key, value| %>
@@ -56,6 +56,14 @@
 				$('.welcome').hide();				
 			});
 		</script>
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// little fix for current page in paging
+				var selected_number = $(".pagination .current").html().trim();
+				$(".pagination .current").html(selected_number);
+			});			
+		</script>		
 		
 		<!-- Reformal script -->
 		<script type="text/javascript">

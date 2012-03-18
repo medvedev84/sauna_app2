@@ -1,10 +1,11 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < AdminController
 	before_filter :authenticate, :only => [:index, :show, :edit, :update, :destroy]
 	before_filter :correct_user, :only => [:index, :show, :edit, :update]
 
 	def show
-		@user = User.find(params[:id])
-		@saunas = @user.saunas.paginate(:page => params[:page], :per_page => 10)
+		@user = User.find(params[:id])		
+		@current_page_number = params[:page] 
+		@saunas = @user.saunas.page(params[:page]).per(5)		
 	end
 
 	def new
@@ -29,15 +30,11 @@ class Admin::UsersController < ApplicationController
 
 	def index 
 		h = params[:q]
-		@q = User.search(h)	
-		if h != nil			
-			@users = @q.result(:distinct => true)
-		else
-			@users = User.all
-		end	
-		
+		@q = User.search(h)			
+		@users = @q.result(:distinct => true).page(params[:page]).per(5)									
+		@current_page_number = params[:page] 				
 		respond_to do |format|
-			format.html { render 'index' }
+			format.html 
 			format.js
 		end			
 	end

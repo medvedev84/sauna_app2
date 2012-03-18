@@ -1,11 +1,14 @@
 $('.row').remove();
 $('.empty-row').remove();
 <% if !@bookings.empty? %>
-$('<%= render @bookings %>').appendTo($('.result-list'));
-$('.row a').click(function(e) {
-	e.preventDefault();
-	showBookingInfoPopupAdmin('#dialog-booking', this.id);
-});	
+	$('<%= render @bookings %>').appendTo($('.result-list'));
+	$('.row a').click(function(e) {	
+		e.preventDefault();
+		showEditExternalPaymentPopup('#dialog-booking', this.id);
+	});	
+	$('.digg_pagination').show();
+	selectPaginatorLink('/admin/bookings', <%= @current_page_number %>);
 <% else %>
-$("<%= render 'shared/empty_row' %>").appendTo($('.result-list'));
+	$('.digg_pagination').hide();
+	$("<%= render 'shared/empty_row' %>").appendTo($('.result-list'));
 <% end %>	

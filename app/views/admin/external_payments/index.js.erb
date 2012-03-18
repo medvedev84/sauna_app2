@@ -1,0 +1,14 @@
+$('.row').remove();
+$('.empty-row').remove();
+<% if !@external_payments.empty? %>
+	$('<%= render @external_payments %>').appendTo($('.result-list'));
+	$('.row a').click(function(e) {	
+		e.preventDefault();
+		showBookingInfoPopupAdmin('#external-payment-edit', this.id);
+	});		
+	$('.digg_pagination').show();
+	selectPaginatorLink('/admin/external_payments', <%= @current_page_number %>);
+<% else %>
+	$('.digg_pagination').hide();
+	$("<%= render 'shared/empty_row' %>").appendTo($('.result-list'));
+<% end %>	

@@ -20,8 +20,13 @@ class SaunasController < ApplicationController
 	def index
 		get_all_cities
 		get_all_districts	
+				
+		if params[:q] != nil	
+			save_search_params(params[:q])			
+		end
 		
-		h = params[:q]
+		h = get_search_params
+				
 		if h != nil
 			h.delete_if {|key, value| key == "sauna_items_has_kitchen_eq" && value == "0" } #if kitchen is not important, don't use that criteria
 			h.delete_if {|key, value| key == "sauna_items_has_restroom_eq" && value == "0" } #if restroom is not important, don't use that criteria
@@ -44,18 +49,18 @@ class SaunasController < ApplicationController
 					h.delete_if {|key, value| key == "address_district_id_eq" } 
 				end						
 			end
-						
-			@q = Sauna.search(h)					
-			@saunas = @q.result(:distinct => true)		
-						
-		else		
-			@q = Sauna.search(h)								
-			@saunas = Array.new # return empty array if visit index page at the first time
 		end
 		
-		if (mobile_device? || touch_device? ) && h != nil 
+		@q = Sauna.search(h)				
+		
+		if (mobile_device? || touch_device? ) && params[:q]  != nil 
+			@saunas = @q.result(:distinct => true)
 			render 'search'
 		else	
+		
+			@current_page_number = params[:page] != nil ? params[:page] : 1		
+			@saunas = @q.result(:distinct => true).page(params[:page]).per(5)	
+		
 			respond_to do |format|
 				format.html { render 'index' }
 				format.js

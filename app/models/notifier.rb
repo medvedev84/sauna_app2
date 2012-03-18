@@ -27,6 +27,12 @@ class Notifier < ActionMailer::Base
 	def booking_created_email_to_customer(booking)
 		@booking = booking
 		mail( :to => booking.email, :subject => "New booking has been created" )
+	end	
+	
+	# send a email to admin
+	def external_payment_created_email_to_admin(external_payment)
+		@external_payment = external_payment
+		mail( :to => "k.p.medvedev@gmail.com", :subject => "New external payment has been created" )
 	end		
 end
 

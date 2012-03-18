@@ -1,3 +1,5 @@
+<input type="hidden" id="popup_height" value="200" />
+<div class="error"></div>	
 <%= form_for @booking, :remote => true do |f| %>
 	<% if @booking.errors.any? %>
 		<div id="error_explanation">

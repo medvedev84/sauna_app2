@@ -1,5 +1,5 @@
-class Admin::PaymentsController < ApplicationController
-	include SmsMessagesHelper
+class Admin::PaymentsController < AdminController
+	include ApplicationHelper
 	
 	before_filter :admin_user
 	
@@ -8,13 +8,14 @@ class Admin::PaymentsController < ApplicationController
 		get_all_saunas
 		
 		h = params[:q]
-		if h != nil					
-			@q = Payment.search(h)					
-			@payments = @q.result(:distinct => true)							
-		else		
-			@q = Payment.search(h)								
-			@payments = Array.new # return empty array if visit index page at the first time
-		end
+		@q = Payment.search(h)									
+		@current_page_number = params[:page] != nil ? params[:page] : 1 
+		@payments = @q.result(:distinct => true).page(params[:page]).per(5)	
+		
+		respond_to do |format|
+			format.html 
+			format.js
+		end				
 	end
 	
 	private

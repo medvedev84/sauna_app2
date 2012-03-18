@@ -1,18 +1,16 @@
 require 'digest/md5'
-class Admin::BookingsController < ApplicationController
+class Admin::BookingsController < AdminController
 
 	def index 	
 		@saunas = current_user.saunas
 		
-		h = params[:q]
-	
+		h = params[:q]	
 		if h == nil	
 			h = {}
 		end
 		
 		# never show canceled bookings
-		h["is_canceled_eq"] = false
-		
+		h["is_canceled_eq"] = false		
 		h.delete_if {|key, value| key == "payment_id_present" && value == "0" } #if payments is not important, don't use that criteria	
 		
 		# if request from sauna page - get booking for this sauna
@@ -21,17 +19,12 @@ class Admin::BookingsController < ApplicationController
 			h["sauna_id_eq"] = @sauna.id				
 		end	
 		
-		@q = Booking.search(h)					
-		
-	#	if params[:q] != nil
-			@bookings = @q.result(:distinct => true)			
-	#	else
-	#		@bookings = Array.new
-	#	end
-		
-		
+		@q = Booking.search(h)									
+		@current_page_number = params[:page] != nil ? params[:page] : 1
+		@bookings = @q.result(:distinct => true).order("created_at DESC").page(params[:page]).per(5)
+			
 		respond_to do |format|
-			format.html { render 'index' }
+			format.html 
 			format.js
 		end				
 	end

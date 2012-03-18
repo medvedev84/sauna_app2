@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-   
+  
   def contact
   end
 
@@ -11,8 +11,16 @@ class PagesController < ApplicationController
   
   def all
 	h = params[:q]
-	@q = Sauna.search(h)					
-	@saunas = @q.result(:distinct => true).paginate(:page => params[:page], :per_page => 10)
-	#@saunas = Sauna.paginate(:page => params[:page], :per_page => 10)
+	@q = Sauna.search(h)	
+	if (mobile_device? || touch_device? ) 
+		@saunas = @q.result(:distinct => true)		
+	else	
+		@current_page_number = params[:page] != nil ? params[:page] : 1		
+		@saunas = @q.result(:distinct => true).page(params[:page]).per(5)	
+		respond_to do |format|
+			format.html { render 'index' }
+			format.js
+		end		
+	end		
   end  
 end

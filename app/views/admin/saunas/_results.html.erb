@@ -1,0 +1,16 @@
+<ul class="result-list">	
+	<li class="head">
+		<div class="name"><%= t :bannii_komplex %></div>
+		<div class="actions-label"><%= t :actions %></div>
+	</li>	
+	<% if !@saunas.empty? %>
+		<%  @saunas.each do |sauna| %>				
+			<%= render sauna %>
+		<% end %>
+	<% else %>
+		<%= render 'shared/empty_row' %>
+	<% end %>	
+</ul>	
+<div class="digg_pagination">
+	<%= paginate @saunas %>
+</div>	

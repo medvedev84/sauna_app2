@@ -1,4 +1,5 @@
-class Booking < ActiveRecord::Base    
+class Booking < ActiveRecord::Base    	
+	
 	belongs_to :sauna
 	has_one :payment
 	has_many :sms_messages,

@@ -1,12 +1,7 @@
 <div class="main-page">
 	<%= render 'shared/globalsearch' %>	
 	<%= render 'shared/mobile' %>	
-	<%= render 'saunas/results' %>	
-	
-	<div class="digg_pagination">
-		<%= will_paginate @saunas, :container => false %>
-	</div>
-	
+	<%= render 'results' %>		
 </div>
 <script type="text/javascript">
 	Frame.initSearchByName();

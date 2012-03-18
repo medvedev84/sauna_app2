@@ -1,5 +1,5 @@
 <table class="search-form">
-	<th align="center"><%= t :search_results %></th>
+	<th align="center">Все сауны</th>
 	<% @saunas.each do |sauna| %>
 	<tr>
 		<td align="left"  class="<%= cycle('even', 'odd') -%>">
@@ -7,6 +7,5 @@
 		</td>
 	</tr>
 	<% end %>
-	<%= will_paginate @saunas %>
 </table>		
 	

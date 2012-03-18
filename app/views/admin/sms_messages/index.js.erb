@@ -1,7 +1,10 @@
 $('.row').remove();
 $('.empty-row').remove();
 <% if !@sms_messages.empty? %>
-$('<%= render @sms_messages %>').appendTo($('.result-list'));
+	$('.digg_pagination').show();
+	$('<%= render @sms_messages %>').appendTo($('.result-list'));
+	selectPaginatorLink('/admin/sms_messages', <%= @current_page_number %>);
 <% else %>
-$("<%= render 'shared/empty_row' %>").appendTo($('.result-list'));
+	$('.digg_pagination').hide();
+	$("<%= render 'shared/empty_row' %>").appendTo($('.result-list'));
 <% end %>

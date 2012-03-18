@@ -1,0 +1,17 @@
+<ul class="result-list">	
+	<li class="head">
+		<div class="name"><%= t :payment %></div>
+		<div class="capacity"><%= t :status %></div>
+		<div class="price"><%= t :amount %></div>
+	</li>	
+	<% if !@external_payments.empty? %>
+		<%  @external_payments.each do |external_payment| %>				
+			<%= render external_payment %>
+		<% end %>
+	<% else %>
+		<%= render 'shared/empty_row' %>
+	<% end %>	
+</ul>	
+<div class="digg_pagination">
+	<%= paginate @external_payments, :remote => true %>
+</div>	

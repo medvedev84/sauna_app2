@@ -1,18 +1,14 @@
 <div class="detail-page">
-	<%= render 'shared/navigation', :left_link => edit_admin_sauna_path(@sauna_item.sauna.id), 
-		:left_label => @sauna_item.sauna.name, :right_label => @sauna_item.name %>	
-	
 	<div class="round-box">
 		<div class="round-sub-box">		
-			<h2><%= t :edit_sauna_item %></h2>
-				<div class="_expanded">
-					<%= form_for @sauna_item, :url => admin_sauna_item_path(@sauna_item), :html => { :class => "comment-form" } do |f| %>
-						<%-#= f.hidden_field :sauna_id,  :value => @sauna.id %>
-						<%= render 'form', :f => f %>
-					<% end %>
-				</div>
-				<div class="_closed"></div>
-				<div class="clearing"></div>				
+			<div class="_expanded">
+				<%= form_for @sauna_item, :url => admin_sauna_item_path(@sauna_item), :html => { :class => "comment-form" } do |f| %>
+					<%-#= f.hidden_field :sauna_id,  :value => @sauna.id %>
+					<%= render 'form', :f => f %>
+				<% end %>
+			</div>
+			<div class="_closed"></div>
+			<div class="clearing"></div>				
 		</div>
 	</div>
 </div>

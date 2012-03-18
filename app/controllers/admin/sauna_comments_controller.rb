@@ -1,4 +1,4 @@
-class Admin::SaunaCommentsController < ApplicationController
+class Admin::SaunaCommentsController < AdminController
 
 	def destroy
 		@sauna_comment = SaunaComment.find(params[:id])		

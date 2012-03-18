@@ -1,0 +1,21 @@
+<input type="hidden" id="external-payment-create-height" value="80px" />
+<div class="error"></div>
+<form accept-charset="UTF-8" action="/admin/external_payments" class="new_external_payment" data-remote="true" id="new_external_payment" method="post">
+	<input type="hidden" name="external_payment[ps_trans_id]" value="not defined">				
+	<table cellspacing="5" cellpadding="5">
+		<tr>
+			<td class="left">WMR:</td><td id="booking_date" class="right"><%= current_user.wmr_purse %></td>
+		</tr>		
+		<tr>
+			<td class="left"><%= t :amount %>:</td><td id="booking_date" class="right">
+				<input id="external_payment_amount" name="external_payment[amount]" size="30" type="text" />
+			</td>
+		</tr>	
+		<tr>
+			<td colspan="2">
+				<input name="commit" type="submit" value="Далее" />
+				<input type="button" value="Закрыть" onclick="closePopup();" />						
+			</td>
+		</tr>					
+	</table>
+</form>

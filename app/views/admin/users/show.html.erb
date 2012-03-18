@@ -1,28 +1,25 @@
 <div class="main-page">
+	
+	<div class="add-button-container">		
+		<%= link_to t(:add_new_sauna), new_admin_sauna_path(:user_id => @user.id), :class => "big-add-green-button" %>    
+	</div>
 
-
-	<% if current_user.super_admin? %>   
-		<%= render 'shared/navigation', :left_link => admin_users_path, :left_label => t(:users_list), :right_label => @user.name %>		
-	<% end %>
-	
-	<div class="mobile-ver">			
-		<%= link_to t(:add_new_sauna), new_admin_sauna_path(:user_id => @user.id) %>   
-	</div>	
-	
-	
-	<div class="admin-content">	
-		<h1><%= t :saunas_list_of_user %><%= @user.name %></h1>			
-		<% unless @saunas.empty? %>
-			<ul class="result-list">	
-				<li class="head">
-					<div class="name"><%= t :sauna %></div>
-					<div><%= t :actions %></div>
-				</li>		
-				<%= render @saunas %>
-			</ul>
-		<% end %>	
+	<div style="padding-top: 85px;">					
+		<ul class="result-list">	
+			<li class="head">
+				<div class="name"><%= t :sauna %></div>
+				<div><%= t :actions %></div>
+			</li>	
+			<% if !@saunas.empty? %>
+				<%  @saunas.each do |sauna| %>				
+					<%= render sauna %>
+				<% end %>
+			<% else %>
+				<%= render 'shared/empty_row' %>
+			<% end %>					
+		</ul>		
 		<div class="digg_pagination">
-			<%= will_paginate @saunas, :container => false %>
+			<%= paginate @saunas, :remote => false %>
 		</div>		
 	</div>
 	
