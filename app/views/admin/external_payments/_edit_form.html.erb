@@ -1,4 +1,4 @@
-<input type="hidden" id="external-payment-edit-height" value="200" />
+<input type="hidden" id="external-payment-edit-height" value="180" />
 <div class="error"></div>
 <form accept-charset="UTF-8" action="" class="edit_external_payment" data-remote="true" id="edit_external_payment" method="post">
 	<input type="hidden" value="?" name="utf8">
@@ -23,17 +23,17 @@
 		</tr>	
 		<tr>
 			<td class="left">Номер заказа:</td><td id="external_payment_order_id" class="right">				
-				<input type="text" size="30" name="external_payment[ps_order_id]" id="external_payment_ps_order_id">
+				<input type="text" name="external_payment[ps_order_id]" id="external_payment_ps_order_id">
 			</td>
 		</tr>	
 		<tr>
 			<td class="left">Номер транзакции:</td><td id="external_payment_trans_id" class="right">	
-				<input type="text" size="30" name="external_payment[ps_trans_id]" id="external_payment_ps_trans_id">			
+				<input type="text" name="external_payment[ps_trans_id]" id="external_payment_ps_trans_id">			
 			</td>
 		</tr>		
 		<tr>
 			<td colspan="2">
-				<input name="commit" type="submit" value="Далее" />
+				<input name="commit" type="submit" value="Далее" id="external-payment-submit"/>
 				<input type="button" value="Закрыть" onclick="closePopup();" />						
 			</td>
 		</tr>					

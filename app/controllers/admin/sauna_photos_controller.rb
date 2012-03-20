@@ -6,8 +6,8 @@ class Admin::SaunaPhotosController < AdminController
 	end
 	
 	def create
-		@sauna = Sauna.find(params[:sauna_photos_attributes][:sauna_id])		
-		h = params[:sauna_photos_attributes]	
+		@sauna = Sauna.find(params[:sauna][:sauna_id])		
+		h = params[:sauna][:sauna_photos_attributes]	
 		
 		if h != nil 
 			h.each do |key, value|	
@@ -20,34 +20,29 @@ class Admin::SaunaPhotosController < AdminController
 			end
 		end		
 				
-		flash[:success] = :sauna_item_created		 
+		flash[:success] = :sauna_photo_created		 
 		redirect_to '/admin/sauna/' + @sauna.id.to_s + '/sauna_photos'
 	end
 	
+	def edit
+		@sauna_photo = SaunaPhoto.find(params[:id])
+	end
+	
 	def update
-		@sauna = Sauna.find(params[:sauna_photos_attributes][:sauna_id])		
-		h = params[:sauna_photos_attributes]	
-		
-		if h != nil 
-			h.each do |key, value|	
-				@sauna_photo = SaunaPhoto.new(:photo => h[key][:photo])
-				if @sauna_photo.photo_file_size != nil
-					@sauna_photo.sauna_id = @sauna.id
-					@sauna_photo.description = h[key][:description]						
-					@sauna_photo.save
-				end
-			end
+		@sauna_photo = SaunaPhoto.find(params[:id])
+		if @sauna_photo.update_attributes(params[:sauna_photo])
+			flash[:success] = :sauna_photo_updated		 
+			redirect_to '/admin/sauna/' + @sauna_photo.sauna.id.to_s + '/sauna_photos'		
+		else
+			render 'edit'
 		end		
-				
-		flash[:success] = :sauna_item_created		 
-		redirect_to '/admin/sauna/' + @sauna.id.to_s + '/sauna_photos'
 	end	
 	
 	def destroy
 		@sauna_photo = SaunaPhoto.find(params[:id])		
 		@sauna = @sauna_photo.sauna
 		SaunaPhoto.find(params[:id]).destroy
-		flash[:success] = "Sauna photo destroyed."
+		flash[:success] = :sauna_photo_destroyed
 		respond_to do |format|
 			format.html { redirect_to edit_admin_sauna_path(@sauna) }
 			format.js

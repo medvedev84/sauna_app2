@@ -2,7 +2,6 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1'
             
-#gem 'will_paginate'
 gem 'kaminari'
 
 gem 'heroku'
@@ -31,8 +30,8 @@ end
 
 group :production do
   gem 'pg'
-#  gem 'execjs'
-#  gem 'therubyracer' 
+  gem 'execjs'
+  gem 'therubyracer' 
 end
 
 group :development, :test do

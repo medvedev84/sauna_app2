@@ -210,4 +210,6 @@ function showEditExternalPaymentPopup(id, external_payment_id){
 	$('#edit_external_payment').attr("action", "/admin/external_payments/" + external_payment_id);
 	$.get('/admin/external_payments/'+external_payment_id, function(data) {	
 	});	
+	var old_height = parseInt($('#external-payment-edit-height').val());
+	$('#external-payment-edit').height(old_height);	
 }

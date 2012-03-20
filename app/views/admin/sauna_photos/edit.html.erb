@@ -1,0 +1,23 @@
+<div style="padding-top: 15px;">
+	<div class="detail-page">
+		<div class="round-box">
+			<div class="round-sub-box">		
+				<div class="_expanded">				
+					<%= form_for @sauna_photo, :url => admin_sauna_photo_path(@sauna_photo), :html => { :class => "comment-form" } do |sf| %>
+						<%-#= render 'shared/error_messages', :object => sf.object %>	
+						<dt><label for="sauna_photos_attributes"><%= t :description %>:</label></dt>
+						<dd>
+							<%= sf.text_field :description %>		
+						</dd>	
+						<dt></dt>
+						<dd>
+							<%= sf.submit t :save %>
+						</dd>			
+					<% end %>  				
+				</div>
+				<div class="_closed"></div>
+				<div class="clearing"></div>				
+			</div>
+		</div>
+	</div>
+</div>

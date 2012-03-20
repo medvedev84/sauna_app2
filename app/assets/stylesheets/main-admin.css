@@ -68,10 +68,16 @@ h5	{
 	background-color: #3399ff;
 	}
 
-input, textarea, select {
+input[type=text], input[type=password], textarea, select {
 	border: 1px solid #3399ff;
 	padding: 3px 5px 5px 5px;
+	width: 150px;
 }
+
+input[type=button]{
+	padding: 3px 5px 5px 5px;
+}
+
 
 input[type=submit] {
 	color:#fff;

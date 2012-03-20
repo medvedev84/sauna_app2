@@ -1,10 +1,24 @@
 <li class="row" id="photo-<%= sauna_photo.id %>"> 
 	<a href="#">
 		<div class="name">
-			<% thumb_image = image_tag sauna_photo.photo.url(:thumb) %>	
-			<%= link_to thumb_image, sauna_photo.photo.url(:pagesize), :title => sauna_photo.description %>			
+			<table>
+			<tr>
+				<td>
+					<% thumb_image = image_tag sauna_photo.photo.url(:thumb) %>	
+					<%= link_to thumb_image, sauna_photo.photo.url(:pagesize), :title => sauna_photo.description %>						
+				</td>
+				<td valign="top" style="padding-left: 10px;">
+					Размер: <%= sauna_photo.photo_file_size / 1000 %> Кб<br/>				
+					Дата загрузки: <%= sauna_photo.created_at.strftime("%d.%m.%Y") %><br/>				
+					Описание: <%= sauna_photo.description %><br/>						
+				</td>
+			</tr>
+			</table>
+
+
 		</div>
-		<div class="actions">			
+		<div class="actions">		
+			<%= link_to edit_image, edit_admin_sauna_photo_path(sauna_photo) %>   		
 			<%= link_to delete_image, admin_sauna_photo_path(sauna_photo), :method => :delete, :remote => true, :confirm => t(:confirm_delete_photo_comment) %>  
 		</div>
 	</a>	       	 		

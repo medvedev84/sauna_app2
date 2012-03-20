@@ -1,4 +1,15 @@
 $('#external_payment_id').val("<%= @external_payment.id %>.-");
 $('#external_payment_amount').html("<%= @external_payment.amount %>.-");
 $('#external_payment_date').html("<%= @external_payment.created_at.strftime("%d.%m.%Y") %>");
+<% if @external_payment.status != ExternalPayment.init  %>
+	$('#external-payment-submit').hide();
+	$('#external_payment_ps_order_id').prop('disabled', true);
+	$('#external_payment_ps_trans_id').prop('disabled', true);
+	$('#external_payment_status option').prop('disabled', true);
+<% else %>
+	$('#external-payment-submit').show();
+	$('#external_payment_ps_order_id').prop('disabled', false);
+	$('#external_payment_ps_trans_id').prop('disabled', false);
+	$('#external_payment_status option').prop('disabled', false);	
+<% end %>
 

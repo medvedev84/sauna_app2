@@ -1,15 +1,17 @@
-<div class="detail-page">
-
-	<div class="round-box">
-		<div class="round-sub-box">		
-			<h2><%= t :create_new_sauna_photos %></h2>
-				<div class="_expanded">
-					<%= form_for @sauna, :url => admin_sauna_photos_path(:id => @sauna.id), :html => { :multipart => true, :class => "comment-form" } do |f| %>					
-						<%= render 'form', :f => f %>
-					<% end %>
-				</div>
-				<div class="_closed"></div>
-				<div class="clearing"></div>				
+<div style="padding-top: 15px;">
+	<div class="detail-page">
+		<div class="round-box">
+			<div class="round-sub-box">		
+				<h2><%= t :create_new_sauna_photos %></h2>
+					<div class="_expanded">
+						<%= form_for @sauna, :url => admin_sauna_photos_path,  :method => :post, :html => { :multipart => true, :class => "comment-form" } do |f| %>					
+							<%= f.hidden_field :sauna_id,  :value => @sauna.id %>
+							<%= render 'create_form', :f => f %>
+						<% end %>
+					</div>
+					<div class="_closed"></div>
+					<div class="clearing"></div>				
+			</div>
 		</div>
 	</div>
 </div>

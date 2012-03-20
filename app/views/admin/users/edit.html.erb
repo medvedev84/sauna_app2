@@ -1,13 +1,15 @@
-<div class="detail-page">
-	<div class="round-box">
-		<div class="round-sub-box">			
-			<div class="_expanded">
-				<%= form_for(@user, :url => admin_user_path(@user)) do |f| %>
-					<%= render 'form', :f => f %>
-				<% end %>
+<div style="padding-top: 15px;">
+	<div class="detail-page">
+		<div class="round-box">
+			<div class="round-sub-box">			
+				<div class="_expanded">
+					<%= form_for(@user, :url => admin_user_path(@user)) do |f| %>
+						<%= render 'form', :f => f %>
+					<% end %>
+				</div>
+				<div class="_closed"></div>
+				<div class="clearing"></div>			
 			</div>
-			<div class="_closed"></div>
-			<div class="clearing"></div>			
 		</div>
 	</div>
 </div>

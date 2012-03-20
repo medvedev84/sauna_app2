@@ -18,7 +18,7 @@ class PagesController < ApplicationController
 		@current_page_number = params[:page] != nil ? params[:page] : 1		
 		@saunas = @q.result(:distinct => true).page(params[:page]).per(5)	
 		respond_to do |format|
-			format.html { render 'index' }
+			format.html 
 			format.js
 		end		
 	end		
