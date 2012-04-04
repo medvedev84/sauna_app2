@@ -7,8 +7,8 @@
     <h1>Здравствуйте, <%= @booking.sauna_item.sauna.user.name %></h1>
     <p>
 		Оставлена заявка на бронирование:<br/>
-		банный комплекс: <%= @booking.sauna.name %><br/>
-		сауна: <%= @booking.sauna_item.sauna.name %><br/>
+		банный комплекс: <%= @booking.sauna_item.sauna.name %><br/>
+		сауна: <%= @booking.sauna_item.name %><br/>
 		дата: <%= @booking.starts_at.strftime("%d.%m.%Y") %><br/>
 		время: с <%= @booking.starts_at.strftime("%H:%M") %> по <%= @booking.ends_at.strftime("%H:%M") %><br/>
 		контактное лицо: <%= @booking.fio %><br/>

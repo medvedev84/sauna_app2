@@ -260,7 +260,7 @@ var Frame =
 	
 	initSearchUserSaunaChain: function()
 	{
-		$('#q_booking_sauna_item_sauna_id_eq').chainedTo('#booking_sauna_item_sauna_user_id_eq');		
+		$('#q_booking_sauna_item_sauna_id_eq').chainedTo('#q_booking_sauna_item_sauna_user_id_eq');		
 	},	
 
 	initSearchSaunaSaunaItemChain: function()

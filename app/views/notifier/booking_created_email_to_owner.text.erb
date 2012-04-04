@@ -1,9 +1,9 @@
-Здравствуйте, <%= @booking.sauna.user.name %>
+Здравствуйте, <%= @booking.sauna_item.sauna.user.name %>
 =====================================================
 
 Оставлена заявка на бронирование:
-банный комплекс: <%= @booking.sauna.name %>
-сауна: <%= @booking.sauna_item.sauna.name %>
+банный комплекс: <%= @booking.sauna_item.sauna.name %>
+сауна: <%= @booking.sauna_item.name %>
 дата: <%= @booking.starts_at %>
 время: с <%= @booking.starts_at %> по <%= @booking.ends_at %>
 контактное лицо: <%= @booking.fio %>

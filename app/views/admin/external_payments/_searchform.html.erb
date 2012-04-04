@@ -2,15 +2,7 @@
 	<ul>
 		<li class="expanded _expandedBox filter-section">
 			<h2><%= t :main_parameters %></h2>
-			<div class="place_param _expanded">			
-				<% if signed_in? && current_user.super_admin? %>
-					<dl>
-						<dt class="township"><%= t :owner %>:</dt>
-						<dd class="township">
-							<%= select("q", "user_id_eq", options_for_select(@owners_for_dropdown), { :include_blank => false }) %>						
-						</dd>
-					</dl>	
-				<% end %>				
+			<div class="place_param _expanded">						
 				<table>
 					<tr>
 						<td class="col1">
@@ -27,6 +19,14 @@
 						</td>							
 					</tr>
 				</table>							
+				<% if signed_in? && current_user.super_admin? %>
+					<dl>
+						<dt class="township"><%= t :owner %>:</dt>
+						<dd class="township">
+							<%= select("q", "user_id_eq", options_for_select(@owners_for_dropdown), { :include_blank => false }) %>						
+						</dd>
+					</dl>	
+				<% end %>					
 			</div>
 			<div class="_closed"></div>
 			<div class="clearing"></div>
