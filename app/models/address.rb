@@ -4,8 +4,6 @@ class Address < ActiveRecord::Base
 
   validates :street, :presence => true,
                    :length   => { :maximum => 50 }
-  validates :building, :presence => true,
-                   :length   => { :maximum => 5 }
 
   def description
     "#{street}, #{building}"     

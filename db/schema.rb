@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111119193466) do
+ActiveRecord::Schema.define(:version => 20111119193467) do
 
   create_table "addresses", :force => true do |t|
     t.integer   "sauna_id"
@@ -24,17 +24,17 @@ ActiveRecord::Schema.define(:version => 20111119193466) do
   end
 
   create_table "bookings", :force => true do |t|
-    t.integer  "ps_order_id"
-    t.boolean  "is_canceled"
-    t.integer  "sauna_id"
-    t.string   "email"
-    t.string   "phone_number"
-    t.string   "fio"
-    t.datetime "starts_at"
-    t.datetime "ends_at"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "ps_order_id"
+    t.boolean   "is_canceled"
+    t.integer   "sauna_item_id"
+    t.string    "email"
+    t.string    "phone_number"
+    t.string    "fio"
+    t.timestamp "starts_at"
+    t.timestamp "ends_at"
+    t.string    "description"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "cities", :force => true do |t|
@@ -52,32 +52,32 @@ ActiveRecord::Schema.define(:version => 20111119193466) do
   end
 
   create_table "external_payments", :force => true do |t|
-    t.integer  "payment_id"
-    t.integer  "user_id"
-    t.integer  "amount"
-    t.string   "status"
-    t.string   "ps_name"
-    t.string   "ps_order_id"
-    t.string   "ps_trans_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "payment_id"
+    t.integer   "user_id"
+    t.integer   "amount"
+    t.integer   "status"
+    t.string    "ps_name"
+    t.string    "ps_order_id"
+    t.string    "ps_trans_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "internal_payments", :force => true do |t|
-    t.integer  "payment_id"
-    t.integer  "user_id"
-    t.integer  "amount"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "payment_id"
+    t.integer   "user_id"
+    t.integer   "amount"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "payments", :force => true do |t|
-    t.integer  "booking_id"
-    t.integer  "amount"
-    t.text     "description"
-    t.string   "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "booking_id"
+    t.integer   "amount"
+    t.text      "description"
+    t.integer   "status"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "sauna_comments", :force => true do |t|
@@ -137,17 +137,24 @@ ActiveRecord::Schema.define(:version => 20111119193466) do
     t.string    "email"
   end
 
-  create_table "sms_messages", :force => true do |t|
-    t.text     "message_text"
-    t.string   "phone_number"
-    t.integer  "booking_id"
-    t.string   "sms_number"
-    t.string   "status"
+  create_table "site_settings", :force => true do |t|
+    t.integer  "commission_fee"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "sms_messages", :force => true do |t|
+    t.text      "message_text"
+    t.string    "phone_number"
+    t.integer   "booking_id"
+    t.string    "sms_number"
+    t.string    "status"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+  end
+
   create_table "users", :force => true do |t|
+    t.string    "wmr_purse"
     t.integer   "balance_amount"
     t.string    "name"
     t.string    "email"

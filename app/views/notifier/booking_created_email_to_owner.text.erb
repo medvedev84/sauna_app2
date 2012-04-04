@@ -2,7 +2,8 @@
 =====================================================
 
 Оставлена заявка на бронирование:
-сауна: <%= @booking.sauna.name %>
+банный комплекс: <%= @booking.sauna.name %>
+сауна: <%= @booking.sauna_item.sauna.name %>
 дата: <%= @booking.starts_at %>
 время: с <%= @booking.starts_at %> по <%= @booking.ends_at %>
 контактное лицо: <%= @booking.fio %>

@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
 		@bookings = @bookings.after(params['start']) if (params['start'])
 		@bookings = @bookings.before(params['end']) if (params['end'])
 
-		@bookings = @bookings.where("sauna_id = ?", params[:sauna_id])
+		@bookings = @bookings.where("sauna_item_id = ?", params[:sauna_item_id])
 		
 		respond_to do |format|
 		  format.html 
@@ -18,60 +18,60 @@ class BookingsController < ApplicationController
 
 	# TODO
 	def show
-		@event = Booking.find(params[:id])
+		@booking = Booking.find(params[:id])
 
 		respond_to do |format|
 		  format.html # show.html.erb
-		  format.xml  { render :xml => @event }
-		  format.js { render :json => @event.to_json }
+		  format.xml  { render :xml => @booking }
+		  format.js { render :json => @booking.to_json }
 		end
 	end
 	
 	def create
+		email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 		@booking = Booking.new(params[:booking])
-		if @booking.save				
-			prepare_payment_data(@booking)  
-			
-			# Deliver the email to owner and customer
-			#Notifier.booking_created_email_to_owner(@booking).deliver
-			#Notifier.booking_created_email_to_customer(@booking).deliver
-			
-			# send sms to owner and customer
-			send_sms(@booking)			
-			
-			respond_to do |format|
-				format.html { redirect_to @booking }
-				format.js
-			end
-		else    
-			@booking.errors
-			render 'new'
-		end		
+		if email_regex =~ @booking.email 
+			if @booking.save				
+				prepare_payment_data(@booking)  								
+				Notifier.booking_created_email_to_owner(@booking).deliver
+				Notifier.booking_created_email_to_customer(@booking).deliver
+				sms_notification(@booking)							
+				respond_to do |format|
+					format.html { redirect_to @booking }
+					format.js
+				end
+			else    
+				@booking.errors
+				render 'new'
+			end			
+		else
+			@booking.errors["email"] = t (:email_format)
+			render 'new'		
+		end
 	end	
-
-	def send_sms(booking)
+	
+	def sms_notification(booking)
+		booking_details_text = t(:sauna) + ": " + booking.sauna_item.sauna.name + " (" + booking.sauna_item.name + "). " + t(:date) + ": " + booking.starts_at.strftime("%d.%m.%Y") + ". " + t(:time) + ": " + booking.starts_at.strftime("%H:%M") + "-" + booking.ends_at.strftime("%H:%M")
 		# send sms to admin
-		message_text = "New+booking+was+maden"
-		admin_number = "79043102536"
-		code, sms_id = SmsSender.send_simple(admin_number, message_text)
-		sms_message = SmsMessage.new(:booking_id => booking.id, :sms_number => sms_id, :status => code, :message_text => message_text, :phone_number => admin_number)
-		sms_message.save
+		message_text = t(:booking_created_to_admin) + " " + booking_details_text
+		admin_number = SiteSetting.get_phone_number
+		send_sms(booking.id, message_text, admin_number)			
 		
 		# send sms to customer
-		message_text = "You+made+booking+for+sauna"
-		code, sms_id = SmsSender.send_simple(booking.phone_number, message_text)
-		sms_message = SmsMessage.new(:booking_id => booking.id, :sms_number => sms_id, :status => code, :message_text => message_text, :phone_number => booking.phone_number)
-		sms_message.save
+		message_text =  t(:booking_created_to_client) + " " + booking_details_text
+		send_sms(booking.id, message_text, booking.phone_number)
 		
 		# send sms to owner
-		message_text = "Your+sauna+has+been+booked"
-		#code, sms_id = SmsSender.send_simple(booking.sauna.phone_number1, message_text)				
-		
-		# to test only
-		code, sms_id = SmsSender.send_simple(admin_number, message_text)
-		
-		sms_message = SmsMessage.new(:booking_id => booking.id, :sms_number => sms_id, :status => code, :message_text => message_text, :phone_number => booking.sauna.phone_number1)
-		sms_message.save		
+		message_text = t(:booking_created_to_owner) + " " + booking_details_text
+		#send_sms(booking.id, message_text, booking.sauna_item.sauna.phone_number1)
+		send_sms(booking.id, message_text, admin_number)
+	end
+	
+	def send_sms(booking_id, message_text, phone_number)		
+		sms_text = message_text.tr(" ", "+")
+		code, sms_id = SmsSender.send_simple(phone_number, sms_text)				
+		sms_message = SmsMessage.new(:booking_id => booking_id, :sms_number => sms_id, :status => code, :message_text => message_text, :phone_number => phone_number)
+		sms_message.save	
 	end
   
   def prepare_payment_data(booking)    
@@ -82,7 +82,7 @@ class BookingsController < ApplicationController
       @pay_desc['mrh_pass1'] = Payment::MERCHANT_PASS_1
       @pay_desc['inv_id']    = 0
       @pay_desc['inv_desc']  = booking.description
-      @pay_desc['out_summ']  = 1000
+      @pay_desc['out_summ']  = SiteSetting.get_booking_fee
       @pay_desc['shp_item']  = booking.id
       @pay_desc['in_curr']   = "WMRM"
       @pay_desc['culture']   = "ru"

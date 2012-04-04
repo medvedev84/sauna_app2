@@ -10,7 +10,7 @@ class Admin::SmsMessagesController < AdminController
 		h = params[:q]	
 		@q = SmsMessage.search(h)									
 		@current_page_number = params[:page] != nil ? params[:page] : 1 
-		@sms_messages = @q.result(:distinct => true).order("created_at DESC").page(params[:page]).per(5)		
+		@sms_messages = @q.result(:distinct => true).order("created_at DESC").page(params[:page]).per(10)		
 		
 		respond_to do |format|
 			format.html 
@@ -21,7 +21,7 @@ class Admin::SmsMessagesController < AdminController
 	private
 
 	def admin_user
-		if !current_user.super_admin? 
+		if !(current_user.super_admin? || current_user.admin?) 
 			flash[:error] = :access_denied
 			redirect_to('/incorrect') 			
 		end

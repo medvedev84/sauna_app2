@@ -47,15 +47,34 @@ function showPaymentPopup(id){
 	initPopup(id);
 }
 
-function showCalendarPopup(id, sauna_id){
-	initCalendarPopup(id, sauna_id)
+function showCalendarPopup(id, sauna_item_id){
+	initCalendarPopup(id, sauna_item_id);
+	$('#booking_sauna_item_id').val(sauna_item_id);
 }
 
-function showCalendarPopupAdmin(id, sauna_id){
-	initCalendarPopup(id, sauna_id)	
-	$('#booking_sauna_id').val(sauna_id);
+function showSelectSaunaPopupAdmin(sauna_id){
+	initPopup("#dialog-select-sauna");
+	$.get('/admin/sauna_items?id='+sauna_id, function(data) {		
+		var str = "<select id='sauna_item_selector'>";
+		$.each(data, function(index, value) { 
+			str += "<option value=" + value.id + ">" + value.name + "</option>";		
+		});
+		str += "</select>";
+		$("#select").html(str);
+	}, "json");
 }
 
+function showCalendarPopupAdmin(id, sauna_item_id){
+	closePopup();
+	initCalendarPopup(id, sauna_item_id);	
+	$('#booking_sauna_item_id').val(sauna_item_id);
+}
+
+function showConfirmMessagePopupAdmin(){	
+	removeSpin();	
+	closePopup();
+	initPopup('#dialog-confirmation');	
+}
 
 function submitContactFormPopup(){
 	disableContactFormPopup();	
@@ -91,7 +110,7 @@ function showContactFormPopup(id){
 	
 	$('#dialog-contact .error').hide();
 
-	var str_date = start_date.getDate() + "." + start_date.getMonth() + "." + start_date.getFullYear();
+	var str_date = start_date.getDate() + "." + (start_date.getMonth() + 1) + "." + start_date.getFullYear();
 	var str_start_time = start_date.getHours();	
 	var str_end_time = end_date.getHours();	
 	
@@ -130,13 +149,9 @@ function showBookingInfoPopupAdmin(id, booking_id){
 	});
 }
 
-function checkSelectedDates(){
-	
-}
-
-function initCalendarPopup(id, sauna_id){
+function initCalendarPopup(id, sauna_item_id){
 	initPopup(id);
-	initCalendar(sauna_id);	
+	initCalendar(sauna_item_id);	
 }
 
 function initPopup(id){

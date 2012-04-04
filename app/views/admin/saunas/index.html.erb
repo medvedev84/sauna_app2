@@ -1,5 +1,5 @@
 <div class="main-page">
-	<%= render 'shared/globalsearch' %>	
+	<%= render 'globalsearch' %>	
 	
 	<div class="add-button-container ">		
 		<%= link_to t(:add_new_sauna), new_admin_sauna_path(:user_id => @user.id), :class => "big-add-green-button" %>   
@@ -11,33 +11,11 @@
 		<%= render 'results' %>		
 	</div>
 		
-	<div id="boxes"> 
-				
-		<!-- Start of calendar from -->
-		<div id="dialog-calendar" class="window">
-			<div id='calendar'>
-			</div>	
-			<br/>
-			<input name="commit" type="submit" value="<%= t :next %>" onclick="showContactFormPopupAdmin('#dialog-contact')">
-			<input name="commit" type="button" value="<%= t :close %>" onclick="closePopup();">				
-		</div>		
-		<!-- End of calendar from -->
-
-		<!-- Start of contact from -->
-		<div id="dialog-contact" class="window">
-			<input type="hidden" id="popup_height" value="260" />
-			<div class="error"></div>			
-			<%= render 'admin/bookings/form' %>	
-		</div>
-		<!-- End of contact from -->
-		
-		<!-- Start of select payment from -->
-		<div id="dialog-select-payment" class="window">		
-			Заявка на бронирование создана.
-			<br/>
-			<input name="commit" type="button" value="<%= t :close %>" onclick="closePopup();">	
-		</div>
-		<!-- End of select payment from -->
+	<div id="boxes"> 			
+		<%= render 'admin/bookings/popup_select_sauna_item' %>		
+		<%= render 'admin/bookings/popup_calendar' %>	
+		<%= render 'admin/bookings/popup_contact' %>
+		<%= render 'admin/bookings/popup_confirmation' %>
 		
 		<!-- Do not remove div#mask, because you'll need it to fill the whole screen --> 
 		<div id="mask"></div>

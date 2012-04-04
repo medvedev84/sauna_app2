@@ -1,5 +1,7 @@
 class Admin::SaunaPhotosController < AdminController
-
+	before_filter :authenticate
+	before_filter :correct_user
+	
 	def new                             
 		@sauna = Sauna.find(params[:id])
 		5.times { @sauna.sauna_photos.build }
@@ -52,5 +54,16 @@ class Admin::SaunaPhotosController < AdminController
 	def index    
 		@sauna = Sauna.find(params[:id])
 		@sauna_photos = @sauna.sauna_photos						
+	end		
+	
+	def correct_user
+		if !current_user.super_admin? 
+			@sauna = Sauna.find(params[:id])
+			@user = User.find(@sauna.user_id)			
+			if !current_user?(@user)
+				flash[:error] = :access_denied
+				redirect_to('/incorrect') 			
+			end
+		end
 	end		
 end

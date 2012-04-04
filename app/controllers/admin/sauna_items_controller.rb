@@ -1,6 +1,6 @@
 class Admin::SaunaItemsController < AdminController
   before_filter :authenticate, :only => [:new, :edit, :update, :destroy]
-  before_filter :correct_user, :only => [:edit, :update, :destroy]
+  before_filter :correct_user
   before_filter :owner_user, :only => [:new, :edit, :update, :destroy]
   before_filter :correct_sauna, :only => :new
 
@@ -54,7 +54,11 @@ class Admin::SaunaItemsController < AdminController
 
 	def index    
 		@sauna = Sauna.find(params[:id])
-		@sauna_items = @sauna.sauna_items						
+		@sauna_items = @sauna.sauna_items	
+		respond_to do |format|
+			format.html 
+			format.js { render :json => @sauna_items.to_json }
+		end			
 	end	
 
   private

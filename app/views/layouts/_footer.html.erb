@@ -2,10 +2,6 @@
 	<div class="center">
 		<ul>
 			<li><a href="/">главная</a></li>
-
-			<% if signed_in? && current_user.owner? %>
-				<li><a href="/admin/saunas">личный кабинет</a></li>				
-			<% end %>
 			
 			<% if !signed_in? %>
 				<li><a href="/all">все сауны</a></li>
@@ -17,7 +13,15 @@
 			
 			<% if signed_in? && current_user.super_admin? %>
 				<li><a href="/admin/users">личный кабинет</a></li>				
-			<% end %>															
+			<% end %>			
+
+			<% if signed_in? && current_user.owner? %>
+				<li><a href="/admin/saunas">личный кабинет</a></li>				
+			<% end %>		
+
+			<% if signed_in? && current_user.admin? %>
+				<li><a href="/admin/bookings">личный кабинет</a></li>				
+			<% end %>				
 			
 			<% if signed_in? %>		
 				<li>

@@ -3,8 +3,13 @@ require 'digest/md5'
   
 class Payment < ActiveRecord::Base
   belongs_to :booking
-  has_many :internal_payment
+  has_many :internal_transaction
   
+	#constants
+	PAID = 1
+	FINISHED = 2
+
+	
   # MERCHANT_URL    = 'https://merchant.roboxchange.com/Index.aspx' 
     MERCHANT_URL = 'http://test.robokassa.ru/Index.aspx'
   # SERVICES_URL    = 'https://merchant.roboxchange.com/WebService/Service.asmx' 
@@ -82,4 +87,114 @@ class Payment < ActiveRecord::Base
     Digest::MD5.hexdigest(s.join(':'))
   end
   
+	def self.paid 
+		PAID
+	end
+	
+	def self.finished 
+		FINISHED
+	end	  
+      
+    def self.receive_payment(payment)
+		Payment.transfer_money_to_application_balance(payment)
+	end
+	
+    def self.update_payments	
+		payments = Payment.joins("LEFT OUTER JOIN bookings on payments.booking_id = bookings.id").where("payments.status = ? and bookings.ends_at <= ?", Payment.paid, DateTime.now - 3)
+		count_total = payments.size
+		count_process = 0
+		payments.each do |payment|
+			if Payment.process_payment(payment)
+				count_process += 1 
+			end			
+		end	
+		return count_total, count_process		
+	end	
+	
+	private
+	
+		def self.process_payment(payment)			
+			ActiveRecord::Base.transaction do 
+				Payment.transfer_money_to_owner_balance(payment)
+				Payment.transfer_money_to_site_admin_balance(payment)
+				
+				payment_to_save = Payment.find(payment.id)
+				payment_to_save.status = Payment.finished
+				payment_to_save.save	
+			end		
+		end
+		
+		def self.transfer_money_to_application_balance(payment)
+			#create internal payment to super admin
+			super_admin = User.get_super_admin 
+			
+			# get money from user
+			internal_payment_from_user = InternalTransaction.new  	
+			internal_payment_from_user.payment_id = payment.id	  
+			internal_payment_from_user.amount = -payment.amount	  
+			internal_payment_from_user.user_id = 0 # unknown user
+			internal_payment_from_user.save
+
+			# give money to application (super admin)
+			internal_payment_to_app = InternalTransaction.new  	
+			internal_payment_to_app.payment_id = payment.id	  
+			internal_payment_to_app.amount = payment.amount	  
+			internal_payment_to_app.user_id = super_admin.id 
+			internal_payment_to_app.save
+			
+			#update super_admin's balance
+			super_admin.balance_amount += internal_payment_to_app.amount
+			super_admin.save			
+		end
+		
+		def self.transfer_money_to_owner_balance(payment)
+			#create internal payment to sauna's owner
+			super_admin = User.get_super_admin 
+			owner = payment.booking.sauna_item.sauna.user
+			comission_fee = SiteSetting.get_commission_fee
+			amount = payment.amount - comission_fee	 
+			
+			# get money from application
+			internal_payment_from_app = InternalTransaction.new  	
+			internal_payment_from_app.payment_id = payment.id	  
+			internal_payment_from_app.amount = -amount	  
+			internal_payment_from_app.user_id = super_admin.id 
+			internal_payment_from_app.save
+			
+			# give money to owner
+			internal_payment_to_owner = InternalTransaction.new  	
+			internal_payment_to_owner.payment_id = payment.id	  
+			internal_payment_to_owner.amount = amount	  
+			internal_payment_to_owner.user_id = owner.id	  
+			internal_payment_to_owner.save
+
+			#update owner's balance
+			owner.balance_amount += internal_payment_to_owner.amount
+			owner.save			
+		end
+			
+		def self.transfer_money_to_site_admin_balance(payment)
+			#create internal payment to site admin
+			super_admin = User.get_super_admin
+			site_admin = User.get_site_admin
+			amount = SiteSetting.get_commission_fee
+			
+			# get money from application
+			internal_payment_from_app = InternalTransaction.new  	
+			internal_payment_from_app.payment_id = payment.id	  
+			internal_payment_from_app.amount = -amount	  
+			internal_payment_from_app.user_id = super_admin.id 
+			internal_payment_from_app.save
+			
+			# give money to city admin
+			internal_payment_to_site_admin = InternalTransaction.new  	
+			internal_payment_to_site_admin.payment_id = payment.id	  
+			internal_payment_to_site_admin.amount = amount	  
+			internal_payment_to_site_admin.user_id = site_admin.id	  
+			internal_payment_to_site_admin.save
+			
+			#update owner's balance
+			site_admin.balance_amount += internal_payment_to_site_admin.amount
+			site_admin.save		
+		end		
 end

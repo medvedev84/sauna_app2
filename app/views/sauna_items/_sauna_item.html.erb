@@ -33,3 +33,8 @@
 	</dl>
 	<div class="clearing"></div>
 </div>
+
+<% if signed_in? && (current_user.tester? || current_user.super_admin?) && @sauna.is_booking? %>
+	<br/>
+	<input name="commit" type="submit" value="<%= t :book %>" onclick="showCalendarPopup('#dialog-calendar', <%= sauna_item.id %>)">			
+<% end %>	

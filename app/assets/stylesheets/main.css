@@ -779,6 +779,9 @@ code { padding: .2em .5em; }
 .success a {color:#264409;}
 .info a {color:#205791;}
 
+.field_correct {background:#e6efc2; color:#264409; border:2px solid #c6d880;}
+.field_error {background:#fbe3e4; color:#8a1f11; border:2px solid #fbc2c4;}
+
 #error_explanation {
 	padding:0.8em;
 	margin-bottom:1em;

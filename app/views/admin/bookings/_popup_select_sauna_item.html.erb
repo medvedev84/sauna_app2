@@ -1,0 +1,7 @@
+<div id="dialog-select-sauna" class="window">
+	Выберите сауну для бронирования:<br/>
+	<div id="select"></div>
+	<br/>
+	<input name="commit" type="submit" value="<%= t :next %>" onclick="showCalendarPopupAdmin('#dialog-calendar', $('#sauna_item_selector').val())">
+	<input name="commit" type="button" value="<%= t :close %>" onclick="closePopup();">				
+</div>

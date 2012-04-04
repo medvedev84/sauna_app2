@@ -1,0 +1,12 @@
+var str = "";
+var add_height = 30;
+<% @booking.errors.each do |key, value| %>	
+	str += '<b><%= value %></b><br/>';
+	add_height += 20;
+<% end %>
+$('#dialog-contact .error').html(str);
+$('#dialog-contact .error').show();
+var old_height = parseInt($('#popup_height').val());
+$('#dialog-contact').height(old_height + add_height);
+enableContactFormPopup();	
+removeSpin();

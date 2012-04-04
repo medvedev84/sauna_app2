@@ -25,22 +25,35 @@
 							<li class="expanded _expandedBox filter-section">
 								Пользователь: <%= current_user.name %><br/>
 								E-mail: <%= current_user.email %><br/>			
-								WMR:  <%= current_user.wmr_purse %><br/> 						
-								Баланс: <%= current_user.balance_amount %>.-<br/>
+								WMR:  <%= current_user.wmr_purse %><br/> 		
+								Перечислено за бронирование: <%= current_user.money_in_reserve %>.-<br/>
+								Доступно для вывода: <%= current_user.balance_amount %>.-<br/>
 								
 								<div class="menu">
 									Доступные операции:<br/>
 									<% if signed_in? && current_user.owner? %>
 										<a href="/admin/saunas">мои сауны</a><br/>	
+										<% if @sauna != nil %>
+											&mdash; <a href="/admin/saunas/<%= @sauna.id %>/edit" style="padding-left:0em"><%= @sauna.name %></a><br/>
+										<% end %>										
 										<a href="/admin/bookings">бронирования</a><br/> 
 										<a href="/admin/external_payments">вывод средств</a><br/> 
 									<% end %>	
 
+									<% if signed_in? && current_user.admin? %>
+										<a href="/admin/sms_messages">смс сообщения</a><br/>
+										<a href="/admin/payments">платежи</a><br/>										
+										<a href="/admin/bookings">бронирования</a><br/> 
+									<% end %>										
+									
 									<% if signed_in? && current_user.super_admin? %>
 										<a href="/admin/users">список пользователей</a><br/>
 										<a href="/admin/sms_messages">смс сообщения</a><br/>
 										<a href="/admin/payments">платежи</a><br/>	
 										<a href="/admin/external_payments">завяки на вывод средств</a><br/>	
+										<a href="/admin/site_settings">настройки</a><br/>
+										<br/>
+										<a href="/payments/daily">обработать платежи</a><br/>	
 									<% end %>			
 								</div>								
 							</li>							

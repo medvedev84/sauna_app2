@@ -1,12 +1,29 @@
 require 'digest/md5'
 class Admin::BookingsController < AdminController
-
-	def index 	
-		@saunas = current_user.saunas
+	include ApplicationHelper
+	
+	before_filter :authenticate
+	before_filter :correct_user
+	
+	def index 		
+		# prepare data for dropdowns
+		if current_user.owner?
+			get_saunas_by_user(current_user.id)
+			get_sauna_items_by_user(current_user.id)		
+		else
+			get_all_saunas
+			get_all_sauna_items
+		end
 		
+		# get request parameters
 		h = params[:q]	
 		if h == nil	
 			h = {}
+			
+			# if this is a index page, we should show only booking for current user's saunas
+			if current_user.owner?
+				h["sauna_item_sauna_user_id_eq"] = current_user.id	
+			end
 		end
 		
 		# never show canceled bookings
@@ -16,12 +33,12 @@ class Admin::BookingsController < AdminController
 		# if request from sauna page - get booking for this sauna
 		if params[:id] != nil
 			@sauna = Sauna.find(params[:id])			
-			h["sauna_id_eq"] = @sauna.id				
+			h["sauna_item_sauna_id_eq"] = @sauna.id				
 		end	
 		
 		@q = Booking.search(h)									
 		@current_page_number = params[:page] != nil ? params[:page] : 1
-		@bookings = @q.result(:distinct => true).order("created_at DESC").page(params[:page]).per(5)
+		@bookings = @q.result(:distinct => true).order("created_at DESC").page(params[:page]).per(10)
 			
 		respond_to do |format|
 			format.html 
@@ -75,4 +92,15 @@ class Admin::BookingsController < AdminController
 											   "Shp_item=#{@pay_desc['shp_item']}")     
 		end
 	end	
+	
+	def correct_user
+		if !current_user.super_admin? && params[:id] != nil
+			@sauna = Sauna.find(params[:id])
+			@user = User.find(@sauna.user_id)			
+			if !current_user?(@user)
+				flash[:error] = :access_denied
+				redirect_to('/incorrect') 			
+			end
+		end
+	end		
 end

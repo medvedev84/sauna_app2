@@ -1,7 +1,7 @@
 class Admin::SaunasController < AdminController
-	before_filter :authenticate, :only => [:new, :edit, :update, :destroy]
+	before_filter :authenticate
 	before_filter :correct_user, :only => [:edit, :update, :destroy]
-	#before_filter :admin_user, :only => :new
+	before_filter :not_site_admin, :only => [:index]
 	
 	include SaunasHelper
 	
@@ -111,9 +111,15 @@ class Admin::SaunasController < AdminController
 		else			
 			@saunas = current_user.saunas
 		end	
-		@current_page_number = params[:page] 
+		@current_page_number = params[:page] != nil ? params[:page] : 1		
 		@saunas = @saunas.page(params[:page]).per(5)		
 		@booking = Booking.new		
+		
+		respond_to do |format|
+			format.html 
+			format.js
+		end	
+		
 	end
 
 	def destroy
@@ -132,13 +138,27 @@ class Admin::SaunasController < AdminController
 
 	def correct_user
 		if !current_user.super_admin? 
-			@sauna = Sauna.find(params[:id])
-			@user = User.find(@sauna.user_id)			
-			if !current_user?(@user)
+			if current_user.admin? 
+				#admin should not have access to saunas at all
 				flash[:error] = :access_denied
-				redirect_to('/incorrect') 			
+				redirect_to('/incorrect') 
+			else
+				@sauna = Sauna.find(params[:id])
+				@user = User.find(@sauna.user_id)			
+				if !current_user?(@user)
+					flash[:error] = :access_denied
+					redirect_to('/incorrect') 			
+				end			
 			end
 		end
 	end	
+	
+	def not_site_admin
+		if current_user.admin? 
+			#site_admin should not have access to saunas at all
+			flash[:error] = :access_denied
+			redirect_to('/incorrect') 	
+		end
+	end		
 
 end

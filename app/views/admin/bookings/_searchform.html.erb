@@ -19,15 +19,19 @@
 						</td>							
 					</tr>
 				</table>
-				<dl>								
+				<dl>		
+					<dt class="township"><%= t :bannii_komplex %>:</dt>
+					<dd class="township">
+						<%= select("q", "sauna_item_sauna_id_eq", options_for_select(@saunas_for_dropdown), { :include_blank => false }) %>						
+					</dd>
 					<dt class="township"><%= t :sauna %>:</dt>
 					<dd class="township">
-						<%= f.collection_select :sauna_id_eq, @saunas, :id, :name, :include_blank => false %>										
-					</dd>
+						<%= select("q", "sauna_item_id_eq", options_for_select(@sauna_items_for_dropdown), { :include_blank => false }) %>												
+					</dd>	
 					<dt></dt>
 					<dd class="main-params-has-photo">
 						<%= f.check_box :payment_id_present  %><label><%= t :has_payment %></label> 								
-					</dd>		
+					</dd>						
 				</dl>
 			</div>
 			<div class="_closed"></div>

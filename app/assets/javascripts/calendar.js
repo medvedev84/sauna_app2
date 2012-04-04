@@ -1,4 +1,4 @@
-function initCalendar(sauna_id) {
+function initCalendar(sauna_item_id) {
 
 	var date = new Date();
 	var d = date.getDate();
@@ -22,7 +22,7 @@ function initCalendar(sauna_id) {
 		lazyFetching: true,
 
         eventSources: [{
-            url: '/bookings?sauna_id='+sauna_id,
+            url: '/bookings?sauna_item_id='+sauna_item_id,
             color: 'yellow',
             textColor: 'black',
             ignoreTimezone: false
@@ -44,8 +44,29 @@ function initCalendar(sauna_id) {
 					start: start,
 					end: end,
 					allDay: allDay
-				};				
-				$('#calendar').fullCalendar('renderEvent', eventObj, true);
+				};		
+
+				var is_valid = true;
+				var bookings = $('#calendar').fullCalendar('clientEvents');
+				for (i in bookings) {
+					if (bookings[i].start.getDate() == end.getDate() || bookings[i].end.getDate() == start.getDate()) {
+						if (bookings[i].start < end && end < bookings[i].end) {
+							is_valid = false;							
+						}					
+						if (bookings[i].start < start && start < bookings[i].end) {
+							is_valid = false;
+						}	
+						if (start <= bookings[i].start && bookings[i].end <= end) {
+							is_valid = false;
+						}						
+					}
+				}
+				
+				if (is_valid) {					
+					$('#calendar').fullCalendar('renderEvent', eventObj, true);
+				} else {
+					alert("На выбранное вами время сауна уже забронирована!");
+				}
 			}
 			$('#calendar').fullCalendar('unselect');
 		}

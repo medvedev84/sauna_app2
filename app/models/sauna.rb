@@ -10,8 +10,6 @@ class Sauna < ActiveRecord::Base
 			:dependent => :destroy		   
 	has_many :sauna_photos,      
 			:dependent => :destroy
-	has_many :bookings,
-			:dependent => :destroy
 	
 	accepts_nested_attributes_for :sauna_photos, 
 			:allow_destroy => true

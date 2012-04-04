@@ -1,6 +1,7 @@
 class ExternalPayment < ActiveRecord::Base
 	belongs_to :user  
-
+	has_many :internal_transaction
+	
 	#constants
 	INIT = 1
 	APPROVE = 2

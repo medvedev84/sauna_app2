@@ -43,12 +43,14 @@ SaunaApp::Application.routes.draw do
 		resources :bookings	
 		resources :payments	
 		resources :external_payments
+		resources :site_settings
 	end  
 
 	# to walk around standart rails routing
-	match 'payments/result',	:to => "payments#result"
-	match 'payments/success', 	:to => "payments#success"
-	match 'payments/fail', 		:to => "payments#fail"
+	match 'payments/result',		:to => "payments#result"
+	match 'payments/success', 		:to => "payments#success"
+	match 'payments/fail', 			:to => "payments#fail"
+	match 'payments/daily', 		:to => "payments#daily_process"	
 	
   # The priority is based upon order of creation:
   # first created -> highest priority.

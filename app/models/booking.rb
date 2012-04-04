@@ -1,6 +1,6 @@
 class Booking < ActiveRecord::Base    	
 	
-	belongs_to :sauna
+	belongs_to :sauna_item
 	has_one :payment
 	has_many :sms_messages,
 			:dependent => :destroy	
@@ -14,8 +14,7 @@ class Booking < ActiveRecord::Base
 	
 	validates :fio, :presence => true                
 	validates :phone_number, :presence => true, :length   => { :maximum => 11 },  :format   => { :with => number_regex }				
-	validates :email, :presence => true,
-                    :format   => { :with => email_regex }						
+	#validates :email, :presence => true, :format   => { :with => email_regex }						
 	
 	validates_date :starts_at, :on => :create, :after => :today
 	

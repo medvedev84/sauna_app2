@@ -13,7 +13,7 @@
 		</div>
 	<% end %>
 	
-	<%= f.hidden_field :sauna_id,  :value => @sauna.id %>
+	<%= f.hidden_field :sauna_item_id %>
 	<%= f.hidden_field :starts_at %>
 	<%= f.hidden_field :ends_at %>
 	<%= f.hidden_field :is_canceled, :value => false %>
@@ -34,9 +34,10 @@
 		<dd>
 			<%= f.text_field :fio %>
 		</dd>
-		<dt><label for="booking_phone_number"><%= t :phone_number %>:</dt>
+		<dt><label for="phone_number"><%= t :phone_number %>:</dt>
 		<dd>
-			<%= f.text_field :phone_number %>
+			<input type="text" id="phone_number"  value="+7-___-___-____" />
+			<%= f.hidden_field :phone_number %>
 		</dd>
 		<dt><label for="booking_email"><%= t :email %>:</dt>
 		<dd>
@@ -47,7 +48,14 @@
 			<%-#= f.text_area :description, :rows => 5, :cols => 24 %>
 			<%= f.text_field :description, :rows => 5, :cols => 5 %>
 		</dd>	
-	</dl>	
-	<%= f.submit t :next %>
+	</dl>		
+	<input type="submit" value="<%= t :next %>" name="commit" onclick="checkBeforeSubmit('#phone_number');">
 	<input type="button" value="<%= t :close %>" onclick="closePopup();" />			
 <% end %>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		addPhoneNumberValidator("#phone_number", "#booking_phone_number")
+	});
+</script>
+

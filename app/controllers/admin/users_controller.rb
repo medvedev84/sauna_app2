@@ -5,7 +5,8 @@ class Admin::UsersController < AdminController
 	def show
 		@user = User.find(params[:id])		
 		@current_page_number = params[:page] 
-		@saunas = @user.saunas.page(params[:page]).per(5)		
+		@saunas = @user.saunas.page(params[:page]).per(10)	
+		@booking = Booking.new			
 	end
 
 	def new
@@ -31,7 +32,7 @@ class Admin::UsersController < AdminController
 	def index 
 		h = params[:q]
 		@q = User.search(h)			
-		@users = @q.result(:distinct => true).page(params[:page]).per(5)									
+		@users = @q.result(:distinct => true).page(params[:page]).per(10)									
 		@current_page_number = params[:page] 				
 		respond_to do |format|
 			format.html 

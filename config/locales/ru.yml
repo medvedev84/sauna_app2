@@ -61,8 +61,13 @@ ru:
   alias: "Псевдоним"
   status: "Статус"
   amount: "Сумма"
+  yes_payment: "Оплачено"
   no_payment: "Не оплачено"
+  payment_paid: "Cоздан"
+  payment_finished: "Завершен"
   phone_number: "Телефон"
+  booking_fee: "Размер предоплаты"
+  commission_fee: "Размер комиссии"
   short_phone_number: "тел."
   description: "Описание"
   photo: "Фото"
@@ -110,6 +115,7 @@ ru:
   payment_not_created: "Не удалось обработать платеж, попробуйте повторить операцию позже"
   payment_created: "Платеж успешно обработан"  
   intermal_error: "Произошла ошибка приложения. Мы постараемся исправить её как можно быстрее."
+  please_sign_in: "Вы должны авторизоваться для того, чтобы получить доступ к этому разделу."
   go_to_ext_search: "Перейти к расширенному поиску"
   create_new_user: "Создать нового пользователя"
   create_new_sauna: "Создать новый банный комплекс"
@@ -123,6 +129,7 @@ ru:
   sauna_item_created: "Сауна создана"
   sauna_photo_created: "Фотографии загружены"  
   profile_updated: "Профиль обновлен"
+  settings_updated: "Настройки сохранены"
   sauna_updated: "Банный комплекс отредактирован"     
   sauna_item_updated: "Сауна отредактирована"
   sauna_photo_updated: "Фотография отредактирована"  
@@ -157,9 +164,14 @@ ru:
   access_denied: "У вас недостаточно прав для получения доступа к этой области"
   must_be_integer: "Значение должно быть целым числом"  
   capacity_range: "Значение должно быть в диапозоне от 4 до 20"
+  email_format: "Некорректный формат e-mail"
   no_results: "По вашему запросу ничего не найдено. Попробуйте задать новые параметры поиска."
   add_new_sauna: "Добавить новый банный комплекс"
   no_money: "На вашем балансе недостаточно средств для вывода"		
+  booking_created_to_admin: "Новое бронирование создано."
+  booking_created_to_client: "Вы совершили бронирование."
+  booking_created_to_owner: "Заявка на бронирование."
+  payment_created: "Создан платеж в системе ROBOKASSA. Номер транзакции: "
   will_paginate:
     previous_label: "<"
     next_label: ">"
@@ -173,6 +185,23 @@ ru:
   activerecord:
     errors:
        models:
+          site_setting:
+             attributes:
+               phone_number:
+                 invalid: "Некорректный формат номера телефона"   	  
+                 too_long: "Номер должен быть не более 10 цифр"	
+                 blank: "Не задан номер телефона"  				 
+               email:
+                 invalid: "Некорректный формат e-mail"  
+                 blank: "Не задан email" 			
+               commission_fee:
+                 invalid: "Некорректный формат размера коммисси"   	  
+                 too_long: "Сумма комисии не более 999 руб."	
+                 blank: "Не задан размер коммисси"  	
+               booking_fee:
+                 invalid: "Некорректный формат размера предоплаты"   	  
+                 too_long: "Сумма предоплаты не более 9999 руб."	
+                 blank: "Не задан размер предоплаты"  					 
           sauna_item:
              attributes:
                name:

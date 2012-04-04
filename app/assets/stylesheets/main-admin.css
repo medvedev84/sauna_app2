@@ -272,7 +272,7 @@ code { padding: .2em .5em; }
 						width: 30px;
 					}
 					.filter-box select {
-						width: 170px;
+						width: 200px;
 						padding-right:3px;
 					}						
 					.filter-box .main-params {
@@ -285,7 +285,7 @@ code { padding: .2em .5em; }
 						.filter-box dt {
 							float: left;
 							clear: left;
-							width: 83px;
+							width: 123px;
 							text-align: right;
 							padding: 5px 0;
 							margin: 0 9px 0 0;
@@ -339,7 +339,7 @@ code { padding: .2em .5em; }
 							padding-left: 5px;
 						}		
 						.filter-box td.col1{
-							width: 83px;
+							width: 123px;
 							text-align: right;
 						}		
 						.filter-box td.col2{
@@ -587,6 +587,9 @@ code { padding: .2em .5em; }
 .notice a {color:#514721;}
 .success a {color:#264409;}
 .info a {color:#205791;}
+
+.field_correct {background:#e6efc2; color:#264409; border:2px solid #c6d880;}
+.field_error {background:#fbe3e4; color:#8a1f11; border:2px solid #fbc2c4;}
 
 #error_explanation {
 	padding:0.8em;
