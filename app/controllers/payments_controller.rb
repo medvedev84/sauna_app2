@@ -34,10 +34,10 @@ class PaymentsController < ApplicationController
   end
 
   def success
-	@booking = Booking.where(:ps_order_id => params['InvId']).first	
-	if @booking != nil 
-		flash[:success] = :payment_created	
-		@sauna = @booking.sauna_item.sauna	
+	payment = Payment.where(:ps_order_id => params['InvId']).first
+	if payment != nil 
+		flash[:success] = :payment_created_short 
+		@sauna = payment.booking.sauna_item.sauna	
 		redirect_to @sauna
 	else
 		flash[:error] = :intermal_error
@@ -46,10 +46,10 @@ class PaymentsController < ApplicationController
   end
 
   def fail
-	@booking = Booking.where(:ps_order_id => params['InvId']).first
-	if @booking != nil 
-		flash[:error] = :payment_not_created
-		@sauna = @booking.sauna_item.sauna	
+	payment = Payment.where(:ps_order_id => params['InvId']).first
+	if payment != nil 
+		flash[:error] = :payment_not_created 
+		@sauna = payment.booking.sauna_item.sauna	
 		redirect_to @sauna	
 	else
 		flash[:error] = :intermal_error

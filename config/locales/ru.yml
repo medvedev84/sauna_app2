@@ -172,6 +172,7 @@ ru:
   booking_created_to_client: "Вы совершили бронирование."
   booking_created_to_owner: "Заявка на бронирование."
   payment_created: "Создан платеж в системе ROBOKASSA. Номер транзакции: "
+  payment_created_short: "Создан платеж в системе ROBOKASSA"
   will_paginate:
     previous_label: "<"
     next_label: ">"
