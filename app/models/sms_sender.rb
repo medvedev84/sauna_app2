@@ -31,15 +31,17 @@ class SmsSender
   end
   
   def self.send_simple(to,text,from = '',express = 0,time = '')    
-	#test = ENV['RAILS_ENV'] == 'development' || ENV['RAILS_ENV'] == 'demo' ? '1' : '0'	
+	#test = ENV['RAILS_ENV'] == 'development' || ENV['RAILS_ENV'] == 'demo' ? '1' : '0'		
 	test = '1'
     code, sms_id = 0
 	if can_send? 
 	  url = "http://sms.ru/sms/send?api_id=" + conf['api_id'] + "&to=" + to + "&text=" + text + "&test=" + test
-	  #sms_id = url
+	  enc_uri = URI.escape(url)
+	  sms_id = url
       http = Net::HTTP.new('www.sms.ru')
-      request = Net::HTTP::Get.new(url)
+      request = Net::HTTP::Get.new(enc_uri)
       response = http.request(request)
+	  code = response.code
       if response.code == '200'
         sp = response.body.split("\n")
         code = sp[0]

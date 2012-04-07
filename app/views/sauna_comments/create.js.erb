@@ -1,1 +1,1 @@
-$('<li class="round-box"><dl><dt><span class="author"><%= @sauna_comment.user_name %></span> <span class="date"><%= @sauna_comment.created_at %></span></dt><dd><%= @sauna_comment.description %></dd></dl></li>').appendTo($('.comment-list'));
+$('<li class="round-box"><dl><dt><span class="author"><%= @sauna_comment.user_name %></span> <span class="date"><%= @sauna_comment.created_at.strftime("%d.%m.%Y") %></span></dt><dd><%= @sauna_comment.description %></dd></dl></li>').appendTo($('.comment-list'));
