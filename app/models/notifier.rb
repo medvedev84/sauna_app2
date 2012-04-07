@@ -20,7 +20,7 @@ class Notifier < ActionMailer::Base
 	# send a signup email to the user, pass in the user object that contains the user’s email address
 	def booking_created_email_to_owner(booking)
 		@booking = booking
-		mail( :to => booking.sauna.user.email, :subject => t(:booking_created_to_owner) )
+		mail( :to => booking.sauna_item.sauna.user.email, :subject => t(:booking_created_to_owner) )
 	end	
 	
 	# send a signup email to the user, pass in the user object that contains the user’s email address

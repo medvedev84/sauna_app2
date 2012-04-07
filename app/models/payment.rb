@@ -10,10 +10,10 @@ class Payment < ActiveRecord::Base
 	FINISHED = 2
 
 	
-   MERCHANT_URL    = 'https://merchant.roboxchange.com/Index.aspx' 
-  #  MERCHANT_URL = 'http://test.robokassa.ru/Index.aspx'
-   SERVICES_URL    = 'https://merchant.roboxchange.com/WebService/Service.asmx' 
-  #  SERVICES_URL = 'http://test.robokassa.ru/Webservice/Service.asmx'
+  # MERCHANT_URL    = 'https://merchant.roboxchange.com/Index.aspx' 
+    MERCHANT_URL = 'http://test.robokassa.ru/Index.aspx'
+  # SERVICES_URL    = 'https://merchant.roboxchange.com/WebService/Service.asmx' 
+    SERVICES_URL = 'http://test.robokassa.ru/Webservice/Service.asmx'
 	
   MERCHANT_LOGIN  = 'gotosauna'
   MERCHANT_PASS_1 = 'password1'
