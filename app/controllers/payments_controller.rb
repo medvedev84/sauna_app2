@@ -112,9 +112,9 @@ class PaymentsController < ApplicationController
 			
 			@result = "FAIL"			
 			1.times do |x|      				
-				#break if params['LMI_HASH'].blank? || crc.casecmp(params['LMI_HASH']) != 0						
+				break if params['LMI_HASH'].blank? || crc.casecmp(params['LMI_HASH']) != 0						
 				@booking = Booking.where(:id => params['LMI_PAYMENT_NO']).first
-				#break if @booking.blank? || params['LMI_PAYMENT_AMOUNT'].to_f != SiteSetting.get_booking_fee
+				break if @booking.blank? || params['LMI_PAYMENT_AMOUNT'].to_f != SiteSetting.get_booking_fee
 
 				ActiveRecord::Base.transaction do 
 					#create payment

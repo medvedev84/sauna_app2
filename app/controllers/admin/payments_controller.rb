@@ -10,7 +10,7 @@ class Admin::PaymentsController < AdminController
 		h = params[:q]
 		@q = Payment.search(h)									
 		@current_page_number = params[:page] != nil ? params[:page] : 1 
-		@payments = @q.result(:distinct => true).page(params[:page]).per(10)	
+		@payments = @q.result(:distinct => true).order("created_at DESC").page(params[:page]).per(10)	
 		
 		respond_to do |format|
 			format.html 
