@@ -171,8 +171,10 @@ ru:
   booking_created_to_admin: "Новое бронирование создано."
   booking_created_to_client: "Вы совершили бронирование."
   booking_created_to_owner: "Заявка на бронирование."
-  payment_created: "Создан платеж в системе ROBOKASSA. Номер транзакции: "
-  payment_created_short: "Создан платеж в системе ROBOKASSA"
+  payment_created_robokassa: "Создан платеж в системе ROBOKASSA. Номер транзакции: "
+  payment_created_short: "Платеж успешно создан"
+  payment_created_webmoney: "Создан платеж в системе WebMoney. Номер транзакции: "
+  payment_description: "Предоплата за бронирование сауны"
   will_paginate:
     previous_label: "<"
     next_label: ">"

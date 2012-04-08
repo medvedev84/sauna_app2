@@ -8,7 +8,7 @@
 	</center>	
 </div>
 -->
-<div class="select-payment">
+<div class="select-payment" id="robokassa">
 	<form action="" method="post" target="_blank" id="payment_form">
 	  <input type=hidden id="MrchLogin" name=MrchLogin value="">
 	  <input type=hidden id="OutSum" name=OutSum value="">
@@ -20,5 +20,17 @@
 	  <input type=hidden id="Culture" name=Culture value="">
 	  <input type="submit" value="<%= t :go_to_payment %>" >
 	  <input type="button" value="<%= t :close %>" onclick="closePopup();" />	
+	</form>
+</div>
+
+<div class="select-payment" id="webmoney">
+	<form id=pay name=pay method="POST" action="https://merchant.webmoney.ru/lmi/payment.asp">
+		<input type="hidden" id="LMI_PAYMENT_AMOUNT" name="LMI_PAYMENT_AMOUNT">
+		<input type="hidden" id="LMI_PAYMENT_DESC" name="LMI_PAYMENT_DESC" value="Bronirovanie sauni">
+		<input type="hidden" id="LMI_PAYMENT_NO" name="LMI_PAYMENT_NO">
+		<input type="hidden" id="LMI_PAYEE_PURSE" name="LMI_PAYEE_PURSE" value="R227963741056">
+		<input type="hidden" id="LMI_SIM_MODE" name="LMI_SIM_MODE" value="0">
+		<input type="submit" value="<%= t :go_to_payment %>" >
+		<input type="button" value="<%= t :close %>" onclick="closePopup();" />	
 	</form>
 </div>

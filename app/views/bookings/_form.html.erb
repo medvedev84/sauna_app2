@@ -1,4 +1,4 @@
-<input type="hidden" id="popup_height" value="200" />
+<input type="hidden" id="popup_height" value="230" />
 <div class="error"></div>	
 <%= form_for @booking, :remote => true do |f| %>
 	<% if @booking.errors.any? %>
@@ -48,6 +48,13 @@
 			<%-#= f.text_area :description, :rows => 5, :cols => 24 %>
 			<%= f.text_field :description, :rows => 5, :cols => 5 %>
 		</dd>	
+		<dt><label for="provider_type"><%= t :description %>:</dt>
+		<dd>
+			<select id="provider_type" name="provider_type">
+				<option value="1">Robokassa</option>
+				<option value="2">Webmoney</option>
+			</select>
+		</dd>			
 	</dl>		
 	<input type="submit" value="<%= t :next %>" name="commit" onclick="checkBeforeSubmit('#phone_number');">
 	<input type="button" value="<%= t :close %>" onclick="closePopup();" />			

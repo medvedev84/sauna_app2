@@ -83,9 +83,13 @@ class Payment < ActiveRecord::Base
     }
   end
   
-  def self.get_hash(*s)
-    Digest::MD5.hexdigest(s.join(':'))
-  end
+	def self.get_rk_hash(*s)
+		Digest::MD5.hexdigest(s.join(':'))
+	end
+
+	def self.get_wm_hash(*s)
+		Digest::MD5.hexdigest(s)
+	end  
   
 	def self.paid 
 		PAID

@@ -32,9 +32,9 @@ class BookingsController < ApplicationController
 		@booking = Booking.new(params[:booking])
 		if email_regex =~ @booking.email 
 			if @booking.save				
-				prepare_payment_data(@booking)  								
-				Notifier.booking_created_email_to_owner(@booking).deliver
-				Notifier.booking_created_email_to_customer(@booking).deliver
+				prepare_payment_data(@booking, params[:provider_type])  								
+				#Notifier.booking_created_email_to_owner(@booking).deliver
+				#Notifier.booking_created_email_to_customer(@booking).deliver
 				sms_notification(@booking)							
 				respond_to do |format|
 					format.html { redirect_to @booking }
@@ -74,9 +74,10 @@ class BookingsController < ApplicationController
 		sms_message.save	
 	end
   
-  def prepare_payment_data(booking)    
+  def prepare_payment_data(booking, provider_type)    
     unless booking.blank? && booking.payment.blank?
       @pay_desc = Hash.new
+	  @pay_desc['provider_type']   = provider_type
       @pay_desc['mrh_url']   = Payment::MERCHANT_URL
       @pay_desc['mrh_login'] = Payment::MERCHANT_LOGIN
       @pay_desc['mrh_pass1'] = Payment::MERCHANT_PASS_1
@@ -87,7 +88,7 @@ class BookingsController < ApplicationController
       @pay_desc['in_curr']   = "WMRM"
       @pay_desc['culture']   = "ru"
       @pay_desc['encoding']  = "utf-8"
-      @pay_desc['crc'] = Payment::get_hash(@pay_desc['mrh_login'], 
+      @pay_desc['crc'] = Payment::get_rk_hash(@pay_desc['mrh_login'], 
                                            @pay_desc['out_summ'],
                                            @pay_desc['inv_id'], 
                                            @pay_desc['mrh_pass1'], 

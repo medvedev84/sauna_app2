@@ -39,11 +39,11 @@ $(document).ready(function() {
 
 function showSelectPaymentPopup(){
 	removeSpin();	
-	closePopup();
+	closePopup();	
 	initPopup('#dialog-select-payment');
 }
 
-function showPaymentPopup(id){
+function showPaymentPopup(id){	
 	initPopup(id);
 }
 

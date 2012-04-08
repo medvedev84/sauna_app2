@@ -10,5 +10,16 @@ $('#Shp_item').val("<%= @pay_desc['shp_item'] %>");
 $('#IncCurrLabel').val("<%= @pay_desc['in_curr'] %>");
 $('#Culture').val("<%= @pay_desc['culture'] %>");
 
+$('#LMI_PAYMENT_AMOUNT').val("<%= @pay_desc['out_summ'] %>");
+$('#LMI_PAYMENT_NO').val("<%= @pay_desc['shp_item'] %>");
+
+var provider_type = <%= @pay_desc['provider_type'] %>;
+if (provider_type == 1) {
+	$('#webmoney').hide();
+	$('#robokassa').show();
+} else {
+	$('#robokassa').hide();
+	$('#webmoney').show();
+}
 showSelectPaymentPopup();
 
