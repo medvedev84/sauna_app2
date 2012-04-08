@@ -65,6 +65,7 @@ ru:
   no_payment: "Не оплачено"
   payment_paid: "Cоздан"
   payment_finished: "Завершен"
+  payment_provider: "Провайдер"
   phone_number: "Телефон"
   booking_fee: "Размер предоплаты"
   commission_fee: "Размер комиссии"
