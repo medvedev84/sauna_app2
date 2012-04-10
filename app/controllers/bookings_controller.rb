@@ -33,8 +33,8 @@ class BookingsController < ApplicationController
 		if email_regex =~ @booking.email 
 			if @booking.save				
 				prepare_payment_data(@booking, params[:provider_type])  								
-				#Notifier.booking_created_email_to_owner(@booking).deliver
-				#Notifier.booking_created_email_to_customer(@booking).deliver
+				Notifier.booking_created_email_to_owner(@booking).deliver
+				Notifier.booking_created_email_to_customer(@booking).deliver
 				sms_notification(@booking)							
 				respond_to do |format|
 					format.html { redirect_to @booking }
