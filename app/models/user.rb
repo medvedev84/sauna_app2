@@ -41,6 +41,9 @@ class User < ActiveRecord::Base
 			where status = " + Payment.paid.to_s + " and saunas.user_id = " + self.id.to_s
 	sql_result = ActiveRecord::Base.connection.execute(sql)
 	@money_in_reserve = sql_result[0]["amount"]
+	if @money_in_reserve == nil  
+		@money_in_reserve = 0
+	end	
   end  
   
   def self.get_super_admin

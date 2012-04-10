@@ -214,7 +214,7 @@ code { padding: .2em .5em; }
 			}
 		.mobile-ver {
 			float: right;
-			margin: 28px 10px 0 0;
+			margin: 18px 10px 10px 0;
 		}
 		.add-button-container {
 			float: right;
@@ -529,12 +529,15 @@ code { padding: .2em .5em; }
 		clear: left;
 		width: 140px;
 		text-align: right;
-		margin: 10px 0 0 0;
+		margin: 14px 0 0 0;
 	}
 	.comment-form dd {
 		float:left;
 		margin: 10px 0 0 10px;
 	}
+	.comment-form input[type=checkbox] {
+		vertical-align: bottom;		
+	}	
 	.comment-form input[type=text, type=password] {
 		width: 230px;
 	}

@@ -25,19 +25,14 @@
 							<li class="expanded _expandedBox filter-section">
 								Пользователь: <%= current_user.name %><br/>
 								E-mail: <%= current_user.email %><br/>			
-								WMR:  <%= current_user.wmr_purse %><br/> 		
-								Перечислено за бронирование: <%= current_user.money_in_reserve %>.-<br/>
-								Доступно для вывода: <%= current_user.balance_amount %>.-<br/>
+								WMR:  <%= current_user.wmr_purse %><br/> 				
+								Зарезервированно: <%= current_user.money_in_reserve %> руб.<br/>
+								Доступно для вывода: <%= current_user.balance_amount %> руб.<br/>
 								
 								<div class="menu">
 									Доступные операции:<br/>
 									<% if signed_in? && current_user.owner? %>
-										<a href="/admin/saunas">мои сауны</a><br/>	
-										<% if @sauna != nil %>
-											&mdash; <a href="/admin/saunas/<%= @sauna.id %>/edit" style="padding-left:0em"><%= @sauna.name %></a><br/>
-										<% end %>										
-										<a href="/admin/bookings">бронирования</a><br/> 
-										<a href="/admin/external_payments">вывод средств</a><br/> 
+										<%= render "layouts/menu_owner" %>
 									<% end %>	
 
 									<% if signed_in? && current_user.admin? %>

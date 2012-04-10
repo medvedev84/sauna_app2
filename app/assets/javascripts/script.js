@@ -165,8 +165,8 @@ var Frame =
 			
 			for (var i in sortedList)
 			{				
-				//newListHTML += '<li class="row" id="' + sortedList[i].id + '">' + $('#' + sortedList[i].id).html() + '</li>';			
-				newListHTML += '<li class="row" id="' + sortedList[i].id + '" ><a href="/saunas/' + sortedList[i].id + '" target="_blank"><div class="name"><span class="s-name">' + sortedList[i].name + '</span><div class="address">' + sortedList[i].address + '</div></div><div class="capacity">'+ sortedList[i].capacity +'</div><div class="price">'+ sortedList[i].price +'.-</div></a></li>';
+				//newListHTML += '<li class="row" id="' + sortedList[i].id + '">' + $('#' + sortedList[i].id).html() + '</li>';			                                                                                                                                                                                                                                                            
+				newListHTML += '<li class="row" id="' + sortedList[i].id + '" ><a href="/saunas/' + sortedList[i].id + '" target="_blank"><div class="name"><span class="s-name">' + sortedList[i].name + '</span><div class="address">' + sortedList[i].address + '</div></div><div class="capacity">до '+ sortedList[i].capacity +' чел.</div><div class="price">от '+ sortedList[i].price +' руб./час</div></a></li>';
 			}
 
 			$('#saunaResultList').empty().append(newListHTML);			

@@ -1,0 +1,66 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<%= f.hidden_field :user_id,  :value => @user.id %>
+
+<dl>
+	<dt><label for="sauna_name"><%= t :name %>*:</dt>
+	<dd>
+		<%= f.text_field :name %>
+	</dd>
+	
+	<dt><label for="sauna_alias"><%= t :alias %>*:</dt>
+	<dd>
+		<%= f.text_field :alias %>  <a title="<%= t(:alias_explanation) %>" >что это?</a>
+	</dd>	
+	<dt><label for="sauna_is_booking"><%= t :booking %>:</dt>
+	<dd>
+		<%= f.check_box :is_booking %><a title="<%= t(:booking_explanation) %>" style="padding-left: 150px">что это?</a>
+	</dd>		
+			
+	<%= f.fields_for @address do |af| %>
+		<dt></dt>
+		<dd>
+			<%= render 'shared/error_messages', :object => af.object %>
+		</dd>		
+		<dt><label for="sauna_address_city_id"><%= t :city %>:</dt>
+		<dd>
+			<%= select("sauna[address]", "city_id", options_for_select(@cities_for_dropdown, @address.city_id), { :include_blank => false }) %>				
+		</dd>					
+		<dt><label for="sauna_address_district_id"><%= t :district %>:</dt>
+		<dd>
+			<%= select("sauna[address]", "district_id", options_for_select(@districts_for_dropdown, @address.district_id), { :include_blank => false }) %>			
+		</dd>									
+		<dt><label for="sauna_address_street"><%= t :street %>*:</dt>
+		<dd>
+			<%= af.text_field :street %>
+		</dd>	
+		<dt><label for="sauna_address_building"><%= t :building %>:</dt>
+		<dd>
+			<%= af.text_field :building %>
+		</dd>	
+	<% end %> 
+	
+	<dt><label for="sauna_phone_number1"><%= t :phone_number %>*:</label></dt>
+	<dd>
+		<%= f.text_field :phone_number1 %>			
+	</dd>
+	
+	<dt><label for="sauna_phone_number2"><%= t :phone_number %>:</label></dt>
+	<dd>
+		<%= f.text_field :phone_number2 %>			
+	</dd>
+
+	<dt><label for="sauna_phone_number3"><%= t :phone_number %>:</label></dt>
+	<dd>
+		<%= f.text_field :phone_number3 %>			
+	</dd>	
+	
+	<dt><label for="sauna_email"><%= t :email %>:</label></dt>
+	<dd>
+		<%= f.text_field :email %>			
+	</dd>		 
+
+	<dt></dt>
+	<dd>
+		<%= f.submit t :save %>
+	</dd>
+</dl>	

@@ -1,17 +1,19 @@
-<div class="detail-page">
+<div class="detail-page" style="padding-top:15px;">
 
+<!--
 	<div class="mobile-ver">
 		<a href="/admin/sauna/<%= @sauna.id %>/sauna_items"><%= t(:sauna_items_section) %></a> |	
 		<a href="/admin/sauna/<%= @sauna.id %>/sauna_photos"><%= t(:gallery) %></a> | 
 		<a href="/admin/sauna/<%= @sauna.id %>/sauna_comments"><%= t(:comments_section) %></a> | 
 		<a href="/admin/sauna/<%= @sauna.id %>/bookings"><%= t(:bookings_section) %></a> 
 	</div>
+	-->
 	
 	<div class="round-box">
 		<div class="round-sub-box">		
 			<div class="_expanded">
 				<%= form_for @sauna, :url => admin_sauna_path(@sauna), :html => { :multipart => true, :class => "comment-form" } do |f| %>					
-					<%= render 'form', :f => f %>
+					<%= render 'edit_form', :f => f %>
 				<% end %>
 			</div>
 			<div class="_closed"></div>
@@ -19,10 +21,10 @@
 		</div>
 	</div>
 </div>
-<!-- We only want the thunbnails to display when javascript is disabled -->
+
+
 <script type="text/javascript">
-	document.write('<style>.noscript { display: none; }</style>');
-</script>
-<script type="text/javascript">
-	Frame.initDetailPage();
+$(function() {
+	$('#edit_sauna_2 *').tooltip();
+});
 </script>	

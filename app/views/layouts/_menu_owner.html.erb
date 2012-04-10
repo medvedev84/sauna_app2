@@ -1,0 +1,59 @@
+<span style="padding-left:0em">&mdash; 
+	<% if (request.fullpath.include?("/admin/saunas") && @sauna == nil) %>
+		<b>мои сауны</b>
+	<% else %>												
+		<a href="/admin/saunas">мои сауны</a>
+	<% end %>									
+</span><br/>
+		
+<% if @sauna != nil %>		
+	
+		<span style="padding-left:1em">&mdash; 
+			<% if request.fullpath.include? "edit" %>
+				<b><%= @sauna.name %></b>
+			<% else %>												
+				<a href="/admin/saunas/<%= @sauna.id %>/edit"><%= @sauna.name %></a>
+			<% end %>									
+		</span><br/>
+		
+		<span style="padding-left:3em">&mdash; 
+			<% if request.fullpath.include? "sauna_items" %>
+				<b><%= t(:sauna_items_section) %></b>
+			<% else %>												
+				<a href="/admin/sauna/<%= @sauna.id %>/sauna_items"><%= t(:sauna_items_section) %></a>
+			<% end %>									
+		</span><br/>											
+		
+		<span style="padding-left:3em">&mdash; 
+			<% if request.fullpath.include? "sauna_photos" %>
+				<b><%= t(:gallery) %></b>
+			<% else %>												
+				<a href="/admin/sauna/<%= @sauna.id %>/sauna_photos"><%= t(:gallery) %></a>
+			<% end %>									
+		</span><br/>	
+		
+		<span style="padding-left:3em">&mdash; 
+			<% if request.fullpath.include? "sauna_comments" %>
+				<b><%= t(:comments_section) %></b>
+			<% else %>												
+				<a href="/admin/sauna/<%= @sauna.id %>/sauna_comments"><%= t(:comments_section) %></a>
+			<% end %>									
+		</span><br/>												
+	
+<% end %>	
+
+<span style="padding-left:0em">&mdash; 
+	<% if request.fullpath.include?("/admin/bookings") %>
+		<b>бронирования</b>
+	<% else %>												
+		<a href="/admin/bookings">бронирования</a>
+	<% end %>									
+</span><br/>
+
+<span style="padding-left:0em">&mdash; 
+	<% if request.fullpath.include?("/admin/external_payments") %>
+		<b>вывод средств</b>
+	<% else %>												
+		<a href="/admin/external_payments">вывод средств</a>
+	<% end %>									
+</span><br/>
