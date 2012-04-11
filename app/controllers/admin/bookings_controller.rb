@@ -26,6 +26,11 @@ class Admin::BookingsController < AdminController
 			end
 		end
 		
+		# if no one sauna is selected - show nothing
+		if !h.has_key?("sauna_item_sauna_id_eq")
+			h["sauna_item_sauna_id_eq"] = 0
+		end		
+		
 		# never show canceled bookings
 		h["is_canceled_eq"] = false		
 		h.delete_if {|key, value| key == "payment_id_present" && value == "0" } #if payments is not important, don't use that criteria	

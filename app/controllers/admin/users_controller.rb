@@ -1,6 +1,7 @@
 class Admin::UsersController < AdminController
 	before_filter :authenticate, :only => [:index, :show, :edit, :update, :destroy]
 	before_filter :correct_user, :only => [:index, :show, :edit, :update]
+	before_filter :super_admin_user, :only => [:new, :destroy]
 
 	def show
 		@user = User.find(params[:id])		
@@ -46,13 +47,27 @@ class Admin::UsersController < AdminController
 
 	def update
 		@user = User.find(params[:id])
-		if @user.update_attributes(params[:user])
-			Notifier.update_user_email(@user).deliver		
-			flash[:success] = :profile_updated 
-			redirect_to admin_users_path
-		else
+		
+		# if somebody tries to send incorrect parameters
+		if params[:user].has_key?("user_type") && !current_user.super_admin?			
+			# somebody who is not administrator - kick him!
+			@user.errors["user_type"] = t (:access_denied)
 			render 'edit'
-		end
+		else
+			# administrator is able to modify user type - continue
+			if @user.update_attributes(params[:user])
+				Notifier.update_user_email(@user).deliver		
+				flash[:success] = :profile_updated 
+				
+				if current_user.owner?
+					render 'edit'
+				else
+					redirect_to admin_users_path
+				end				
+			else
+				render 'edit'
+			end				
+		end				
 	end
 
 	def destroy
@@ -64,9 +79,12 @@ class Admin::UsersController < AdminController
 	private
 
 	def correct_user     
-		if !current_user.super_admin?        
-			flash[:error] = :access_denied
-			redirect_to('/incorrect') 			
+		if !current_user.super_admin?  
+			@user = User.find(params[:id])			
+			if !current_user?(@user)
+				flash[:error] = :access_denied
+				redirect_to('/incorrect') 				
+			end		
 		end
 	end
 end

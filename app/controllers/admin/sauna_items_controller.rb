@@ -1,8 +1,8 @@
 class Admin::SaunaItemsController < AdminController
   before_filter :authenticate, :only => [:new, :edit, :update, :destroy]
-  before_filter :correct_user
+  before_filter :correct_user, :only => [:new, :edit, :update, :destroy]
   before_filter :owner_user, :only => [:new, :edit, :update, :destroy]
-  before_filter :correct_sauna, :only => :new
+  before_filter :correct_sauna, :only => [:index, :new]
 
 	def new                             
 		@sauna = Sauna.find(params[:id])
@@ -67,13 +67,19 @@ class Admin::SaunaItemsController < AdminController
 		if !current_user.super_admin?
 			@sauna = Sauna.find(params[:id])
 			@user = User.find(@sauna.user_id)
-			redirect_to(root_path) unless current_user?(@user)
+			if !current_user?(@user)
+				flash[:error] = :access_denied
+				redirect_to('/incorrect') 		
+			end				
 		end
     end
 
     def owner_user
 		if !current_user.super_admin?
-			redirect_to(root_path) unless current_user.owner?
+			if !current_user?(@user)
+				flash[:error] = :access_denied
+				redirect_to('/incorrect') 		
+			end		
 		end
     end
 

@@ -17,11 +17,11 @@
 	
 	<dt><label for="user_email"><%= t :email %>:</dt>
 	<dd>
-		<%= f.text_field :email %>
+		<%= f.text_field :email %> <a rel="tooltip" title="<%= t(:email_explanation) %>" ><%= t :help_link %></a>
 	</dd>	
-	<dt><label for="user_wmr_purse">WMR:</dt>
+	<dt><label for="user_wmr_purse"><%= t :wmr_purse %>:</dt>
 	<dd>
-		<%= f.text_field :wmr_purse %>
+		<%= f.text_field :wmr_purse %> <a rel="tooltip" title="<%= t(:wmr_purse_explanation) %>" ><%= t :help_link %></a>
 	</dd>	
 	<dt><label for="user_password"><%= t :password %>:</label></dt>
 	<dd>

@@ -22,38 +22,45 @@ class Admin::SaunasController < AdminController
 		@sauna = @user.saunas.build(params[:sauna])
 		@address = Address.new(params[:sauna][:address])
 		
-		if @address.save 
-			if @sauna.save 
-				@address.sauna_id = @sauna.id
-				@address.save
-				
-				h = params[:sauna][:sauna_photos_attributes]	
-				
-				if h != nil 
-					h.each do |key, value|	
-						@sauna_photo = SaunaPhoto.new(:photo => h[key][:photo])
-						if @sauna_photo.photo_file_size != nil
-							@sauna_photo.sauna_id = @sauna.id
-							@sauna_photo.description = h[key][:description]						
-							@sauna_photo.save
-						end
-					end
-				end			
-
-				flash[:success] = :sauna_created
-				
-				if current_user.super_admin?
-					redirect_to edit_admin_sauna_path(@sauna)
-				else
-					redirect_to admin_saunas_path
-				end
-				
-			else     
-				render 'new'
-			end	
+		# check if booking is possible
+		if params[:sauna][:is_booking] != "0" && @user.wmr_purse.empty?
+			@sauna.errors["is_booking"] = t (:wmr_is_required)
+			render 'new'	
 		else
-			render 'new'
-		end
+			# if booking is absent or booking is possible, then save sauna
+			if @address.save 
+				if @sauna.save 
+					@address.sauna_id = @sauna.id
+					@address.save
+					
+					h = params[:sauna][:sauna_photos_attributes]	
+					
+					if h != nil 
+						h.each do |key, value|	
+							@sauna_photo = SaunaPhoto.new(:photo => h[key][:photo])
+							if @sauna_photo.photo_file_size != nil
+								@sauna_photo.sauna_id = @sauna.id
+								@sauna_photo.description = h[key][:description]						
+								@sauna_photo.save
+							end
+						end
+					end			
+
+					flash[:success] = :sauna_created
+					
+					if current_user.super_admin?
+						redirect_to edit_admin_sauna_path(@sauna)
+					else
+						redirect_to admin_saunas_path
+					end
+					
+				else     
+					render 'new'
+				end	
+			else
+				render 'new'
+			end		
+		end	
 	end                   
 
 	def edit
@@ -77,15 +84,20 @@ class Admin::SaunasController < AdminController
 		@sauna = Sauna.find(params[:id])
 		@address = @sauna.address
 
-		if @address.update_attributes(params[:sauna][:address])
-			if @sauna.update_attributes(params[:sauna])										
-				flash[:success] = :sauna_updated
-				redirect_to edit_admin_sauna_path(@sauna)
+		if params[:sauna][:is_booking] != "0" && @user.wmr_purse.empty?
+			@sauna.errors["is_booking"] = t (:wmr_is_required)
+			render 'edit'	
+		else
+			if @address.update_attributes(params[:sauna][:address])
+				if @sauna.update_attributes(params[:sauna])										
+					flash[:success] = :sauna_updated
+					redirect_to edit_admin_sauna_path(@sauna)
+				else
+					render 'edit'
+				end 
 			else
 				render 'edit'
-			end 
-		else
-			render 'edit'
+			end		
 		end
 	end
           

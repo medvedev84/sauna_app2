@@ -57,3 +57,11 @@
 		<a href="/admin/external_payments">вывод средств</a>
 	<% end %>									
 </span><br/>
+
+<span style="padding-left:0em">&mdash; 
+	<% if request.fullpath.include?("/admin/users/") %>
+		<b>редактирование профиля</b>
+	<% else %>												
+		<a href="/admin/users/<%= current_user.id %>/edit">редактирование профиля</a>
+	<% end %>									
+</span><br/>

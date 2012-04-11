@@ -1,6 +1,6 @@
 class Admin::PaymentsController < AdminController
 	include ApplicationHelper
-		
+	before_filter :admin_user		
 	before_filter :authenticate
 	
 	def index 

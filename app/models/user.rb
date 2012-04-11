@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :user_type, :password, :password_confirmation, :wmr_purse
-  #before_save :default_values
+  before_save :default_values
   has_many :saunas, :dependent => :destroy
   has_many :internal_payments, :dependent => :destroy
   has_many :external_payments, :dependent => :destroy
@@ -12,9 +12,7 @@ class User < ActiveRecord::Base
                    :length   => { :maximum => 50 }
   validates :email, :presence => true,
                     :format   => { :with => email_regex },
-                    :uniqueness => { :case_sensitive => false }
-  validates :wmr_purse, :presence => true,
-                   :length   => { :maximum => 15 }
+                    :uniqueness => { :case_sensitive => false }  
   validates_presence_of :password, :on => :create
 
   def super_admin?
@@ -58,6 +56,6 @@ class User < ActiveRecord::Base
 	
   private 
 	def default_values
-		self.user_type = 3 unless self.user_type
+		self.balance_amount = 0
 	end   
 end

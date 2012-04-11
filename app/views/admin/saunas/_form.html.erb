@@ -9,11 +9,11 @@
 	
 	<dt><label for="sauna_alias"><%= t :alias %>*:</dt>
 	<dd>
-		<%= f.text_field :alias %>
+		<%= f.text_field :alias %> <a rel="tooltip" title="<%= t(:alias_explanation) %>" ><%= t :help_link %></a>
 	</dd>	
 	<dt><label for="sauna_is_booking"><%= t :booking %>:</dt>
 	<dd>
-		<%= f.check_box :is_booking %>
+		<%= f.check_box :is_booking %> <a rel="tooltip" title="<%= t(:booking_explanation) %>" style="padding-left: 150px"><%= t :help_link %></a>
 	</dd>		
 			
 	<%= f.fields_for @address do |af| %>
@@ -59,19 +59,21 @@
 		<%= f.text_field :email %>			
 	</dd>		
 	
-	<%= f.fields_for :sauna_photos do |sf| %>
-		<%= render 'shared/error_messages', :object => sf.object %>	
-		<% if sf.object.new_record? %>
-			<dt><label for="sauna_sauna_photos_attributes_0_photo"><%= t :photo %>:</label></dt>
-			<dd>
-				<%= sf.file_field :photo %>		
-			</dd>	
-			<dt><label for="sauna_sauna_photos_attributes_0_photo"><%= t :description %>:</label></dt>
-			<dd>
-				<%= sf.text_field :description %>		
-			</dd>				
-		<% end %>  			
-	<% end %>    
+	<% if (@sauna.id == nil) %>
+		<%= f.fields_for :sauna_photos do |sf| %>
+			<%= render 'shared/error_messages', :object => sf.object %>	
+			<% if sf.object.new_record? %>
+				<dt><label for="sauna_sauna_photos_attributes_0_photo"><%= t :photo %>:</label></dt>
+				<dd>
+					<%= sf.file_field :photo %>		
+				</dd>	
+				<dt><label for="sauna_sauna_photos_attributes_0_photo"><%= t :description %>:</label></dt>
+				<dd>
+					<%= sf.text_field :description %>		
+				</dd>				
+			<% end %>  			
+		<% end %>
+	<% end %>	
 
 	<dt></dt>
 	<dd>
