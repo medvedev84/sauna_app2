@@ -1,6 +1,6 @@
 class Admin::SaunaItemsController < AdminController
   before_filter :authenticate, :only => [:new, :edit, :update, :destroy]
-  before_filter :correct_user, :only => [:new, :edit, :update, :destroy]
+  before_filter :correct_user, :only => [:edit, :update, :destroy]
   before_filter :owner_user, :only => [:new, :edit, :update, :destroy]
   before_filter :correct_sauna, :only => [:index, :new]
 
@@ -76,7 +76,7 @@ class Admin::SaunaItemsController < AdminController
 
     def owner_user
 		if !current_user.super_admin?
-			if !current_user?(@user)
+			if !current_user.owner?
 				flash[:error] = :access_denied
 				redirect_to('/incorrect') 		
 			end		

@@ -1,6 +1,7 @@
 class Admin::SaunaPhotosController < AdminController
 	before_filter :authenticate
-	before_filter :correct_user 
+	before_filter :correct_sauna,  :only => [:destroy]
+	before_filter :correct_user,  :except => [:destroy]
 	
 	def new                             
 		@sauna = Sauna.find(params[:id])
@@ -55,6 +56,19 @@ class Admin::SaunaPhotosController < AdminController
 		@sauna = Sauna.find(params[:id])
 		@sauna_photos = @sauna.sauna_photos						
 	end		
+	
+  private
+  
+    def correct_sauna
+		if !current_user.super_admin?
+			@sauna_photo = SaunaPhoto.find(params[:id])		
+			@sauna = @sauna_photo.sauna
+			if !current_user?(@sauna.user)
+				flash[:error] = :access_denied
+				redirect_to('/incorrect') 		
+			end				
+		end
+    end
 	
 	def correct_user
 		if !current_user.super_admin? 

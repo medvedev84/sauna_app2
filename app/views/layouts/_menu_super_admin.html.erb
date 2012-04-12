@@ -1,0 +1,94 @@
+<span style="padding-left:0em">&mdash; 
+	<% if (request.fullpath.include?("/admin/users") && @user == nil) %>
+		<b>список пользователей</b>
+	<% else %>												
+		<a href="/admin/users">список пользователей</a>
+	<% end %>									
+</span><br/>
+
+<% if (@saunas != nil || @sauna != nil)%>	
+	<span style="padding-left:0em">&mdash; 
+		<% if (request.fullpath.include?("/admin/users/")) %>
+			<b>список саун</b>
+		<% else %>				
+			<a href="/admin/users/<%= @user != nil ? @user.id : @sauna.user.id %>">список саун</a>
+		<% end %>									
+	</span><br/>	
+<% end %>
+										
+<% if @sauna != nil %>		
+	
+		<span style="padding-left:1em">&mdash; 
+			<% if request.fullpath.include? "edit" %>
+				<b><%= @sauna.name %></b>
+			<% else %>												
+				<a href="/admin/saunas/<%= @sauna.id %>/edit"><%= @sauna.name %></a>
+			<% end %>									
+		</span><br/>
+		
+		<span style="padding-left:3em">&mdash; 
+			<% if request.fullpath.include? "sauna_items" %>
+				<b><%= t(:sauna_items_section) %></b>
+			<% else %>												
+				<a href="/admin/sauna/<%= @sauna.id %>/sauna_items"><%= t(:sauna_items_section) %></a>
+			<% end %>									
+		</span><br/>											
+		
+		<span style="padding-left:3em">&mdash; 
+			<% if request.fullpath.include? "sauna_photos" %>
+				<b><%= t(:gallery) %></b>
+			<% else %>												
+				<a href="/admin/sauna/<%= @sauna.id %>/sauna_photos"><%= t(:gallery) %></a>
+			<% end %>									
+		</span><br/>	
+		
+		<span style="padding-left:3em">&mdash; 
+			<% if request.fullpath.include? "sauna_comments" %>
+				<b><%= t(:comments_section) %></b>
+			<% else %>												
+				<a href="/admin/sauna/<%= @sauna.id %>/sauna_comments"><%= t(:comments_section) %></a>
+			<% end %>									
+		</span><br/>												
+	
+<% end %>	
+
+<span style="padding-left:0em">&mdash; 
+	<% if (request.fullpath.include?("/admin/sms_messages")) %>
+		<b>смс сообщения</b>
+	<% else %>												
+		<a href="/admin/sms_messages">смс сообщения</a>
+	<% end %>									
+</span><br/>
+
+<span style="padding-left:0em">&mdash; 
+	<% if (request.fullpath.include?("/admin/payments")) %>
+		<b>платежи</b>
+	<% else %>												
+		<a href="/admin/payments">платежи</a>
+	<% end %>									
+</span><br/>
+
+<span style="padding-left:0em">&mdash; 
+	<% if (request.fullpath.include?("/admin/external_payments")) %>
+		<b>завяки на вывод средств</b>
+	<% else %>												
+		<a href="/admin/external_payments">завяки на вывод средств</a>
+	<% end %>									
+</span><br/>
+
+<span style="padding-left:0em">&mdash; 
+	<% if (request.fullpath.include?("/admin/site_settings")) %>
+		<b>настройки</b>
+	<% else %>												
+		<a href="/admin/site_settings">настройки</a>
+	<% end %>									
+</span><br/>
+
+<span style="padding-left:0em">&mdash; 
+	<% if (request.fullpath.include?("/payments/daily")) %>
+		<b>обработать платежи</b>
+	<% else %>												
+		<a href="/payments/daily">обработать платежи</a>
+	<% end %>									
+</span><br/>
+

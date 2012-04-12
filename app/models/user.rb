@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :user_type, :password, :password_confirmation, :wmr_purse
   before_save :default_values
   has_many :saunas, :dependent => :destroy
-  has_many :internal_payments, :dependent => :destroy
+  has_many :internal_transactions, :dependent => :destroy
   has_many :external_payments, :dependent => :destroy
   has_secure_password  
   

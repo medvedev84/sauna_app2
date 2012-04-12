@@ -42,13 +42,7 @@
 									<% end %>										
 									
 									<% if signed_in? && current_user.super_admin? %>
-										<a href="/admin/users">список пользователей</a><br/>
-										<a href="/admin/sms_messages">смс сообщения</a><br/>
-										<a href="/admin/payments">платежи</a><br/>	
-										<a href="/admin/external_payments">завяки на вывод средств</a><br/>	
-										<a href="/admin/site_settings">настройки</a><br/>
-										<br/>
-										<a href="/payments/daily">обработать платежи</a><br/>	
+										<%= render "layouts/menu_super_admin" %>
 									<% end %>			
 								</div>								
 							</li>							
