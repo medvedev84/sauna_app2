@@ -6,7 +6,7 @@
   <body>
     <h1>Здравствуйте, <%= @booking.fio %></h1>
     <p>
-		Вы оставли заявку на бронирование:<br/>
+		Вы оставили заявку на бронирование:<br/>
 		банный комплекс: <%= @booking.sauna_item.sauna.name %><br/>
 		сауна: <%= @booking.sauna_item.name %><br/>
 		дата: <%= @booking.starts_at.strftime("%d.%m.%Y") %><br/>

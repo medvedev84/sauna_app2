@@ -31,23 +31,8 @@ class PaymentsController < ApplicationController
 	end
 
 	def fail	  
-		if params["LMI_SYS_INVS_NO"] != nil 
-			# request from webmoney
-			payment = Payment.where(:ps_order_id => params['LMI_SYS_INVS_NO']).first
-		elsif params["InvId"] != nil 
-			# request from robokassa
-			payment = Payment.where(:ps_order_id => params['InvId']).first	
-		else
-			# unknown request
-		end	
-		if payment != nil 
-			flash[:error] = :payment_not_created 
-			@sauna = payment.booking.sauna_item.sauna	
-			redirect_to @sauna	
-		else
-			flash[:error] = :intermal_error
-			redirect_to :root
-		end
+		flash[:error] = :payment_not_created 
+		redirect_to :root
 	end
 
     def daily_process		

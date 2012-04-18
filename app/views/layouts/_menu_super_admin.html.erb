@@ -6,14 +6,16 @@
 	<% end %>									
 </span><br/>
 
-<% if (@saunas != nil || @sauna != nil)%>	
-	<span style="padding-left:0em">&mdash; 
-		<% if (request.fullpath.include?("/admin/users/")) %>
-			<b>список саун</b>
-		<% else %>				
-			<a href="/admin/users/<%= @user != nil ? @user.id : @sauna.user.id %>">список саун</a>
-		<% end %>									
-	</span><br/>	
+<% if (request.fullpath.include?("/admin/users/") || request.fullpath.include?("/admin/saunas/")) %>
+	<% if (@saunas != nil || @sauna != nil)%>	
+		<span style="padding-left:0em">&mdash; 
+			<% if (request.fullpath.include?("/admin/users/")) %>
+				<b>список саун</b>
+			<% else %>				
+				<a href="/admin/users/<%= @user != nil ? @user.id : @sauna.user.id %>">список саун</a>
+			<% end %>									
+		</span><br/>	
+	<% end %>
 <% end %>
 										
 <% if @sauna != nil %>		

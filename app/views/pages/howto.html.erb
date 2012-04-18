@@ -1,0 +1,33 @@
+<div class="main-page">	
+	<%#-= render 'shared/globalsearch' %>	
+	<%= render 'shared/mobile' %>	
+	<br/><br/><br/><br/>
+
+	<div class="round-box filter-box">
+		<ul>
+			<li class="black _closeOnReady _expandedBox filter-section closed">
+				<h1>Как это работает</h1>
+				<div class="extra_params _expanded">
+					<div class="about">
+						<p>Посмотрите наши ознакомительные ролики. Всего за минуту вы узнаете, как быстро и легко найти сауну, 
+						которая наиболее отвечает вашим требованиям. Для просмтра вам необходим Adobe Flash Player. Загрузка ролика длится от 10 до 30 секунд в зависимости от скорости вашего соединения.</p>				
+					<br/>					
+					<a href="#" onclick="showVideo1()">Урок1. Поиск сауны по параметрам</a>
+					</div>
+					<div class="clearing"></div>
+				</div>	
+			</li>		
+		</ul>
+	</div>
+</div>		
+
+<div id="boxes"> 	
+
+	<div id="dialog-video1" class="window">			
+		<%= render 'shared/video1' %>	
+	</div>
+	
+	<!-- Do not remove div#mask, because you'll need it to fill the whole screen --> 
+	<div id="mask"></div>
+</div>
+ 

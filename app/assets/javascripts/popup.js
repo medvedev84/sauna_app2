@@ -228,3 +228,9 @@ function showEditExternalPaymentPopup(id, external_payment_id){
 	var old_height = parseInt($('#external-payment-edit-height').val());
 	$('#external-payment-edit').height(old_height);	
 }
+
+/* video */
+
+function showVideo1() {
+	initPopup("#dialog-video1");	
+}
