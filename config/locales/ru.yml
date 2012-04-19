@@ -44,6 +44,7 @@ ru:
   super_admin: "Главный администратор"
   admin: "Администратор"
   owner: "Владелец"
+  tester: "Тестировщик"
   admin_section: "Панель администратора"
   comments_section: "Комментарии"
   bookings_section: "Бронирования"
