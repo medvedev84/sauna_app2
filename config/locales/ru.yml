@@ -181,6 +181,7 @@ ru:
   payment_created_robokassa: "Создан платеж в системе ROBOKASSA. Номер транзакции: "
   payment_created_short: "Платеж успешно создан"
   payment_created_webmoney: "Создан платеж в системе WebMoney. Номер транзакции: "
+  payment_created_apay: "Создан платеж в системе A1Pay. Номер транзакции: "
   payment_description: "Предоплата за бронирование сауны"
   help_link: "что это?"
   will_paginate:

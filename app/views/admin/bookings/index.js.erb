@@ -4,7 +4,7 @@ $('.empty-row').remove();
 	$('<%= render @bookings %>').appendTo($('.result-list'));
 	$('.row a').click(function(e) {	
 		e.preventDefault();
-		showEditExternalPaymentPopup('#dialog-booking', this.id);
+		showBookingInfoPopupAdmin('#dialog-booking', this.id);
 	});	
 	$('.digg_pagination').show();
 	selectPaginatorLink('/admin/bookings', <%= @current_page_number %>);

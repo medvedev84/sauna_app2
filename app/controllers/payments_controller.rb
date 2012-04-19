@@ -5,8 +5,12 @@ class PaymentsController < ApplicationController
 	def result
 		if params["LMI_PAYEE_PURSE"] != nil 
 			result_webmoney(params)
-		else
+		elsif params["InvId"] != nil 
 			result_robokassa(params)
+		elsif params["tid"] != nil
+			result_apay(params)
+		else
+			# unknown request		
 		end 
 	end
   
@@ -17,6 +21,9 @@ class PaymentsController < ApplicationController
 		elsif params["InvId"] != nil 
 			# request from robokassa
 			payment = Payment.where(:ps_order_id => params['InvId']).first	
+		elsif params["order_id"] != nil 
+			# request from robokassa
+			payment = Payment.where(:ps_order_id => params['order_id']).first				
 		else
 			# unknown request
 		end
@@ -38,6 +45,46 @@ class PaymentsController < ApplicationController
     def daily_process		
 		@count_total, @count_process = Payment.update_payments
 		render 'daily_process', :layout => false	
+	end
+	
+	def result_apay(params)
+		crc = Payment.get_wm_hash(
+			params['tid'], 
+			params['name'], 
+			params['comment'], 
+			params['partner_id'], 
+			params['service_id'], 
+			params['order_id'], 
+			params['type'], 
+			params['partner_income'], 	
+			params['system_income'],
+			params['test'],
+			"freedom")
+		
+		@result = crc
+		1.times do |x|      
+			break if params['check'].blank? || crc.casecmp(params['check']) != 0
+			@booking = Booking.where(:id => params['order_id']).first
+			break if @booking.blank? || params['system_income'].to_f != SiteSetting.get_booking_fee
+
+			ActiveRecord::Base.transaction do 
+				#create payment
+				@payment = Payment.new
+				@payment.amount = params['partner_income'].to_f 
+				@payment.booking_id = @booking.id	
+				@payment.description = t(:payment_created_apay) + params['tid'] + ". " + t(:sauna) + ": " + @booking.sauna_item.sauna.name + " (" + @booking.sauna_item.name + ")"
+				@payment.status = Payment.paid
+				@payment.ps_name = "A1PAY"
+				@payment.ps_order_id = params['tid']
+				@payment.save
+
+				#money to application balance
+				Payment.receive_payment(@payment)		  	
+			end
+			
+			@result = "TRUE"	
+		end	
+		render 'result', :layout => false	 		
 	end
 	
 	def result_robokassa(params)

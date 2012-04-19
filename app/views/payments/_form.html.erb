@@ -34,3 +34,15 @@
 		<input type="button" value="<%= t :close %>" onclick="closePopup();" />	
 	</form>
 </div>
+
+<div class="select-payment" id="a1pay">
+	<form method="POST"  accept-charset="UTF-8" action="https://partner.a1pay.ru/a1lite/input/">
+		<input type="hidden" name="key" value="jBcMWSmMAwVO8MWvZcC3Ny9oTjH2ITQYIJlhtuli+uU=" />
+		<input type="hidden" name="cost" id="cost"/>
+		<input type="hidden" name="name" id="name" />
+		<input type="hidden" name="default_email" id="default_email" />
+		<input type="hidden" name="order_id" id="order_id"/>
+		<input type="submit" value="<%= t :go_to_payment %>" >
+		<input type="button" value="<%= t :close %>" onclick="closePopup();" />		  	  
+	</form>
+</div>

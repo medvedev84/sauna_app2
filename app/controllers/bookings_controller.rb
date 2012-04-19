@@ -88,6 +88,8 @@ class BookingsController < ApplicationController
       @pay_desc['in_curr']   = "WMRM"
       @pay_desc['culture']   = "ru"
       @pay_desc['encoding']  = "utf-8"
+      @pay_desc['email']  = booking.email
+      @pay_desc['phone']  = booking.phone_number
       @pay_desc['crc'] = Payment::get_rk_hash(@pay_desc['mrh_login'], 
                                            @pay_desc['out_summ'],
                                            @pay_desc['inv_id'], 

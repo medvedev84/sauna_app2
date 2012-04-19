@@ -63,6 +63,14 @@
 </span><br/>
 
 <span style="padding-left:0em">&mdash; 
+	<% if request.fullpath.include?("/admin/bookings") %>
+		<b>бронирования</b>
+	<% else %>												
+		<a href="/admin/bookings">бронирования</a>
+	<% end %>									
+</span><br/>
+
+<span style="padding-left:0em">&mdash; 
 	<% if (request.fullpath.include?("/admin/payments")) %>
 		<b>платежи</b>
 	<% else %>												

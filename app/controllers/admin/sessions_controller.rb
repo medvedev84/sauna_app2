@@ -9,8 +9,10 @@ class Admin::SessionsController < AdminController
 		#@sms_id = Sms.send("79043102536","hello")
 		if user.super_admin? 
 			redirect_to admin_users_path  
-		else    
-			redirect_to admin_saunas_path
+		elsif user.tester?     
+			redirect_to root_path
+		else   
+			redirect_to admin_saunas_path			
 		end
     else
       flash.now.alert = :invalid_email_or_password
