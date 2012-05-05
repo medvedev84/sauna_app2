@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111119193467) do
+ActiveRecord::Schema.define(:version => 20120505173819) do
 
   create_table "addresses", :force => true do |t|
     t.integer   "sauna_id"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(:version => 20111119193467) do
   end
 
   create_table "bookings", :force => true do |t|
-    t.integer   "ps_order_id"
     t.boolean   "is_canceled"
     t.integer   "sauna_item_id"
     t.string    "email"
@@ -52,7 +51,6 @@ ActiveRecord::Schema.define(:version => 20111119193467) do
   end
 
   create_table "external_payments", :force => true do |t|
-    t.integer   "payment_id"
     t.integer   "user_id"
     t.integer   "amount"
     t.integer   "status"
@@ -63,7 +61,8 @@ ActiveRecord::Schema.define(:version => 20111119193467) do
     t.timestamp "updated_at"
   end
 
-  create_table "internal_payments", :force => true do |t|
+  create_table "internal_transactions", :force => true do |t|
+    t.integer   "external_payment_id"
     t.integer   "payment_id"
     t.integer   "user_id"
     t.integer   "amount"
@@ -72,6 +71,8 @@ ActiveRecord::Schema.define(:version => 20111119193467) do
   end
 
   create_table "payments", :force => true do |t|
+    t.string    "ps_order_id"
+    t.string    "ps_name"
     t.integer   "booking_id"
     t.integer   "amount"
     t.text      "description"
@@ -137,10 +138,22 @@ ActiveRecord::Schema.define(:version => 20111119193467) do
     t.string    "email"
   end
 
-  create_table "site_settings", :force => true do |t|
-    t.integer  "commission_fee"
+  create_table "simple_captcha_data", :force => true do |t|
+    t.string   "key",        :limit => 40
+    t.string   "value",      :limit => 6
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  add_index "simple_captcha_data", ["key"], :name => "idx_key"
+
+  create_table "site_settings", :force => true do |t|
+    t.string    "email"
+    t.string    "phone_number"
+    t.integer   "booking_fee"
+    t.integer   "commission_fee"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "sms_messages", :force => true do |t|

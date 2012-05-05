@@ -185,6 +185,8 @@ ru:
   payment_created_apay: "Создан платеж в системе A1Pay. Номер транзакции: "
   payment_description: "Предоплата за бронирование сауны"
   help_link: "что это?"
+  simple_captcha:
+    label: "Введите текст с картинки"
   will_paginate:
     previous_label: "<"
     next_label: ">"

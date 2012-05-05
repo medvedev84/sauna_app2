@@ -20,6 +20,9 @@ gem 'validates_timeliness', '~> 3.0.2'
 # datepicker for rails
 gem 'jquery_datepicker'
 
+# captcha
+gem "galetahub-simple_captcha", :require => "simple_captcha"
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
