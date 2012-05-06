@@ -16,6 +16,13 @@ SaunaApp::Application.routes.draw do
 	match '/all', :to => 'pages#all'
 	match '/howto',   :to => 'pages#howto'
 	
+	match '/izhevsk',   :to => 'cities#izhevsk'
+	match '/sarapul',   :to => 'cities#sarapul'
+	match '/votkinsk',   :to => 'cities#votkinsk'
+	match '/glazov',   :to => 'cities#glazov'
+	match '/mozhga',   :to => 'cities#mozhga'
+		
+	
 	match '/m', :to => redirect("/?mobile=1")
 	match '/pda', :to => redirect("/?mobile=2")
  

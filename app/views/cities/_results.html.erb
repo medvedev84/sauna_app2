@@ -1,0 +1,20 @@
+<ul class="result-list" id="saunaResultList">
+	<li class="head">
+		<div class="name"><%= t :sauna %></div>
+		<div class="capacity"><i><%= t :capacity %><%#-= t :v_chel %></i></div>
+		<div class="price"><i><%= t :price %><%#-= t :v_rub %></i></div>
+	</li>	
+	<% if !@saunas.empty? %>
+		<%  @saunas.each do |sauna| %>				
+			<%= render sauna %>
+		<% end %>
+	<% else %>
+		<%= render 'shared/empty_row' %>
+	<% end %>
+</ul>
+
+<div style="padding-top: 620px;">
+	<div class="digg_pagination">
+		<%= paginate @saunas, :remote => true %>
+	</div>
+</div>

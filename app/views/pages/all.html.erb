@@ -1,11 +1,42 @@
 <div class="main-page">
-	<%= render 'shared/globalsearch' %>	
+	<%#-= render 'shared/globalsearch' %>	
 	<%= render 'shared/mobile' %>	
-	<%= render 'results' %>		
+	<br/><br/><br/><br/>
+
+	<div class="round-box filter-box">
+		<ul>
+			<li class="black _closeOnReady _expandedBox filter-section closed">
+				<h1>Сауны и бани в городах</h1>
+				<div class="extra_params _expanded">
+					<div class="about">
+						<p>На нашем сайте представлено более 110 саун и бань во всех городах Удмуртской Республики. Здесь собрана самая полная информация о саунах нашего региона —
+						описание, цены, фото, отзывы, схемы проезда, адреса и телефоны. 
+						Мы постоянно работаем над обновлением списка, как правило, каждую 
+						неделю в нашем каталоге появляется новая сауна или баня. 
+						Если Вы видите, что известная Вам сауна отсутствует в нашем каталоге, <a href="mailto:gotosauna@gmail.com">сообщите нам о ней</a> и мы добавим её на наш сайт. 
+						</p>
+						<br/> 
+						
+						<a name="V"><b>В</b></a><br/>										
+						<a href="/votkinsk">Воткинск</a> — 4 сауны и бани <br/><br/>
+						
+						<a name="G"><b>Г</b></a><br/>
+						<a href="/glazov">Глазов</a> — нет данных <br/><br/>
+						
+						<a name="I"><b>И</b></a><br/>
+						<a href="/izhevsk">Ижевск</a> — более 80 саун и бань <br/><br/>				
+						
+						<a name="M"><b>М</b></a><br/>
+						<a href="/mozhga">Можга</a> — 4 сауны и бани <br/><br/>
+						
+						
+						<a name="S"><b>С</b></a><br/>
+						<a href="/sarapul">Сарапул</a> — 6 саун и бань <br/><br/>
+						
+					</div>
+					<div class="clearing"></div>
+				</div>	
+			</li>		
+		</ul>
+	</div>	
 </div>
-<script type="text/javascript">
-	Frame.initSearchBySaunaName();
-	Frame.initSaunaSorting();
-</script>
-	
-	
