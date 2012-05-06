@@ -234,3 +234,7 @@ function showEditExternalPaymentPopup(id, external_payment_id){
 function showVideo1() {
 	initPopup("#dialog-video1");	
 }
+
+function showVideo2() {
+	initPopup("#dialog-video2");	
+}

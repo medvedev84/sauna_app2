@@ -131,8 +131,14 @@
 }
 
 #boxes #dialog-video1 {
-  width: 500px; 
-  height: 540px;  
+  width: 670px; 
+  height: 530px;  
+  padding-top: 5px;  
+}
+
+#boxes #dialog-video2 {
+  width: 670px; 
+  height: 530px;  
   padding-top: 5px;  
 }
 

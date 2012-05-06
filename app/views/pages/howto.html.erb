@@ -9,10 +9,13 @@
 				<h1>Как это работает</h1>
 				<div class="extra_params _expanded">
 					<div class="about">
-						<p>Посмотрите наши ознакомительные ролики. Всего за минуту вы узнаете, как быстро и легко найти сауну, 
-						которая наиболее отвечает вашим требованиям. Для просмтра вам необходим Adobe Flash Player. Загрузка ролика длится от 10 до 30 секунд в зависимости от скорости вашего соединения.</p>				
+						<p>Посмотрите наши ознакомительные презентации. 
+						Потратив несколько минут, вы узнаете, как быстро и легко найти сауну, 
+						которая наиболее отвечает вашим требованиям. Вы также узнаете, как забронировать сауну и внести предоплату с помощью банковской карты.  
+						</p>
 					<br/>					
-					<a href="#" onclick="showVideo1()">Урок1. Поиск сауны по параметрам</a>
+					<a href="#" onclick="showVideo2()">Урок1. Поиск сауны по параметрам</a><br/>
+					<a href="#" onclick="showVideo1()">Урок2. Бронирование и оплата с помощью банковской карты</a><br/>											
 					</div>
 					<div class="clearing"></div>
 				</div>	
@@ -24,8 +27,12 @@
 <div id="boxes"> 	
 
 	<div id="dialog-video1" class="window">			
-		<%= render 'shared/video1' %>	
+		<%= render 'video1' %>	
 	</div>
+	
+	<div id="dialog-video2" class="window">			
+		<%= render 'video2' %>	
+	</div>	
 	
 	<!-- Do not remove div#mask, because you'll need it to fill the whole screen --> 
 	<div id="mask"></div>
