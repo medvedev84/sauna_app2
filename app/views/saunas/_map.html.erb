@@ -4,7 +4,7 @@
         ymaps.ready(init);
 
         function init () {
-            ymaps.geocode("<%= @sauna.address.city %>", { results: 1 }).then(function (res) {
+            ymaps.geocode("<%= @sauna.address.city.name %>", { results: 1 }).then(function (res) {
                 var firstGeoObject = res.geoObjects.get(0);
 
                 window.myMap = new ymaps.Map("map", {
