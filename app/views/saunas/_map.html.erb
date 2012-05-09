@@ -1,7 +1,41 @@
+    <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        ymaps.ready(init);
+
+        function init () {
+            ymaps.geocode("<%= @sauna.address.city %>", { results: 1 }).then(function (res) {
+                var firstGeoObject = res.geoObjects.get(0);
+
+                window.myMap = new ymaps.Map("map", {
+                    center: firstGeoObject.geometry.getCoordinates(),
+                    zoom: 14
+                });								           
+				myMap.controls.add('zoomControl');
+				
+                ymaps.geocode("<%= @sauna.address.full_description %>", {results: 1}).then(function (res) {
+					var firstGeoObject = res.geoObjects.get(0);
+				
+					var properties = {
+							balloonContent: '<b><%= @sauna.name %></b><br/><%= @sauna.address.full_description %>',
+							hintContent: "<%= @sauna.name %>"
+						},
+					placemark = new ymaps.Placemark(firstGeoObject.geometry.getCoordinates(), properties, { balloonCloseButton: true });
+					myMap.geoObjects.add(placemark);
+	
+					myMap.setCenter(firstGeoObject.geometry.getCoordinates(), 14, {
+						checkZoomRange: true
+					});
+                });
+				
+            }, function (err) {
+                // Если геокодирование не удалось,
+                // сообщаем об ошибке
+                alert(err.message);
+            })
+        }
+    </script>
+	
 <div class="sauna-map">
-	<iframe
-		height=375 width=267 frameborder=0 scrolling=0 marginheight=0 marginwidth=0
-		style='border: 1px solid #000000'
-		src="http://map.igis.ru/?frame=1&mapc=1&zoom=16&adres=<%= @sauna.address.description %>&ico=30,30,ynd,house&text=<b><%= @sauna.name %></b><hr width=250><%= @sauna.address.description %>">
-	</iframe>
+	<div id="map" style="width: 267px; height: 375px"></div>
 </div>

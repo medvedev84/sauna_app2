@@ -25,6 +25,30 @@ class CitiesController < ApplicationController
 		search(h, 5)
 	end  
 	
+	def kirov
+		h = params[:q]		
+		search(h, 6)
+	end  
+
+	def kazan
+		h = params[:q]		
+		search(h, 7)
+	end  
+
+	def chelni
+		h = params[:q]		
+		search(h, 8)
+	end  
+
+	def nizhnekamsk
+		h = params[:q]		
+		search(h, 9)
+	end  
+
+	def neftekamsk
+		h = params[:q]		
+		search(h, 10)
+	end  	
 	private 
 
 		def search(h, city_id)
