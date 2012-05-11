@@ -1,0 +1,45 @@
+<script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+<script type="text/javascript">
+	ymaps.ready(init);
+	function init () {
+		ymaps.geocode("Ижевск, Пушкинская, 200", { results: 1 }).then(function (res) {
+			var firstGeoObject = res.geoObjects.get(0);
+			window.myMap = new ymaps.Map("map", {
+				//center: firstGeoObject.geometry.getCoordinates(),
+				center: [56.8500, 53.2166],
+				zoom: 12,
+				behaviors: ['default', 'scrollZoom']
+			});								           
+			myMap.controls.add('zoomControl', {
+                    left: '25',
+                    bottom: '80'
+                }
+			);					
+		}, function (err) {
+			// Если геокодирование не удалось,
+			// сообщаем об ошибке
+			alert(err.message);
+		})
+	}		
+</script>
+
+<div class="map-search">
+	<%= search_form_for @q, :url => "/map", :remote => true, :html => {:method => :get} do |f| %>	
+		<table>
+		<tr>
+			<td align="right">цена до (руб./час):</td>
+			<td><%= f.text_field :sauna_items_min_price_lteq, :value => '500' %></td>
+		</tr>
+		<tr>
+			<td align="right">вместимость до (чел.):</td>
+			<td><%= f.text_field :sauna_items_capacity_lteq, :value => '20' %></td>
+		</tr>	
+		<tr>
+			<td align="center" colspan="2">
+				<%= f.submit t(:search) %>	
+			</td>			
+		</tr>			
+		</table>		
+	<% end %>
+</div>
+<div id="map" class="results-map"></div>

@@ -26,7 +26,7 @@ class SaunasController < ApplicationController
 		end
 		
 		h = get_search_params
-				
+
 		if h != nil
 			h.delete_if {|key, value| key == "sauna_items_has_kitchen_eq" && value == "0" } #if kitchen is not important, don't use that criteria
 			h.delete_if {|key, value| key == "sauna_items_has_restroom_eq" && value == "0" } #if restroom is not important, don't use that criteria
@@ -48,7 +48,7 @@ class SaunasController < ApplicationController
 				if @district.is_all?
 					h.delete_if {|key, value| key == "address_district_id_eq" } 
 				end						
-			end
+			end					
 		end
 		
 		@q = Sauna.search(h)				

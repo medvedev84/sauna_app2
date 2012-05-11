@@ -22,14 +22,14 @@
 					<dd class="main-params-type">
 						<%= f.collection_select :sauna_items_sauna_type_id_eq, SaunaType.order("id DESC"), :id, :name, :include_blank => false %>										
 					</dd>	
-					<dt></dt>
+					<dt></dt>					
 					<dd class="main-params-has-photo">
 						<%= f.check_box :sauna_photos_id_present  %><label><%= t :has_photo %></label> 								
 					</dd>	
 					<dt></dt>
 					<dd class="main-params-has-photo">
 						<%= f.check_box :is_booking_eq  %><label><%= t :has_online_booking %></label> 								
-					</dd>						
+					</dd>											
 				</dl>
 			</div>
 			<div class="_closed"></div>

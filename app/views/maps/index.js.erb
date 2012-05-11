@@ -1,0 +1,28 @@
+<% if !@saunas.empty? %>
+	myMap.destroy();
+	
+	window.myMap = new ymaps.Map("map", {
+		center: [56.8500, 53.2166],
+		zoom: 12,
+		behaviors: ['default', 'scrollZoom']
+	});								           
+	myMap.controls.add('zoomControl', {
+                    left: '25',
+                    bottom: '80'
+                });
+	myCollection = new ymaps.GeoObjectCollection();
+	
+	<% @saunas.each_with_index  do |sauna, index| %>		
+		ymaps.geocode("<%= sauna.address.full_description %>", {results: 1}).then(function (res) {
+			var firstGeoObject = res.geoObjects.get(0);		
+			var properties = {
+					balloonContent: '<a href="/saunas/<%= sauna.alias %>" target="_blank"><b><%= sauna.name %></b></a><br/><%= sauna.address.full_description %>',
+					hintContent: "<%= sauna.name %>",
+					iconContent: <%= index %> + 1
+				},
+			myPlacemark = new ymaps.Placemark(firstGeoObject.geometry.getCoordinates(), properties, { balloonCloseButton: true });
+			myCollection.add(myPlacemark);
+		});			
+	<% end %>	
+	myMap.geoObjects.add(myCollection);	 		
+<% end %>

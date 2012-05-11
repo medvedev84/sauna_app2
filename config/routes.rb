@@ -27,6 +27,7 @@ SaunaApp::Application.routes.draw do
 	match '/neftekamsk',   :to => 'cities#neftekamsk'
 	match '/chelni',   :to => 'cities#chelni'
 		
+	match '/map',   :to => 'maps#index'
 	
 	match '/m', :to => redirect("/?mobile=1")
 	match '/pda', :to => redirect("/?mobile=2")
