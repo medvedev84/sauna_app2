@@ -1,22 +1,21 @@
 <div class="detail-page">
-	<%= render '/saunas/navigation' %>	
-	<%= render '/saunas/help' %>	
+	<%-#= render '/saunas/navigation' %>	
+	<%-#= render '/saunas/help' %>	
 	
 	<div class="round-box">
 		<%= render '/saunas/baseinfo' %>
 		
 		<div class="round-sub-box sauna-detail-description">		
 			<% @sauna.sauna_items.each do |sauna_item| %>									
-				<%= render :partial => 'sauna_item',  :locals => { :sauna_item => @sauna_item } %>						
+				<%= render :partial => 'sauna_item',  :locals => { :sauna_item => sauna_item } %>						
 			<% end %>					
 		</div>
 		
-		<%-#= render 'map' %>		
+		<%= render '/saunas/map' %>		
 		<div class="clearing"></div>
 	</div>		
 	
-	<%-#= render '/saunas/gallery' %>
-	<%= render '/saunas/comments' %>		
+	<%= render '/saunas/gallery' %>
 </div>	
 
 <!-- We only want the thunbnails to display when javascript is disabled -->
@@ -25,4 +24,8 @@
 </script>
 <script type="text/javascript">
 	Frame.initDetailPage();
+</script>
+<script type="text/javascript">
+	$("#leftMenuDetail li:first").addClass("active");
+	$("._saunaDetailDescriptionClosed:first").removeClass("_saunaDetailDescriptionClosed");
 </script>
