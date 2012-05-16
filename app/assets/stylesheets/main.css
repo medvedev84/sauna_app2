@@ -98,7 +98,14 @@ blockquote { margin-left: 10em; padding-left: 1em; border-left: 2px solid #ccc; 
 pre, code { font: 1.2em/1.8 "Courier New", Courier, monospace; border: 1px dashed #aaa; padding: 1em; background: #eee; }
 code { padding: .2em .5em; }
 
+._begin {
+	text-indent: 50px; 
+	line-height: 1.4;
+}
 
+.about {
+	text-indent: 30px; 
+}
 .clearing	{
 	clear: both;
 	}
@@ -137,7 +144,14 @@ code { padding: .2em .5em; }
 			border-radius: 10px;
 			padding: 12px 9px;
 		}
-		
+	
+.title_description {
+	font-style: italic;
+	font-family: Georgia, Times New Roman;
+	padding-bottom: 6px;
+	line-height: 1.5;
+	font-size: 13px;
+}
 .content {
 	padding: 0 0 44px 0;
 	margin: 0 auto;

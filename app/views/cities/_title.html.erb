@@ -1,0 +1,33 @@
+		<% if request.fullpath.include? "izhevsk" %>
+			<% city = "Ижевска" %>
+		<% elsif request.fullpath.include? "sarapul"  %>	
+			<% city = "Сарапула" %>			
+		<% elsif request.fullpath.include? "votkinsk"  %>	
+			<% city = "Воткинска" %>	
+		<% elsif request.fullpath.include? "mozhga"  %>	
+			<% city = "Можги" %>	
+		<% elsif request.fullpath.include? "glazov"  %>		
+			<% city = "Глазова" %>		
+		<% elsif request.fullpath.include? "kirov"  %>		
+			<% city = "Кирова" %>		
+		<% elsif request.fullpath.include? "kazan"  %>		
+			<% city = "Казани" %>		
+		<% elsif request.fullpath.include? "chelni"  %>		
+			<% city = "Набережных Челнов" %>					
+		<% elsif request.fullpath.include? "nizhnekamsk"  %>	
+			<% city = "Нижнекамска" %>				
+		<% elsif request.fullpath.include? "neftekamsk"  %>	
+			<% city = "Нефтекамска" %>								
+		<% else %>
+			<% city = "Ижевска" %>
+		<% end %>	
+		
+<div>
+	<h1>Сауны и бани <%= city %></h1>
+	<div class="title_description">
+	Люди всё чаще ходят в бани и сауны не только в целях укрепления здоровья, но и чтобы расслабиться, встретиться с друзьями, 
+	отметить праздник или провести корпоратив. Здесь вы сможете найти всю информацию о саунах <%= city %> - адреса, телефоны, фото, цены и отзывы. Желаем хорошего отдыха!
+	</div>
+</div>	
+<%= render 'city' %>
+
