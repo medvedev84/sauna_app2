@@ -12,18 +12,18 @@
 				<%= render sauna_item %>					
 			<% end %>	
 			
-			<%-#= render 'shared/social' %>									
+			<%= render 'shared/social' %>									
 		</div>
 				
-		<%-#= render 'map' %>		
+		<%= render 'map' %>		
 		<div class="clearing"></div>
 	</div>		
 	
 	<% unless @sauna.sauna_photos.empty? %>
-		<%-#= render 'gallery' %>		
+		<%= render 'gallery' %>		
 	<% end %>	
 	
-	<%-#= render 'comments' %>		
+	<%= render 'comments' %>		
 </div>	
 
 <div id="boxes"> 
