@@ -1,32 +1,40 @@
 <div class="round-sub-box sauna-short-description">
-	<h1><%= @sauna.name %></h1>
-	
-	<% unless @sauna.sauna_items.empty? %>		
-	<ul id="leftMenuDetail">
-		<% for sauna_item in @sauna.sauna_items %>							
-			<li class="<%= @sauna_item != nil && @sauna_item.id == sauna_item.id ? 'active' : '' %>">
-				<a href="/sauna_items/<%= sauna_item.id %>">
-					<%= sauna_item.name %>
-				</a>
-			</li>				
+	<div class="vcard">
+		<span class="fn org"><h1><%= @sauna.name %></h1></span>
+		
+		<% unless @sauna.sauna_items.empty? %>		
+		<ul id="leftMenuDetail">
+			<% for sauna_item in @sauna.sauna_items %>							
+				<li class="<%= @sauna_item != nil && @sauna_item.id == sauna_item.id ? 'active' : '' %>">
+					<a href="/sauna_items/<%= sauna_item.id %>">
+						<%= sauna_item.name %>
+					</a>
+				</li>				
+			<% end %>
+		</ul>
 		<% end %>
-	</ul>
-	<% end %>
-	
-	<div class="contacts">
-		<%= t :phone_number %>:
-		<%  if !@sauna.phone_number1.empty? %>
-			<%=  @sauna.phone_number1 %><br />
-		<% end %>	
-		<%  if !@sauna.phone_number2.empty? %>
-			<%=  @sauna.phone_number2 %><br />
-		<% end %>	
-		<%  if !@sauna.phone_number3.empty? %>
-			<%=  @sauna.phone_number3 %><br />
-		<% end %>			
-		<%= t :address %>: <%= @sauna.address.full_description %><br />
-		<% if !@sauna.email.empty? %>
-			<%= t :email %>: <%= @sauna.email %>
-		<% end %>		
-	</div>	
+		
+		<div class="contacts">
+			<%= t :phone_number %>:
+			<%  if !@sauna.phone_number1.empty? %>
+				<span class="tel"><%= @sauna.phone_number1 %></span><br />
+			<% end %>	
+			<%  if !@sauna.phone_number2.empty? %>
+				<span class="tel"><%= @sauna.phone_number2 %></span><br />
+			<% end %>	
+			<%  if !@sauna.phone_number3.empty? %>
+				<span class="tel"><%= @sauna.phone_number3 %></span><br />
+			<% end %>	
+
+			<div class="adr">
+				<%= t :address %>:
+				<span class="locality"> <%= @sauna.address.city.name %></span>,
+				<span class="street-address"><%= @sauna.address.description %></span>
+			</div>		
+			 		
+			<% if !@sauna.email.empty? %>
+				<%= t :email %>: <%= @sauna.email %>
+			<% end %>		
+		</div>	
+	</div>
 </div>
