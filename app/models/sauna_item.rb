@@ -20,7 +20,10 @@ class SaunaItem < ActiveRecord::Base
   def as_json(options = {})
     {
       :id => self.id,
-      :name => self.name
+      :name => self.name,
+	  :description => self.description,
+	  :min_price => self.min_price,
+	  :capacity => self.capacity
     }    
   end  
 end

@@ -15,6 +15,16 @@ class SaunasController < ApplicationController
 			@sauna_comment = SaunaComment.new
 			@booking = Booking.new
 		end
+		
+		if (params["json"] == "true") 			
+			render :json => @sauna.as_json(
+				:only => [:id, :name, :phone_number1],
+				:include => {
+				  :sauna_items => {:only => [:id, :name, :description, :capacity, :min_price]}
+				}
+			)
+		end	
+		
 	end
 	
 	def index
@@ -51,11 +61,14 @@ class SaunasController < ApplicationController
 			end					
 		end
 		
-		@q = Sauna.search(h)				
-		
+		@q = Sauna.search(h)					
+			
 		if (mobile_device? || touch_device? ) && params[:q]  != nil 
 			@saunas = @q.result(:distinct => true)
 			render 'search'
+		elsif (params["json"] == "true") 
+			@saunas = @q.result(:distinct => true)		
+			render :json => @saunas.as_json(:only => [:id, :name, :phone_number1])
 		else	
 		
 			@current_page_number = params[:page] != nil ? params[:page] : 1		
