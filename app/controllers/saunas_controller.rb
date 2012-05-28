@@ -17,11 +17,11 @@ class SaunasController < ApplicationController
 		end
 		
 		if (params["json"] == "true") 			
-			render :json => @sauna.as_json(
-				:only => [:id, :name, :phone_number1],
+			render :json => @sauna.as_json(:only => [:id, :name, :phone_number1],
 				:include => {
 				  :sauna_items => {:only => [:id, :name, :description, :capacity, :min_price]}
-				}
+				},
+				:methods => :full_address				
 			)
 		end	
 		

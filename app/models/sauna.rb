@@ -37,4 +37,8 @@ class Sauna < ActiveRecord::Base
 		@sauna_item = sauna_items.max {|a,b| a.capacity <=> b.capacity }    
 		@sauna_item == nil ? 0 : @sauna_item.capacity 
 	end   
+	
+	def full_address
+		"#{address.city.name}, #{address.street}, #{address.building}"   
+	end	
 end
