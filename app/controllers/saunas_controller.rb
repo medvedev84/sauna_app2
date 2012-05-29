@@ -19,7 +19,8 @@ class SaunasController < ApplicationController
 		if (params["json"] == "true") 			
 			render :json => @sauna.as_json(:only => [:id, :name, :phone_number1],
 				:include => {
-				  :sauna_items => {:only => [:id, :name, :description, :capacity, :min_price]}
+				  :sauna_items => {:only => [:id, :name, :description, :capacity, :min_price]},
+				  :sauna_photos => {:only => [:id], :methods => :photo_url}
 				},
 				:methods => :full_address				
 			)

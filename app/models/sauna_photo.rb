@@ -21,4 +21,8 @@ class SaunaPhoto < ActiveRecord::Base
 					:path => ":attachment/:id/:style.:extension",
 					:bucket => "go-to-sauna"					
 									
+	def photo_url
+		"#{photo.url}"   
+	end																		
+	
 end
