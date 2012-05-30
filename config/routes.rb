@@ -21,6 +21,7 @@ SaunaApp::Application.routes.draw do
 	match '/polza-ili-vred',   :to => 'pages#polza-ili-vred'
 	match '/sauna-ili-banya',   :to => 'pages#sauna-ili-banya'
 	
+	match '/cities',   :to => 'cities#index'
 	match '/izhevsk',   :to => 'cities#izhevsk'
 	match '/sarapul',   :to => 'cities#sarapul'
 	match '/votkinsk',   :to => 'cities#votkinsk'

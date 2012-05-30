@@ -1,5 +1,14 @@
 class CitiesController < ApplicationController 
   
+	def index
+		if (params["json"] == "true") 
+			@cities = City.all
+			render :json => @cities.as_json(:only => [:id, :name])
+		else
+			redirect_to(root_path)	
+		end
+	end	
+	
 	def izhevsk
 		h = params[:q]
 		search(h, 1)
