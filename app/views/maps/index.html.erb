@@ -36,6 +36,11 @@
 		</tr>	
 		<tr>
 			<td align="center" colspan="2">
+				<%= select("q", "address_city_id_eq", options_for_select(@cities_for_dropdown), { :include_blank => false }, html_options = { "style" => "width: 100%"}) %>	
+			</td>			
+		</tr>			
+		<tr>
+			<td align="center" colspan="2">
 				<%= f.submit t(:search) %>	
 			</td>			
 		</tr>			
