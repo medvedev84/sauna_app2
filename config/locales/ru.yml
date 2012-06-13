@@ -256,7 +256,8 @@ ru:
                  blank: "Не задано имя"
                email:
                  blank: "Не задан email"
-                 invalid: "Некорректный формат email"					 
+                 invalid: "Некорректный формат email"
+                 taken: "Пользователь с таким email уже существует"
           external_payment:
              attributes:
                amount:

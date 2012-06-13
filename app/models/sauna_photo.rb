@@ -25,4 +25,7 @@ class SaunaPhoto < ActiveRecord::Base
 		"#{photo.url}"   
 	end																		
 	
+	def photo_url_thumb
+		"#{photo.url(:thumb)}"   
+	end		
 end
