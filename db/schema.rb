@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120505173819) do
+ActiveRecord::Schema.define(:version => 20120505173820) do
 
   create_table "addresses", :force => true do |t|
     t.integer   "sauna_id"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(:version => 20120505173819) do
     t.string    "building"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+  end
+
+  create_table "advertisements", :force => true do |t|
+    t.integer  "city_id"
+    t.string   "company_name"
+    t.string   "phone_number"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "bookings", :force => true do |t|
@@ -57,6 +66,15 @@ ActiveRecord::Schema.define(:version => 20120505173819) do
     t.string    "ps_name"
     t.string    "ps_order_id"
     t.string    "ps_trans_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+  end
+
+  create_table "internal_payments", :force => true do |t|
+    t.integer   "external_payment_id"
+    t.integer   "payment_id"
+    t.integer   "user_id"
+    t.integer   "amount"
     t.timestamp "created_at"
     t.timestamp "updated_at"
   end
@@ -139,10 +157,10 @@ ActiveRecord::Schema.define(:version => 20120505173819) do
   end
 
   create_table "simple_captcha_data", :force => true do |t|
-    t.string   "key",        :limit => 40
-    t.string   "value",      :limit => 6
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "key",        :limit => 40
+    t.string    "value",      :limit => 6
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   add_index "simple_captcha_data", ["key"], :name => "idx_key"

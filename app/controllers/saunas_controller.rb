@@ -11,9 +11,16 @@ class SaunasController < ApplicationController
 		end
 		
 		if @sauna != nil 
-			@sauna_items =  @sauna.sauna_items
+			@sauna_items = @sauna.sauna_items
 			@sauna_comment = SaunaComment.new
 			@booking = Booking.new
+			
+			@advertisements = Advertisement.where("city_id = ?", @sauna.address.city_id)
+			
+			if !@advertisements.empty?
+				@adv1 = @advertisements.at(0);
+				@adv2 = @advertisements.at(1);
+			end						
 		end
 		
 		if (params["json"] == "true") 			
@@ -24,8 +31,7 @@ class SaunasController < ApplicationController
 				},
 				:methods => :full_address				
 			)
-		end	
-		
+		end			
 	end
 	
 	def index

@@ -11,6 +11,14 @@ module ApplicationHelper
 		image_tag ("create.png")
 	end   
 
+	def get_all_cities
+		@cities = City.all		
+		@cities_for_dropdown = []
+		@cities.each do |city|
+			@cities_for_dropdown = @cities_for_dropdown << [city.name, city.id]
+		end
+	end
+	
 	def get_all_owners
 		@owners = User.where("user_type = 3")		
 		@owners_for_dropdown = []

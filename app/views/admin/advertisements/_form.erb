@@ -1,0 +1,23 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<dl>
+	<dt><label for="advertisement_city_id"><%= t :city %>:</dt>
+	<dd>
+		<%= select("advertisement", "city_id", options_for_select(@cities_for_dropdown, @advertisement.city_id), { :include_blank => false }) %>						
+	</dd>
+	<dt><label for="advertisement_company_name"><%= t :advertisement_company_name %>:</dt>
+	<dd>
+		<%= f.text_field :company_name %>
+	</dd>		
+	<dt><label for="advertisement_description"><%= t :description %>:</dt>
+	<dd>
+		<%= f.text_field :description %>
+	</dd>	
+	<dt><label for="advertisement_phone_number"><%= t :phone_number %>:</dt>
+	<dd>
+		<%= f.text_field :phone_number %>
+	</dd>	
+	<dt></dt>
+	<dd>
+		<%= f.submit t :save %>
+	</dd>
+</dl>

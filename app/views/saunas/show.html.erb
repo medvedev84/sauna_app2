@@ -10,14 +10,15 @@
 		<div class="round-sub-box sauna-detail-description">	
 			<% @sauna.sauna_items.each do |sauna_item| %>					
 				<%= render sauna_item %>					
-			<% end %>	
-			
+			<% end %>				
 			<%= render 'shared/social' %>									
 		</div>
 				
 		<%= render 'map' %>		
 		<div class="clearing"></div>
 	</div>		
+	
+	<%#-= render 'advertisement' %>		
 	
 	<% unless @sauna.sauna_photos.empty? %>
 		<%= render 'gallery' %>		

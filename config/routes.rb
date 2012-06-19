@@ -23,6 +23,8 @@ SaunaApp::Application.routes.draw do
 	match '/sauna-ili-banya',   :to => 'pages#sauna-ili-banya'
 	
 	match '/cities',   :to => 'cities#index'
+	match '/advertisements',   :to => 'advertisements#index'
+	
 	match '/izhevsk',   :to => 'cities#izhevsk'
 	match '/sarapul',   :to => 'cities#sarapul'
 	match '/votkinsk',   :to => 'cities#votkinsk'
@@ -65,6 +67,7 @@ SaunaApp::Application.routes.draw do
 		resources :payments	
 		resources :external_payments
 		resources :site_settings
+		resources :advertisements
 	end  
 
 	# to walk around standart rails routing

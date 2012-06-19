@@ -1,0 +1,13 @@
+<ul class="result-list">	
+	<li class="head">
+		<div class="name"><%= t :advertisement %></div>
+		<div class="actions-label"><%= t :actions %></div>
+	</li>	
+	<% if !@advertisements.empty? %>
+		<%  @advertisements.each do |advertisement| %>				
+			<%= render advertisement %>
+		<% end %>
+	<% else %>
+		<%= render 'shared/empty_row' %>
+	<% end %>	
+</ul>

@@ -1,0 +1,7 @@
+$('.row').remove();
+$('.empty-row').remove();
+<% if !@advertisements.empty? %>
+	$('<%= render @advertisements %>').appendTo($('.result-list'));
+<% else %>
+	$("<%= render 'shared/empty_row' %>").appendTo($('.result-list'));
+<% end %>	
