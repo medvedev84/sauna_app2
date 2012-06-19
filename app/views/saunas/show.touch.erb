@@ -26,17 +26,29 @@
 		<% end %>	
 	</p>
 	
-
-	<div data-role="collapsible" data-content-theme="c">
-	   <h4><%= t :photo %></h4>
-		  <ul data-role="listview">
-			<% @sauna.sauna_photos.each do |sauna_photo| %>
-			<li>
-			   <%= image_tag sauna_photo.photo.url(:thumb) %>  
-			</li>
-			<% end %>
-		  </ul>   
-	</div>
+	<% if !@sauna.sauna_photos.empty? %>
+		<div data-role="collapsible" data-content-theme="c">
+		   <h4><%= t :photo %></h4>
+				<div class="ui-grid-b">
+					<% (1..6).each do |i| %>
+						<% q, r = i.divmod(3) %>
+						<% if (r == 1) %>
+							<div class="ui-block-a">
+						<% elsif (r == 2) %>
+							<div class="ui-block-b">
+						<% else %>
+							<div class="ui-block-c">
+						<% end %>
+							<% sauna_photo = @sauna.sauna_photos.at(i) %>
+							<%  if sauna_photo != nil %>
+								<%= image_tag sauna_photo.photo.url(:thumb), :size => "120x90" %>
+							<% end %>	
+							</div>					
+					<% end %>		
+				</div>			  
+		</div>
+	<% end %>	
+	
     <% @sauna.sauna_items.each do |sauna_item| %>
 		<div data-role="collapsible" data-content-theme="c">
 		   <h4><%= sauna_item.name %></h4>

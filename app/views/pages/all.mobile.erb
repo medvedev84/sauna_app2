@@ -1,11 +1,53 @@
 <table class="search-form">
-	<th align="center">Все сауны</th>
-	<% @saunas.each do |sauna| %>
 	<tr>
-		<td align="left"  class="<%= cycle('even', 'odd') -%>">
-			<%= link_to sauna.name, sauna %>,  <%=  t :short_phone_number %>:<a href="tel:<%= sauna.phone_number1 %>"><%= sauna.phone_number1 %></a>
+		<td align="left" class="even">	
+			<a href="/votkinsk">Воткинск</a>
 		</td>
 	</tr>
-	<% end %>
+	<tr>
+		<td align="left" class="odd">	
+			<a href="/glazov">Глазов</a>
+		</td>
+	</tr>
+	<tr>
+		<td align="left" class="even">	
+			<a href="/izhevsk">Ижевск</a>
+		</td>
+	</tr>
+	<tr>
+		<td align="left" class="odd">	
+			<a href="/kazan">Казань</a>
+		</td>
+	</tr>
+	<tr>
+		<td align="left" class="even">	
+			<a href="/kirov">Киров</a>
+		</td>
+	</tr>
+	<tr>
+		<td align="left" class="odd">	
+			<a href="/mozhga">Можга</a>
+		</td>
+	</tr>	
+	<tr>
+		<td align="left" class="even">	
+			<a href="/chelni">Набережные Челны</a>
+		</td>
+	</tr>	
+	<tr>
+		<td align="left" class="odd">	
+			<a href="/neftekamsk">Нефтекамск</a>
+		</td>
+	</tr>	
+	<tr>
+		<td align="left" class="even">	
+			<a href="/nizhnekamsk">Нижнекамск</a>
+		</td>
+	</tr>		
+	<tr>
+		<td align="left" class="odd">	
+			<a href="/sarapul">Сарапул</a>
+		</td>
+	</tr>							
 </table>		
 	

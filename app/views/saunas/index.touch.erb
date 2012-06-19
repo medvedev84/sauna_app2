@@ -32,35 +32,7 @@ $(document).ready(function() {
 		<div data-role="fieldcontain">    
 			<label for="q_address_city_id_eq"><%= t(:city) %></label>	
 			<%= select("q", "address_city_id_eq", options_for_select(@cities_for_dropdown), { :include_blank => false }) %>			
-		</div>  		    
-		<div data-role="fieldcontain">    
-			<%= f.check_box :sauna_items_has_kitchen_eq, "class" => "custom" %>
-			<label for="q_sauna_items_has_kitchen_eq"><%= t(:sauna_items_has_kitchen_eq) %></label>	   
-
-			<%= f.check_box :sauna_items_has_restroom_eq, "class" => "custom" %>
-			<label for="q_sauna_items_has_restroom_eq"><%= t(:sauna_items_has_restroom_eq) %></label>	   
-
-			<%= f.check_box :sauna_items_has_billiards_eq, "class" => "custom" %>
-			<label for="q_sauna_items_has_billiards_eq"><%= t(:sauna_items_has_billiards_eq) %></label>	   
-
-			<%= f.check_box :sauna_items_has_audio_eq, "class" => "custom" %>
-			<label for="q_sauna_items_has_audio_eq"><%= t(:sauna_items_has_audio_eq) %></label>	   
-
-			<%= f.check_box :sauna_items_has_video_eq, "class" => "custom" %>
-			<label for="q_sauna_items_has_video_eq"><%= t(:sauna_items_has_video_eq) %></label>	   
-
-			<%= f.check_box :sauna_items_has_bar_eq, "class" => "custom" %>
-			<label for="q_sauna_items_has_bar_eq"><%= t(:sauna_items_has_bar_eq) %></label>	   
-			
-			<%= f.check_box :sauna_items_has_pool_eq, "class" => "custom" %>
-			<label for="q_sauna_items_has_pool_eq"><%= t(:sauna_items_has_pool_eq) %></label>	   
-
-			<%= f.check_box :sauna_items_has_mangal_eq, "class" => "custom" %>
-			<label for="q_sauna_items_has_mangal_eq"><%= t(:sauna_items_has_mangal_eq) %></label>	   
-
-			<%= f.check_box :sauna_items_has_veniki_eq, "class" => "custom" %>
-			<label for="q_sauna_items_has_veniki_eq"><%= t(:sauna_items_has_veniki_eq) %></label>	   			
-		</div>  
+		</div>  		    	
 		<div data-role="fieldcontain">
 			<%= f.submit t :search %>
 		</div>
