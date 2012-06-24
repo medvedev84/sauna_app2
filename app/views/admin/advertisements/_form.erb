@@ -15,7 +15,11 @@
 	<dt><label for="advertisement_phone_number"><%= t :phone_number %>:</dt>
 	<dd>
 		<%= f.text_field :phone_number %>
-	</dd>	
+	</dd>		
+	<dt><label for="advertisement_photo"><%= t :photo %>:</label></dt>
+	<dd>
+		<%= f.file_field :photo %>		
+	</dd>				
 	<dt></dt>
 	<dd>
 		<%= f.submit t :save %>

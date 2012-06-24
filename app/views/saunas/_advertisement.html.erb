@@ -6,8 +6,8 @@
 		<% if @adv1 != nil %>
 			<table width="100%" border="0">
 			<tr>
-				<td>
-					<%= image_tag("taxi.jpg") %>
+				<td>				
+					<%= image_tag @adv1.photo.url(:thumb) %>					
 				</td>
 				<td>
 					<div style="padding-left:5px;">
@@ -30,7 +30,7 @@
 			<table width="100%" border="0">
 			<tr>
 				<td>
-					<%= image_tag("sushi.jpg") %>
+					<%= image_tag @adv2.photo.url(:thumb) %>	
 				</td>
 				<td>
 					<div style="padding-left:5px;">
