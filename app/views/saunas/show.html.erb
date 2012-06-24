@@ -11,10 +11,10 @@
 			<% @sauna.sauna_items.each do |sauna_item| %>					
 				<%= render sauna_item %>					
 			<% end %>				
-			<%#-= render 'shared/social' %>									
+			<%= render 'shared/social' %>									
 		</div>
 				
-		<%#-= render 'map' %>		
+		<%= render 'map' %>		
 		<div class="clearing"></div>
 	</div>		
 	
@@ -23,7 +23,7 @@
 	<% end %>	
 	
 	<% unless @sauna.sauna_photos.empty? %>
-		<%#-= render 'gallery' %>		
+		<%= render 'gallery' %>		
 	<% end %>	
 	
 	<%= render 'comments' %>		
