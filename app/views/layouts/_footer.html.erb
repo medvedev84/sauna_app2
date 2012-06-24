@@ -7,9 +7,10 @@
 				<li><a href="/map">поиск на карте</a></li>
 				<li><a href="/all">все сауны</a></li>
 				<li><a href="/about">о проекте</a></li>
-				<li><a href="/howto">как это работает</a></li>
+				<!-- <li><a href="/howto">как это работает</a></li> -->
 				<li><a href="/faq">вопрос-ответ</a></li>
-				<!-- <li><a href="/contact">контакты</a></li>	-->							
+				<!-- <li><a href="/contact">контакты</a></li>	-->		
+				<li><a href="/adv">рекламодателям</a></li>				
 			<% end %>
 			
 			<% if signed_in? && current_user.super_admin? %>
@@ -28,11 +29,11 @@
 				<li>
 					<%= link_to t(:sign_out), signout_path, :method => :delete %>
 				</li>    	
-			<% else %>
+			<% else %>				
 				<li>
 					<%= link_to t(:sign_in), signin_path %>			
 				</li>				
-			<% end %>										
+			<% end %>				
 		</ul>
 		<div class="bottom-logo"></div>
 	</div>

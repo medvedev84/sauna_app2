@@ -17,6 +17,7 @@ SaunaApp::Application.routes.draw do
 	match '/all', :to => 'pages#all'
 	match '/howto',   :to => 'pages#howto'
 	match '/mobile-app',   :to => 'pages#mobile-app'
+	match '/adv', :to => 'pages#advertisement'
 	
 	match '/chto-vzyat',   :to => 'pages#chto-vzyat'
 	match '/polza-ili-vred',   :to => 'pages#polza-ili-vred'
