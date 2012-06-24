@@ -3,7 +3,7 @@
 		<div class="round-box">
 			<div class="round-sub-box">			
 				<div class="_expanded">
-					<%= form_for(@user, :url => admin_user_path(@user), :html => { :class => "comment-form" } ) do |f| %>
+					<%= form_for(@advertisement, :url => admin_advertisement_path(@advertisement), :html => { :class => "comment-form" } ) do |f| %>
 						<%= render 'form', :f => f %>
 					<% end %>
 				</div>

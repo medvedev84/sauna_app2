@@ -1,0 +1,17 @@
+ <% @adv1 = @advertisements.at(0) %>
+ <% @adv2 = @advertisements.at(1) %>
+
+ <% if @adv1 != nil %>
+	<div data-role="collapsible" data-content-theme="c">
+	   <h4><%= @adv1.company_name %></h4>
+	   <p><%= @adv1.description %> Тел.: <a href="tel:<%= @adv1.phone_number %>"><%= @adv1.phone_number %></a></p>   
+	</div>  
+ <% end %>
+ 
+ <% if @adv2 != nil %>
+	<div data-role="collapsible" data-content-theme="c">
+	   <h4><%= @adv2.company_name %></h4>
+	   <p><%= @adv2.description %> Тел.: <a href="tel:<%= @adv2.phone_number %>"><%= @adv2.phone_number %></a></p>   
+	</div>  
+ <% end %> 
+ 

@@ -18,7 +18,9 @@
 		<div class="clearing"></div>
 	</div>		
 	
-	<%#-= render 'advertisement' %>		
+	<% if !@advertisements.empty? %>
+		<%= render 'advertisement' %>		
+	<% end %>	
 	
 	<% unless @sauna.sauna_photos.empty? %>
 		<%= render 'gallery' %>		

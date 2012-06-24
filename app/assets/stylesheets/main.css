@@ -647,6 +647,29 @@ code { padding: .2em .5em; }
 	.sauna-short-description .contacts {
 		margin: 15px 0 0 0;
 	}
+.advertisement-left {
+	float: left;
+	width:238px;
+	height: 100px;
+	padding: 10px 15px;
+	}	
+.advertisement-left h1 {
+	color: #0066cc;
+	font-size: 16px;
+	padding: 5px 0;
+}	
+.advertisement-right {
+	float: right;
+	width: 320px;
+	height: 100px;
+	padding: 10px 15px 10px 15px;	
+	position: relative;
+	}	
+.advertisement-right h1 {
+	color: #0066cc;
+	font-size: 16px;
+	padding: 5px 0;
+}		
 .sauna-map {
 		background: #fff;
 		border: 2px solid #3399ff;

@@ -15,12 +15,7 @@ class SaunasController < ApplicationController
 			@sauna_comment = SaunaComment.new
 			@booking = Booking.new
 			
-			@advertisements = Advertisement.where("city_id = ?", @sauna.address.city_id)
-			
-			if !@advertisements.empty?
-				@adv1 = @advertisements.at(0);
-				@adv2 = @advertisements.at(1);
-			end						
+			@advertisements = Advertisement.where("city_id = ?", @sauna.address.city_id)					
 		end
 		
 		if (params["json"] == "true") 			

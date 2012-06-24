@@ -25,6 +25,12 @@
 			</td>
 		</tr>		
     <% end %>	
+	<% if !@advertisements.empty? %>
+		<tr>
+			<td align="center" style="background-color:#CCCCCC;">
+				<b>Дополнительно</b>	
+			</td>
+		</tr>
+		<%= render 'advertisement' %>	
+	<% end %>		
 </table>
-
-

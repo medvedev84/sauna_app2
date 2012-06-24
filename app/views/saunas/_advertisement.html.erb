@@ -1,12 +1,51 @@
+ <% @adv1 = @advertisements.at(0) %>
+ <% @adv2 = @advertisements.at(1) %>
+
 <div class="round-box">
-	<div class="round-sub-box sauna-short-description">
-		<h1>Taxi</h1>
-		<%= @adv1.description %>
+	<div class="round-sub-box advertisement-left">
+		<% if @adv1 != nil %>
+			<table width="100%" border="0">
+			<tr>
+				<td>
+					<%= image_tag("taxi.jpg") %>
+				</td>
+				<td>
+					<div style="padding-left:5px;">
+						<h1><%= @adv1.company_name %></h1>								
+						<%= @adv1.description %><br/>
+						Тел.: <%= @adv1.phone_number %>		
+					</div>
+				</td>
+			</tr>
+			</table>		
+		<% else %>
+			<div style="padding-left:5px;">
+				<h1>Рекламное место свободно!</h1>	
+			</div>		
+		<% end %>			
 	</div>
 
-	<div class="round-sub-box sauna-detail-description">	
-		<h1>Food</h1>								
-		<%= @adv2.description %>
+	<div class="round-sub-box advertisement-right">	
+		<% if @adv2 != nil %>
+			<table width="100%" border="0">
+			<tr>
+				<td>
+					<%= image_tag("sushi.jpg") %>
+				</td>
+				<td>
+					<div style="padding-left:5px;">
+						<h1><%= @adv2.company_name %></h1>								
+						<%= @adv2.description %><br/>
+						Тел.: <%= @adv2.phone_number %>		
+					</div>					
+				</td>
+			</tr>
+			</table>	
+		<% else %>
+			<div style="padding-left:5px;">
+				<h1>Рекламное место свободно!</h1>	
+			</div>		
+		<% end %>
 	</div>
 	
 	<div class="clearing"></div>

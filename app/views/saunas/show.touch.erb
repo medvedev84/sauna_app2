@@ -55,6 +55,10 @@
 		   <p><%= sauna_item.description %></p>		   
 		</div>  
     <% end %>
+	
+	<% if !@advertisements.empty? %>
+		<%= render 'advertisement' %>		
+	<% end %>			
 </div>
 
 

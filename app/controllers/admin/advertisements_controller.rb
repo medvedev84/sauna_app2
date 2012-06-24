@@ -48,4 +48,27 @@ class Admin::AdvertisementsController < AdminController
 		end
 	end
 	
+	
+
+	def edit
+		get_all_cities	
+		@advertisement = Advertisement.find(params[:id])
+	end
+
+	def update
+		@advertisement = Advertisement.find(params[:id])				
+		if @advertisement.update_attributes(params[:advertisement])				
+			flash[:success] = :advertisement_updated 
+			redirect_to admin_advertisements_path			
+		else
+			render 'edit'
+		end				
+	end
+
+	def destroy
+		Advertisement.find(params[:id]).destroy
+		flash[:success] = :advertisement_destroyed
+		redirect_to admin_advertisements_path
+	end	
+	
 end
