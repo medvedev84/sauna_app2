@@ -1,0 +1,14 @@
+<div>
+	<h1>Сауны и бани <%= @city_name %></h1>
+	<div class="title_description">
+	Люди всё чаще ходят в бани и сауны не только в целях укрепления здоровья, но и чтобы расслабиться, встретиться с друзьями, 
+	отметить праздник или провести корпоратив. Здесь вы сможете найти всю информацию о саунах <%= @city_name %> - адреса, телефоны, фото, цены и отзывы. Желаем хорошего отдыха!
+	</div>
+</div>	
+<div class="main-page">
+	<%= render 'results' %>		
+</div>
+<script type="text/javascript">
+	Frame.initSearchBySaunaName();
+	Frame.initSaunaSorting();
+</script>

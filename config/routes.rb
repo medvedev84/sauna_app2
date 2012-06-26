@@ -36,6 +36,10 @@ SaunaApp::Application.routes.draw do
 	match '/nizhnekamsk',   :to => 'cities#nizhnekamsk'
 	match '/neftekamsk',   :to => 'cities#neftekamsk'
 	match '/chelni',   :to => 'cities#chelni'
+	match '/yola',   :to => 'cities#yola'
+	match '/sterlitamak',   :to => 'cities#sterlitamak'
+	match '/perm',   :to => 'cities#perm'
+	match '/ufa',   :to => 'cities#ufa'
 		
 	match '/map',   :to => 'maps#index'
 	
