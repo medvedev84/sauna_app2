@@ -1,0 +1,18 @@
+<div class="mobile-ver">	
+	<center>
+	<div class="select-city">
+		<span>Ваш город:</span><%= select("q", "address_city_id_eq", City.all.collect {|p| [ p.name, p.id ] }) %> </div>
+	</center>
+</div> 
+<script type="text/javascript">
+$('#q_address_city_id_eq').change(function() {
+	var city_id = $("#q_address_city_id_eq").val();
+	$.ajax({
+	  type : 'GET',
+	  url : '/saunas?q%5Baddress_city_id_eq%5D='+city_id,
+	  dataType : 'script'
+	});	
+});
+</script>
+
+

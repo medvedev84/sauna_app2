@@ -79,13 +79,7 @@
 		</li>	
 		<li class="expanded black _closeOnReady _expandedBox filter-section">
 			<h2><%= t :place_parameters %></h2>
-			<div class="place_param _expanded">
-				<dl>
-					<dt class="township"><%= t :city_colon %></dt>
-					<dd class="township">
-						<%= select("q", "address_city_id_eq", options_for_select(@cities_for_dropdown), { :include_blank => false }) %>						
-					</dd>
-				</dl>			
+			<div class="place_param _expanded">		
 				<dl>
 					<dt class="township"><%= t :district_colon %></dt>
 					<dd class="township">
