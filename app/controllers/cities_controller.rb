@@ -108,35 +108,50 @@ class CitiesController < ApplicationController
 			city = t(:izhevsk)			
 			if city_path.include?("izhevsk")
 				city = t(:izhevska)
+				content = t(:content_izhevsk)
 			elsif city_path.include?("sarapul")
-				city = t(:sarapula)		
+				city = t(:sarapula)	
+				content = t(:content_sarapul)	
 			elsif city_path.include?("votkinsk")
 				city = t(:votkinska)
+				content = t(:content_votkinsk)	
 			elsif city_path.include? "mozhga"  	
 				city = t(:mozhgi) 	
+				content = t(:content_mozhga)	
 			elsif city_path.include? "glazov"  		
-				city = t(:glazova)	
+				city = t(:glazova)
+				content = t(:content_glazov)				
 			elsif city_path.include? "kirov"  		
 				city = t(:kirova) 		
+				content = t(:content_kirov)
 			elsif city_path.include? "kazan"  		
 				city = t(:kazani)	
+				content = t(:content_kazan)				
 			elsif city_path.include? "chelni"  		
-				city = t(:chelnov) 					
+				city = t(:chelnov) 	
+				content = t(:content_chelni) 					
 			elsif city_path.include? "nizhnekamsk"  	
-				city = t(:nizhnekamska) 				
+				city = t(:nizhnekamska) 
+				content = t(:content_nizhnekamsk)				
 			elsif city_path.include? "neftekamsk"  	
-				city = t(:neftekamska) 		
+				city = t(:neftekamska) 	
+				content = t(:content_neftekamsk)					
 			elsif city_path.include? "sterlitamak"  	
 				city = t(:sterlitamaka) 	
+				content = t(:content_sterlitamak)	
 			elsif city_path.include? "perm"  	
 				city = t(:permi) 	
+				content = t(:content_perm)	
 			elsif city_path.include? "yola"  	
-				city = t(:yoli) 	
+				city = t(:yoli) 
+				content = t(:content_yola)				
 			elsif city_path.include? "ufa"  	
-				city = t(:ufi) 					
+				city = t(:ufi) 		
+				content = t(:content_ufa)				
 			else 
 				city = t(:izhevska) 
 			end 
 			@city_name = city
+			@content = content
 		end
 end
