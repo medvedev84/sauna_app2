@@ -7,7 +7,9 @@ class SaunaPhoto < ActiveRecord::Base
 					:processors => [:watermark],
                     :styles => {
                       :thumb => ["100x100", :jpg],
-#					  :pagesize => ["600x400", :jpg]
+					  :size200 => ["200x200", :jpg],
+					  :size300 => ["300x200", :jpg],
+					  :size600 => ["600x400", :jpg],
 					  :pagesize => {
 						:geometry => '800x600',
 						:format => :jpg,
@@ -20,12 +22,24 @@ class SaunaPhoto < ActiveRecord::Base
 					:s3_credentials => "#{Rails.root}/config/s3.yml",
 					:path => ":attachment/:id/:style.:extension",
 					:bucket => "go-to-sauna"					
-									
+		
+	attr_accessor :size
+		
 	def photo_url
 		"#{photo.url}"   
 	end																		
 	
 	def photo_url_thumb
-		"#{photo.url(:thumb)}"   
-	end		
+		case self.size
+			when "size200"
+				"#{photo.url(:size200)}" 
+			when "size300"
+				"#{photo.url(:size300)}"
+			when "size600"
+				"#{photo.url(:size600)}"
+			else
+				"#{photo.url(:thumb)}"
+		end						   
+	end	
+	
 end
