@@ -37,6 +37,8 @@ class SaunaPhoto < ActiveRecord::Base
 				"#{photo.url(:size300)}"
 			when "size600"
 				"#{photo.url(:size600)}"
+			when "original"
+				"#{photo.url(:original)}"				
 			else
 				"#{photo.url(:thumb)}"
 		end						   
