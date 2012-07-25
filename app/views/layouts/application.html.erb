@@ -17,19 +17,18 @@
 		<%= render 'layouts/stylesheets' %>						
 	</head>
 	<body>
-		<%= render 'shared/mobile' %>	
+		<%= render 'shared/mobile' %>
+		<%-#= render 'shared/cloud' %>		
 		<div class="wrapper">
 			<div class="content">
 				<div class="content-left">														
 					
-					<!-- VK Widget -->					
-					
+					<!-- VK Widget -->										
 					<div id="vk_groups"></div>
 					<script type="text/javascript">
 						VK.Widgets.Group("vk_groups", {mode: 0, width: "200", height: "300"}, 34545540);
-					</script>		
-					
-					<!-- /VK Widget -->								
+					</script>						
+					<!-- /VK Widget -->													
 					
 					<div style="padding-left:20px;">
 					<a class="banner" href="#" target="_blank"><%= image_tag("banner.jpg") %></a>
