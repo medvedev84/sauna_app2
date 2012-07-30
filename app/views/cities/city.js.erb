@@ -2,6 +2,7 @@ $('.row').remove();
 $('.empty-row').remove();
 <% if !@saunas.empty? %>
 	$('<%= render @saunas %>').appendTo($('.result-list'));
+	Frame.initSaunaSorting();		
 	$('.digg_pagination').show();	
 	$('.digg_pagination').html('<%= escape_javascript(paginate(@saunas, :remote => true).to_s) %>');
 	selectPaginatorLink('<%= @city_path %>', <%= @current_page_number %>);	

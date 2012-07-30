@@ -451,15 +451,28 @@ code { padding: .2em .5em; }
 				clear: both;
 				margin: 3px 0 0 0;
 				}
+			.result-list li:last-child {
+				float:Left;
+				width: 100%;
+				clear: both;
+				margin: 3px 0 10px 0;
+				}
 				.result-list li a {
 					color:#000;
 					text-decoration: none;
 				}
-				.result-list .name {
-					width: 350px;
-					padding: 5px 30px;
+				.result-list .photo {
+					width: 110px;
+					padding-left: 15px;
 					float: left;
-					cursor: default;
+					padding-top: 5px;
+					padding-bottom: 5px;													
+				}					
+				.result-list .name {
+					width: 250px;
+					padding: 5px 10px;
+					float: left;
+					cursor: default;					
 				}		
 				.result-list .actions-label {					
 					text-align: right;
@@ -484,7 +497,7 @@ code { padding: .2em .5em; }
 				}					
 				.result-list .capacity {
 					width: 70px;
-					padding: 23px 70px 0 0;
+					padding: 23px 70px 0 30px;
 					text-align: right;
 					float: left;
 				}			

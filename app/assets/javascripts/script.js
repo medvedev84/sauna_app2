@@ -104,6 +104,7 @@ var Frame =
 		$('#saunaResultList li.row').each(function()
 		{
 			var id = $(this).attr('id');
+			var photo_tag = $(this).find('.photo').html();
 			var capacity = parseInt($(this).find('.capacity').text());
 			var price = parseInt($(this).find('.price').text());
 			var name = $(this).find('.s-name').text();
@@ -113,7 +114,8 @@ var Frame =
 				'name': name,			
 				'address': address,
 				'capacity': capacity,
-				'price': price
+				'price': price,
+				'photo_tag': photo_tag
 			})
 		});
 
@@ -166,7 +168,7 @@ var Frame =
 			for (var i in sortedList)
 			{				
 				//newListHTML += '<li class="row" id="' + sortedList[i].id + '">' + $('#' + sortedList[i].id).html() + '</li>';			                                                                                                                                                                                                                                                            
-				newListHTML += '<li class="row" id="' + sortedList[i].id + '" ><a href="/saunas/' + sortedList[i].id + '" target="_blank"><div class="name"><span class="s-name">' + sortedList[i].name + '</span><div class="address">' + sortedList[i].address + '</div></div><div class="capacity">до '+ sortedList[i].capacity +' чел.</div><div class="price">от '+ sortedList[i].price +' руб./час</div></a></li>';
+				newListHTML += '<li class="row" id="' + sortedList[i].id + '" ><a href="/saunas/' + sortedList[i].id + '" target="_blank"><span class="photo">' + sortedList[i].photo_tag + '</span><div class="name"><span class="s-name">' + sortedList[i].name + '</span><div class="address">' + sortedList[i].address + '</div></div><div class="capacity">до '+ sortedList[i].capacity +' чел.</div><div class="price">от '+ sortedList[i].price +' руб./час</div></a></li>';
 			}
 
 			$('#saunaResultList').empty().append(newListHTML);			

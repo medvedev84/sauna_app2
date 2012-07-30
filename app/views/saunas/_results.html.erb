@@ -12,8 +12,6 @@
 		<%= render 'shared/empty_row' %>
 	<% end %>
 </ul>
-<div style="padding-top: 540px;" div="result-paging">
-	<div class="digg_pagination">
-		<%= paginate @saunas, :remote => true %>
-	</div>
+<div class="digg_pagination">
+	<%= paginate @saunas, :remote => true %>
 </div>
