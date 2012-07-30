@@ -108,7 +108,7 @@ var Frame =
 			var capacity = parseInt($(this).find('.capacity').text());
 			var price = parseInt($(this).find('.price').text());
 			var name = $(this).find('.s-name').text();
-			var address = $(this).find('.address').text();			
+			var address = $(this).find('.address').html();			
 			saunaList.push({
 				'id': id,
 				'name': name,			
