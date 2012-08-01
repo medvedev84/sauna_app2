@@ -1,0 +1,19 @@
+<%= search_form_for @q, :url => admin_coupon_deals_path, :remote => true, :html => {:method => :get, :class => "round-box filter-box"} do |f| %>
+	<ul>
+		<li class="expanded _expandedBox filter-section">
+			<h2><%= t :main_parameters %></h2>
+			<div class="place_param _expanded">			
+				<dl>		
+					<dt class="township"><%= t :coupon_url %>:</dt>
+					<dd class="township">
+						<%= select("q", "coupon_url_id_eq", options_for_select(@coupon_urls_for_dropdown), { :include_blank => false }) %>						
+					</dd>							
+				</dl>
+			</div>
+			<div class="_closed"></div>
+			<div class="clearing"></div>
+		</li>								
+		<%= f.submit " ", :class => "search-button" %>							
+	</ul>
+	<div class="clearing"></div>					
+<% end %>

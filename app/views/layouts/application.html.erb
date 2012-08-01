@@ -66,10 +66,16 @@
 
 					
 				</div>
-				<div class="content-right">												
+				<div class="content-right">																	
+					<% if !request.fullpath.include?("/coupons/index") %>
+						<a href="coupons/index"><%= image_tag("banner_728x90.jpg") %></a>						
+					<% end %>
+				
+					<!--
 					<% if !second_time? %>
 						<%= render 'layouts/welcome' %>					
-					<% end %>	
+					<% end %>				
+					-->
 					
 					<% flash.each do |key, value| %>
 						<div class="flash <%= key %>"><%= t(value) %></div>

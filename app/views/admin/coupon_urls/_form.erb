@@ -1,0 +1,23 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<dl>
+	<dt><label for="coupon_url_city_id"><%= t :city %>:</dt>
+	<dd>
+		<%= select("coupon_url", "city_id", options_for_select(@cities_for_dropdown, @coupon_url.city_id), { :include_blank => false }) %>						
+	</dd>
+	<dt><label for="coupon_url_name"><%= t :coupon_url_name %>:</dt>
+	<dd>
+		<%= f.text_field :name %>
+	</dd>		
+	<dt><label for="coupon_url_site_url"><%= t :coupon_url_site_url %>:</dt>
+	<dd>
+		<%= f.text_field :site_url, :size => 50, :style => 'width:400px;' %>
+	</dd>	
+	<dt><label for="coupon_url_partner_url"><%= t :coupon_url_partner_url %>:</dt>
+	<dd>
+		<%= f.text_field :partner_url, :size => 50, :style => 'width:400px;' %>
+	</dd>						
+	<dt></dt>
+	<dd>
+		<%= f.submit t :save %>
+	</dd>
+</dl>

@@ -1,0 +1,7 @@
+$('.row').remove();
+$('.empty-row').remove();
+<% if !@coupon_deals.empty? %>
+	$('<%= render @coupon_deals %>').appendTo($('.result-list'));
+<% else %>
+	$("<%= render 'shared/empty_row' %>").appendTo($('.result-list'));
+<% end %>	

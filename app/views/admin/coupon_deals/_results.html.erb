@@ -1,0 +1,13 @@
+<ul class="result-list">	
+	<li class="head">
+		<div class="name"><%= t :coupon_deal %></div>
+		<div class="actions-label"><%= t :actions %></div>
+	</li>	
+	<% if !@coupon_deals.empty? %>
+		<%  @coupon_deals.each do |coupon_deal| %>				
+			<%= render coupon_deal %>
+		<% end %>
+	<% else %>
+		<%= render 'shared/empty_row' %>
+	<% end %>	
+</ul>

@@ -64,4 +64,12 @@ module ApplicationHelper
 			@sauna_items_for_dropdown = @sauna_items_for_dropdown << [sauna_item.name, sauna_item.id, {:class => sauna_item.sauna.id}]
 		end	
 	end	
+	
+	def get_all_coupon_urls
+		@coupon_urls = CouponUrl.order("city_id ASC, id DESC")
+		@coupon_urls_for_dropdown = []
+		@coupon_urls.each do |coupon_url|
+			@saunas_for_dropdown = @coupon_urls_for_dropdown << [coupon_url.name, coupon_url.id, {:class => coupon_url.city.id}]
+		end	
+	end  	
 end

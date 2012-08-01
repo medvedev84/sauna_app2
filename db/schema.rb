@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120505173820) do
+ActiveRecord::Schema.define(:version => 20120507173820) do
 
   create_table "addresses", :force => true do |t|
     t.integer   "sauna_id"
@@ -24,12 +24,14 @@ ActiveRecord::Schema.define(:version => 20120505173820) do
   end
 
   create_table "advertisements", :force => true do |t|
-    t.integer  "city_id"
-    t.string   "company_name"
-    t.string   "phone_number"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "photo_file_size"
+    t.string    "photo_file_name"
+    t.integer   "city_id"
+    t.string    "company_name"
+    t.string    "phone_number"
+    t.string    "description"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "bookings", :force => true do |t|
@@ -49,6 +51,26 @@ ActiveRecord::Schema.define(:version => 20120505173820) do
     t.string    "name"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+  end
+
+  create_table "coupon_deals", :force => true do |t|
+    t.integer  "coupon_url_id"
+    t.string   "description"
+    t.string   "deal_url"
+    t.string   "image_url"
+    t.string   "price_old"
+    t.string   "price_new"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "coupon_urls", :force => true do |t|
+    t.string   "partner_url"
+    t.integer  "city_id"
+    t.string   "site_url"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "districts", :force => true do |t|

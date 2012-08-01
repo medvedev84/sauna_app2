@@ -73,6 +73,8 @@ SaunaApp::Application.routes.draw do
 		resources :external_payments
 		resources :site_settings
 		resources :advertisements
+		resources :coupon_urls
+		resources :coupon_deals		
 	end  
 
 	# to walk around standart rails routing
@@ -80,6 +82,8 @@ SaunaApp::Application.routes.draw do
 	match 'payments/success', 		:to => "payments#success"
 	match 'payments/fail', 			:to => "payments#fail"
 	match 'payments/daily', 		:to => "payments#daily_process"	
+	match 'coupons/daily', 			:to => "coupon_deals#daily_process"	
+	match 'coupons/index', 			:to => "coupon_deals#index"	
 	
   # The priority is based upon order of creation:
   # first created -> highest priority.

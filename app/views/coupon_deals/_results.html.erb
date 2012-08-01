@@ -1,0 +1,14 @@
+<ul class="result-list" id="saunaResultList">
+	<li class="head">
+		<div class="name"><%= t :coupon_deal %></div>
+		<div class="capacity" style="width:160px; padding-left:30px"><i><%= t :coupon_deal_price_old %></i></div>
+		<div class="price" style="width:110px;"><i><%= t :coupon_deal_price_new %></i></div>
+	</li>	
+	<% if !@coupon_deals.empty? %>
+		<%  @coupon_deals.each do |coupon_deal| %>				
+			<%= render coupon_deal %>
+		<% end %>
+	<% else %>
+		<%= render 'shared/empty_row' %>
+	<% end %>
+</ul>

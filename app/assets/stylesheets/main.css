@@ -417,6 +417,12 @@ code { padding: .2em .5em; }
 					width: 180px;
 					text-align: left;					
 				}
+				.result-list .head .price_old {
+					cursor: pointer;
+					padding:  0 0 0 20px;
+					width: 120px;
+					text-align: left;					
+				}				
 				.result-list .head .price {
 					cursor: pointer;
 					padding:  0 0 0 20px;
@@ -472,7 +478,7 @@ code { padding: .2em .5em; }
 					width: 250px;
 					padding: 5px 10px;
 					float: left;					
-				}		
+				}				
 				.result-list .actions-label {					
 					text-align: right;
 					padding-right: 30px;
