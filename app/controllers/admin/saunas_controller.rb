@@ -48,11 +48,7 @@ class Admin::SaunasController < AdminController
 
 					flash[:success] = :sauna_created
 					
-					if current_user.super_admin?
-						redirect_to edit_admin_sauna_path(@sauna)
-					else
-						redirect_to admin_saunas_path
-					end
+					redirect_to edit_admin_sauna_path(@sauna)
 					
 				else     
 					render 'new'
@@ -111,7 +107,7 @@ class Admin::SaunasController < AdminController
 			@saunas = current_user.saunas
 		end	
 		@current_page_number = params[:page] != nil ? params[:page] : 1		
-		@saunas = @saunas.page(params[:page]).per(5)		
+		@saunas = @saunas.page(params[:page]).per(10)		
 		@booking = Booking.new		
 		
 		respond_to do |format|
