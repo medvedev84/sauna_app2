@@ -80,6 +80,25 @@ class CitiesController < ApplicationController
 		search(h, 14, '/yola')
 	end 
 	
+	def ekaterinburg
+		h = params[:q]		
+		search(h, 15, '/ekaterinburg')
+	end 
+
+	def cheboksari
+		h = params[:q]		
+		search(h, 16, '/cheboksari')
+	end 
+
+	def ulyanovsk
+		h = params[:q]		
+		search(h, 17, '/ulyanovsk')
+	end 
+
+	def chelyabinsk
+		h = params[:q]		
+		search(h, 18, '/chelyabinsk')
+	end 	
 	private 
 
 		def search(h, city_id, city_path)
@@ -147,7 +166,7 @@ class CitiesController < ApplicationController
 				content = t(:content_yola)				
 			elsif city_path.include? "ufa"  	
 				city = t(:ufi) 		
-				content = t(:content_ufa)				
+				content = t(:content_ufa)						
 			else 
 				city = t(:izhevska) 
 			end 

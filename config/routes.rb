@@ -39,7 +39,11 @@ SaunaApp::Application.routes.draw do
 	match '/yola',   :to => 'cities#yola'
 	match '/sterlitamak',   :to => 'cities#sterlitamak'
 	match '/perm',   :to => 'cities#perm'
-	match '/ufa',   :to => 'cities#ufa'
+	match '/ufa',   :to => 'cities#ufa'	
+	match '/ekaterinburg',   :to => 'cities#ekaterinburg'
+	match '/ulyanovsk',   :to => 'cities#ulyanovsk'
+	match '/chelyabinsk',   :to => 'cities#chelyabinsk'
+	match '/cheboksari',   :to => 'cities#cheboksari'	
 		
 	match '/map',   :to => 'maps#index'
 	
