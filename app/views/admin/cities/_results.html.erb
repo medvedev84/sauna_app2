@@ -1,0 +1,13 @@
+<ul class="result-list">	
+	<li class="head">
+		<div class="name"><%= t :city %></div>
+		<div class="actions-label"><%= t :actions %></div>
+	</li>	
+	<% if !@cities.empty? %>
+		<%  @cities.each do |city| %>				
+			<%= render city %>
+		<% end %>
+	<% else %>
+		<%= render 'shared/empty_row' %>
+	<% end %>	
+</ul>

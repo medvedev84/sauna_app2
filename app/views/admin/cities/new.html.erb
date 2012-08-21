@@ -1,0 +1,15 @@
+<div style="padding-top: 15px;">
+	<div class="main-page">
+		<div class="round-box">
+			<div class="round-sub-box">			
+				<div class="_expanded">
+					<%= form_for(@city, :url => admin_cities_path, :html => { :class => "comment-form" }) do |f| %>
+						<%= render 'form', :f => f %>
+					<% end %>
+				</div>
+				<div class="_closed"></div>
+				<div class="clearing"></div>			
+			</div>
+		</div>
+	</div>
+</div>

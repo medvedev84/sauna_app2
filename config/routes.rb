@@ -79,6 +79,7 @@ SaunaApp::Application.routes.draw do
 		resources :advertisements
 		resources :coupon_urls
 		resources :coupon_deals		
+		resources :cities	
 	end  
 
 	# to walk around standart rails routing

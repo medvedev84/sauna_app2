@@ -5,7 +5,7 @@ $('.empty-row').remove();
 	Frame.initSaunaSorting();		
 	$('.digg_pagination').show();	
 	$('.digg_pagination').html('<%= escape_javascript(paginate(@saunas, :remote => true).to_s) %>');
-	selectPaginatorLink('<%= @city_path %>', <%= @current_page_number %>);	
+	selectPaginatorLink('<%= @city.path %>', <%= @current_page_number %>);	
 <% else %>
 	$('.digg_pagination').hide();
 	$("<%= render 'shared/empty_row' %>").appendTo($('.result-list'));

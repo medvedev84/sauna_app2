@@ -15,45 +15,24 @@
 						</p>
 						<br/> 
 						
-						<a name="V"><b>В</b></a><br/>										
-						<a href="/votkinsk">Воткинск</a><br/><br/>
+						<table>
+							<% City.order("name").each_with_index  do |city, index| %>
+								<% if ((index % 2) == 0) %>
+									<tr>
+										<td>
+											<a href="<%= city.path %>"><%= city.name %></a>
+										</td>								
+								<% else %>
+										<td>
+											<a href="<%= city.path %>"><%= city.name %></a>	
+										</td>
+									</tr>										
+								<% end %>									
+							<% end %>	
+						</table>
+	
+	
 						
-						<a name="G"><b>Г</b></a><br/>
-						<a href="/glazov">Глазов</a><br/><br/>
-						
-						<a name="E"><b>Е</b></a><br/>
-						<a href="/ekaterinburg">Екатеринбург</a><br/><br/>
-						
-						<a name="I"><b>И</b></a><br/>
-						<a href="/izhevsk">Ижевск</a><br/>
-						<a href="/yola">Йошкар-Ола</a><br/><br/>		
-						
-						<a name="K"><b>К</b></a><br/>
-						<a href="/kazan">Казань</a><br/>
-						<a href="/kirov">Киров</a><br/><br/>	
-						
-						<a name="M"><b>М</b></a><br/>
-						<a href="/mozhga">Можга</a><br/><br/>
-						
-						<a name="N"><b>Н</b></a><br/>
-						<a href="/chelni">Набережные Челны</a><br/>
-						<a href="/neftekamsk">Нефтекамск</a><br/>
-						<a href="/nizhnekamsk">Нижнекамск</a><br/><br/>
-						
-						<a name="S"><b>С</b></a><br/>
-						<a href="/sarapul">Сарапул</a><br/>
-						<a href="/sterlitamak">Стерлитамак</a><br/><br/>
-						
-						<a name="P"><b>П</b></a><br/>
-						<a href="/perm">Пермь</a><br/><br/>	
-
-						<a name="U"><b>У</b></a><br/>
-						<a href="/ulyanovsk">Ульяновск</a><br/>						
-						<a href="/ufa">Уфа</a><br/><br/>			
-
-						<a name="Ch"><b>Ч</b></a><br/>
-						<a href="/cheboksari">Чебоксары</a><br/>		
-						<a href="/chelyabinsk">Челябинск</a><br/>								
 					</div>
 					<div class="clearing"></div>
 				</div>	

@@ -12,97 +12,97 @@ class CitiesController < ApplicationController
 	
 	def izhevsk
 		h = params[:q]
-		search(h, 1, '/izhevsk')		
+		search(h, 1)		
 	end  
 	
 	def votkinsk
 		h = params[:q]
-		search(h, 2, '/votkinsk')
+		search(h, 2)
 	end  
 
 	def glazov
 		h = params[:q]
-		search(h, 3, '/glazov')
+		search(h, 3)
 	end  	
 	
 	def sarapul
 		h = params[:q]		
-		search(h, 4, '/sarapul')
+		search(h, 4)
 	end  
 
 	def mozhga
 		h = params[:q]		
-		search(h, 5, '/mozhga')
+		search(h, 5)
 	end  
 	
 	def kirov
 		h = params[:q]		
-		search(h, 6, '/kirov')
+		search(h, 6)
 	end  
 
 	def kazan
 		h = params[:q]		
-		search(h, 7, '/kazan')
+		search(h, 7)
 	end  
 
 	def chelni
 		h = params[:q]		
-		search(h, 8, '/chelni')
+		search(h, 8)
 	end  
 
 	def nizhnekamsk
 		h = params[:q]		
-		search(h, 9, '/nizhnekamsk')
+		search(h, 9)
 	end  
 
 	def neftekamsk
 		h = params[:q]		
-		search(h, 10, '/neftekamsk')
+		search(h, 10)
 	end  	
 	
 	def perm
 		h = params[:q]		
-		search(h, 11, '/perm')
+		search(h, 11)
 	end 
 
 	def ufa
 		h = params[:q]		
-		search(h, 12, '/ufa')
+		search(h, 12)
 	end 
 
 	def sterlitamak
 		h = params[:q]		
-		search(h, 13, '/sterlitamak')
+		search(h, 13)
 	end 
 
 	def yola
 		h = params[:q]		
-		search(h, 14, '/yola')
+		search(h, 14)
 	end 
 	
 	def ekaterinburg
 		h = params[:q]		
-		search(h, 15, '/ekaterinburg')
+		search(h, 15)
 	end 
 
 	def cheboksari
 		h = params[:q]		
-		search(h, 16, '/cheboksari')
+		search(h, 16)
 	end 
 
 	def ulyanovsk
 		h = params[:q]		
-		search(h, 17, '/ulyanovsk')
+		search(h, 17)
 	end 
 
 	def chelyabinsk
 		h = params[:q]		
-		search(h, 18, '/chelyabinsk')
+		search(h, 18)
 	end 	
 	private 
 
-		def search(h, city_id, city_path)
-			get_city_name(city_path)
+		def search(h, city_id)	
+			@city = City.find(city_id)
 			if h == nil
 				h = Hash.new
 			end		
@@ -115,62 +115,10 @@ class CitiesController < ApplicationController
 				end				
 			else	
 				@current_page_number = params[:page] != nil ? params[:page] : 1		
-				@city_path = city_path
 				respond_with(@saunas = @q.result(:distinct => true).page(params[:page]).per(10)	) do |format|
 					format.html { render "city" }	
 					format.js { render "city" }					
 				end
 			end					
-		end
-		
-		def get_city_name(city_path)
-			city = t(:izhevsk)			
-			if city_path.include?("izhevsk")
-				city = t(:izhevska)
-				content = t(:content_izhevsk)
-			elsif city_path.include?("sarapul")
-				city = t(:sarapula)	
-				content = t(:content_sarapul)	
-			elsif city_path.include?("votkinsk")
-				city = t(:votkinska)
-				content = t(:content_votkinsk)	
-			elsif city_path.include? "mozhga"  	
-				city = t(:mozhgi) 	
-				content = t(:content_mozhga)	
-			elsif city_path.include? "glazov"  		
-				city = t(:glazova)
-				content = t(:content_glazov)				
-			elsif city_path.include? "kirov"  		
-				city = t(:kirova) 		
-				content = t(:content_kirov)
-			elsif city_path.include? "kazan"  		
-				city = t(:kazani)	
-				content = t(:content_kazan)				
-			elsif city_path.include? "chelni"  		
-				city = t(:chelnov) 	
-				content = t(:content_chelni) 					
-			elsif city_path.include? "nizhnekamsk"  	
-				city = t(:nizhnekamska) 
-				content = t(:content_nizhnekamsk)				
-			elsif city_path.include? "neftekamsk"  	
-				city = t(:neftekamska) 	
-				content = t(:content_neftekamsk)					
-			elsif city_path.include? "sterlitamak"  	
-				city = t(:sterlitamaka) 	
-				content = t(:content_sterlitamak)	
-			elsif city_path.include? "perm"  	
-				city = t(:permi) 	
-				content = t(:content_perm)	
-			elsif city_path.include? "yola"  	
-				city = t(:yoli) 
-				content = t(:content_yola)				
-			elsif city_path.include? "ufa"  	
-				city = t(:ufi) 		
-				content = t(:content_ufa)						
-			else 
-				city = t(:izhevska) 
-			end 
-			@city_name = city
-			@content = content
-		end
+		end		
 end

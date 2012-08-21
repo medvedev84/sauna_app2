@@ -1,0 +1,27 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<dl>
+	<dt><label for="city_name"><%= t :city_name %>:</dt>
+	<dd>
+		<%= f.text_field :name %>
+	</dd>		
+	<dt><label for="city_name2"><%= t :city_name2 %>:</dt>
+	<dd>
+		<%= f.text_field :name2 %>		
+	</dd>	
+	<dt><label for="city_name3"><%= t :city_name3 %>:</dt>
+	<dd>
+		<%= f.text_field :name3 %>		
+	</dd>	
+	<dt><label for="city_path"><%= t :city_path %>:</dt>
+	<dd>
+		<%= f.text_field :path %>		
+	</dd>	
+	<dt><label for="city_page_content"><%= t :city_page_content %>:</label></dt>
+	<dd>
+		<%= f.text_area :page_content, :rows => 5, :cols => 5 %>
+	</dd>					
+	<dt></dt>
+	<dd>
+		<%= f.submit t :save %>
+	</dd>
+</dl>
