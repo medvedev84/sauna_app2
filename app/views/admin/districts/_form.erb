@@ -1,0 +1,19 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<%= f.hidden_field :city_id,  :value => @city.id %>
+
+<dl>
+	<dt><label for="district_name"><%= t :district_name %>:</dt>
+	<dd>
+		<%= f.text_field :name %>
+	</dd>		
+	
+	<dt><label for="district_is_all"><%= t :district_is_all %>:</dt>				
+	<dd>
+		<%= f.check_box :is_all %>
+	</dd>		
+	
+	<dt></dt>
+	<dd>
+		<%= f.submit t :save %>
+	</dd>
+</dl>

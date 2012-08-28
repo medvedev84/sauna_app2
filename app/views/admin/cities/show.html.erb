@@ -1,0 +1,21 @@
+<div class="main-page">	
+	<div class="add-button-container">		
+		<%= link_to t(:add_new_district), new_admin_district_path(:city_id => @city.id), :class => "big-add-green-button" %>    
+	</div>
+
+	<div style="padding-top: 85px;">					
+		<ul class="result-list">	
+			<li class="head">
+				<div class="name"><%= t :district %></div>
+				<div><%= t :actions %></div>
+			</li>	
+			<% if !@districts.empty? %>
+				<%  @districts.each do |district| %>				
+					<%= render district %>
+				<% end %>
+			<% else %>
+				<%= render 'shared/empty_row' %>
+			<% end %>					
+		</ul>			
+	</div>
+</div>

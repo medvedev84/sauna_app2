@@ -99,6 +99,12 @@ class CitiesController < ApplicationController
 		h = params[:q]		
 		search(h, 18)
 	end 	
+	
+	def magnitogorsk
+		h = params[:q]		
+		search(h, 19)
+	end 
+	
 	private 
 
 		def search(h, city_id)	

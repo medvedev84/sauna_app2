@@ -44,6 +44,7 @@ SaunaApp::Application.routes.draw do
 	match '/ulyanovsk',   :to => 'cities#ulyanovsk'
 	match '/chelyabinsk',   :to => 'cities#chelyabinsk'
 	match '/cheboksari',   :to => 'cities#cheboksari'	
+	match '/magnitogorsk',   :to => 'cities#magnitogorsk'	
 		
 	match '/map',   :to => 'maps#index'
 	
@@ -79,7 +80,8 @@ SaunaApp::Application.routes.draw do
 		resources :advertisements
 		resources :coupon_urls
 		resources :coupon_deals		
-		resources :cities	
+		resources :cities
+		resources :districts
 	end  
 
 	# to walk around standart rails routing

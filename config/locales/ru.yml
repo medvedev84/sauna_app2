@@ -254,6 +254,13 @@ ru:
   city_name3: "Название (предл. падеж)"
   city_path: "Ссылка"
   city_page_content: "Описание"
+  add_new_district: "Добавить новый район"
+  district_name: "Название"
+  district_is_all: "Все районы"
+  district_created: "Район создан"
+  district_updated: "Район обновлен"
+  district_deleted: "Район удален"
+  confirm_delete_district: "Вы действительно хотите удалить район?"
   simple_captcha:
     label: "Введите текст с картинки"
   will_paginate:

@@ -1,0 +1,7 @@
+$('.row').remove();
+$('.empty-row').remove();
+<% if !@districts.empty? %>
+	$('<%= render @districts %>').appendTo($('.result-list'));
+<% else %>
+	$("<%= render 'shared/empty_row' %>").appendTo($('.result-list'));
+<% end %>	

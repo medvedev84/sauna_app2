@@ -2,6 +2,9 @@ $('.row').remove();
 $('.empty-row').remove();
 <% if !@cities.empty? %>
 	$('<%= render @cities %>').appendTo($('.result-list'));
+	$('.digg_pagination').show();
+	selectPaginatorLink('/admin/cities', <%= @current_page_number %>);	
 <% else %>
+	$('.digg_pagination').hide();
 	$("<%= render 'shared/empty_row' %>").appendTo($('.result-list'));
 <% end %>	

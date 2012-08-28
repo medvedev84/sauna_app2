@@ -11,7 +11,9 @@ class Admin::CitiesController < AdminController
 		end	
 		
 		@q = City.search(h)											
-		@cities = @q.result(:distinct => true)
+			
+		@current_page_number = params[:page] != nil ? params[:page] : 1		
+		@cities = @q.result(:distinct => true).page(params[:page]).per(10)			
 			
 		respond_to do |format|
 			format.html 
@@ -19,7 +21,7 @@ class Admin::CitiesController < AdminController
 		end		
 	end
 
-	def new     
+	def new     		
 		@city = City.new
 	end
 	
@@ -35,6 +37,7 @@ class Admin::CitiesController < AdminController
 
 	def show
 		@city = City.find(params[:id])
+		@districts = @city.districts
 	end
 	
 	def edit
