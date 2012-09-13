@@ -103,7 +103,57 @@ class CitiesController < ApplicationController
 	def magnitogorsk
 		h = params[:q]		
 		search(h, 19)
+	end
+
+	def samara
+		h = params[:q]		
+		search(h, 20)
 	end 
+
+	def togliatti
+		h = params[:q]		
+		search(h, 21)
+	end 
+
+	def syzran
+		h = params[:q]		
+		search(h, 22)
+	end 
+
+	def penza
+		h = params[:q]		
+		search(h, 23)
+	end 
+
+	def saransk
+		h = params[:q]		
+		search(h, 24)
+	end 
+
+	def saratov
+		h = params[:q]		
+		search(h, 25)
+	end 
+
+	def engels
+		h = params[:q]		
+		search(h, 26)
+	end 
+
+	def tambov
+		h = params[:q]		
+		search(h, 27)
+	end 	
+	
+	def lipetsk
+		h = params[:q]		
+		search(h, 28)
+	end 
+
+	def voronezh
+		h = params[:q]		
+		search(h, 29)
+	end 	
 	
 	private 
 

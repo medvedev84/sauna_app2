@@ -45,6 +45,18 @@ SaunaApp::Application.routes.draw do
 	match '/chelyabinsk',   :to => 'cities#chelyabinsk'
 	match '/cheboksari',   :to => 'cities#cheboksari'	
 	match '/magnitogorsk',   :to => 'cities#magnitogorsk'	
+	match '/samara',   :to => 'cities#samara'	
+	match '/voronezh',   :to => 'cities#voronezh'	
+	match '/saransk',   :to => 'cities#saransk'	
+	match '/tambov',   :to => 'cities#tambov'	
+	match '/penza',   :to => 'cities#penza'	
+	match '/saratov',   :to => 'cities#saratov'	
+	match '/engels',   :to => 'cities#engels'	
+	match '/lipetsk',   :to => 'cities#lipetsk'	
+	match '/togliatti',   :to => 'cities#togliatti'	
+	match '/syzran',   :to => 'cities#syzran'	
+	
+	
 		
 	match '/map',   :to => 'maps#index'
 	
