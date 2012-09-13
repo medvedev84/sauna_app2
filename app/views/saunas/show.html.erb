@@ -3,23 +3,33 @@
 <div class="detail-page">	
 	<%= render 'shared/navigation', :left_link => root_path, :left_label => t(:home), :right_label => @sauna.name %>		
 	
-	<div class="round-box">
-		<%= render 'baseinfo' %>
+	<index>
+		<div class="round-box">
+			<%= render 'baseinfo' %>
+			
+			<div class="round-sub-box sauna-detail-description">	
+				<% @sauna.sauna_items.each do |sauna_item| %>					
+					<%= render sauna_item %>					
+				<% end %>				
+				<%= render 'shared/social' %>									
+			</div>
+					
+			<%= render 'map' %>		
+			<div class="clearing"></div>
+		</div>		
 		
-		<div class="round-sub-box sauna-detail-description">	
-			<% @sauna.sauna_items.each do |sauna_item| %>					
-				<%= render sauna_item %>					
-			<% end %>				
-			<%= render 'shared/social' %>									
+		<% if !@advertisements.empty? %>
+			<%= render 'advertisement' %>		
+		<% end %>	
+		
+		<div id="begun">
+			<script type="text/javascript">
+				var begun_auto_pad = 303622012;
+				var begun_block_id = 303622362;
+			</script>
+			<script src="http://autocontext.begun.ru/autocontext2.js" type="text/javascript"></script>
 		</div>
-				
-		<%= render 'map' %>		
-		<div class="clearing"></div>
-	</div>		
-	
-	<% if !@advertisements.empty? %>
-		<%= render 'advertisement' %>		
-	<% end %>	
+	</index>
 	
 	<% unless @sauna.sauna_photos.empty? %>
 		<%= render 'gallery' %>		
