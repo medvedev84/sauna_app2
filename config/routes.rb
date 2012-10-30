@@ -103,6 +103,8 @@ SaunaApp::Application.routes.draw do
 	match 'payments/daily', 		:to => "payments#daily_process"	
 	match 'coupons/daily', 			:to => "coupon_deals#daily_process"	
 	match 'coupons/index', 			:to => "coupon_deals#index"	
+
+	match 'vk/getusers', 		:to => "vk#get_users"		
 	
   # The priority is based upon order of creation:
   # first created -> highest priority.

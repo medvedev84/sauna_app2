@@ -140,3 +140,11 @@
 		<a href="/admin/cities">города</a>
 	<% end %>									
 </span><br/>
+
+<span style="padding-left:0em">&mdash; 
+	<% if (request.fullpath.include?("/vk/getusers")) %>
+		<b>Добавить друзей в ВКонтакте</b>
+	<% else %>												
+		<a href="/vk/getusers" target="_blank">Добавить друзей в ВКонтакте</a>
+	<% end %>									
+</span><br/>

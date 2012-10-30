@@ -1,13 +1,35 @@
-<% @slash_index = request.fullpath.rindex('/') %>
-<% @city_path = request.fullpath[@slash_index, request.fullpath.size - @slash_index] %>	
-<% @city = City.where("path = ?", @city_path).first %>
-	
-<% if (@city != nil) %>	
-<meta name="description" content="Сауны <%= @city.name2 %>, турецкие хамамы, русские бани на дровах, японские бани, телефоны, цены, фото, отзывы - все сауны в <%= @city.name3 %> в одном месте" />
-<meta name="keywords" content="сауна, бани, сауны <%= @city.name2 %>, сауна в <%= @city.name3 %>, бани и сауны, бани <%= @city.name2 %>, сауна на двоих, турецкие бани, русская баня, баня на дровах, инфракрасная сауна" />				
-<title>Сауны <%= @city.name2 %>, русские, японские и турецкие бани — цены в <%= @city.name3 %></title>		
+<meta charset="UTF-8">
+<meta name="Document-state" content="Static" />
+<meta name="URL" content="absolute_url" />
+<meta name="Distribution" content="global" />
+<meta name="Resource-type" content="document" />
+<meta name="robots" content="all" />
+<meta name="revisit-after" content="1 days" />
+<meta name="google-site-verification" content="q7mDR-c-V4nPNwEk4X5Vf1XqV9B3epiajBa8L7gZ6ZM" />
+<meta name='yandex-verification' content='6ca27b58987c713c' />
+		
+<% if (@sauna != nil) %>
+	<% @address = Address.where("sauna_id = ?", @sauna.id).first %>
+	<% @city = City.where("id = ?", @address.city_id).first %>
+	<meta name="description" content="<%= @sauna.name %> в <%= @city.name3 %>, адрес, телефон, цены, фото, описание, отзывы" />
+	<meta name="keywords" content="<%= @sauna.name %>, сауны <%= @city.name2 %>, сауна в <%= @city.name3 %>, бани и сауны, бани <%= @city.name2 %>, баня, сауна, сауна на двоих, турецкая баня" />				
+	<title><%= @sauna.name %> - сауны <%= @city.name2 %>, цены, фото, отзывы, бронирование"</title>		
 <% else %>	
-<meta name="description" content="Сауны Ижевска, турецкие хамамы, русские бани на дровах, японские бани, телефоны, цены, фото, отзывы - все сауны в Ижевске в одном месте" />
-<meta name="keywords" content="сауна, бани, сауны Ижевска, сауна в Ижевске, бани и сауны, бани Ижевска, сауна на двоих, турецкие бани, русская баня, баня на дровах, инфракрасная сауна" />				
-<title>Сауны Ижевска, русские, японские и турецкие бани — цены в Ижевске</title>
+	<% @slash_index = request.fullpath.rindex('/') %>
+	<% @city_path = request.fullpath[@slash_index, request.fullpath.size - @slash_index] %>	
+	<% @city = City.where("path = ?", @city_path).first %>
+		
+	<% if (@city != nil) %>	
+		<meta name="description" content="Сауны <%= @city.name2 %>, турецкие хамамы, русские бани на дровах, японские бани, телефоны, цены, фото, отзывы - все сауны в <%= @city.name3 %> в одном месте" />
+		<meta name="keywords" content="сауна, бани, сауны <%= @city.name2 %>, сауна в <%= @city.name3 %>, бани и сауны, бани <%= @city.name2 %>, сауна на двоих, турецкие бани, русская баня, баня на дровах, инфракрасная сауна" />				
+		<title>Сауны <%= @city.name2 %>, русские, японские и турецкие бани — цены в <%= @city.name3 %></title>		
+	<% else %>	
+		<meta name="description" content="Сауны, турецкие хамамы, русские бани на дровах, японские бани, телефоны, цены, фото, отзывы - все сауны в одном месте" />
+		<meta name="keywords" content="сауна, бани, бани и сауны, сауна на двоих, турецкие бани, русская баня, баня на дровах, инфракрасная сауна" />				
+		<title>Сауны, русские, японские и турецкие бани - фото, цены, адреса, отзывы.</title>
+	<% end %>
 <% end %>
+
+
+
+
