@@ -12,7 +12,7 @@ class SaunaPhoto < ActiveRecord::Base
 					  :size600 => ["600x400", :jpg],
 					  :pagesize => {
 						:geometry => '800x600',
-						:format => :jpg,
+						:format => :jpg ,
 						:watermark_path => "#{Rails.root}/public/images/watermark.png",
 						:position => 'Center'
 					  }						  

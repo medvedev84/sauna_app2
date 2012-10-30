@@ -57,4 +57,13 @@ SaunaApp::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+	config.paperclip_defaults = {
+	  :storage => :s3,
+	  :s3_credentials => {
+		:bucket => go-to-sauna,
+		:access_key_id => AKIAJ5VJXZUT6YK2VUCA,
+		:secret_access_key => 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
+	  }
+	}  
 end
