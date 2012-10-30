@@ -4,7 +4,7 @@ class SaunaPhoto < ActiveRecord::Base
   belongs_to :sauna
   
   has_attached_file :photo, 
-					:processors => [:watermark],
+#					:processors => [:watermark],
                     :styles => {
                       :thumb => ["100x100", :jpg],
 					  :size200 => ["200x200", :jpg],
@@ -12,9 +12,9 @@ class SaunaPhoto < ActiveRecord::Base
 					  :size600 => ["600x400", :jpg],
 					  :pagesize => {
 						:geometry => '800x600',
-						:format => :jpg ,
-						:watermark_path => "#{Rails.root}/public/images/watermark.png",
-						:position => 'Center'
+						:format => :jpg #,
+#						:watermark_path => "#{Rails.root}/public/images/watermark.png",
+#						:position => 'Center'
 					  }						  
                     },
                     :default_style => :pagesize,
