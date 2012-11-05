@@ -11,6 +11,40 @@ class VkController < ApplicationController
 	
 	def run_get_users
 		vk = Vkontakte::Client.new('3205140')		
+		
+		# izhevsk
+		# vk.login!('+79124629396', 'sauna2012', scope = 'friends')						
+		
+		# chelni
+		vk.login!('+66835304827', 'sauna2012', scope = 'friends')						
+				
+		#count_offset = 300 				
+		count_offset = 250 				
+			
+		# get 1000 members			
+		# response_content = vk.api.groups_getMembers(gid: "izhnews", count: 50, offset: count_offset)												
+		response_content = vk.api.groups_getMembers(gid: "15521717", count: 50, offset: count_offset)										
+		
+		# sleep for one second to prevent 'too many requests' error
+		sleep(1)
+		
+		# convert response to array
+		objArray = response_content["users"].to_a
+		
+		# go throw 1000 members 
+		objArray.each do |user|	
+
+			# send invite request
+			vk.api.subscriptions_follow(uid: user.to_s.strip)		
+			
+			# sleep for 1/3 second to prevent 'too many requests' error
+			sleep(1)	
+		end	
+		
+	end
+	
+	def run_get_users_in_loop
+		vk = Vkontakte::Client.new('3205140')		
 		vk.login!('+79124629396', 'sauna2012', scope = 'friends')						
 		
 		# get information about the group
@@ -25,7 +59,7 @@ class VkController < ApplicationController
 	
 	
 			# get 1000 members			
-			response_content = vk.api.groups_getMembers(gid: "izhnews", count: 1, offset: count_offset)										
+			response_content = vk.api.groups_getMembers(gid: "izhnews", count: 1000, offset: count_offset)										
 			
 			# sleep for one second to prevent 'too many requests' error
 			sleep(1)
@@ -40,7 +74,7 @@ class VkController < ApplicationController
 				vk.api.subscriptions_follow(uid: user.to_s.strip)		
 				
 				# sleep for 1/3 second to prevent 'too many requests' error
-				sleep(0.35)	
+				sleep(1)	
 			end	
 		
 			# iterate offset for next step

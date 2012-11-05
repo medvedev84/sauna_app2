@@ -15,11 +15,11 @@ class Admin::SaunaPhotosController < AdminController
 		if h != nil 
 			h.each do |key, value|	
 				@sauna_photo = SaunaPhoto.new(:photo => h[key][:photo])
-				if @sauna_photo.photo_file_size != nil
+#				if @sauna_photo.photo_file_size != nil
 					@sauna_photo.sauna_id = @sauna.id
 					@sauna_photo.description = h[key][:description]						
 					@sauna_photo.save
-				end
+#				end
 			end
 		end		
 				
