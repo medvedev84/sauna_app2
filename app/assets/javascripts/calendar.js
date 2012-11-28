@@ -14,7 +14,7 @@ function initCalendar(sauna_item_id) {
         },
         defaultView: 'month',
         height: 300,
-        slotMinutes: 60,
+        slotMinutes: 60,		
 		allDaySlot : false,
         timeFormat: 'H:mm { - H:mm} ',
 		selectable: true,

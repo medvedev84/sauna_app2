@@ -13,17 +13,17 @@ class VkController < ApplicationController
 		vk = Vkontakte::Client.new('3205140')		
 		
 		# izhevsk
-		# vk.login!('+79124629396', 'sauna2012', scope = 'friends')						
+		vk.login!('+79124629396', 'mkp01031984', scope = 'friends')						
 		
 		# chelni
-		vk.login!('+66835304827', 'sauna2012', scope = 'friends')						
+		# vk.login!('+66835304827', 'sauna2012', scope = 'friends')						
 				
-		#count_offset = 300 				
-		count_offset = 250 				
+		count_offset = 1200 				
+		#count_offset = 1000 				
 			
 		# get 1000 members			
-		# response_content = vk.api.groups_getMembers(gid: "izhnews", count: 50, offset: count_offset)												
-		response_content = vk.api.groups_getMembers(gid: "15521717", count: 50, offset: count_offset)										
+		 response_content = vk.api.groups_getMembers(gid: "izhnews", count: 100, offset: count_offset)												
+		#response_content = vk.api.groups_getMembers(gid: "nabchel", count: 100, offset: count_offset)										
 		
 		# sleep for one second to prevent 'too many requests' error
 		sleep(1)

@@ -13,6 +13,7 @@ gem "bcrypt-ruby"
 gem "paperclip", "2.7.0" 
 gem "aws-s3", :require => "aws/s3"
 gem "aws-sdk", "1.3.7"
+gem "cocaine", "0.3.2"
 
 # for date and time validating
 gem 'validates_timeliness', '~> 3.0.2' 
