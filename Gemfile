@@ -37,6 +37,7 @@ end
 group :production do
   gem 'pg'
   gem 'execjs'
+  gem 'libv8', '~> 3.11.8'  
   gem 'therubyracer', :require => 'v8'
 end
 
