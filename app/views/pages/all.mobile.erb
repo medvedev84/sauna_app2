@@ -1,73 +1,17 @@
 <table class="search-form">
-	<tr>
-		<td align="left" class="even">	
-			<a href="/votkinsk">Воткинск</a>
-		</td>
-	</tr>
-	<tr>
-		<td align="left" class="odd">	
-			<a href="/glazov">Глазов</a>
-		</td>
-	</tr>
-	<tr>
-		<td align="left" class="even">	
-			<a href="/izhevsk">Ижевск</a>
-		</td>
-	</tr>
-	<tr>
-		<td align="left" class="odd">	
-			<a href="/yola">Йошкар-Ола</a>
-		</td>
-	</tr>	
-	<tr>
-		<td align="left" class="even">	
-			<a href="/kazan">Казань</a>
-		</td>
-	</tr>
-	<tr>
-		<td align="left" class="odd">	
-			<a href="/kirov">Киров</a>
-		</td>
-	</tr>
-	<tr>
-		<td align="left" class="even">	
-			<a href="/mozhga">Можга</a>
-		</td>
-	</tr>	
-	<tr>
-		<td align="left" class="odd">	
-			<a href="/chelni">Набережные Челны</a>
-		</td>
-	</tr>	
-	<tr>
-		<td align="left" class="even">	
-			<a href="/neftekamsk">Нефтекамск</a>
-		</td>
-	</tr>	
-	<tr>
-		<td align="left" class="odd">	
-			<a href="/nizhnekamsk">Нижнекамск</a>
-		</td>
-	</tr>		
-	<tr>
-		<td align="left" class="even">	
-			<a href="/sarapul">Сарапул</a>
-		</td>
-	</tr>		
-	<tr>
-		<td align="left" class="odd">	
-			<a href="/sterlitamak">Стерлитамак</a>
-		</td>
-	</tr>	
-	<tr>
-		<td align="left" class="even">	
-			<a href="/perm">Пермь</a>
-		</td>
-	</tr>	
-	<tr>
-		<td align="left" class="odd">	
-			<a href="/ufa">Уфа</a>
-		</td>
-	</tr>		
-</table>		
-	
+	<% City.order("name").each_with_index  do |city, index| %>
+		<% if ((index % 2) == 0) %>
+			<tr>
+				<td align="left" class="even">
+					<a href="<%= city.path %>"><%= city.name %></a>
+				</td>
+			</tr>					
+		<% else %>
+			<tr>		
+				<td align="left" class="odd">
+					<a href="<%= city.path %>"><%= city.name %></a>	
+				</td>
+			</tr>										
+		<% end %>									
+	<% end %>	
+</table>

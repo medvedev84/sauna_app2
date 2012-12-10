@@ -5,45 +5,11 @@
 </div>
 
 <div data-role="content">
-  <ul data-role="listview">    
-    <li>
-		<a href="/votkinsk">Воткинск</a>
-    </li>
-    <li>
-		<a href="/glazov">Глазов</a>
-    </li>
-    <li>
-		<a href="/izhevsk">Ижевск</a>
-    </li>
-    <li>
-		<a href="/yola">Йошкар-Ола</a>
-    </li>	
-    <li>
-		<a href="/kazan">Казань</a>
-    </li>
-    <li>
-		<a href="/kirov">Киров</a>
-    </li>
-    <li>
-		<a href="/mozhga">Можга</a>
-    </li>
-	<li>
-		<a href="/neftekamsk">Нефтекамск</a>
-    </li>
-    <li>
-		<a href="/nizhnekamsk">Нижнекамск</a>
-    </li>	
-    <li>
-		<a href="/sarapul">Сарапул</a>
-    </li>	
-    <li>
-		<a href="/sterlitamak">Стерлитамак</a>
-    </li>
-    <li>
-		<a href="/perm">Пермь</a>
-    </li>	
-    <li>
-		<a href="/ufa">Уфа</a>
-    </li>
+  <ul data-role="listview">  
+	<% City.order("name").each_with_index  do |city, index| %>
+		<li>
+			<a href="<%= city.path %>"><%= city.name %></a>
+		</li>																										
+	<% end %>	
   </ul>
 </div>

@@ -3,6 +3,6 @@
 	<%= link_to thumb_image, sauna_photo.photo.url(:pagesize), :title => sauna_photo.description, :class => "thumb" %>
 	<div class="caption">
 		<div class="image-title"></div>
-		<div class="image-desc"><%= sauna_photo.description %></div>
+		<div class="image-desc"><%= sauna_photo.description.html_safe %></div>
 	</div>
 </li>  
