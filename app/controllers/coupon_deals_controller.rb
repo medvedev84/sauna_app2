@@ -7,7 +7,14 @@ class CouponDealsController < ApplicationController
 		@coupon_deals = CouponDeal.all											
 	end
 	
-	def daily_process 
+	def daily_process
+		thread = Thread.new{run_daily_process()}
+		
+		@response = "Adding new coupon deals. Thread has been started"
+		render 'daily_process', :layout => false	
+	end	
+	
+	def run_daily_process
 		CouponDeal.delete_all
 		coupon_urls = CouponUrl.all
 		coupon_urls.each do |url|
@@ -26,7 +33,6 @@ class CouponDealsController < ApplicationController
 			  end
 			end			
 		end
-		render 'daily_process', :layout => false				
-	end
-		
+	end	
+	
 end

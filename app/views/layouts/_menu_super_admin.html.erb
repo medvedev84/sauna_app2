@@ -118,6 +118,14 @@
 </span><br/>
 
 <span style="padding-left:0em">&mdash; 
+	<% if (request.fullpath.include?("/admin/cities")) %>
+		<b>города</b>
+	<% else %>												
+		<a href="/admin/cities">города</a>
+	<% end %>									
+</span><br/>
+
+<span style="padding-left:0em">&mdash; 
 	<% if (request.fullpath.include?("/payments/daily")) %>
 		<b>обработать платежи</b>
 	<% else %>												
@@ -129,15 +137,7 @@
 	<% if (request.fullpath.include?("/coupons/daily")) %>
 		<b>получить акции</b>
 	<% else %>												
-		<a href="/coupons/daily">получить акции</a>
-	<% end %>									
-</span><br/>
-
-<span style="padding-left:0em">&mdash; 
-	<% if (request.fullpath.include?("/admin/cities")) %>
-		<b>города</b>
-	<% else %>												
-		<a href="/admin/cities">города</a>
+		<a href="/coupons/daily" target="_blank">получить акции</a>
 	<% end %>									
 </span><br/>
 

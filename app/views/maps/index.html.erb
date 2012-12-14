@@ -1,26 +1,47 @@
 <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
 <script type="text/javascript">
 	ymaps.ready(init);
-	function init () {
-		ymaps.geocode("Ижевск, Пушкинская, 200", { results: 1 }).then(function (res) {
-			var firstGeoObject = res.geoObjects.get(0);
-			window.myMap = new ymaps.Map("map", {
-				//center: firstGeoObject.geometry.getCoordinates(),
-				center: [56.8500, 53.2166],
-				zoom: 12,
-				behaviors: ['default', 'scrollZoom']
-			});								           
-			myMap.controls.add('zoomControl', {
-                    left: '25',
-                    bottom: '80'
-                }
-			);					
-		}, function (err) {
-			// Если геокодирование не удалось,
-			// сообщаем об ошибке
-			alert(err.message);
-		})
-	}		
+	function init () {	
+		if (navigator.geolocation) {		
+			navigator.geolocation.getCurrentPosition(
+				displayPosition,
+				displayError,
+				{ 
+					enableHighAccuracy: true, 
+					timeout: 10000, 
+					maximumAge: 0 
+				});				
+		} else {
+			initMap(56.8500, 53.2166);	
+			//alert("Geolocation не поддерживается данным браузером");								
+		}
+	}	
+	function initMap(latitude, longitude){
+		window.myMap = new ymaps.Map("map", {			
+			center: [latitude, longitude],
+			zoom: 12,
+			behaviors: ['default', 'scrollZoom']
+		});					
+		myMap.controls.add('zoomControl', {
+				left: '25',
+				bottom: '80'
+			}
+		);		
+	}	
+	function displayPosition(position) {
+		initMap(position.coords.latitude, position.coords.longitude);				
+	}	
+	function displayError(error) {
+		initMap(56.8500, 53.2166);
+		/*
+		var errors = {
+			1: 'Нет прав доступа',
+			2: 'Местоположение невозможно определить',
+			3: 'Таймаут соединения'
+		};
+		alert("Ошибка: " + errors[error.code]);
+		*/
+	}
 </script>
 
 <div class="map-search">
