@@ -1,0 +1,26 @@
+<div style="padding-top: 20px;"></div>
+<div class="main-font">
+	<table width="100%" cellspacing="10">
+		<% City.order("name").each_with_index  do |city, index| %>
+			<% if ((index % 4) == 0) %>
+				<tr>
+					<td>
+						<a href="<%= city.path %>"><%= city.name %></a>
+					</td>								
+			<% elsif ((index % 4) == 1) %>
+					<td>
+						<a href="<%= city.path %>"><%= city.name %></a>	
+					</td>
+			<% elsif ((index % 4) == 2) %>
+					<td>
+						<a href="<%= city.path %>"><%= city.name %></a>	
+					</td>		
+			<% elsif ((index % 4) == 3) %>	
+					<td>
+						<a href="<%= city.path %>"><%= city.name %></a>	
+					</td>
+				</tr>										
+			<% end %>									
+		<% end %>	
+	</table>
+</div>	

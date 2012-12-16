@@ -1,3 +1,4 @@
+<!--
 <div>
 	<h1>Сауны и бани <%= @city.name2 %></h1>
 	<div class="title_description">
@@ -5,14 +6,92 @@
 	отметить праздник или провести корпоратив. Здесь вы сможете найти всю информацию о саунах <%= @city.name2 %> - адреса, телефоны, фото, цены и отзывы. Желаем хорошего отдыха!
 	</div>
 </div>	
+-->
 <div class="main-page">	
+	<%= render 'shared/globalsearch' %>		
+	<%= render 'selectcity' %>	
+	<div class="clearing"></div>	
 	<%= render :partial => '/saunas/results' %>			
 </div>
 <div class="footer_description">
 	<%= @city.page_content %>
 </div>
 
+<div class="city-search" id="city-search">
+	<%= search_form_for @q, :url => "/cities/search", :remote => true, :html => {:method => :get} do |f| %>	
+		<input type="hidden" name="q[address_city_id_eq]" value="<%= @city.id %>"/>
+		<table width="100%" cellspacing="10">
+		<tr>			
+			<td>
+				<select id="q_sauna_items_min_price_lteq" name="q[sauna_items_min_price_lteq]" style="width: 100%">
+					<option value="600">цена до 600 руб./час</option>
+					<option value="1000">цена до 1000 руб./час</option>
+					<option value="1500">цена до 1500 руб./час</option>
+					<option value="2000">цена до 2000 руб./час</option>
+				</select>					
+			</td>
+		</tr>
+		<tr>			
+			<td>
+				<select id="q_sauna_items_capacity_gteq" name="q[sauna_items_capacity_gteq]" style="width: 100%">
+					<option value="6">на 6 и более человек</option>
+					<option value="10">на 10 и более человек</option>
+					<option value="15">на 15 и более человек</option>
+					<option value="20">на 20 и более человек</option>
+				</select>						
+			</td>
+		</tr>	
+		<tr>
+			<td>
+				<select id="q_sauna_items_sauna_type_id_eq" name="q[sauna_items_sauna_type_id_eq]" >
+					<option value="6">тип бани: любой</option>
+					<option value="5">русская на дровах</option>
+					<option value="4">японская</option>
+					<option value="3">турецкая</option>
+					<option value="2">финская</option>
+					<option value="1">русская</option>
+				</select>			
+			</td>
+		</tr>
+		<tr>
+			<td align="left">
+				<%= f.check_box :sauna_items_has_bar_eq %> <%= t :has_bar %>
+			</td>			
+		</tr>	
+		<tr>
+			<td align="left">
+				<%= f.check_box :sauna_items_has_mangal_eq %> <%= t :has_mangal %> 	
+			</td>			
+		</tr>			
+		<tr>
+			<td align="left">
+				<%= f.check_box :sauna_items_has_pool_eq %> <%= t :has_pool %> 	
+			</td>			
+		</tr>	
+		<tr>
+			<td align="left">
+				<%= f.check_box :sauna_items_has_billiards_eq %> <%= t :has_billiards %> 	
+			</td>			
+		</tr>			
+		<tr>
+			<td align="middle">
+				<%= f.submit t(:search) %>	
+			</td>			
+		</tr>			
+		</table>		
+	<% end %>
+</div>
 <script type="text/javascript">
 	Frame.initSearchBySaunaName();
 	Frame.initSaunaSorting();
+	
+	$(function(){
+		var stickyTop = $('.city-search').offset().top;  	 
+		$(window).scroll(function(){  
+			var windowTop = $(window).scrollTop();
+			if (stickyTop < windowTop) {
+				$('.city-search').css({ position: 'fixed', top: 100 });
+			} 
+		});	 
+	});	
 </script>

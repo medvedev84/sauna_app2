@@ -1,0 +1,36 @@
+<a href="/all"><%= t :all_saunas %></a>
+<%= search_form_for @q do |f| %>
+	<table class="search-form">
+		<th colspan="2" align="center"><%= t :search_form %></th>
+		<tr>
+			<td>
+				<%= t :capacity_from %>
+			</td>
+			<td>
+				<%= f.text_field :sauna_items_capacity_gteq,  :size => 4 %> <%= t(:v_chel) %>	
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<%= t :price_to %>
+			</td>
+			<td>
+				<%= f.text_field :sauna_items_min_price_lteq,  :size => 4 %> <%= t(:v_rub) %>	
+			</td>
+		</tr>
+		<tr>				
+			<td >
+				<%= t :city %>
+			</td>
+			<td>
+				<%= f.collection_select :address_city_id_eq, City.all, :id, :name, :include_blank => false %>
+			</td>				
+		</tr>			
+		<tr>				
+			<td/>
+			<td>
+				<%= f.submit t :search %>					
+			</td>				
+		</tr>			
+	</table>			
+<% end %>

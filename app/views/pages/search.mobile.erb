@@ -1,0 +1,18 @@
+<table class="search-form">
+	<th align="center"><%= t :search_results %></th>
+	<%  if !@saunas.empty? %>
+		<% @saunas.each do |sauna| %>
+		<tr>
+			<td align="left"  class="<%= cycle('even', 'odd') -%>">
+				<%= link_to sauna.name, sauna %>,  <%=  t :short_phone_number %>:<a href="tel:<%= sauna.phone_number1 %>"><%= sauna.phone_number1 %></a>
+			</td>
+		</tr>
+		<% end %>	
+	<% else %>
+		<tr>
+			<td align="center">
+				<%= t :no_results %>		
+			</td>
+		</tr>
+	<% end %>	
+</table>	

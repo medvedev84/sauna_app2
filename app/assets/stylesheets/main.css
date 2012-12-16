@@ -910,6 +910,48 @@ code { padding: .2em .5em; }
 	line-height: 18px;
 }
 
+.city-search {
+	position:absolute;
+	right:0;
+	top: 300px;
+	z-index:9000;
+	background-color:#ffffff;	
+	border: 2px solid #3399ff;
+	width: 180px;
+	padding: 5px;
+
+	/* This works in IE 8 & 9 too */
+	filter: alpha(opacity=80);
+
+	/* Firefox 0.9+, Safari 2?, Chrome any?
+	/* Opera 9+, IE 9+ */
+	opacity: 0.8;  
+	
+	border-top-left-radius:2em;		
+	border-bottom-left-radius:2em;		
+}
+
+.city-search select{
+	border-radius: 5px;	
+	border: 1;
+	width: 100%;
+}
+
+.main-font {
+	padding:10px; 	
+	font-size: 14px;
+	color:#0066cc;
+	text-decoration: underline;
+	font-style: italic;
+	font-weight: bold;
+	font-family: Georgia, Times New Roman;
+}
+.top-menu {
+	width: 700px;
+	font-size: 16px;
+	padding-bottom: 20px;
+}
+
 .map-search {
 	position:absolute;
 	left:0;

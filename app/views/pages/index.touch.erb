@@ -1,0 +1,40 @@
+<script type="text/javascript">
+$(document).ready(function() {     
+	$("#sauna_items_capacity_gteq").val($("#slider-capacity").val());
+    $("#slider-capacity").change(function() {		
+		$("#sauna_items_capacity_gteq").val($("#slider-capacity").val());		
+	});
+	$("#sauna_items_min_price_lteq").val($("#slider-price").val());	
+    $("#slider-price").change(function() {
+		$("#sauna_items_min_price_lteq").val($("#slider-price").val());		
+	});	
+});
+</script> 
+
+<div data-role="header">
+	<h1></h1>
+	<%= link_to t(:all_saunas), "/all", "data-icon" => "gear", "class" => "ui-btn-left", "data-ajax" => "false" %>
+	<%= link_to t(:full_version), "/?mobile=0", "data-icon" => "gear", "class" => "ui-btn-right", "data-ajax" => "false" %>
+</div>
+ 
+ <div data-role="content">
+	<%= search_form_for @q do |f| %>
+		<div data-role="fieldcontain">			
+			<label for="q_sauna_items_capacity_gteq">Вместимость: </label>				
+			<%= f.hidden_field :sauna_items_capacity_gteq %>
+			<input type="range" name="slider" id="slider-capacity" value="4" min="4" max="20" step="2" />								
+			</table>        
+		</div>  
+		<div data-role="fieldcontain">
+			<label for="q_sauna_items_price_lteq">Цена до: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>		        
+			<%= f.hidden_field :sauna_items_min_price_lteq %> 
+			<input type="range" name="slider" id="slider-price" value="2000" min="400" max="2000" step="100" />	
+		</div>	  
+		<div data-role="fieldcontain">    
+			<%= select("q", "address_city_id_eq", options_for_select(@cities_for_dropdown), { :include_blank => false }) %>			
+		</div>  		    	
+		<div data-role="fieldcontain">
+			<%= f.submit t :search %>
+		</div>
+	<% end %>
+</div>	

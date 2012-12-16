@@ -1,12 +1,33 @@
+<div style="padding:10px; width: 800px;font-size: 16px;color:#0066cc;text-decoration: underline;font-style: italic;font-weight: bold;font-family: Georgia, Times New Roman;">
+<table width="100%" cellspacing="10">
+	<tr>
+		<td align="center">
+			<a href="/map">Сауны на карте</a>
+		</td>
+		<td align="center">
+			<a href="/notes">Статьи о бане</a>
+		</td>
+		<td align="center">
+			<a href="/adv">Рекламодателям</a>
+		</td>
+	</tr>
+</table>
+</div>
 <div class="main-page">
-	<%= render 'shared/globalsearch' %>		
-	<%= render 'city' %>	
-	<%= render 'searchform' %>	
-	<%= render 'results' %>	
+	<%-#= render 'shared/globalsearch' %>		
+	<%-#= render 'city' %>	
+	<%-#= render 'searchform' %>	
+	<%-#= render 'results' %>
+	<%= render 'slidorion' %>	
 	<br/>
-	<%= render 'article1' %>	
-	<%= render 'article2' %>	
-	<%= render 'article3' %>	
+	<%-#= render 'article1' %>	
+	<%-#= render 'article2' %>	
+	<%-#= render 'article3' %>
+	
+	<div style="padding:10px; font-size: 14px;color:#0066cc;text-decoration: underline;font-style: italic;font-weight: bold;font-family: Georgia, Times New Roman;">		
+		<%= render 'cities' %>			
+	</div>
+	
 </div>
 
 <script type="text/javascript">

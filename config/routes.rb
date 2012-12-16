@@ -14,14 +14,15 @@ SaunaApp::Application.routes.draw do
 	match '/about',   :to => 'pages#about' 
  	match '/incorrect',   :to => 'pages#incorrect' 
 	match '/terms',   :to => 'pages#terms' 
-	match '/all', :to => 'pages#all'
-	match '/howto',   :to => 'pages#howto'
+	match '/notes', :to => 'pages#notes'
 	match '/mobile-app',   :to => 'pages#mobile-app'
 	match '/adv', :to => 'pages#advertisement'
+	match '/all', :to => 'pages#all'
 	
 	match '/chto-vzyat',   :to => 'pages#chto-vzyat'
 	match '/polza-ili-vred',   :to => 'pages#polza-ili-vred'
 	match '/sauna-ili-banya',   :to => 'pages#sauna-ili-banya'
+	match '/avtobanya', :to => 'pages#avtobanya'
 	
 	match '/cities',   :to => 'cities#index'
 	match '/advertisements',   :to => 'advertisements#index'
@@ -56,14 +57,14 @@ SaunaApp::Application.routes.draw do
 	match '/togliatti',   :to => 'cities#togliatti'	
 	match '/syzran',   :to => 'cities#syzran'	
 	
-	
+	match '/cities/search',   :to => 'cities#search'
 		
 	match '/map',   :to => 'maps#index'
 	
 	match '/m', :to => redirect("/?mobile=1")
 	match '/pda', :to => redirect("/?mobile=2")
  
-	root :to => 'saunas#index'
+	root :to => 'pages#index'
   
 	match '/admin/sauna/:id/sauna_items' => 'admin/sauna_items#index'
 	match '/admin/sauna/:id/sauna_photos' => 'admin/sauna_photos#index'

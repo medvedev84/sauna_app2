@@ -1,0 +1,111 @@
+/* Slidorion Stylesheet */
+#slidorion {
+	width: 800px;			/* Set to slidorion width. Is equal to #slider + #accordion width */
+	height: 400px;			/* Set to slidorion height. Is equal to #slider and #accordion height */
+	position: relative;
+	left: 50%;
+	margin-left: -350px;
+	padding: 10px;
+	background: #ffffff;
+}
+
+#slider {
+	width: 488px;			/* Set to slider width */
+	height: 400px;			/* Set to slider height */
+	position: relative;
+	float: left;
+	overflow: hidden;		/* Hides the animations */
+}
+
+#slider > div {
+	position:absolute;
+	width:100%;
+	height:100%;
+}
+
+#accordion {
+	width: 300px;			/* Set to accordion width */
+	height: 400px;			/* Set to image height */
+	margin-right: 10px; 
+	background: #eee;
+	-webkit-box-shadow: -3px 0px 3px -1px rgba(51,51,51,0.3);
+	-moz-box-shadow: -3px 0px 3px -1px rgba(51,51,51,0.3);
+	box-shadow: -3px 0px 3px -1px rgba(51,51,51,0.3);
+	position: relative;
+	z-index:999;
+	overflow: hidden;
+	float: left;
+}
+	
+#accordion > .link-header {
+	padding: 8px 14px;	
+	font-size:14px; 
+	font-weight: bold; 
+	font-style: italic; 
+	font-family: Georgia, Times New Roman;
+	color: #3399ff;	
+	background: #ffffff;
+	text-decoration:underline
+}
+
+#accordion > .link-header:first-child {
+	border-top:none;
+}
+
+#accordion > .link-header:hover {
+	background: #ededed;
+	cursor: pointer;
+}
+
+
+#accordion > .link-header.active {
+	border-bottom: none;
+	background: #3399ff !important;
+	filter: none;
+	color: #fff;
+	font-size: 18px;
+	text-decoration: none;
+	
+	background: -webkit-gradient(linear, left top, left bottom, from(#3196fd), to(#043ca2));
+	background: -moz-linear-gradient(top,  #3196fd,  #043ca2);
+	background: -o-linear-gradient(top,  #3196fd,  #043ca2);
+	background: -ms-linear-gradient(top,  #3196fd,  #043ca2);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3196fd', endColorstr='#043ca2');
+}
+
+#accordion > .link-content {
+	height: 200px;			/* This height needs to be changed as it depends on the accordion height and number of tabs */
+	font-weight: normal;
+	font-size: 12px;
+	line-height:20px;
+	margin: 0;
+	padding: 16px;
+	border: none;
+	background: #d6d6d6;
+	background: -moz-linear-gradient(top, #d6d6d6 0%, #ffffff 10%);
+	background: -webkit-linear-gradient(top, #d6d6d6 0%,#ffffff 10%);
+	background: -o-linear-gradient(top, #d6d6d6 0%,#ffffff 10%);
+	background: -ms-linear-gradient(top, #d6d6d6 0%,#ffffff 10%);
+	background: linear-gradient(top, #d6d6d6 0%,#ffffff 10%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6d6d6', endColorstr='#ffffff',GradientType=0 );
+	overflow:auto;
+}
+
+#slidorion .nav {
+    position: absolute;
+    top: 200px;
+    width: 16px;
+    height: 27px;
+    z-index: 9999;
+    background: url('../img/arrows.png') 0 0 no-repeat;
+    cursor: pointer;
+}
+
+#slidorion .nav-left {
+	left: 30px;
+}
+
+#slidorion .nav-right {
+	right: 310px;
+	background-position: -16px 0;
+}
