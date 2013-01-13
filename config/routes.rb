@@ -18,6 +18,7 @@ SaunaApp::Application.routes.draw do
 	match '/mobile-app',   :to => 'pages#mobile-app'
 	match '/adv', :to => 'pages#advertisement'
 	match '/all', :to => 'pages#all'
+	match '/promotion',   :to => 'coupon_deals#index' 
 	
 	match '/chto-vzyat',   :to => 'pages#chto-vzyat'
 	match '/polza-ili-vred',   :to => 'pages#polza-ili-vred'

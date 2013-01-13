@@ -856,7 +856,11 @@ code { padding: .2em .5em; }
 }
 
 #vk_groups {
-	padding-top:485px;
+	 padding-top: 460px; 
+}
+
+#aviasales_widget {
+	padding-top: 30px;
 }
 
 .welcome {
@@ -949,7 +953,7 @@ code { padding: .2em .5em; }
 .top-menu {
 	width: 700px;
 	font-size: 16px;
-	padding-bottom: 20px;
+	padding: 20px 0px 20px 0px;
 }
 
 .map-search {
